@@ -1,0 +1,113 @@
+.modal-window {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.50);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  transition: all 0.3s;
+  text-align: center;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+
+  & > div {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: white;
+  }
+  header {
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+  }
+}
+
+.modal-window-large {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.50);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  transition: all 0.3s;
+  text-align: center;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+
+  &:after {
+    content: ' ';
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: $brand-green;
+    z-index: -1;
+    display: block;
+    top:0;
+    left: 0;
+  }
+
+  & > div {
+    width: 80vw;
+    position: relative;
+    margin: 24px auto;
+    padding: 2em;
+    background: white;
+  }
+  .ck-textarea {
+    min-height: 160px;
+    max-height: 160px;
+    .ck-editor__editable {
+      min-height: 118px;
+      height: 118px;
+    }
+  }
+  header {
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+  }
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+  &:hover {
+    color: black;
+  }
+}
+
+.modal-window {
+  & > div {
+    border-radius: 1rem;
+  }
+}
+
+.modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+}
+
+
