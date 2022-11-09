@@ -1,4 +1,3 @@
-import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -53,18 +52,24 @@ const NotFoundPage = () => {
                                     }
                                 />
                             </div>
-                            <p style={paragraphStyles} className="small-image-holder">
+                            <p
+                                style={paragraphStyles}
+                                className="small-image-holder"
+                            >
                                 Sorry{' '}
                                 <span role="img" aria-label="Pensive emoji">
-                                😔
-                            </span>{' '}
+                                    😔
+                                </span>{' '}
                                 we couldn’t find what you were looking for.
                                 <br />
                                 {process.env.NODE_ENV === 'development' ? (
                                     <>
                                         <br />
                                         Try creating a page in{' '}
-                                        <code style={codeStyles}>src/pages/</code>.
+                                        <code style={codeStyles}>
+                                            src/pages/
+                                        </code>
+                                        .
                                         <br />
                                     </>
                                 ) : null}
@@ -75,7 +80,6 @@ const NotFoundPage = () => {
                     </div>
                 </div>
             </section>
-
         </main>
     )
 }

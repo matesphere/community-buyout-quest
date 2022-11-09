@@ -1,4 +1,4 @@
-import { getHeaderText } from '../../src/components/_header'
+import { getHeaderText } from '../../src/components/student/_header'
 
 describe('Student Header', () => {
     test('returns correct stage text', () => {

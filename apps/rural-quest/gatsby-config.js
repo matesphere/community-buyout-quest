@@ -3,6 +3,7 @@ module.exports = {
         title: 'buy-out',
     },
     flags: {},
+    jsxRuntime: 'automatic',
     plugins: [
         'gatsby-plugin-pnpm',
         'gatsby-plugin-sass',

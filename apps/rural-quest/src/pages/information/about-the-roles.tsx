@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Header from '../../components/_header'
+import Header from '../../components/student/_header'
 import Footer from '../../components/student/_footer'
 import { Breadcrumbs } from '../../components/common/Breadcrumbs'
 import { Helpful } from '../../components/student/Helpful'

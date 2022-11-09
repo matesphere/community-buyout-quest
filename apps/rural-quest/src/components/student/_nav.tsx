@@ -2,18 +2,18 @@ import React, { useState, useContext, FC } from 'react'
 import { Link } from 'gatsby'
 import { gql } from '@apollo/client'
 
-import { POSITION_DISPLAY_NAME } from '../utils/common-utils'
+import { POSITION_DISPLAY_NAME } from '../../utils/common-utils'
 
-import { useAuthQuery } from '../utils/auth-utils'
-import { UserStateContext } from '../utils/user-state'
+import { useAuthQuery } from '../../utils/auth-utils'
+import { UserStateContext } from '../../utils/user-state'
 
 import {
     NavQuery,
     NavQueryVariables,
     NavQuery_team_by_pk_stage_progresses,
-} from '../gql/types/NavQuery'
+} from '../../gql/types/NavQuery'
 
-import '../scss/index.scss'
+import '../../scss/index.scss'
 
 const NAV_QUERY = gql`
     query NavQuery($user_id: uuid!) {

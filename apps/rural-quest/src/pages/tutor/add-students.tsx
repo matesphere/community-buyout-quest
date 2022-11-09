@@ -1,4 +1,4 @@
-import React, { useState, useContext, FC, Dispatch } from 'react'
+import { useState, useContext, FC, Dispatch } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 

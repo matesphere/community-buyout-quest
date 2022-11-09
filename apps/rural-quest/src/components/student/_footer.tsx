@@ -4,8 +4,8 @@ import { Auth } from 'aws-amplify'
 import { Link } from 'gatsby'
 import { UserStateContext } from '../../utils/user-state'
 
-import '../scss/index.scss'
-import Squiggle from '../assets/squiggle.svg'
+import '../../scss/index.scss'
+import Squiggle from '../../assets/squiggle.svg'
 
 const Footer = () => {
     const {

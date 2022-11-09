@@ -1,4 +1,3 @@
-import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { gql } from '@apollo/client'

@@ -1,0 +1,11 @@
+{
+    "name": "@community-land-quest/shared-ui",
+    "description": "CLQ shared components",
+    "version": "1.0.0",
+    "author": "David Carter <dccarta@gmail.com>",
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "gatsby": "^4.24.7"
+    }
+}

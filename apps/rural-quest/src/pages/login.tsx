@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { gql } from '@apollo/client'
 import { withAuthenticator } from '@aws-amplify/ui-react'

@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es6",
+        "target": "es2020",
         "jsx": "react-jsx",
         "lib": ["dom", "es2015", "es2017", "es2020"],
         "strict": true,
@@ -13,5 +13,5 @@
         "noUnusedParameters": true,
         "removeComments": false
     },
-    "include": ["./src/**/*", "./custom.d.ts"]
+    "include": ["./components/**/*", "./layouts/**/*"]
 }

@@ -1,4 +1,4 @@
-import React, { useContext, FC } from 'react'
+import { useContext, FC } from 'react'
 import { PageProps } from 'gatsby'
 import { Router, RouteComponentProps } from '@reach/router'
 import { Authenticator } from '@aws-amplify/ui-react'
@@ -6,7 +6,7 @@ import { Authenticator } from '@aws-amplify/ui-react'
 import TeamHub from './student/team-hub'
 import Information from './student/information'
 
-import Header from '../components/_header'
+import Header from '../components/student/_header'
 import Footer from '../components/student/_footer'
 
 import Stage1Landing from './student/stages/stage-1/stage-1-landing'

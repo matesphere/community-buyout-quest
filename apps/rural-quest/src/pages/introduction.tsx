@@ -1,8 +1,7 @@
-import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
-import Header from '../components/_header'
+import Header from '../components/student/_header'
 import Footer from '../components/student/_footer'
 import { Intro } from '../components/student/Intro'
 

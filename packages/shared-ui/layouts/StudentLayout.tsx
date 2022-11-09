@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Header from '../components/student/_header'
 import Footer from '../components/student/_footer'
 

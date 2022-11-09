@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Link, PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'

@@ -4,10 +4,10 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { Location } from '@reach/router'
 import Nav from './_nav'
 
-import Squiggle from '../assets/squiggle.svg'
-import PinLogo from '../assets/pin-logo.svg'
+import Squiggle from '../../assets/squiggle.svg'
+import PinLogo from '../../assets/pin-logo.svg'
 
-import '../scss/index.scss'
+import '../../scss/index.scss'
 
 const HEADER_TEXT = [
     'Stage 1',
