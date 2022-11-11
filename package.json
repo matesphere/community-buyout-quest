@@ -1,7 +1,9 @@
 {
-  "name": "root",
+  "name": "community-land-quest",
+  "description": "CLQ Monorepo",
+  "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "lerna": "^6.0.1"
+    "lerna": "^6.0.3"
   }
 }

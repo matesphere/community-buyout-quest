@@ -1,4 +1,3 @@
-import React from 'react'
 import { HelpfulInfoRenderer } from '../../components/student/RichTextRenderers'
 
 import { RichTextContent } from '@graphcms/rich-text-types'

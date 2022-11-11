@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import Header from '../../components/student/_header'
 import Footer from '../../components/student/_footer'
-import { Breadcrumbs } from '../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { Intro } from '../../components/student/Intro'
 import { InfoBlock } from '../../components/student/InfoBlock'
 import { Helpful } from '../../components/student/Helpful'

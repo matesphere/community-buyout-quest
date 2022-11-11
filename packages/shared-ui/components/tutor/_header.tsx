@@ -1,4 +1,3 @@
-import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Location } from '@reach/router'
@@ -7,8 +6,6 @@ import Nav from './_tutor-nav'
 
 import Squiggle from '../../assets/squiggle.svg'
 import PinLogo from '../../assets/pin-logo.svg'
-
-import '../../scss/index.scss'
 
 const HEADER_TEXT: { [pathname: string]: string } = {
     '/tutor/hub': 'Tutor Hub',

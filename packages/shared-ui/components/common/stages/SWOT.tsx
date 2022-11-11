@@ -1,12 +1,10 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Link } from 'gatsby'
 
 import { TextEditor } from '../TextEditor'
 import { SaveSubmitSection } from './SaveSubmitSection'
 
 import HelpIcon from '../../../assets/help-icon.svg'
-
-import '../../../scss/index.scss'
 
 interface SwotType {
     strengths: string

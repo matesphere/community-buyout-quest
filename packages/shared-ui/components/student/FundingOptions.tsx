@@ -1,4 +1,3 @@
-import React from 'react'
 import { FundingOptionsRenderer } from '../../components/student/RichTextRenderers'
 
 import { RichTextContent } from '@graphcms/rich-text-react-renderer/node_modules/@graphcms/rich-text-types'

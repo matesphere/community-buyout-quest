@@ -1,0 +1,69 @@
+fragment ModelSwot on ModelSwot {
+  stage
+  locale
+  remoteId: id
+  createdAt(variation: COMBINED)
+  updatedAt(variation: COMBINED)
+  publishedAt(variation: COMBINED)
+  developmentOption
+  strengths {
+    ... on RichText {
+      raw
+      html
+      markdown
+      text
+    }
+  }
+  weaknesses {
+    ... on RichText {
+      raw
+      html
+      markdown
+      text
+    }
+  }
+  opportunities {
+    ... on RichText {
+      raw
+      html
+      markdown
+      text
+    }
+  }
+  threats {
+    ... on RichText {
+      raw
+      html
+      markdown
+      text
+    }
+  }
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  scheduledIn {
+    ... on ScheduledOperation {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+}

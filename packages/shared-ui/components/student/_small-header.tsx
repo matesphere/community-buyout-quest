@@ -1,9 +1,7 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Location } from '@reach/router'
-
-import '../scss/index.scss'
 
 const HEADER_TEXT = [
     'Stage 1',

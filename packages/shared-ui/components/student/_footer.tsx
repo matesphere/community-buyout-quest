@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Button } from '@aws-amplify/ui-react'
 import { Auth } from 'aws-amplify'
 import { Link } from 'gatsby'
-import { UserStateContext } from '../utils/user-state'
+import { UserStateContext } from '../../utils/user-state'
 
-import '../scss/index.scss'
-import Squiggle from '../assets/squiggle.svg'
+import Squiggle from '../../assets/squiggle.svg'
 
 const Footer = () => {
     const {

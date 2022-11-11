@@ -1,9 +1,7 @@
-import React from 'react'
 import { RichText } from '@graphcms/rich-text-react-renderer'
+import { RichTextContent } from '@graphcms/rich-text-types'
 
 import { ReadQuesty } from './ReadQuesty'
-
-import { RichTextContent } from '@graphcms/rich-text-types'
 
 interface IntroProps {
     item: { raw: RichTextContent }

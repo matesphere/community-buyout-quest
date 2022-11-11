@@ -1,4 +1,3 @@
-import React from 'react'
 import Slider from 'react-slick'
 
 import { DevOpsRenderer } from '../../components/student/RichTextRenderers'

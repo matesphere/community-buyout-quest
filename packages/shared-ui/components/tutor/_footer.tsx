@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'gatsby'
 import { Button } from '@aws-amplify/ui-react'
 import { Auth } from 'aws-amplify'

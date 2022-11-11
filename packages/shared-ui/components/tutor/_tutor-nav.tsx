@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'gatsby'
-
-import '../../scss/index.scss'
 
 const Nav = ({ hubLinkOnly }: { hubLinkOnly?: boolean }) => {
     const [expanded, setExpanded] = useState(false)

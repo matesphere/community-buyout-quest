@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { TextEditor } from '../TextEditor'
 import {
     Accordion,
@@ -8,7 +8,6 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-import '../../../scss/index.scss'
 import { RichTextContent } from '@graphcms/rich-text-types'
 import { InfoBlock } from '../../student/InfoBlock'
 

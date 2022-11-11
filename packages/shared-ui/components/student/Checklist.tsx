@@ -1,5 +1,3 @@
-import React from 'react'
-
 import TickSheet from '../../assets/tick-sheet.svg'
 
 interface ChecklistProps {

@@ -4,6 +4,7 @@ module.exports = {
     },
     flags: {},
     jsxRuntime: 'automatic',
+    graphqlTypegen: true,
     plugins: [
         'gatsby-plugin-pnpm',
         'gatsby-plugin-sass',

@@ -1,4 +1,4 @@
-import React, { FC, useState, useReducer, Reducer } from 'react'
+import { FC, useState, useReducer, Reducer } from 'react'
 
 import { TextEditor } from '../../components/common/TextEditor'
 
