@@ -1,14 +1,14 @@
-import React from 'react'
+import { FC } from 'react'
 import { RichText } from '@graphcms/rich-text-react-renderer'
 import { RichTextContent } from '@graphcms/rich-text-react-renderer/node_modules/@graphcms/rich-text-types'
 
 import { renderGatsbyLinks } from '../../components/student/RichTextRenderers'
 
-interface SliderProps {
+interface InfoBlockProps {
     items: Array<{ raw: RichTextContent }>
 }
 
-export const InfoBlock = ({ items }: SliderProps) => (
+export const InfoBlock: FC<InfoBlockProps> = ({ items }) => (
     <>
         {items.map((item, i) => (
             <RichText

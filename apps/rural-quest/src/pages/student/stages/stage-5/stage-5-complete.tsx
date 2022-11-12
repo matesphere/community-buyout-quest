@@ -6,7 +6,7 @@ import { ApolloError } from '@apollo/client'
 
 import { Loading } from '../../../../components/common/Loading'
 import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '../../../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { FeedbackDisplay } from '../../../../components/common/FeedbackDisplay'
 
 import { CostOfLand } from '../../../../components/common/stages/business-plan/CostOfLand'

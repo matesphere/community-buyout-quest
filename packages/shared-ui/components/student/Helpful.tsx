@@ -1,7 +1,6 @@
+import { FC } from 'react'
 import { HelpfulInfoRenderer } from '../../components/student/RichTextRenderers'
-
 import { RichTextContent } from '@graphcms/rich-text-types'
-
 import HelpIcon from '../../assets/help-icon.svg'
 
 interface HelpfulProps {
@@ -9,7 +8,7 @@ interface HelpfulProps {
     children?: JSX.Element
 }
 
-export const Helpful = ({ content, children }: HelpfulProps) => (
+export const Helpful: FC<HelpfulProps> = ({ content, children }) => (
     <>
         <p className="sm-type-guitar mb-2">
             <span className="side-icon side-icon-orange">

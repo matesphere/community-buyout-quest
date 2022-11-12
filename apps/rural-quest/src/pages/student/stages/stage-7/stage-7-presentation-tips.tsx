@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { Breadcrumbs } from '../../../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { Helpful } from '../../../../components/student/Helpful'
 import { TaskTipsRenderer } from '../../../../components/student/RichTextRenderers'
 

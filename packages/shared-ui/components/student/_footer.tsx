@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, FC } from 'react'
 import { Button } from '@aws-amplify/ui-react'
 import { Auth } from 'aws-amplify'
 import { Link } from 'gatsby'
@@ -6,7 +6,7 @@ import { UserStateContext } from '../../utils/user-state'
 
 import Squiggle from '../../assets/squiggle.svg'
 
-const Footer = () => {
+export const Footer: FC = () => {
     const {
         userInfo: { role },
     } = useContext(UserStateContext)
@@ -57,4 +57,3 @@ const Footer = () => {
         </footer>
     )
 }
-export default Footer

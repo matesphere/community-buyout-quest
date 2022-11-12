@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import {
     ActionType,
     BusinessPlan,
     CapitalCosts,
-} from '../../../../pages/student/stages/stage-5/stage-5-landing'
-import { SectionProps } from '../../../../pages/student/stages/stage-5/stage-5-business-plan'
+    SectionProps,
+} from '../../../../types/business-plan'
 import { InfoBlock } from '../../../student/InfoBlock'
 
 export const CapitalCostsSection: FC<SectionProps> = ({

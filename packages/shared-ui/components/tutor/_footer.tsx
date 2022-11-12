@@ -4,7 +4,7 @@ import { Auth } from 'aws-amplify'
 
 import Squiggle from '../../assets/squiggle.svg'
 
-const TutorFooter = () => (
+export const TutorFooter = () => (
     <footer className="footer">
         <Squiggle className="squiggle" />
         <section className="container">
@@ -43,5 +43,3 @@ const TutorFooter = () => (
         </section>
     </footer>
 )
-
-export default TutorFooter

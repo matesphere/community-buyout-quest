@@ -28,7 +28,7 @@ export const getHeaderText = (pathname: string) => {
     }
 }
 
-const SmallHeader: FC<{ headerText?: string }> = ({ headerText }) => {
+export const SmallHeader: FC<{ headerText?: string }> = ({ headerText }) => {
     const data = useStaticQuery(graphql`
         query {
             file(relativePath: { eq: "logo.jpg" }) {

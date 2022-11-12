@@ -1,13 +1,12 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import {
     ActionType,
     BusinessPlan,
     RunningCosts,
-} from '../../../../pages/student/stages/stage-5/stage-5-landing'
+    SectionProps,
+} from '../../../../types/business-plan'
 import { InfoBlock } from '../../../student/InfoBlock'
-
-import { SectionProps } from '../../../../pages/student/stages/stage-5/stage-5-business-plan'
 
 export const RunningCostsSection: FC<SectionProps> = ({
     devOption: { option },

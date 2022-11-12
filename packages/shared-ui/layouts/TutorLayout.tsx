@@ -1,10 +1,10 @@
-import Header from '../components/tutor/_header'
-import Footer from '../components/tutor/_footer'
+import { TutorHeader } from '../components/tutor/_header'
+import { TutorFooter } from '../components/tutor/_footer'
 
 export const TutorLayout = ({ children }) => (
     <>
-        <Header />
+        <TutorHeader />
         {children}
-        <Footer />
+        <TutorFooter />
     </>
 )

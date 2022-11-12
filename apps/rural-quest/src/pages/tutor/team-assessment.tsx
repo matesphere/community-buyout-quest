@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
 
-import { Breadcrumbs } from '../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 
 const TutorTeamAssessment = () => (
     <>

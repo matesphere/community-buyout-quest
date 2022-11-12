@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { UserStateContext } from '../../utils/user-state'
 
-import { Breadcrumbs } from '../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { Intro } from '../../components/student/Intro'
 import { InfoBlock } from '../../components/student/InfoBlock'
 import { Helpful } from '../../components/student/Helpful'

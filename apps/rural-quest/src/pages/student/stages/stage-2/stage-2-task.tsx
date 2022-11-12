@@ -6,7 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { Loading } from '../../../../components/common/Loading'
 import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '../../../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { InfoBlock } from '../../../../components/student/InfoBlock'
 import {
     TaskContainer,

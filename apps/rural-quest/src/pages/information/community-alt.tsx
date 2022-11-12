@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import SmallHeader from '../../components/common/_small-header'
-import { Breadcrumbs } from '../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { Intro } from '../../components/student/Intro'
 import { SliderM } from '../../components/student/Slider'
 import { Helpful } from '../../components/student/Helpful'

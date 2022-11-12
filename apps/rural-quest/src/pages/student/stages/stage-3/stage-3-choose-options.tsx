@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import { useState, useContext } from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { gql } from '@apollo/client'
@@ -6,7 +6,7 @@ import { ApolloError } from '@apollo/client'
 
 import { Loading } from '../../../../components/common/Loading'
 import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '../../../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { Intro } from '../../../../components/student/Intro'
 import {
     TaskContainer,

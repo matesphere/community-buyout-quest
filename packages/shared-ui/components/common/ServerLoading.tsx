@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-export const ServerLoading = () => (
+export const ServerLoading: FC = () => (
     <section className="container min-height" id="main">
         <div className="row">
             <div className="col-lg-12 text-align-center loading-height">

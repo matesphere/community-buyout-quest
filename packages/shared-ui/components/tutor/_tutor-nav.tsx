@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'gatsby'
 
-const Nav = ({ hubLinkOnly }: { hubLinkOnly?: boolean }) => {
+export const TutorNav = ({ hubLinkOnly }: { hubLinkOnly?: boolean }) => {
     const [expanded, setExpanded] = useState(false)
     return (
         <nav
@@ -74,5 +74,3 @@ const Nav = ({ hubLinkOnly }: { hubLinkOnly?: boolean }) => {
         </nav>
     )
 }
-
-export default Nav

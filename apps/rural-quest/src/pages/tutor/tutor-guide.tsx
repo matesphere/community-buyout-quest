@@ -1,7 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { Breadcrumbs } from '../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { InfoBlock } from '../../components/student/InfoBlock'
 
 const TutorGuide = () => {

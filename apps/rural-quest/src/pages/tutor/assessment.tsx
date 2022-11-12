@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { Breadcrumbs } from '../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 
 const TutorAssessment = () => {
     const data2 = useStaticQuery(graphql`

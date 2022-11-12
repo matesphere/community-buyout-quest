@@ -1,10 +1,11 @@
+import { FC } from 'react'
 import TickSheet from '../../assets/tick-sheet.svg'
 
 interface ChecklistProps {
     items: Array<string>
 }
 
-export const CheckList = ({ items }: ChecklistProps) => (
+export const Checklist: FC<ChecklistProps> = ({ items }) => (
     <>
         <p className="sm-type-guitar mb-2 mt-4">
             <span className="side-icon side-icon-green">

@@ -1,5 +1,4 @@
-import React, { FC } from 'react'
-import { Link } from 'gatsby'
+import { FC } from 'react'
 
 import { SaveSubmitSection } from '../SaveSubmitSection'
 
@@ -8,7 +7,7 @@ import {
     Action,
     WorkState,
     LandCost,
-} from '../../../../pages/student/stages/stage-5/stage-5-landing'
+} from '../../../../types/business-plan'
 
 interface CostOfLandProps {
     workState: WorkState

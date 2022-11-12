@@ -5,7 +5,7 @@ import { ApolloError } from '@apollo/client'
 
 import { Loading } from '../../../../components/common/Loading'
 import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '../../../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { SubmitFeedbackSection } from '../../../../components/tutor/SubmitFeedbackSection'
 
 import { useFeedbackState, ActionType } from '../../../../utils/input-utils'

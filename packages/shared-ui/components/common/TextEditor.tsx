@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, FC } from 'react'
 // import { CKEditor } from '@ckeditor/ckeditor5-react'
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
-export const TextEditor = ({ data, onChange, docSubmitted }) => {
+export const TextEditor: FC = ({ data, onChange, docSubmitted }) => {
     const editorRef = useRef<any>()
     const [editorLoaded, setEditorLoaded] = useState(false)
     const { CKEditor, ClassicEditor } = editorRef.current || {}

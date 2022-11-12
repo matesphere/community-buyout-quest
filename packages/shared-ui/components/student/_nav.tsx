@@ -78,7 +78,7 @@ const StageLinks: FC<{
     </div>
 )
 
-const Nav: FC = () => {
+export const Nav: FC = () => {
     const { latestStageUnlocked } = useContext(UserStateContext)
     const [expanded, setExpanded] = useState(false)
 
@@ -207,5 +207,3 @@ const Nav: FC = () => {
         </>
     )
 }
-
-export default Nav

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 
 import Header from '../../components/student/_header'
 import Footer from '../../components/student/_footer'
-import { Breadcrumbs } from '../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { Helpful } from '../../components/student/Helpful'
 import { CheckList } from '../../components/student/Checklist'
 import { SliderM } from '../../components/student/Slider'

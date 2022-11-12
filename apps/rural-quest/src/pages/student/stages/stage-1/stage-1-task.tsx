@@ -5,7 +5,7 @@ import { ApolloError } from '@apollo/client'
 
 import { Loading } from '../../../../components/common/Loading'
 import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '../../../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import { Intro } from '../../../../components/student/Intro'
 import { InfoBlock } from '../../../../components/student/InfoBlock'
 import { TextEditor } from '../../../../components/common/TextEditor'

@@ -7,7 +7,7 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-import { Breadcrumbs } from '../../components/common/Breadcrumbs'
+import { Breadcrumbs } from '@community-land-quest/shared-ui'
 
 // import signinGIF from '../../gif/tutor-signin.gif'
 // import signoutGIF from '../../gif/tutor-signout.gif'

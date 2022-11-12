@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect, FC } from 'react'
 
-const useDelayedRender = (delay) => {
+const useDelayedRender = (delay: number) => {
     const [delayed, setDelayed] = useState(true)
 
     useEffect(() => {
@@ -8,11 +8,10 @@ const useDelayedRender = (delay) => {
         return () => clearTimeout(timeout)
     }, [])
 
-    // console.log(delayed)
-    return (fn) => !delayed && fn()
+    return (fn: Function) => !delayed && fn()
 }
 
-export const LoadingSpinner = ({ delay }) => {
+export const LoadingSpinner: FC<{ delay: number }> = ({ delay }) => {
     const delayedRender = useDelayedRender(delay)
 
     return delayedRender(() => <div className="loader"></div>)

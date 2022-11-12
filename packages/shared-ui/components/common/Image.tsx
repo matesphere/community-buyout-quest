@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 interface ImageProps {

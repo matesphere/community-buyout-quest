@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Location } from '@reach/router'
 
-import Nav from './_tutor-nav'
+import { TutorNav } from './_tutor-nav'
 
 import Squiggle from '../../assets/squiggle.svg'
 import PinLogo from '../../assets/pin-logo.svg'
@@ -29,7 +29,7 @@ const HUB_LINK_ONLY: Array<string> = [
     '/tutor/create-team',
 ]
 
-const TutorHeader = ({
+export const TutorHeader = ({
     headerText,
 }: {
     headerText?: string
@@ -57,7 +57,7 @@ const TutorHeader = ({
                         <section className="container top-section">
                             <div className="row">
                                 <div className="col-lg-8">
-                                    <Nav
+                                    <TutorNav
                                         hubLinkOnly={HUB_LINK_ONLY.includes(
                                             location.pathname
                                         )}
@@ -94,5 +94,3 @@ const TutorHeader = ({
         </Location>
     )
 }
-
-export default TutorHeader
