@@ -1,17 +1,20 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import MapOptions from './_map'
-import Header from '../../components/student/_header'
-import Footer from '../../components/student/_footer'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../components/student/Intro'
-import { InfoBlock } from '../../components/student/InfoBlock'
-import { Helpful } from '../../components/student/Helpful'
+import {
+    StudentHeader,
+    StudentFooter,
+    Breadcrumbs,
+    Intro,
+    InfoBlock,
+    Helpful,
+} from '@community-land-quest/shared-ui'
 
 import '../../scss/index.scss'
 
+// const InfoDevOptions: FC<PageProps<Queries.DevelopmentOptionsQueryQuery>> = ({
 const InfoDevOptions: FC = ({
     data: {
         graphCmsInfo: { title, intro, infoBlock, slider, helpfulInfo },
@@ -27,7 +30,7 @@ const InfoDevOptions: FC = ({
         </Helmet>
 
         <main className="the-quest">
-            <Header headerText="Development Options" />
+            <StudentHeader headerText="Development Options" />
 
             <section className="container" id="main">
                 <div className="row">
@@ -72,7 +75,7 @@ const InfoDevOptions: FC = ({
                 </div>
             </section>
 
-            <Footer />
+            <StudentFooter />
         </main>
     </>
 )

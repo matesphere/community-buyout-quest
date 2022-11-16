@@ -1,0 +1,55 @@
+fragment TaskToComplete on TaskToComplete {
+  stage
+  locale
+  remoteId: id
+  createdAt(variation: COMBINED)
+  updatedAt(variation: COMBINED)
+  publishedAt(variation: COMBINED)
+  stageNumber
+  title
+  taskInfo {
+    ... on RichText {
+      raw
+      html
+      markdown
+      text
+    }
+  }
+  taskLinkText
+  submittedText {
+    ... on RichText {
+      raw
+      html
+      markdown
+      text
+    }
+  }
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  scheduledIn {
+    ... on ScheduledOperation {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+}

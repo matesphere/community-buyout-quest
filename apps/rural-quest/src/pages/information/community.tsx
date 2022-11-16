@@ -1,17 +1,19 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import { FC } from 'react'
+import { graphql, PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Header from '../../components/student/_header'
-import Footer from '../../components/student/_footer'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../components/student/Intro'
-import { SliderM } from '../../components/student/Slider'
-import { Helpful } from '../../components/student/Helpful'
+import {
+    StudentHeader,
+    StudentFooter,
+    Breadcrumbs,
+    Intro,
+    Slider,
+    Helpful,
+} from '@community-land-quest/shared-ui'
 
 import '../../scss/index.scss'
 
-const InfoCommunityPage = ({
+const InfoCommunityPage: FC<PageProps<Queries.AboutCommunityQueryQuery>> = ({
     data: {
         graphCmsInfo: { title, intro, slider, helpfulInfo },
     },
@@ -27,7 +29,7 @@ const InfoCommunityPage = ({
             </Helmet>
 
             <main className="the-quest">
-                <Header headerText="Information" />
+                <StudentHeader headerText="Information" />
                 <section className="container" id="main">
                     <div className="row">
                         <div className="col-lg-9">
@@ -51,7 +53,7 @@ const InfoCommunityPage = ({
 
                             <Intro item={intro} />
 
-                            <SliderM items={slider} />
+                            <Slider items={slider} />
                         </div>
 
                         <div className="col-lg-3">
@@ -60,7 +62,7 @@ const InfoCommunityPage = ({
                     </div>
                 </section>
 
-                <Footer />
+                <StudentFooter />
             </main>
         </>
     )

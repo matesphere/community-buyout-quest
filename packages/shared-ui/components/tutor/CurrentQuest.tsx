@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Link } from 'gatsby'
 
 import { useAuthMutation } from '../../utils/auth-utils'
+import { useUnlockStageWithCurrentQuestRefetch } from '@community-land-quest/shared-data/gql/hooks/tutor/unlockStage'
 import {
-    UNLOCK_STAGE,
     MARK_PASSED,
     MARK_FAILED,
     COMPLETE_STAGE,
@@ -12,7 +12,6 @@ import {
 } from '../../gql/mutations'
 
 import { TUTOR_CURRENT_QUEST_QUERY } from '../../gql/queries'
-import { UnlockStage, UnlockStageVariables } from '../../gql/types/UnlockStage'
 import {
     SaveWorkInitial,
     SaveWorkInitialVariables,
@@ -25,15 +24,16 @@ import Cross from '../../assets/cross.svg'
 import Progress from '../../assets/progress.svg'
 import Submitted from '../../assets/submitted.svg'
 
-export const LockedStageStatus = ({ teamId, stageId }) => {
-    const [unlockStage] = useAuthMutation<UnlockStage, UnlockStageVariables>(
-        UNLOCK_STAGE,
-        {
-            query: TUTOR_CURRENT_QUEST_QUERY,
-            variables: {},
-            idRequired: 'userId',
-        }
-    )
+interface LockedStageStatusProps {
+    teamId: string
+    stageId: string
+}
+
+export const LockedStageStatus = ({
+    teamId,
+    stageId,
+}: LockedStageStatusProps) => {
+    const [unlockStage] = useUnlockStageWithCurrentQuestRefetch()
 
     return (
         <div>

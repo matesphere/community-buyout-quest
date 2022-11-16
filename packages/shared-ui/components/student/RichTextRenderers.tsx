@@ -110,6 +110,7 @@ export const TaskTipsRenderer = ({ content }: RichTextProps) => (
     />
 )
 
+// TODO: remove empty external link from /community
 export const DevOpsRenderer = ({ content }: RichTextProps) => (
     <RichText
         content={content}

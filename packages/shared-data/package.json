@@ -1,0 +1,15 @@
+{
+    "name": "@community-land-quest/shared-data",
+    "description": "CLQ shared data",
+    "version": "1.0.0",
+    "author": "David Carter <dccarta@gmail.com>",
+    "devDependencies": {
+        "@apollo/client": "^3.3.13",
+        "@types/react": "^18.0.25",
+        "@types/react-dom": "^18.0.8"
+    },
+    "dependencies": {
+        "@community-land-quest/shared-utils": "1.0.0",
+        "query-string": "^7.0.0"
+    }
+}

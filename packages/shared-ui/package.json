@@ -4,6 +4,7 @@
     "version": "1.0.0",
     "author": "David Carter <dccarta@gmail.com>",
     "dependencies": {
+        "@community-land-quest/shared-data": "^1.0.0",
         "gatsby": "^4.24.7",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
