@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import {
-    ActionType,
+    BusinessPlanActionType,
     BusinessPlan,
     CashFlow,
     SectionProps,
@@ -88,7 +88,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   ? parseInt(value)
                                                   : ''
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -119,7 +119,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -150,7 +150,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -181,7 +181,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -217,7 +217,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -248,7 +248,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -279,7 +279,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -310,7 +310,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -359,7 +359,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -398,7 +398,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -437,7 +437,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {
@@ -476,7 +476,7 @@ export const CashFlowSection: FC<SectionProps> = ({
                                                   : ''
 
                                           workDispatch({
-                                              type: ActionType.UpdateBusinessPlan,
+                                              type: BusinessPlanActionType.UpdateBusinessPlan,
                                               option,
                                               planSection: 'cashFlow',
                                               payload: {

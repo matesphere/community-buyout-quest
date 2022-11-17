@@ -1,12 +1,14 @@
 import { Helmet } from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 
-import Header from '../components/student/_header'
-import Footer from '../components/student/_footer'
-import { Intro } from '../components/student/Intro'
+import {
+    StudentHeader,
+    StudentFooter,
+    Intro,
+    InfoBlock,
+} from '@community-land-quest/shared-ui'
 
 import '../scss/index.scss'
-import { InfoBlock } from '../components/student/InfoBlock'
 
 const IntroductionPage = ({
     data: {
@@ -23,7 +25,7 @@ const IntroductionPage = ({
         </Helmet>
 
         <main className="the-quest homepage">
-            <Header headerText="Community Land Quest" />
+            <StudentHeader headerText="Community Land Quest" />
             <section className="container" id="main">
                 <div className="row">
                     <div className="col-lg-1"></div>
@@ -49,7 +51,7 @@ const IntroductionPage = ({
                 </Link>
             </section>
 
-            <Footer />
+            <StudentFooter />
         </main>
     </>
 )

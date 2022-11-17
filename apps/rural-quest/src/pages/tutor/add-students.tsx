@@ -1,13 +1,11 @@
-import { useState, useContext, FC, Dispatch } from 'react'
+import { useEffect, useState, useContext, FC, Dispatch } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { NewQuestContext } from '../../utils/tutor-contexts'
-
-import { StudentType } from '../../gql/types'
+import { NewQuestContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
+import { StudentType } from '@community-land-quest/shared-data/gql/types'
 
 import '../../scss/index.scss'
-import { useEffect } from 'react'
 
 const EMPTY_STUDENT: StudentType = {
     firstName: '',

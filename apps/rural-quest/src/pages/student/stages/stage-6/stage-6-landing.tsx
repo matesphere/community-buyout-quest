@@ -1,29 +1,25 @@
-import React from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { ReadQuesty } from '../../../../components/student/ReadQuesty'
-import { Helpful } from '../../../../components/student/Helpful'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    ReadQuesty,
+    Helpful,
+    TaskContainer,
+    TaskPanel,
+    InfoBlock,
+} from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../../../utils/auth-utils'
-
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import {
     Stage6Query,
     Stage6QueryVariables,
-} from '../../../../gql/types/Stage6Query'
-
-import '../../../../scss/index.scss'
-import {
-    TaskContainer,
-    TaskPanel,
-} from '../../../../components/common/stages/TaskPanel'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
+} from '@community-land-quest/shared-data/gql/types/Stage6Query'
 
 const STAGE_6_QUERY = gql`
     query Stage6Query($team_id: uuid!) {

@@ -7,16 +7,14 @@ import { ApolloError } from '@apollo/client'
 
 import { Loading, Error } from '@community-land-quest/shared-ui'
 
-// TODO: shared-data
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
-
-import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
-
 import {
     TeamHubQuery,
     TeamHubQueryVariables,
-} from '../../gql/types/TeamHubQuery'
+} from '@community-land-quest/shared-data/gql/types/TeamHubQuery'
+
+import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 
 import Lock from '../../assets/lock.svg'
 import Ticktrbl from '../../assets/tick-trbl.svg'

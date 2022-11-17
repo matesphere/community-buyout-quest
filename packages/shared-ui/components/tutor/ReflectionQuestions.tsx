@@ -1,9 +1,9 @@
-import { FC, useState, useReducer, Reducer } from 'react'
+import { FC, useReducer, Reducer } from 'react'
 
 import { TextEditor } from '../../components/common/TextEditor'
 
-import { useAuthMutation } from '../../utils/auth-utils'
-import { COMPLETE_QUEST } from '../../gql/mutations'
+import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
+import { COMPLETE_QUEST } from '@community-land-quest/shared-data/gql/mutations'
 
 const getCurrentTimestamp = () => new Date().toISOString()
 

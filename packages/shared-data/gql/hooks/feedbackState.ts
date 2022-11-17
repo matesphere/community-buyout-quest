@@ -1,7 +1,7 @@
 import { useState, useReducer, useEffect, Reducer } from 'react'
 import QueryString from 'query-string'
 
-import { useAuthQuery } from './authquery'
+import { useAuthQuery } from './authQuery'
 import { useAuthMutation } from './authMutation'
 
 import { TUTOR_DOCUMENT_QUERY } from '../queries'

@@ -1,29 +1,29 @@
-import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../../../components/student/Intro'
 import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    Intro,
     TaskContainer,
     TaskPanel,
-} from '../../../../components/common/stages/TaskPanel'
-import { Submitted } from '../../../../components/student/Submitted'
-import { Helpful } from '../../../../components/student/Helpful'
-import { CheckList } from '../../../../components/student/Checklist'
+    Submitted,
+    Helpful,
+    Checklist,
+} from '@community-land-quest/shared-ui'
 
-import { useCheckboxState } from '../../../../utils/input-utils'
-import { useAuthQuery, useAuthMutation } from '../../../../utils/auth-utils'
-import { CHOOSE_SHORTLIST_OPTIONS } from '../../../../gql/mutations'
-
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
+import { CHOOSE_SHORTLIST_OPTIONS } from '@community-land-quest/shared-data/gql/mutations'
 import {
     Stage4TaskQuery,
     Stage4TaskQueryVariables,
-} from '../../../../gql/types/Stage4TaskQuery'
+} from '@community-land-quest/shared-data/gql/types/Stage4TaskQuery'
+
+import { useCheckboxState } from '@community-land-quest/shared-utils/utils/input-utils'
 
 import '../../../../scss/index.scss'
 
@@ -212,7 +212,7 @@ const Stage4ChooseOptionsPage = () => {
 
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
 

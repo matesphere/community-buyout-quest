@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Link, PageProps } from 'gatsby'
 import { gql } from '@apollo/client'
 import { Helmet } from 'react-helmet'
@@ -12,22 +12,23 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    SWOT,
+    FeasibilityOptionSection,
+    CapitalCostsSection,
+    RunningCostsSection,
+    CashFlowSection,
+} from '@community-land-quest/shared-ui'
 
-import { SWOT } from '../../../../components/common/stages/SWOT'
-import { FeasibilityOptionSection } from '../../../../components/common/stages/FeasibilityStudy'
-import { CapitalCostsSection } from '../../../../components/common/stages/business-plan/CapitalCostsSection'
-import { RunningCostsSection } from '../../../../components/common/stages/business-plan/RunningCostsSection'
-import { CashFlowSection } from '../../../../components/common/stages/business-plan/CashFlowSection'
-
-import { useAuthQuery } from '../../../../utils/auth-utils'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 
 import {
     Stage6WorkQuery,
     Stage6WorkQueryVariables,
-} from '../../../../gql/types/Stage6WorkQuery'
+} from '@community-land-quest/shared-data/gql/types/Stage6WorkQuery'
 
 const STAGE_6_WORK_QUERY = gql`
     query Stage6WorkQuery($team_id: uuid!, $dev_option_id: uuid!) {

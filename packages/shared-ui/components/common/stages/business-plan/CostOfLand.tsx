@@ -3,15 +3,15 @@ import { FC } from 'react'
 import { SaveSubmitSection } from '../SaveSubmitSection'
 
 import {
-    ActionType,
-    Action,
+    BusinessPlanActionType,
+    BusinessPlanAction,
     WorkState,
     LandCost,
 } from '../../../../types/business-plan'
 
 interface CostOfLandProps {
     workState: WorkState
-    workDispatch?: React.Dispatch<Action>
+    workDispatch?: React.Dispatch<BusinessPlanAction>
     saveWorkObj?: { call: () => {}; response: any }
     docSubmitted: boolean
 }
@@ -47,7 +47,7 @@ export const CostOfLand: FC<CostOfLandProps> = ({
                                           value !== '' ? parseInt(value) : ''
 
                                       workDispatch({
-                                          type: ActionType.UpdateLandCost,
+                                          type: BusinessPlanActionType.UpdateLandCost,
                                           payload: {
                                               area,
                                           },
@@ -85,7 +85,7 @@ export const CostOfLand: FC<CostOfLandProps> = ({
                                           value !== '' ? parseInt(value) : ''
 
                                       workDispatch({
-                                          type: ActionType.UpdateLandCost,
+                                          type: BusinessPlanActionType.UpdateLandCost,
                                           payload: {
                                               price,
                                           },
@@ -115,7 +115,7 @@ export const CostOfLand: FC<CostOfLandProps> = ({
                             workDispatch
                                 ? ({ target: { value } }) =>
                                       workDispatch({
-                                          type: ActionType.UpdateLandCost,
+                                          type: BusinessPlanActionType.UpdateLandCost,
                                           payload: {
                                               funder: value,
                                           },
@@ -141,7 +141,7 @@ export const CostOfLand: FC<CostOfLandProps> = ({
                                           value !== '' ? parseInt(value) : ''
 
                                       workDispatch({
-                                          type: ActionType.UpdateLandCost,
+                                          type: BusinessPlanActionType.UpdateLandCost,
                                           payload: {
                                               amountOfFunding,
                                           },

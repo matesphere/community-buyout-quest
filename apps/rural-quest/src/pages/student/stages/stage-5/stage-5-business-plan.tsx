@@ -5,24 +5,26 @@ import { graphql, useStaticQuery } from 'gatsby'
 import QueryString from 'query-string'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Helpful } from '../../../../components/student/Helpful'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    Intro,
+    Helpful,
+    CapitalCostsSection,
+    RunningCostsSection,
+    CashFlowSection,
+    SaveSubmitSection,
+} from '@community-land-quest/shared-ui'
 
-import { CapitalCostsSection } from '../../../../components/common/stages/business-plan/CapitalCostsSection'
-import { RunningCostsSection } from '../../../../components/common/stages/business-plan/RunningCostsSection'
-import { CashFlowSection } from '../../../../components/common/stages/business-plan/CashFlowSection'
-import { SaveSubmitSection } from '../../../../components/common/stages/SaveSubmitSection'
+import { stage5Reducer, WorkState } from './stage-5-landing'
+import { BusinessPlanAction } from '@community-land-quest/shared-ui/types/business-plan'
 
-import { stage5Reducer, WorkState, Action } from './stage-5-landing'
-
-import { useWorkState } from '../../../../utils/input-utils'
+import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
 
 import { RichTextContent } from '@graphcms/rich-text-types'
 
 import '../../../../scss/index.scss'
-import { Intro } from '../../../../components/student/Intro'
 
 export interface SectionProps {
     devOption: {
@@ -30,7 +32,7 @@ export interface SectionProps {
         display_name: string
     }
     workState: WorkState
-    workDispatch?: React.Dispatch<Action>
+    workDispatch?: React.Dispatch<BusinessPlanAction>
     docSubmitted: boolean
     questionText?: { raw: RichTextContent }
 }
@@ -55,7 +57,7 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
         saveWorkObj,
         docSubmitted,
         stageComplete,
-    } = useWorkState<WorkState, Action>(5, stage5Reducer, true)
+    } = useWorkState<WorkState, BusinessPlanAction>(5, stage5Reducer, true)
 
     if (loading) return <Loading />
     if (error || !pageData)

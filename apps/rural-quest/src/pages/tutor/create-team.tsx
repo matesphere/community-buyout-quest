@@ -4,32 +4,36 @@ import { Helmet } from 'react-helmet'
 import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../components/common/Loading'
-import { Error } from '../../components/common/Error'
-import { LoadingSpinner } from '../../components/common/LoadingSpinner'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-
 import {
-    useAuthQuery,
-    useAuthMutation,
-    addStudentToTeam,
-    mergeIdsIntoStudents,
-    createStudentsInCognito,
-} from '../../utils/auth-utils'
+    Loading,
+    LoadingSpinner,
+    Error,
+    Breadcrumbs,
+} from '@community-land-quest/shared-ui'
 
-import { UserStateContext } from '../../utils/user-state'
-import { NewQuestContext } from '../../utils/tutor-contexts'
-
-import { CREATE_QUEST_WITH_TEAMS, START_QUEST } from '../../gql/mutations'
-import { StudentType } from '../../gql/types'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
+import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+import { NewQuestContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
+import {
+    CREATE_QUEST_WITH_TEAMS,
+    START_QUEST,
+} from '@community-land-quest/shared-data/gql/mutations'
+import { StudentType } from '@community-land-quest/shared-data/gql/types'
 import {
     CreateQuestWithTeams,
     CreateQuestWithTeamsVariables,
-} from '../../gql/types/CreateQuestWithTeams'
+} from '@community-land-quest/shared-data/gql/types/CreateQuestWithTeams'
 import {
     CreateTeamQuery,
     CreateTeamQueryVariables,
-} from '../../gql/types/CreateTeamQuery'
+} from '@community-land-quest/shared-data/gql/types/CreateTeamQuery'
+
+import {
+    addStudentToTeam,
+    mergeIdsIntoStudents,
+    createStudentsInCognito,
+} from '@community-land-quest/shared-utils/utils/auth-utils'
 
 import HelpIcon from '../../assets/help-icon.svg'
 import Cross from '../../assets/cross.svg'

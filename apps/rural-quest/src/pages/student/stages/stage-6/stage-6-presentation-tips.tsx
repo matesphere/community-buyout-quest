@@ -1,13 +1,14 @@
-import React from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { ReadQuesty } from '../../../../components/student/ReadQuesty'
-import { TaskTipsRenderer } from '../../../../components/student/RichTextRenderers'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
-import { Helpful } from '../../../../components/student/Helpful'
+import {
+    ReadQuesty,
+    Breadcrumbs,
+    InfoBlock,
+    Helpful,
+} from '@community-land-quest/shared-ui'
+import { TaskTipsRenderer } from '@community-land-quest/shared-utils/utils/rich-text-renderers'
 
 import '../../../../scss/index.scss'
 

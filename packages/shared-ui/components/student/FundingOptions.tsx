@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { RichTextContent } from '@graphcms/rich-text-react-renderer/node_modules/@graphcms/rich-text-types'
+import { RichTextContent } from '@graphcms/rich-text-types'
 import { FundingOptionsRenderer } from '../../../shared-utils/utils/rich-text-renderers'
 
 import HelpIcon from '../../assets/help-icon.svg'

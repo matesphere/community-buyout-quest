@@ -1,23 +1,22 @@
-import React, { useState, useContext, useReducer, Reducer } from 'react'
+import { useState, useContext, useReducer, Reducer } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { TextEditor } from '../../../../components/common/TextEditor'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../../../components/student/Intro'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
-import { Helpful } from '../../../../components/student/Helpful'
-import { CheckList } from '../../../../components/student/Checklist'
-
-import { UserStateContext } from '../../../../utils/user-state'
-import { ActionType } from '../../../../utils/input-utils'
-import { useAuthMutation } from '../../../../utils/auth-utils'
 import {
+    Breadcrumbs,
+    TextEditor,
+    Intro,
+    InfoBlock,
+    Helpful,
+    Checklist,
     TaskContainer,
     TaskPanel,
-} from '../../../../components/common/stages/TaskPanel'
+} from '@community-land-quest/shared-ui'
 
-import { SUBMIT_REFLECTION } from '../../../../gql/mutations'
+import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
+import { SUBMIT_REFLECTION } from '@community-land-quest/shared-data/gql/mutations'
 
 import '../../../../scss/index.scss'
 
@@ -210,7 +209,7 @@ const Stage8TaskPage = () => {
 
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                 </section>

@@ -1,7 +1,7 @@
 import Slider from 'react-slick'
 
-import { DevOpsRenderer } from '../../../shared-utils/utils/rich-text-renderers'
-import { slickSettings } from '../../utils/slicksettings'
+import { DevOpsRenderer } from '@community-land-quest/shared-utils/utils/rich-text-renderers'
+import { slickSettings } from '@community-land-quest/shared-utils/utils/slicksettings'
 
 interface SliderProps {
     items: Array<string>

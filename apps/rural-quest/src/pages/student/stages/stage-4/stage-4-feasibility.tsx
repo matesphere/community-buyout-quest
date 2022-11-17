@@ -1,21 +1,23 @@
-import React, { Reducer, FC } from 'react'
+import { Reducer, FC } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { CheckList } from '../../../../components/student/Checklist'
-import { Helpful } from '../../../../components/student/Helpful'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    Checklist,
+    Helpful,
+    FeasibilityStudy,
+    SaveSubmitSection,
+    TaskPanel,
+} from '@community-land-quest/shared-ui'
 
-import { FeasibilityStudy } from '../../../../components/common/stages/FeasibilityStudy'
-import { SaveSubmitSection } from '../../../../components/common/stages/SaveSubmitSection'
-
-import { useWorkState, ActionType } from '../../../../utils/input-utils'
+import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
+import { ActionType } from '@community-land-quest/shared-data/gql/types'
 
 import '../../../../scss/index.scss'
-import { TaskPanel } from '../../../../components/common/stages/TaskPanel'
 
 interface FeasibilityStudyType {
     benefits: string
@@ -208,7 +210,7 @@ const Stage4FeasibilityPage: FC = () => {
                                         )}
                                 </ol>
                             </Helpful>
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                     <Link

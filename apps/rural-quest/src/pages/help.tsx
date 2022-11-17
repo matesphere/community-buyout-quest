@@ -2,8 +2,8 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import Header from '../components/student/_header'
-import Footer from '../components/student/_footer'
+import { StudentHeader, StudentFooter } from '@community-land-quest/shared-ui'
+
 import TickSheet from '../assets/tick-sheet.svg'
 import HelpIcon from '../assets/help-icon.svg'
 
@@ -35,7 +35,7 @@ const HelpPage = () => {
             </Helmet>
 
             <main>
-                <Header headerText="Help" />
+                <StudentHeader headerText="Help" />
                 <section className="container" id="main">
                     <div className="row">
                         <div className="col-lg-8">
@@ -147,7 +147,7 @@ const HelpPage = () => {
                     </div>
                     <Link to="/student/team-hub">Go to Team Hub</Link>
                 </section>
-                <Footer />
+                <StudentFooter />
             </main>
         </>
     )

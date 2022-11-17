@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import {
-    ActionType,
+    BusinessPlanActionType,
     BusinessPlan,
     RunningCosts,
     SectionProps,
@@ -80,7 +80,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                               })
 
                                               workDispatch({
-                                                  type: ActionType.UpdateBusinessPlan,
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
@@ -116,7 +116,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                               })
 
                                               workDispatch({
-                                                  type: ActionType.UpdateBusinessPlan,
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
@@ -152,7 +152,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                               })
 
                                               workDispatch({
-                                                  type: ActionType.UpdateBusinessPlan,
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
@@ -188,7 +188,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                               })
 
                                               workDispatch({
-                                                  type: ActionType.UpdateBusinessPlan,
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
@@ -224,7 +224,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                               })
 
                                               workDispatch({
-                                                  type: ActionType.UpdateBusinessPlan,
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {

@@ -3,14 +3,16 @@ import { Link, PageProps, useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    FeasibilityStudy,
+    SubmitFeedbackSection,
+} from '@community-land-quest/shared-ui'
 
-import { FeasibilityStudy } from '../../../../components/common/stages/FeasibilityStudy'
-import { SubmitFeedbackSection } from '../../../../components/tutor/SubmitFeedbackSection'
-
-import { useFeedbackState, ActionType } from '../../../../utils/input-utils'
+import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { useFeedbackState } from '@community-land-quest/shared-data/gql/hooks/feedbackState'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 

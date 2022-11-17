@@ -1,7 +1,7 @@
 import { RichText } from '@graphcms/rich-text-react-renderer'
-import { RichTextContent } from '@graphcms/rich-text-react-renderer/node_modules/@graphcms/rich-text-types'
+import { RichTextContent } from '@graphcms/rich-text-types'
 
-import { renderGatsbyLinks } from '../../../shared-utils/utils/rich-text-renderers'
+import { renderGatsbyLinks } from '@community-land-quest/shared-utils/utils/rich-text-renderers'
 
 import HelpIcon from '../../assets/help-icon.svg'
 

@@ -13,7 +13,10 @@ export { CapitalCostsSection } from './common/stages/business-plan/CapitalCostsS
 export { CashFlowSection } from './common/stages/business-plan/CashFlowSection'
 export { CostOfLand } from './common/stages/business-plan/CostOfLand'
 export { RunningCostsSection } from './common/stages/business-plan/RunningCostsSection'
-export { FeasibilityStudy } from './common/stages/FeasibilityStudy'
+export {
+    FeasibilityStudy,
+    FeasibilityOptionSection,
+} from './common/stages/FeasibilityStudy'
 export { SaveSubmitSection } from './common/stages/SaveSubmitSection'
 export { SWOT } from './common/stages/SWOT'
 export { TaskPanel, TaskContainer } from './common/stages/TaskPanel'
@@ -47,3 +50,4 @@ export { TutorFooter } from './tutor/_footer'
 export { TutorNav } from './tutor/_tutor-nav'
 // export { CurrentQuest } from './tutor/CurrentQuest'
 export { ReflectionQuestions } from './tutor/ReflectionQuestions'
+export { SubmitFeedbackSection } from './tutor/SubmitFeedbackSection'

@@ -1,8 +1,7 @@
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Header from '../components/student/_header'
-import Footer from '../components/student/_footer'
+import { StudentHeader, StudentFooter } from '@community-land-quest/shared-ui'
 
 import '../scss/index.scss'
 
@@ -17,7 +16,7 @@ const AcknowledgementsPage = () => {
                 <title>Information - Community</title>
             </Helmet>
             <main className="the-quest">
-                <Header headerText="Information" />
+                <StudentHeader headerText="Information" />
                 <section className="container" id="main">
                     <div className="row">
                         <div className="col-lg-12">
@@ -80,7 +79,7 @@ const AcknowledgementsPage = () => {
                     </div>
                 </section>
 
-                <Footer />
+                <StudentFooter />
             </main>
         </>
     )

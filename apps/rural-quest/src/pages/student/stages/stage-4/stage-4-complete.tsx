@@ -1,21 +1,23 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Link, PageProps, graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { FeedbackDisplay } from '../../../../components/common/FeedbackDisplay'
-import { FeasibilityStudy } from '../../../../components/common/stages/FeasibilityStudy'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    FeedbackDisplay,
+    FeasibilityStudy,
+} from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../../../utils/auth-utils'
-import { DOCUMENT_COMPLETE_QUERY } from '../../../../gql/queries'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { DOCUMENT_COMPLETE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     DocumentCompleteQuery,
     DocumentCompleteQueryVariables,
-} from '../../../../gql/types/DocumentCompleteQuery'
+} from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 
@@ -36,7 +38,10 @@ const Stage4CompletePage: FC<PageProps> = () => {
         loading,
         error,
         data: pageData,
-    } = useAuthQuery<DocumentCompleteQuery, DocumentCompleteQueryVariables>(
+    } = useAuthQuery<
+        DocumentCompleteQuery,
+        Omit<DocumentCompleteQueryVariables, 'team_id'>
+    >(
         DOCUMENT_COMPLETE_QUERY,
         { variables: { stage_id: 4, includeDevOptions: true } },
         'teamId'

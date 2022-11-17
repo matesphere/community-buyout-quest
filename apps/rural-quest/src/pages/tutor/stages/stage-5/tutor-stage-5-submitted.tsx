@@ -2,22 +2,6 @@ import { FC } from 'react'
 import { Link, PageProps, useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
-
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-
-import { CostOfLand } from '../../../../components/common/stages/business-plan/CostOfLand'
-import { CapitalCostsSection } from '../../../../components/common/stages/business-plan/CapitalCostsSection'
-import { RunningCostsSection } from '../../../../components/common/stages/business-plan/RunningCostsSection'
-import { CashFlowSection } from '../../../../components/common/stages/business-plan/CashFlowSection'
-import { SubmitFeedbackSection } from '../../../../components/tutor/SubmitFeedbackSection'
-
-import { useFeedbackState, ActionType } from '../../../../utils/input-utils'
-
-import TickSheet from '../../../../assets/tick-sheet.svg'
-
-import '../../../../scss/index.scss'
 import {
     Accordion,
     AccordionItem,
@@ -25,6 +9,23 @@ import {
     AccordionItemHeading,
     AccordionItemPanel,
 } from 'react-accessible-accordion'
+
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    CostOfLand,
+    CapitalCostsSection,
+    RunningCostsSection,
+    CashFlowSection,
+    SubmitFeedbackSection,
+} from '@community-land-quest/shared-ui'
+
+import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { useFeedbackState } from '@community-land-quest/shared-data/gql/hooks/feedbackState'
+
+import TickSheet from '../../../../assets/tick-sheet.svg'
+import '../../../../scss/index.scss'
 
 const TutorStage5SubmittedPage: FC<PageProps> = ({ location: { search } }) => {
     const {

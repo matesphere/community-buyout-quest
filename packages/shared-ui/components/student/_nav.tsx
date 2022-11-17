@@ -9,8 +9,8 @@ import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/
 import {
     NavQuery,
     NavQueryVariables,
-    NavQuery_team_by_pk_stage_progresses,
-} from '../../gql/types/NavQuery'
+    // NavQuery_team_by_pk_stage_progresses,
+} from '@community-land-quest/shared-data/gql/types/NavQuery'
 
 const NAV_QUERY = gql`
     query NavQuery($user_id: uuid!) {
@@ -58,7 +58,7 @@ const InformationLinks: FC<{ latestStageID: number }> = ({ latestStageID }) => (
 )
 
 const StageLinks: FC<{
-    stageProgresses: Array<NavQuery_team_by_pk_stage_progresses>
+    stageProgresses: Array<any>
 }> = ({ stageProgresses }) => (
     <div className="dropdown-content">
         {stageProgresses.map(({ stage_id, status }, i) => (

@@ -1,18 +1,18 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
 import {
-    TaskPanel,
+    Breadcrumbs,
     TaskContainer,
-} from '../../../../components/common/stages/TaskPanel'
-import '../../../../scss/index.scss'
+    TaskPanel,
+    Helpful,
+    ReadQuesty,
+    InfoBlock,
+} from '@community-land-quest/shared-ui'
 
-import { Helpful } from '../../../../components/student/Helpful'
-import { ReadQuesty } from '../../../../components/student/ReadQuesty'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
+import '../../../../scss/index.scss'
 
 const Stage7Page: FC = () => {
     const {

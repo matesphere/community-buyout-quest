@@ -1,14 +1,11 @@
-import React from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Helpful } from '../../../../components/student/Helpful'
-import { TaskTipsRenderer } from '../../../../components/student/RichTextRenderers'
+import { Breadcrumbs, Helpful } from '@community-land-quest/shared-ui'
+import { TaskTipsRenderer } from '@community-land-quest/shared-utils/utils/rich-text-renderers'
 
 import '../../../../scss/index.scss'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
 
 const Stage7TipsPage = () => {
     const {

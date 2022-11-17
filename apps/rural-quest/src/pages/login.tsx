@@ -4,23 +4,23 @@ import { gql } from '@apollo/client'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { Loading } from '../components/common/Loading'
-import { Error } from '../components/common/Error'
+import { Loading, Error } from '@community-land-quest/shared-ui'
 
-import { useAuthQuery, authComponents } from '../utils/auth-utils'
-import { UserStateContext } from '../utils/user-state'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+import {
+    LoggedInQuery,
+    LoggedInQueryVariables,
+} from '@community-land-quest/shared-data/gql/types/LoggedInQuery'
+
+import { authComponents } from '@community-land-quest/shared-utils/utils/auth-utils'
 
 import Squiggle from '../assets/squiggle.svg'
 import PinLogo from '../assets/pin-logo.svg'
 
 import '../scss/index.scss'
-
-import {
-    LoggedInQuery,
-    LoggedInQueryVariables,
-} from '../gql/types/LoggedInQuery'
-import { GatsbyImage } from 'gatsby-plugin-image'
 
 const LOGGED_IN_QUERY = gql`
     query LoggedInQuery($user_id: uuid!) {

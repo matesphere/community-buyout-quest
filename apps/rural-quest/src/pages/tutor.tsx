@@ -1,9 +1,8 @@
-import React, { useState, useContext, FC } from 'react'
+import { useState, useContext, FC } from 'react'
 import { Router, RouteComponentProps } from '@reach/router'
 import { Authenticator } from '@aws-amplify/ui-react'
 
-import Header from '../components/tutor/_header'
-import Footer from '../components/tutor/_footer'
+import { TutorHeader, TutorFooter } from '@community-land-quest/shared-ui'
 
 import Hub from './tutor/hub'
 import CurrentQuest from './tutor/current-quests'
@@ -18,10 +17,14 @@ import TutorAssessment from './tutor/assessment'
 import TutorTeamAssessment from './tutor/team-assessment'
 import TutorGuide from './tutor/tutor-guide'
 import TechnicalGuide from './tutor/technical-guide'
-import { StudentType } from '../gql/types'
 
-import { UserStateContext } from '../utils/user-state'
-import { CurrentQuestsContext, NewQuestContext } from '../utils/tutor-contexts'
+import { StudentType } from '@community-land-quest/shared-data/gql/types'
+
+import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+import {
+    CurrentQuestsContext,
+    NewQuestContext,
+} from '@community-land-quest/shared-data/contexts/tutor-contexts'
 
 type LoggedInRouteProps = RouteComponentProps & {
     component: () => string | JSX.Element
@@ -57,7 +60,7 @@ const Routes = () => {
             <CurrentQuestsContext.Provider
                 value={{ expanded, setExpanded, selectedTab, setSelectedTab }}
             >
-                <Header />
+                <TutorHeader />
                 <div className="min-height">
                     <Router basepath="/tutor">
                         <LoggedInRoute path="/hub" component={Hub} />
@@ -116,7 +119,7 @@ const Routes = () => {
                         />
                     </Router>
                 </div>
-                <Footer />
+                <TutorFooter />
             </CurrentQuestsContext.Provider>
         </NewQuestContext.Provider>
     )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FC } from 'react'
+import { useState, useEffect, FC } from 'react'
 import { MutationResult } from '@apollo/client'
 
 import SaveIcon from '../../../assets/save-icon.svg'

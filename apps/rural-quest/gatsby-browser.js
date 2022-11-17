@@ -4,7 +4,7 @@ import { client } from './src/apollo/client'
 
 import { LocationProvider } from '@reach/router'
 import { Authenticator, View } from '@aws-amplify/ui-react'
-import { UserStateProvider } from './src/utils/user-state'
+import { UserStateProvider } from '@community-land-quest/shared-data/contexts/user-state'
 
 import { Amplify, Auth } from 'aws-amplify'
 

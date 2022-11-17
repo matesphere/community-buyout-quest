@@ -1,27 +1,25 @@
-import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../../../components/student/Intro'
-import { Helpful } from '../../../../components/student/Helpful'
-import { CheckList } from '../../../../components/student/Checklist'
 import {
+    Error,
+    Loading,
+    Breadcrumbs,
+    Intro,
+    Helpful,
+    Checklist,
     TaskContainer,
     TaskPanel,
-} from '../../../../components/common/stages/TaskPanel'
-import { ReadQuesty } from '../../../../components/student/ReadQuesty'
+    ReadQuesty,
+} from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../../../utils/auth-utils'
-
-import { STAGE_QUERY } from '../../../../gql/queries'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { STAGE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     StageQuery,
     StageQueryVariables,
-} from '../../../../gql/types/StageQuery'
+} from '@community-land-quest/shared-data/gql/types/StageQuery'
 
 import HelpIcon from '../../../../assets/help-icon.svg'
 
@@ -229,7 +227,7 @@ const Stage4LandingPage = () => {
 
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>

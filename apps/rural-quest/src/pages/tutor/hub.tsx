@@ -3,15 +3,13 @@ import { Link } from 'gatsby'
 import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../components/common/Loading'
-import { Error } from '../../components/common/Error'
+import { Loading, Error } from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../utils/auth-utils'
-
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import {
     TutorHubQuery,
     TutorHubQueryVariables,
-} from '../../gql/types/TutorHubQuery'
+} from '@community-land-quest/shared-data/gql/types/TutorHubQuery'
 
 import '../../scss/index.scss'
 

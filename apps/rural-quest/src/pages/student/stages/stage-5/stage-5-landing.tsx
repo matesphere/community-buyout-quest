@@ -4,23 +4,28 @@ import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
-import { ReadQuesty } from '../../../../components/student/ReadQuesty'
-import { Helpful } from '../../../../components/student/Helpful'
-import { CheckList } from '../../../../components/student/Checklist'
-import { CostOfLand } from '../../../../components/common/stages/business-plan/CostOfLand'
-import { SaveSubmitSection } from '../../../../components/common/stages/SaveSubmitSection'
 import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    InfoBlock,
+    ReadQuesty,
+    Helpful,
+    Checklist,
+    CostOfLand,
+    SaveSubmitSection,
     TaskContainer,
     TaskPanel,
-} from '../../../../components/common/stages/TaskPanel'
+} from '@community-land-quest/shared-ui'
 
-import { useWorkState } from '../../../../utils/input-utils'
+import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
 
-import { DocumentCompleteQuery_team_by_pk_team_development_options } from '../../../../gql/types/DocumentCompleteQuery'
+import { DocumentCompleteQuery_team_by_pk_team_development_options } from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
+
+import {
+    BusinessPlanAction,
+    BusinessPlanActionType,
+} from '@community-land-quest/shared-ui/types/business-plan'
 
 import Tick from '../../../../assets/tick.svg'
 
@@ -60,37 +65,9 @@ export interface BusinessPlan {
     cashFlow: CashFlow
 }
 
-export enum ActionType {
-    Load,
-    UpdateLandCost,
-    UpdateBusinessPlan,
-}
-
 export interface WorkState {
     [key: string]: LandCost | BusinessPlan
 }
-
-export type Action =
-    | {
-          type: ActionType.Load
-          option: string
-          payload: WorkState
-      }
-    | {
-          type: ActionType.UpdateLandCost
-          payload: {
-              area?: number | ''
-              price?: number | ''
-              funder?: string
-              amountOfFunding?: number | ''
-          }
-      }
-    | {
-          type: ActionType.UpdateBusinessPlan
-          option: string
-          planSection: 'capitalCosts' | 'runningCosts' | 'cashFlow'
-          payload: CapitalCosts | RunningCosts | CashFlow
-      }
 
 interface BusinessPlanLinksProps {
     shortlist: Array<DocumentCompleteQuery_team_by_pk_team_development_options>
@@ -128,14 +105,14 @@ export const BusinessPlanLinks: FC<BusinessPlanLinksProps> = ({
     </ol>
 )
 
-export const stage5Reducer: Reducer<WorkState, Action> = (
+export const stage5Reducer: Reducer<WorkState, BusinessPlanAction> = (
     state,
     action
 ): WorkState => {
     switch (action.type) {
-        case ActionType.Load:
+        case BusinessPlanActionType.Load:
             return action.payload
-        case ActionType.UpdateLandCost:
+        case BusinessPlanActionType.UpdateLandCost:
             return {
                 ...state,
                 landCost: {
@@ -143,7 +120,7 @@ export const stage5Reducer: Reducer<WorkState, Action> = (
                     ...action.payload,
                 },
             }
-        case ActionType.UpdateBusinessPlan:
+        case BusinessPlanActionType.UpdateBusinessPlan:
             return {
                 ...state,
                 [action.option]: {
@@ -186,7 +163,7 @@ const Stage5LandingPage: FC = () => {
         submitWorkObj,
         docFeedback,
         docSubmitted,
-    } = useWorkState<WorkState, Action>(5, stage5Reducer, true)
+    } = useWorkState<WorkState, BusinessPlanAction>(5, stage5Reducer, true)
 
     if (loading) return <Loading />
     if (error || !pageData)
@@ -288,7 +265,7 @@ const Stage5LandingPage: FC = () => {
                         </div>
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                         <Link to="/student/team-hub">Back to Team Hub</Link>
                     </div>

@@ -12,9 +12,7 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-import { Loading } from '../../components/common/Loading'
-import { Error } from '../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
+import { Loading, Error, Breadcrumbs } from '@community-land-quest/shared-ui'
 import {
     LockedStageStatus,
     UnlockedStageStatus,
@@ -25,19 +23,18 @@ import {
     DocumentlessSubmittedStageStatus,
     FailedStageStatus,
     CompletedStageStatus,
-} from '../../components/tutor/CurrentQuest'
+} from '@community-land-quest/shared-ui/components/tutor/CurrentQuest'
 
-import { useAuthQuery } from '../../utils/auth-utils'
-import { POSITION_DISPLAY_NAME } from '../../utils/common-utils'
-
-import { TUTOR_PREVIOUS_QUEST_QUERY } from '../../gql/queries'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
+import { TUTOR_PREVIOUS_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
 
 import {
     TutorPreviousQuestQuery,
     TutorPreviousQuestQueryVariables,
     TutorPreviousQuestQuery_quest_by_pk_teams_team_development_options,
     TutorPreviousQuestQuery_quest_by_pk_teams_students,
-} from '../../gql/types/TutorPreviousQuestQuery'
+} from '@community-land-quest/shared-data/gql/types/TutorPreviousQuestQuery'
 
 import Tick from '../../assets/tick.svg'
 

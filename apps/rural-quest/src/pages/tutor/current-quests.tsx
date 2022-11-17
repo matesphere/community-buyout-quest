@@ -13,9 +13,12 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-import { Loading } from '../../components/common/Loading'
-import { Error } from '../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    ReflectionQuestions,
+} from '@community-land-quest/shared-ui'
 import {
     LockedStageStatus,
     UnlockedStageStatus,
@@ -26,21 +29,19 @@ import {
     DocumentlessSubmittedStageStatus,
     FailedStageStatus,
     CompletedStageStatus,
-} from '../../components/tutor/CurrentQuest'
-import { ReflectionQuestions } from '../../components/tutor/ReflectionQuestions'
+} from '@community-land-quest/shared-ui/components/tutor/CurrentQuest'
 
-import { useAuthQuery } from '../../utils/auth-utils'
-import { POSITION_DISPLAY_NAME } from '../../utils/common-utils'
-import { CurrentQuestsContext } from '../../utils/tutor-contexts'
-
-import { TUTOR_CURRENT_QUEST_QUERY } from '../../gql/queries'
-
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { CurrentQuestsContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
+import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     TutorCurrentQuestQuery,
     TutorCurrentQuestQueryVariables,
     TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_team_development_options,
     TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_students,
-} from '../../gql/types/TutorCurrentQuestQuery'
+} from '@community-land-quest/shared-data/gql/types/TutorCurrentQuestQuery'
+
+import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 
 import Tick from '../../assets/tick.svg'
 

@@ -4,14 +4,14 @@ export interface WorkState {
     [key: string]: LandCost | BusinessPlan
 }
 
-export type Action =
+export type BusinessPlanAction =
     | {
-          type: ActionType.Load
+          type: BusinessPlanActionType.Load
           option: string
           payload: WorkState
       }
     | {
-          type: ActionType.UpdateLandCost
+          type: BusinessPlanActionType.UpdateLandCost
           payload: {
               area?: number | ''
               price?: number | ''
@@ -20,7 +20,7 @@ export type Action =
           }
       }
     | {
-          type: ActionType.UpdateBusinessPlan
+          type: BusinessPlanActionType.UpdateBusinessPlan
           option: string
           planSection: 'capitalCosts' | 'runningCosts' | 'cashFlow'
           payload: CapitalCosts | RunningCosts | CashFlow
@@ -60,7 +60,7 @@ export interface BusinessPlan {
     cashFlow: CashFlow
 }
 
-export enum ActionType {
+export enum BusinessPlanActionType {
     Load,
     UpdateLandCost,
     UpdateBusinessPlan,
@@ -72,7 +72,7 @@ export interface SectionProps {
         display_name: string
     }
     workState: WorkState
-    workDispatch?: React.Dispatch<Action>
+    workDispatch?: React.Dispatch<BusinessPlanAction>
     docSubmitted: boolean
     questionText?: { raw: RichTextContent }
 }

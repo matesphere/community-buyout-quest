@@ -3,17 +3,20 @@ import { useStaticQuery, graphql, Link, PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { SubmitFeedbackSection } from '../../../../components/tutor/SubmitFeedbackSection'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    SubmitFeedbackSection,
+    InfoBlock,
+} from '@community-land-quest/shared-ui'
 
-import { useFeedbackState, ActionType } from '../../../../utils/input-utils'
+import { useFeedbackState } from '@community-land-quest/shared-data/gql/hooks/feedbackState'
+import { ActionType } from '@community-land-quest/shared-data/gql/types'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 
 import '../../../../scss/index.scss'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
 
 const TutorStage1SubmittedPage: FC<PageProps> = ({ location: { search } }) => {
     const {

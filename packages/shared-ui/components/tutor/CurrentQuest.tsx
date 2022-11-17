@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'gatsby'
 
-import { useAuthMutation } from '../../utils/auth-utils'
+import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
 import { useUnlockStageWithCurrentQuestRefetch } from '@community-land-quest/shared-data/gql/hooks/tutor/unlockStage'
 import {
     MARK_PASSED,
@@ -9,14 +9,17 @@ import {
     COMPLETE_STAGE,
     SAVE_WORK_INITIAL,
     SAVE_WORK,
-} from '../../gql/mutations'
+} from '@community-land-quest/shared-data/gql/mutations'
 
-import { TUTOR_CURRENT_QUEST_QUERY } from '../../gql/queries'
+import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     SaveWorkInitial,
     SaveWorkInitialVariables,
-} from '../../gql/types/SaveWorkInitial'
-import { SaveWork, SaveWorkVariables } from '../../gql/types/SaveWork'
+} from '@community-land-quest/shared-data/gql/types/SaveWorkInitial'
+import {
+    SaveWork,
+    SaveWorkVariables,
+} from '@community-land-quest/shared-data/gql/types/SaveWork'
 
 import Lock from '../../assets/lock.svg'
 import Tick from '../../assets/tick.svg'

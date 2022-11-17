@@ -10,14 +10,18 @@ import {
     AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { SWOT } from '../../../../components/common/stages/SWOT'
-import { SubmitFeedbackSection } from '../../../../components/tutor/SubmitFeedbackSection'
-import TickSheet from '../../../../assets/tick-sheet.svg'
-import { useFeedbackState, ActionType } from '../../../../utils/input-utils'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    SWOT,
+    SubmitFeedbackSection,
+} from '@community-land-quest/shared-ui'
 
+import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { useFeedbackState } from '@community-land-quest/shared-data/gql/hooks/feedbackState'
+
+import TickSheet from '../../../../assets/tick-sheet.svg'
 import '../../../../scss/index.scss'
 
 const TutorStage3SubmittedPage: FC<PageProps> = ({ location: { search } }) => {

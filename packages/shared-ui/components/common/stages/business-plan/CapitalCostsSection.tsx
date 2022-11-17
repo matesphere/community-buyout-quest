@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import {
-    ActionType,
+    BusinessPlanActionType,
     BusinessPlan,
     CapitalCosts,
     SectionProps,
@@ -53,7 +53,7 @@ export const CapitalCostsSection: FC<SectionProps> = ({
                                               })
 
                                               workDispatch({
-                                                  type: ActionType.UpdateBusinessPlan,
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
                                                   option,
                                                   planSection: 'capitalCosts',
                                                   payload: {
@@ -97,7 +97,7 @@ export const CapitalCostsSection: FC<SectionProps> = ({
                                               })
 
                                               workDispatch({
-                                                  type: ActionType.UpdateBusinessPlan,
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
                                                   option,
                                                   planSection: 'capitalCosts',
                                                   payload: {
@@ -159,7 +159,7 @@ export const CapitalCostsSection: FC<SectionProps> = ({
                                                   })
 
                                                   workDispatch({
-                                                      type: ActionType.UpdateBusinessPlan,
+                                                      type: BusinessPlanActionType.UpdateBusinessPlan,
                                                       option,
                                                       planSection:
                                                           'capitalCosts',
@@ -207,7 +207,7 @@ export const CapitalCostsSection: FC<SectionProps> = ({
                                                   })
 
                                                   workDispatch({
-                                                      type: ActionType.UpdateBusinessPlan,
+                                                      type: BusinessPlanActionType.UpdateBusinessPlan,
                                                       option,
                                                       planSection:
                                                           'capitalCosts',

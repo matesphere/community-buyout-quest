@@ -3,11 +3,10 @@ import { PageProps } from 'gatsby'
 import { Router, RouteComponentProps } from '@reach/router'
 import { Authenticator } from '@aws-amplify/ui-react'
 
+import { StudentHeader, StudentFooter } from '@community-land-quest/shared-ui'
 import TeamHub from './student/team-hub'
-import Information from './student/information'
 
-import Header from '../components/student/_header'
-import Footer from '../components/student/_footer'
+import Information from './student/information'
 
 import Stage1Landing from './student/stages/stage-1/stage-1-landing'
 import Stage1Task from './student/stages/stage-1/stage-1-task'
@@ -42,8 +41,8 @@ import Stage7PresentationTips from './student/stages/stage-7/stage-7-presentatio
 import Stage8Landing from './student/stages/stage-8/stage-8-landing'
 import Stage8Task from './student/stages/stage-8/stage-8-task'
 
-import { UserStateContext } from '../utils/user-state'
-import { authComponents } from '../utils/auth-utils'
+import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+import { authComponents } from '@community-land-quest/shared-utils/utils/auth-utils'
 
 import '@aws-amplify/ui-react/styles.css'
 
@@ -83,7 +82,7 @@ const LoggedInRoute: FC<LoggedInRouteProps> = ({
 const Routes = () => {
     return (
         <>
-            <Header />
+            <StudentHeader />
             <div className="min-height">
                 <Router basepath="/student">
                     <LoggedInRoute path="/team-hub" component={TeamHub} />
@@ -226,7 +225,7 @@ const Routes = () => {
                     />
                 </Router>
             </div>
-            <Footer />
+            <StudentFooter />
         </>
     )
 }

@@ -1,12 +1,12 @@
-import { useAuthMutation } from '../../../utils/auth-utils'
-import { UNLOCK_STAGE } from '../../../gql/mutations'
-import { TUTOR_CURRENT_QUEST_QUERY } from '../../../gql/queries'
-import Lock from '../../../assets/lock.svg'
-
+import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
+import { UNLOCK_STAGE } from '@community-land-quest/shared-data/gql/mutations'
+import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     UnlockStage,
     UnlockStageVariables,
-} from '../../../gql/types/UnlockStage'
+} from '@community-land-quest/shared-data/gql/types/UnlockStage'
+
+import Lock from '../../../assets/lock.svg'
 
 export const LockedStageStatus = ({ mutation }) => (
     <div>
