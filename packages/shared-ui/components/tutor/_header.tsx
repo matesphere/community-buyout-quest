@@ -35,15 +35,15 @@ export const TutorHeader = ({
     headerText?: string
     hideLinks?: boolean
 }) => {
-    const data = useStaticQuery(graphql`
-        query {
-            file(relativePath: { eq: "logo.jpg" }) {
-                childImageSharp {
-                    gatsbyImageData(layout: CONSTRAINED)
-                }
-            }
-        }
-    `)
+    // const data = useStaticQuery(graphql`
+    //     query {
+    //         file(relativePath: { eq: "logo.jpg" }) {
+    //             childImageSharp {
+    //                 gatsbyImageData(layout: CONSTRAINED)
+    //             }
+    //         }
+    //     }
+    // `)
 
     return (
         <Location>
@@ -77,13 +77,13 @@ export const TutorHeader = ({
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="cls-logo">
-                                        <GatsbyImage
+                                        {/* <GatsbyImage
                                             alt=""
                                             image={
                                                 data.file.childImageSharp
                                                     .gatsbyImageData
                                             }
-                                        />
+                                        /> */}
                                     </div>
                                 </div>
                             </div>
