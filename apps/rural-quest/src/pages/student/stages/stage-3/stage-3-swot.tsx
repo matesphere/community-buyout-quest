@@ -1,15 +1,18 @@
-import React, { Reducer, FC } from 'react'
+import { Reducer, FC } from 'react'
 import { Link, PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import QueryString from 'query-string'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { SWOT } from '../../../../components/common/stages/SWOT'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    SWOT,
+} from '@community-land-quest/shared-ui'
 
-import { useWorkState, ActionType } from '../../../../utils/input-utils'
+import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
+import { ActionType } from '@community-land-quest/shared-data/gql/types'
 
 import '../../../../scss/index.scss'
 

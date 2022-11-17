@@ -1,12 +1,15 @@
-import React, { useContext, FC } from 'react'
+import { useContext, FC } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { UserStateContext } from '../../utils/user-state'
 
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../components/student/Intro'
-import { InfoBlock } from '../../components/student/InfoBlock'
-import { Helpful } from '../../components/student/Helpful'
+import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+
+import {
+    Breadcrumbs,
+    Intro,
+    InfoBlock,
+    Helpful,
+} from '@community-land-quest/shared-ui'
 
 import '../../scss/index.scss'
 

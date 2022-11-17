@@ -1,28 +1,26 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { CheckList } from '../../../../components/student/Checklist'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { ReadQuesty } from '../../../../components/student/ReadQuesty'
 import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    Checklist,
+    ReadQuesty,
     TaskPanel,
     TaskContainer,
-} from '../../../../components/common/stages/TaskPanel'
+} from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../../../utils/auth-utils'
-
-import { STAGE_QUERY } from '../../../../gql/queries'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { STAGE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     StageQuery,
     StageQueryVariables,
-} from '../../../../gql/types/StageQuery'
+} from '@community-land-quest/shared-data/gql/types/StageQuery'
 
 import Video from '../../../../assets/the-quest-intro.mp4'
-
 import '../../../../scss/index.scss'
 
 const Stage1LandingPage: FC = () => {
@@ -108,7 +106,7 @@ const Stage1LandingPage: FC = () => {
                         </div>
 
                         <div className="col-lg-3">
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>

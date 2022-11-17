@@ -3,6 +3,9 @@
   "description": "CLQ Monorepo",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "gen-schema": "rimraf packages/shared-data/gql/types && apollo client:codegen --endpoint=\"https://clq.beanmate.coffee/v1/graphql\" --no-addTypename --outputFlat --tagName=gql --target=typescript packages/shared-data/gql/types --header=\"X-Hasura-Access-Key: community-land\""
+  },
   "devDependencies": {
     "lerna": "^6.0.3"
   }

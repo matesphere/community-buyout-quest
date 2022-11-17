@@ -16,6 +16,7 @@ export { RunningCostsSection } from './common/stages/business-plan/RunningCostsS
 export { FeasibilityStudy } from './common/stages/FeasibilityStudy'
 export { SaveSubmitSection } from './common/stages/SaveSubmitSection'
 export { SWOT } from './common/stages/SWOT'
+export { TaskPanel, TaskContainer } from './common/stages/TaskPanel'
 
 // student
 export { Header as StudentHeader } from './student/_header'

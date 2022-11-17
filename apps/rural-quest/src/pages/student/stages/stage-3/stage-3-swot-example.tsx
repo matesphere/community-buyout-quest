@@ -1,30 +1,31 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Link, PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import QueryString from 'query-string'
 import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { SWOT } from '../../../../components/common/stages/SWOT'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    SWOT,
+} from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../../../utils/auth-utils'
-
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import {
     SwotExampleQuery,
     SwotExampleQueryVariables,
-} from '../../../../gql/types/SwotExampleQuery'
+} from '@community-land-quest/shared-data/gql/types/SwotExampleQuery'
 
 import '../../../../scss/index.scss'
 
-interface SwotType {
-    strengths: string
-    weaknesses: string
-    opportunities: string
-    threats: string
-}
+// interface SwotType {
+//     strengths: string
+//     weaknesses: string
+//     opportunities: string
+//     threats: string
+// }
 
 const SWOT_EXAMPLE_QUERY = gql`
     query SwotExampleQuery($team_id: uuid!) {

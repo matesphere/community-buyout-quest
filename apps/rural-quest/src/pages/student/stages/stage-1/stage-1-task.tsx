@@ -1,23 +1,24 @@
-import React, { Reducer } from 'react'
+import { Reducer } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../../../components/student/Intro'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
-import { TextEditor } from '../../../../components/common/TextEditor'
 import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    Intro,
+    InfoBlock,
+    TextEditor,
     TaskPanel,
     TaskContainer,
-} from '../../../../components/common/stages/TaskPanel'
-import { SaveSubmitSection } from '../../../../components/common/stages/SaveSubmitSection'
-import { Helpful } from '../../../../components/student/Helpful'
-import { CheckList } from '../../../../components/student/Checklist'
+    SaveSubmitSection,
+    Helpful,
+    Checklist,
+} from '@community-land-quest/shared-ui'
 
-import { useWorkState, ActionType } from '../../../../utils/input-utils'
+import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
+import { ActionType } from '@community-land-quest/shared-data/gql/types'
 
 import HelpIcon from '../../../../assets/help-icon.svg'
 
@@ -214,7 +215,7 @@ const Stage1TaskPage = () => {
 
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                 </section>

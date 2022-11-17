@@ -10,7 +10,6 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "gen-schema": "rimraf src/gql/types && apollo client:codegen --endpoint=\"https://clq.beanmate.coffee/v1/graphql\" --no-addTypename --outputFlat --tagName=gql --target=typescript src/gql/types --header=\"X-Hasura-Access-Key: community-land\"",
     "test": "jest"
   },
   "dependencies": {
@@ -19,6 +18,7 @@
     "@aws-amplify/ui-react": "^3.5.11",
     "@ckeditor/ckeditor5-build-classic": "^35.2.1",
     "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@community-land-quest/shared-data": "^1.0.0",
     "@community-land-quest/shared-ui": "^1.0.0",
     "@community-land-quest/shared-utils": "^1.0.0",
     "@graphcms/rich-text-react-renderer": "^0.6.1",

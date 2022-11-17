@@ -1,16 +1,17 @@
-import React, { FC, useContext, useEffect } from 'react'
+import { FC, useContext, useEffect } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../components/common/Loading'
-import { Error } from '../../components/common/Error'
+import { Loading, Error } from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../utils/auth-utils'
-import { POSITION_DISPLAY_NAME } from '../../utils/common-utils'
-import { UserStateContext } from '../../utils/user-state'
+// TODO: shared-data
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+
+import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 
 import {
     TeamHubQuery,

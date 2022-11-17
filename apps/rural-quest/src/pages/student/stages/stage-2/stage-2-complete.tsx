@@ -1,19 +1,18 @@
-import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
+import { Loading, Error, Breadcrumbs } from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../../../utils/auth-utils'
-import { TEAM_QUERY } from '../../../../gql/queries'
-import { TeamQuery, TeamQueryVariables } from '../../../../gql/types/TeamQuery'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { TEAM_QUERY } from '@community-land-quest/shared-data/gql/queries'
+import {
+    TeamQuery,
+    TeamQueryVariables,
+} from '@community-land-quest/shared-data/gql/types/TeamQuery'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
-
 import '../../../../scss/index.scss'
 
 const positions = [

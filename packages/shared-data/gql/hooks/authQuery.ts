@@ -3,6 +3,8 @@ import { useQuery, DocumentNode, QueryHookOptions } from '@apollo/client'
 
 import { UserStateContext } from '../../contexts/user-state'
 
+type QueryProps<TVariables> = TVariables & { userId?: string, teamId?: string }
+
 export const useAuthQuery = <TData, TVariables>(
     query: DocumentNode,
     options: QueryHookOptions<TData, TVariables>,
@@ -18,7 +20,13 @@ export const useAuthQuery = <TData, TVariables>(
         refreshToken()
     }
 
+    // TODO: this is stupid, TS should definitely be able to do this
+
     let variables = options?.variables || null
+
+    // if (options && options.variables) {
+    //     variables = options.variables
+    // }
 
     if (idRequired === 'userId') {
         variables = { ...variables, user_id: userId }
@@ -28,7 +36,7 @@ export const useAuthQuery = <TData, TVariables>(
         variables = { ...variables, team_id: teamId }
     }
 
-    const queryProps = useQuery<TData, TVariables>(query, {
+    const queryProps = useQuery<TData, QueryProps<TVariables>>(query, {
         ...options,
         variables,
         context: {

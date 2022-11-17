@@ -1,28 +1,26 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 // import scrollTo from 'gatsby-plugin-smoothscroll'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { ReadQuesty } from '../../../../components/student/ReadQuesty'
-import { Intro } from '../../../../components/student/Intro'
-import MapOptions from '../../../../pages/information/_map'
-import { InfoLink } from '../../../../components/student/InfoLink'
 import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    ReadQuesty,
+    Intro,
+    InfoLink,
     TaskContainer,
     TaskPanel,
-} from '../../../../components/common/stages/TaskPanel'
-import { CheckList } from '../../../../components/student/Checklist'
-import { Helpful } from '../../../../components/student/Helpful'
-import { SaveSubmitSection } from '../../../../components/common/stages/SaveSubmitSection'
-
+    Checklist,
+    Helpful,
+    SaveSubmitSection,
+} from '@community-land-quest/shared-ui'
 import { stage3SwotReducer, WorkState, Action } from './stage-3-swot'
-import { useWorkState } from '../../../../utils/input-utils'
 
-import { DocumentCompleteQuery_team_by_pk_team_development_options } from '../../../../gql/types/DocumentCompleteQuery'
+import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
+import { DocumentCompleteQuery_team_by_pk_team_development_options } from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
 
 import Tick from '../../../../assets/tick.svg'
 import HelpIcon from '../../../../assets/help-icon.svg'
@@ -220,7 +218,7 @@ const Stage3LandingPage: FC = () => {
                         </div>
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>

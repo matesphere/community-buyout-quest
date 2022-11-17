@@ -1,29 +1,29 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { ReadQuesty } from '../../../../components/student/ReadQuesty'
-import { CheckList } from '../../../../components/student/Checklist'
-import { Helpful } from '../../../../components/student/Helpful'
 import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    ReadQuesty,
+    Checklist,
+    Helpful,
     TaskPanel,
     TaskContainer,
-} from '../../../../components/common/stages/TaskPanel'
-import { StageInfoRenderer } from '../../../../components/student/RichTextRenderers'
+} from '@community-land-quest/shared-ui'
 
-import { useAuthQuery } from '../../../../utils/auth-utils'
-
-import { STAGE_QUERY } from '../../../../gql/queries'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { STAGE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     StageQuery,
     StageQueryVariables,
-} from '../../../../gql/types/StageQuery'
+} from '@community-land-quest/shared-data/gql/types/StageQuery'
+
+import { StageInfoRenderer } from '@community-land-quest/shared-utils/utils/rich-text-renderers'
 
 import '../../../../scss/index.scss'
 
@@ -55,7 +55,7 @@ const Stage2LandingPage: FC = () => {
         loading,
         error,
         data: pageData,
-    } = useAuthQuery<StageQuery, StageQueryVariables>(
+    } = useAuthQuery<StageQuery, Omit<StageQueryVariables, 'team_id'>>(
         STAGE_QUERY,
         {
             variables: { stage_id: 2, includeDevOptions: false },
@@ -125,7 +125,7 @@ const Stage2LandingPage: FC = () => {
 
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo?.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>

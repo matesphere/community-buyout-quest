@@ -1,21 +1,23 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Link, PageProps, graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
+import {
+    Loading,
+    Error,
+    Breadcrumbs,
+    FeedbackDisplay,
+} from '@community-land-quest/shared-ui'
 import { SwotLinks } from './stage-3-landing'
-import { FeedbackDisplay } from '../../../../components/common/FeedbackDisplay'
 
-import { useAuthQuery } from '../../../../utils/auth-utils'
-import { DOCUMENT_COMPLETE_QUERY } from '../../../../gql/queries'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { DOCUMENT_COMPLETE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     DocumentCompleteQuery,
     DocumentCompleteQueryVariables,
-} from '../../../../gql/types/DocumentCompleteQuery'
+} from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 

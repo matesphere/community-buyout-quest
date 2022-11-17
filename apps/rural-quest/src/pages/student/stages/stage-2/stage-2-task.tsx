@@ -1,32 +1,33 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { gql, ApolloError } from '@apollo/client'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { Loading } from '../../../../components/common/Loading'
-import { Error } from '../../../../components/common/Error'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { InfoBlock } from '../../../../components/student/InfoBlock'
 import {
-    TaskContainer,
+    Loading,
+    Error,
+    Breadcrumbs,
+    InfoBlock,
     TaskPanel,
-} from '../../../../components/common/stages/TaskPanel'
-import { Helpful } from '../../../../components/student/Helpful'
-import { CheckList } from '../../../../components/student/Checklist'
-import { SaveSubmitSection } from '../../../../components/common/stages/SaveSubmitSection'
+    TaskContainer,
+    Helpful,
+    Checklist,
+    SaveSubmitSection,
+} from '@community-land-quest/shared-ui'
 
-import { useAuthQuery, useAuthMutation } from '../../../../utils/auth-utils'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
 
-import { SET_TEAM_POSITIONS_AND_LOGO } from '../../../../gql/mutations'
+import { SET_TEAM_POSITIONS_AND_LOGO } from '@community-land-quest/shared-data/gql/mutations'
 import {
     SetTeamPositions,
     SetTeamPositionsVariables,
-} from '../../../../gql/types/SetTeamPositions'
+} from '@community-land-quest/shared-data/gql/types/SetTeamPositions'
 import {
     Stage2TaskQuery,
     Stage2TaskQueryVariables,
-} from '../../../../gql/types/Stage2TaskQuery'
+} from '@community-land-quest/shared-data/gql/types/Stage2TaskQuery'
 
 import Tick from '../../../../assets/tick.svg'
 
@@ -379,7 +380,7 @@ const Stage2TaskPage = () => {
                         </div>
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                 </section>
