@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { useMutation, DocumentNode, BaseMutationOptions } from '@apollo/client'
-import { useLogging } from '@community-land-quest/shared-utils/common-utils'
+import { useLogging } from '@community-land-quest/shared-utils/utils/common-utils'
 
 import { UserStateContext } from '../../contexts/user-state'
 

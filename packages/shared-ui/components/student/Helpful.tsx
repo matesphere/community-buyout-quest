@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { HelpfulInfoRenderer } from '../../components/student/RichTextRenderers'
+import { HelpfulInfoRenderer } from '../../../shared-utils/utils/rich-text-renderers'
 import { RichTextContent } from '@graphcms/rich-text-types'
 import HelpIcon from '../../assets/help-icon.svg'
 

@@ -1,16 +1,16 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import Header from '../../components/student/_header'
-import Footer from '../../components/student/_footer'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../components/student/Intro'
-import { InfoBlock } from '../../components/student/InfoBlock'
-import { Helpful } from '../../components/student/Helpful'
-import { Image } from '../../components/common/Image'
-
-// import { AboutSWOTQuery } from '../../gql/types/'
+import {
+    StudentHeader,
+    StudentFooter,
+    Breadcrumbs,
+    Intro,
+    InfoBlock,
+    Helpful,
+    Image,
+} from '@community-land-quest/shared-ui'
 
 import '../../scss/index.scss'
 
@@ -28,7 +28,7 @@ const AboutSwotPage: FC = ({
             <title>Information - About SWOT</title>
         </Helmet>
         <main className="the-quest">
-            <Header headerText="Information" />
+            <StudentHeader headerText="Information" />
             <section className="container" id="main">
                 <div className="row">
                     <div className="col-lg-9">
@@ -64,7 +64,7 @@ const AboutSwotPage: FC = ({
                 </div>
             </section>
 
-            <Footer />
+            <StudentFooter />
         </main>
     </>
 )

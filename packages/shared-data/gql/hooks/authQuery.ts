@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { useQuery, DocumentNode, QueryHookOptions } from '@apollo/client'
 
-import { UserStateContext } from './user-state'
+import { UserStateContext } from '../../contexts/user-state'
 
 export const useAuthQuery = <TData, TVariables>(
     query: DocumentNode,

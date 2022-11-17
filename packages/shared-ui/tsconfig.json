@@ -13,5 +13,9 @@
         "noUnusedParameters": true,
         "removeComments": false
     },
-    "include": ["./components/**/*", "./layouts/**/*"]
+    "include": [
+        "./components/**/*",
+        "./layouts/**/*",
+        "../shared-utils/utils/rich-text-renderers.tsx"
+    ]
 }

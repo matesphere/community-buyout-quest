@@ -20,6 +20,7 @@
     "@ckeditor/ckeditor5-build-classic": "^35.2.1",
     "@ckeditor/ckeditor5-react": "^5.0.2",
     "@community-land-quest/shared-ui": "^1.0.0",
+    "@community-land-quest/shared-utils": "^1.0.0",
     "@graphcms/rich-text-react-renderer": "^0.6.1",
     "@reach/router": "^1.3.4",
     "amazon-cognito-auth-js": "^1.3.3",

@@ -5,7 +5,11 @@
     "author": "David Carter <dccarta@gmail.com>",
     "devDependencies": {
         "@apollo/client": "^3.3.13",
+        "@graphcms/rich-text-types": "^0.5.0",
         "@types/react": "^18.0.25",
         "@types/react-dom": "^18.0.8"
+    },
+    "dependencies": {
+        "@graphcms/rich-text-react-renderer": "^0.6.1"
     }
 }

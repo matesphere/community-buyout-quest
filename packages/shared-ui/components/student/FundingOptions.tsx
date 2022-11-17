@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { RichTextContent } from '@graphcms/rich-text-react-renderer/node_modules/@graphcms/rich-text-types'
-import { FundingOptionsRenderer } from '../../components/student/RichTextRenderers'
+import { FundingOptionsRenderer } from '../../../shared-utils/utils/rich-text-renderers'
 
 import HelpIcon from '../../assets/help-icon.svg'
 

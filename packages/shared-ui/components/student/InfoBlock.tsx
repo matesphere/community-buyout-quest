@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { RichText } from '@graphcms/rich-text-react-renderer'
 import { RichTextContent } from '@graphcms/rich-text-react-renderer/node_modules/@graphcms/rich-text-types'
 
-import { renderGatsbyLinks } from '../../components/student/RichTextRenderers'
+import { renderGatsbyLinks } from '../../../shared-utils/utils/rich-text-renderers'
 
 interface InfoBlockProps {
     items: Array<{ raw: RichTextContent }>

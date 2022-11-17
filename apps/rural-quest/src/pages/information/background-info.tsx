@@ -2,12 +2,14 @@ import { FC } from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import Header from '../../components/student/_header'
-import Footer from '../../components/student/_footer'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../components/student/Intro'
-import { InfoBlock } from '../../components/student/InfoBlock'
-import { Helpful } from '../../components/student/Helpful'
+import {
+    StudentHeader,
+    StudentFooter,
+    Breadcrumbs,
+    Helpful,
+    Intro,
+    InfoBlock,
+} from '@community-land-quest/shared-ui'
 
 import '../../scss/index.scss'
 
@@ -22,7 +24,7 @@ const BackgroundInformationPage: FC = ({ data }) => (
         </Helmet>
 
         <main className="the-quest">
-            <Header headerText="Information" />
+            <StudentHeader headerText="Information" />
             <section className="container" id="main">
                 <div className="row">
                     <div className="col-lg-9">
@@ -56,7 +58,7 @@ const BackgroundInformationPage: FC = ({ data }) => (
                     <div className="col-lg-12"></div>
                 </div>
             </section>
-            <Footer />
+            <StudentFooter />
         </main>
     </>
 )

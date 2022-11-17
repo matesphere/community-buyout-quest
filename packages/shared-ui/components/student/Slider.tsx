@@ -1,6 +1,6 @@
 import Slider from 'react-slick'
 
-import { DevOpsRenderer } from '../../components/student/RichTextRenderers'
+import { DevOpsRenderer } from '../../../shared-utils/utils/rich-text-renderers'
 import { slickSettings } from '../../utils/slicksettings'
 
 interface SliderProps {

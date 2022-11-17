@@ -1,17 +1,18 @@
-import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import Header from '../../components/student/_header'
-import Footer from '../../components/student/_footer'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Helpful } from '../../components/student/Helpful'
-import { CheckList } from '../../components/student/Checklist'
-import { SliderM } from '../../components/student/Slider'
-import { InfoBlock } from '../../components/student/InfoBlock'
+import {
+    StudentHeader,
+    StudentFooter,
+    Breadcrumbs,
+    Helpful,
+    Checklist,
+    Intro,
+    InfoBlock,
+    Slider,
+} from '@community-land-quest/shared-ui'
 
 import '../../scss/index.scss'
-import { Intro } from '../../components/student/Intro'
 
 const Stage2TaskPage = ({
     data: {
@@ -36,7 +37,7 @@ const Stage2TaskPage = ({
             </Helmet>
 
             <main className="the-quest">
-                <Header headerText="Information" />
+                <StudentHeader headerText="Information" />
 
                 <section className="container" id="main">
                     <div className="row">
@@ -63,16 +64,16 @@ const Stage2TaskPage = ({
 
                             <InfoBlock items={infoBlock} />
 
-                            <SliderM items={slider} />
+                            <Slider items={slider} />
                         </div>
                         <div className="col-lg-3">
                             <Helpful content={helpfulInfo.info} />
-                            <CheckList items={checklist.item} />
+                            <Checklist items={checklist.item} />
                         </div>
                     </div>
                 </section>
 
-                <Footer />
+                <StudentFooter />
             </main>
         </>
     )

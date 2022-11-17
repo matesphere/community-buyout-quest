@@ -1,12 +1,14 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import SmallHeader from '../../components/common/_small-header'
-import { Intro } from '../../components/student/Intro'
-import { InfoBlock } from '../../components/student/InfoBlock'
-import { Helpful } from '../../components/student/Helpful'
-import { Image } from '../../components/common/Image'
+import {
+    SmallHeader,
+    Intro,
+    InfoBlock,
+    Helpful,
+    Image,
+} from '@community-land-quest/shared-ui'
 
 import '../../scss/index.scss'
 

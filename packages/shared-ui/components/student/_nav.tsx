@@ -2,10 +2,9 @@ import { useState, useContext, FC } from 'react'
 import { Link } from 'gatsby'
 import { gql } from '@apollo/client'
 
-import { POSITION_DISPLAY_NAME } from '../../utils/common-utils'
-
-import { useAuthQuery } from '../../utils/auth-utils'
-import { UserStateContext } from '../../utils/user-state'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 
 import {
     NavQuery,

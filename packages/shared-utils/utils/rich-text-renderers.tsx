@@ -1,15 +1,17 @@
 import { Fragment } from 'react'
 import { Link } from 'gatsby'
-import { RichText } from '@graphcms/rich-text-react-renderer'
-
 import {
+    RichText,
     RichTextProps,
     LinkRendererProps,
+} from '@graphcms/rich-text-react-renderer'
+
+import {
     ElementNode,
     isElement,
     isText,
     Text,
-} from '@graphcms/rich-text-types'
+} from '@graphcms/rich-text-types/dist'
 
 const elementIsEmpty = ({ content }: { content: (ElementNode | Text)[] }) => {
     // Checks if the children array has more than one element.

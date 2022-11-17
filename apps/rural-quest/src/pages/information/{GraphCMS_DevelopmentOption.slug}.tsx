@@ -1,15 +1,17 @@
-import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
 import SVG from 'react-inlinesvg'
-import Header from '../../components/student/_header'
-import Footer from '../../components/student/_footer'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { ReadQuesty } from '../../components/student/ReadQuesty'
-import { FundingOptions } from '../../components/student/FundingOptions'
-import { CheckList } from '../../components/student/Checklist'
-import { DevOpsRenderer } from '../../components/student/RichTextRenderers'
+import {
+    StudentHeader,
+    StudentFooter,
+    Breadcrumbs,
+    ReadQuesty,
+    FundingOptions,
+    Checklist,
+} from '@community-land-quest/shared-ui'
+
+import { DevOpsRenderer } from '@community-land-quest/shared-utils/utils/rich-text-renderers'
 
 import '../../scss/index.scss'
 
@@ -36,7 +38,7 @@ const InfoPlaySkate = ({
         </Helmet>
 
         <main className="the-quest">
-            <Header headerText="Information" />
+            <StudentHeader headerText="Information" />
 
             <section className="container" id="main">
                 <div className="row">
@@ -92,12 +94,12 @@ const InfoPlaySkate = ({
                     </div>
 
                     <div className="col-lg-4">
-                        {checklist && <CheckList items={checklist.item} />}
+                        {checklist && <Checklist items={checklist.item} />}
                     </div>
                 </div>
             </section>
 
-            <Footer />
+            <StudentFooter />
         </main>
     </>
 )

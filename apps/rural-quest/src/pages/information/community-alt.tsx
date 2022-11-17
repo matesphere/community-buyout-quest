@@ -1,12 +1,12 @@
-import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import SmallHeader from '../../components/common/_small-header'
-import { Breadcrumbs } from '@community-land-quest/shared-ui'
-import { Intro } from '../../components/student/Intro'
-import { SliderM } from '../../components/student/Slider'
-import { Helpful } from '../../components/student/Helpful'
+import {
+    SmallHeader,
+    Helpful,
+    Intro,
+    Slider,
+} from '@community-land-quest/shared-ui'
 
 import '../../scss/index.scss'
 
@@ -37,7 +37,7 @@ const InfoCommunityPage = ({
 
                             <Intro item={intro} />
 
-                            <SliderM items={slider} />
+                            <Slider items={slider} />
                         </div>
 
                         <div className="col-lg-3">

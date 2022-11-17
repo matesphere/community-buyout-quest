@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Link } from 'gatsby'
 
 import { Submitted } from '../../student/Submitted'
-import { TaskInfoRenderer } from '../../student/RichTextRenderers'
+import { TaskInfoRenderer } from '../../../../shared-utils/utils/rich-text-renderers'
 
 import TickSheet from '../../../assets/tick-sheet.svg'
 import HelpIcon from '../../../assets/help-icon.svg'
