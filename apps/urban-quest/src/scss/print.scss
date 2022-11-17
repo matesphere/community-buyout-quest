@@ -1,0 +1,16 @@
+@media print {
+  .top-holder, .none-print, .footer {
+    display: none;
+  }
+
+  .cert-type-one {
+    font-size: 2.4rem;
+  }
+
+  .cert-name {
+    padding-right: 24px;
+    &:after {
+      right: 6px;
+    }
+  }
+}

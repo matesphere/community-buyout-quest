@@ -1,0 +1,107 @@
+fragment ScheduledOperation on ScheduledOperation {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  description
+  errorMessage
+  rawPayload
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  release {
+    ... on ScheduledRelease {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  status
+  affectedDocuments {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on Checklist {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on DevelopmentOption {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on HelpfulInfo {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on Info {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on ModelSwot {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on PresentationTipsPage {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on StageLandingPage {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on StageTask {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on StageTaskPage {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on TaskToComplete {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+  }
+}
