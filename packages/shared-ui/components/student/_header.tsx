@@ -5,6 +5,7 @@ import { Location } from '@reach/router'
 import { Nav } from './_nav'
 
 import Squiggle from '../../assets/squiggle.svg'
+import SkyLine from '../../assets/skyline.svg'
 import PinLogo from '../../assets/pin-logo.svg'
 
 const HEADER_TEXT = [
@@ -52,6 +53,7 @@ export const Header: FC<{ headerText?: string }> = ({ headerText }) => {
                     </a>
                     <div className="top-holder">
                         <Squiggle className="squiggle" />
+                        <SkyLine className="skyline" />
                         <section className="container top-section">
                             <div className="row">
                                 <Nav />

@@ -3,6 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
 
 import Squiggle from '../assets/squiggle.svg'
+import Skyline from '../assets/skyline.svg'
 import PinLogo from '../assets/pin-logo.svg'
 
 import '../scss/index.scss'
@@ -42,6 +43,7 @@ const IndexPage = () => {
                     />
                 </div>
                 <Squiggle className="squiggle" />
+                <Skyline className="skyline" />
                 <section className="container top-section">
                     <div className="row pt-4">
                         <div className="col-lg-8">

@@ -5,6 +5,7 @@ import { Location } from '@reach/router'
 import { TutorNav } from './_tutor-nav'
 
 import Squiggle from '../../assets/squiggle.svg'
+import SkyLine from '../../assets/skyline.svg'
 import PinLogo from '../../assets/pin-logo.svg'
 
 const HEADER_TEXT: { [pathname: string]: string } = {
@@ -54,6 +55,7 @@ export const TutorHeader = ({
                     </a>
                     <div className="top-holder">
                         <Squiggle className="squiggle" />
+                        <SkyLine className="skyline" />
                         <section className="container top-section">
                             <div className="row">
                                 <div className="col-lg-8">

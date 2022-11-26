@@ -185,7 +185,7 @@ export const Nav: FC = () => {
             <div className="col-lg-4">
                 {data && (
                     <>
-                        <p className="sm-type-bigamp mt-4 header-name">
+                        <p className="sm-type-bigamp mt-2 header-name">
                             {`${full_name} (${username})${
                                 student?.position
                                     ? ` - ${

@@ -6,6 +6,7 @@ import { Link } from 'gatsby'
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
 
 import Squiggle from '../../assets/squiggle.svg'
+import SkyLine from '../../assets/skyline.svg'
 
 export const Footer: FC = () => {
     const {
@@ -14,6 +15,7 @@ export const Footer: FC = () => {
     return (
         <footer className="footer">
             <Squiggle className="squiggle" />
+            <SkyLine className="skyline" />
             <section className="container">
                 <div className="row">
                     <div className="col-lg-4 mt-1">

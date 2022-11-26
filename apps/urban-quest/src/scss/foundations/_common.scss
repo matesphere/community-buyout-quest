@@ -539,7 +539,7 @@ p {
     margin-bottom: $grid-unit * 2;
     padding: $grid-unit * 3 $grid-unit * 4;
     border-radius: ($grid-unit * 2);
-    border: 2px solid #28e6fa;
+    border: 2px solid #81b031;
     background-color: white;
 }
 
@@ -851,6 +851,7 @@ input.form-control:read-only {
     position: absolute;
     top: 0px;
     z-index: 10;
+    margin-bottom: 16px;
 }
 
 .small-top-section {
@@ -1224,4 +1225,8 @@ input.form-control:read-only {
     max-width: 200px;
     float: right;
     margin-left: 20px;
+}
+
+.main-header {
+    margin-bottom: 16px;
 }
