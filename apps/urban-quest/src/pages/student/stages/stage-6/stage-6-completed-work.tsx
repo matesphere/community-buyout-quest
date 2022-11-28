@@ -27,7 +27,7 @@ import { STAGE_6_WORK_QUERY } from '@community-land-quest/shared-data/gql/querie
 import {
     Stage6WorkQuery,
     Stage6WorkQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage6WorkQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 const Stage6CompletedWorkPage: FC<PageProps> = ({ location: { search } }) => {
     const { id } = QueryString.parse(search, {

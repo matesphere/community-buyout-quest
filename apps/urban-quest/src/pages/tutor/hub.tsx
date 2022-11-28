@@ -9,7 +9,7 @@ import { TUTOR_HUB_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     TutorHubQuery,
     TutorHubQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/TutorHubQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import '../../scss/index.scss'
 

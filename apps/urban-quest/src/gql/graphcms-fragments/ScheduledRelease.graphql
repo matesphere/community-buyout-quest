@@ -1,16 +1,23 @@
 fragment ScheduledRelease on ScheduledRelease {
   stage
-  remoteId: id
-  createdAt
-  updatedAt
-  publishedAt
-  title
-  description
-  errorMessage
-  isActive
-  isImplicit
   releaseAt
-  createdBy {
+  isImplicit
+  isActive
+  errorMessage
+  description
+  title
+  publishedAt
+  updatedAt
+  createdAt
+  remoteId: id
+  operations {
+    ... on ScheduledOperation {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  publishedBy {
     ... on User {
       remoteTypeName: __typename
       remoteId: id
@@ -24,15 +31,8 @@ fragment ScheduledRelease on ScheduledRelease {
       stage
     }
   }
-  publishedBy {
+  createdBy {
     ... on User {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
-  operations {
-    ... on ScheduledOperation {
       remoteTypeName: __typename
       remoteId: id
       stage

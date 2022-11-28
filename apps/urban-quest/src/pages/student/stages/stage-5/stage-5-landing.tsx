@@ -20,8 +20,6 @@ import {
 
 import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
 
-import { DocumentCompleteQuery_team_by_pk_team_development_options } from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
-
 import {
     BusinessPlanAction,
     BusinessPlanActionType,
@@ -70,7 +68,7 @@ export interface WorkState {
 }
 
 interface BusinessPlanLinksProps {
-    shortlist: Array<DocumentCompleteQuery_team_by_pk_team_development_options>
+    shortlist: Array<any>
     completedPlans: Array<string>
 }
 
@@ -264,8 +262,10 @@ const Stage5LandingPage: FC = () => {
                             />
                         </div>
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
-                            <Checklist items={checklist.item} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                         <Link to="/student/team-hub">Back to Team Hub</Link>
                     </div>

@@ -117,9 +117,9 @@ export const query = graphql`
             fundingOptions {
                 raw
             }
-            checklist {
-                item
-            }
+            # checklist {
+            #     item
+            # }
             informationMainImage {
                 gatsbyImageData
             }

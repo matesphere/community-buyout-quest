@@ -21,7 +21,7 @@ import { STAGE_4_TASK_QUERY } from '@community-land-quest/shared-data/gql/querie
 import {
     Stage4TaskQuery,
     Stage4TaskQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage4TaskQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { useCheckboxState } from '@community-land-quest/shared-utils/utils/input-utils'
 
@@ -191,8 +191,10 @@ const Stage4ChooseOptionsPage = () => {
                         </div>
 
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
-                            <Checklist items={checklist.item} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
 

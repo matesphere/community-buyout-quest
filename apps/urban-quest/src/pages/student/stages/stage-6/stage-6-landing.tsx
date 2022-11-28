@@ -19,7 +19,7 @@ import { STAGE_6_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage6Query,
     Stage6QueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage6Query'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 const Stage6Page = () => {
     const {

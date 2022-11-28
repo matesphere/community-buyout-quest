@@ -32,9 +32,7 @@ import { TUTOR_PREVIOUS_QUEST_QUERY } from '@community-land-quest/shared-data/gq
 import {
     TutorPreviousQuestQuery,
     TutorPreviousQuestQueryVariables,
-    TutorPreviousQuestQuery_quest_by_pk_teams_team_development_options,
-    TutorPreviousQuestQuery_quest_by_pk_teams_students,
-} from '@community-land-quest/shared-data/gql/types/TutorPreviousQuestQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import Tick from '../../assets/tick.svg'
 
@@ -124,8 +122,8 @@ const getStageStatusDisplay = (
 }
 
 interface TeamInfoPanelProps {
-    devOptions: Array<TutorPreviousQuestQuery_quest_by_pk_teams_team_development_options>
-    students: Array<TutorPreviousQuestQuery_quest_by_pk_teams_students>
+    devOptions: Array<any>
+    students: Array<any>
 }
 
 const TeamInfoPanel = ({ devOptions, students }: TeamInfoPanelProps) => (

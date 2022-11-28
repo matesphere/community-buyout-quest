@@ -19,7 +19,7 @@ import { STAGE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     StageQuery,
     StageQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/StageQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import HelpIcon from '../../../../assets/help-icon.svg'
 
@@ -226,8 +226,10 @@ const Stage4LandingPage = () => {
                         </div>
 
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
-                            <Checklist items={checklist.item} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>

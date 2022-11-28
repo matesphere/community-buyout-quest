@@ -28,9 +28,6 @@ export const STAGE_LANDING_CONTENT_FRAG = graphql`
                 raw
             }
         }
-        checklist {
-            item
-        }
     }
 `
 
@@ -55,9 +52,6 @@ export const STAGE_TASK_PAGE_CONTENT_FRAG = graphql`
                 raw
             }
         }
-        checklist {
-            item
-        }
     }
 `
 
@@ -74,9 +68,6 @@ export const STAGE_TASK_CONTENT_FRAG = graphql`
             info {
                 raw
             }
-        }
-        checklist {
-            item
         }
         submittedText {
             raw

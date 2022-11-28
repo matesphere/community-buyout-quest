@@ -13,7 +13,7 @@ import { LOGGED_IN_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     LoggedInQuery,
     LoggedInQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/LoggedInQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { authComponents } from '@community-land-quest/shared-utils/utils/auth-utils'
 

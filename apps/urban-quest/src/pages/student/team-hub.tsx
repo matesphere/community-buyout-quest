@@ -12,7 +12,7 @@ import { TEAM_HUB_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     TeamHubQuery,
     TeamHubQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/TeamHubQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 

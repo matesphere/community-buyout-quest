@@ -12,7 +12,7 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useFeedbackState } from '@community-land-quest/shared-data/gql/hooks/feedbackState'
-import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { ActionType } from '@community-land-quest/shared-utils/utils/common-types'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 

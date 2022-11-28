@@ -17,13 +17,13 @@ import { DOCUMENT_COMPLETE_QUERY } from '@community-land-quest/shared-data/gql/q
 import {
     DocumentCompleteQuery,
     DocumentCompleteQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 
 import '../../../../scss/index.scss'
 
-const Stage3CompletePage: FC<PageProps> = ({ location: { search } }) => {
+const Stage3CompletePage: FC<PageProps> = () => {
     const data = useStaticQuery(graphql`
         query {
             image1: file(relativePath: { eq: "congratulations.jpg" }) {

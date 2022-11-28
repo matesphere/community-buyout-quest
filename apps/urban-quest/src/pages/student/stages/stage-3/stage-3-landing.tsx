@@ -2,8 +2,7 @@ import { FC } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
-// import scrollTo from 'gatsby-plugin-smoothscroll'
-import MapOptions from '../../../information/_map'
+
 import {
     Loading,
     Error,
@@ -18,9 +17,9 @@ import {
     SaveSubmitSection,
 } from '@community-land-quest/shared-ui'
 import { stage3SwotReducer, WorkState, Action } from './stage-3-swot'
+import MapOptions from '../../../../pages/information/_map'
 
 import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
-import { DocumentCompleteQuery_team_by_pk_team_development_options } from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
 
 import Tick from '../../../../assets/tick.svg'
 import HelpIcon from '../../../../assets/help-icon.svg'
@@ -28,7 +27,7 @@ import HelpIcon from '../../../../assets/help-icon.svg'
 import '../../../../scss/index.scss'
 
 interface SwotLinksProps {
-    devOptions: Array<DocumentCompleteQuery_team_by_pk_team_development_options>
+    devOptions: Array<any>
     completedSwots?: Array<string>
 }
 
@@ -124,13 +123,13 @@ const Stage3LandingPage: FC = () => {
     if (error || !pageData) {
         return (
             <Error
-                error = {
+                error={
                     error ||
                     new ApolloError({ errorMessage: 'No data returned!' })
                 }
             />
         )
-        }
+    }
 
     const { team_development_options: devOptions } = pageData.team_by_pk
     const doc =
@@ -218,8 +217,10 @@ const Stage3LandingPage: FC = () => {
                             </TaskPanel>
                         </div>
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
-                            <Checklist items={checklist.item} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>

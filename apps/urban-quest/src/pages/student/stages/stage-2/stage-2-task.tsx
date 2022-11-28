@@ -21,17 +21,16 @@ import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/aut
 
 import { SET_TEAM_POSITIONS_AND_LOGO } from '@community-land-quest/shared-data/gql/mutations'
 import {
-    SetTeamPositions,
-    SetTeamPositionsVariables,
-} from '@community-land-quest/shared-data/gql/types/SetTeamPositions'
+    SetTeamPositionsMutation,
+    SetTeamPositionsMutationVariables,
+} from '@community-land-quest/shared-data/gql/types/mutations.generated'
 import { STAGE_2_TASK_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage2TaskQuery,
     Stage2TaskQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage2TaskQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import Tick from '../../../../assets/tick.svg'
-
 import '../../../../scss/index.scss'
 
 const Stage2TaskPage = () => {
@@ -42,8 +41,8 @@ const Stage2TaskPage = () => {
 
     // const [submitLogo, submitLogoResponse] = useAuthMutation(SET_TEAM_LOGO)
     const [submitPositions, submitPositionResponse] = useAuthMutation<
-        SetTeamPositions,
-        SetTeamPositionsVariables
+        SetTeamPositionsMutation,
+        SetTeamPositionsMutationVariables
     >(
         SET_TEAM_POSITIONS_AND_LOGO,
         {
@@ -117,9 +116,9 @@ const Stage2TaskPage = () => {
                         raw
                     }
                 }
-                checklist {
-                    item
-                }
+                # checklist {
+                #     item
+                # }
             }
         }
     `)
@@ -356,8 +355,10 @@ const Stage2TaskPage = () => {
                             <Link to="/student/team-hub">Back to Team Hub</Link>
                         </div>
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
-                            <Checklist items={checklist.item} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
                 </section>

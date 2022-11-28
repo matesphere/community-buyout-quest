@@ -36,9 +36,7 @@ import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql
 import {
     TutorCurrentQuestQuery,
     TutorCurrentQuestQueryVariables,
-    TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_team_development_options,
-    TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_students,
-} from '@community-land-quest/shared-data/gql/types/TutorCurrentQuestQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 
@@ -130,8 +128,8 @@ const getStageStatusDisplay = (
 }
 
 interface TeamInfoPanelProps {
-    devOptions: Array<TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_team_development_options>
-    students: Array<TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_students>
+    devOptions: Array<any>
+    students: Array<any>
 }
 
 const TeamInfoPanel = ({ devOptions, students }: TeamInfoPanelProps) => (

@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 import { NewQuestContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
-
 import { StudentType } from '@community-land-quest/shared-utils/utils/common-types'
 
 import '../../scss/index.scss'

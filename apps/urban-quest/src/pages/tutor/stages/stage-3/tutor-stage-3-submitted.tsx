@@ -18,7 +18,7 @@ import {
     SubmitFeedbackSection,
 } from '@community-land-quest/shared-ui'
 
-import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { ActionType } from '@community-land-quest/shared-utils/utils/common-types'
 import { useFeedbackState } from '@community-land-quest/shared-data/gql/hooks/feedbackState'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'

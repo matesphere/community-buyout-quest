@@ -18,7 +18,7 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
-import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { ActionType } from '@community-land-quest/shared-utils/utils/common-types'
 
 import HelpIcon from '../../../../assets/help-icon.svg'
 
@@ -70,9 +70,9 @@ const Stage1TaskPage = () => {
                         raw
                     }
                 }
-                checklist {
-                    item
-                }
+                # checklist {
+                #     item
+                # }
             }
         }
     `)
@@ -214,8 +214,10 @@ const Stage1TaskPage = () => {
                         </div>
 
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
-                            <Checklist items={checklist.item} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
                 </section>

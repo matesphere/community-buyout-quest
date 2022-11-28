@@ -1,10 +1,10 @@
 fragment ModelBusinessPlan on ModelBusinessPlan {
   stage
   locale
-  publishedAt(variation: COMBINED)
-  updatedAt(variation: COMBINED)
-  createdAt(variation: COMBINED)
   remoteId: id
+  createdAt(variation: COMBINED)
+  updatedAt(variation: COMBINED)
+  publishedAt(variation: COMBINED)
   developmentOption
   capitalCosts {
     ... on CapitalCosts {
@@ -28,7 +28,7 @@ fragment ModelBusinessPlan on ModelBusinessPlan {
       }
     }
   }
-  publishedBy {
+  createdBy {
     ... on User {
       remoteTypeName: __typename
       remoteId: id
@@ -42,7 +42,7 @@ fragment ModelBusinessPlan on ModelBusinessPlan {
       stage
     }
   }
-  createdBy {
+  publishedBy {
     ... on User {
       remoteTypeName: __typename
       remoteId: id

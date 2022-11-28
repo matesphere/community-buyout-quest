@@ -18,7 +18,7 @@ import { STAGE_8_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage8Query,
     Stage8QueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage8Query'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import '../../../../scss/index.scss'
 import '../../../../scss/print.scss'

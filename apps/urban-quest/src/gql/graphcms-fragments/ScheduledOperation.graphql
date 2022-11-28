@@ -1,13 +1,20 @@
 fragment ScheduledOperation on ScheduledOperation {
   stage
-  remoteId: id
-  createdAt
-  updatedAt
-  publishedAt
-  description
-  errorMessage
   rawPayload
-  createdBy {
+  errorMessage
+  description
+  publishedAt
+  updatedAt
+  createdAt
+  remoteId: id
+  release {
+    ... on ScheduledRelease {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  publishedBy {
     ... on User {
       remoteTypeName: __typename
       remoteId: id
@@ -21,15 +28,8 @@ fragment ScheduledOperation on ScheduledOperation {
       stage
     }
   }
-  publishedBy {
+  createdBy {
     ... on User {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
-  release {
-    ... on ScheduledRelease {
       remoteTypeName: __typename
       remoteId: id
       stage
@@ -38,12 +38,6 @@ fragment ScheduledOperation on ScheduledOperation {
   status
   affectedDocuments {
     ... on Asset {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
-      stage
-    }
-    ... on Checklist {
       remoteTypeName: __typename
       remoteId: id
       locale
@@ -62,6 +56,12 @@ fragment ScheduledOperation on ScheduledOperation {
       stage
     }
     ... on Info {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+    ... on ModelBusinessPlan {
       remoteTypeName: __typename
       remoteId: id
       locale

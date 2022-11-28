@@ -13,7 +13,10 @@ import {
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { DOCUMENT_COMPLETE_QUERY } from '@community-land-quest/shared-data/gql/queries'
-import { DocumentCompleteQuery, DocumentCompleteQueryVariables } from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
+import {
+    DocumentCompleteQuery,
+    DocumentCompleteQueryVariables,
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 
@@ -43,7 +46,10 @@ const Stage1CompletePage = () => {
         loading,
         error,
         data: pageData,
-    } = useAuthQuery<DocumentCompleteQuery, Omit<DocumentCompleteQueryVariables, 'team_id'>>(
+    } = useAuthQuery<
+        DocumentCompleteQuery,
+        Omit<DocumentCompleteQueryVariables, 'team_id'>
+    >(
         DOCUMENT_COMPLETE_QUERY,
         { variables: { stage_id: 1, includeDevOptions: false } },
         'teamId'

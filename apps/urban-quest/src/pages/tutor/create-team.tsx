@@ -20,14 +20,14 @@ import {
 } from '@community-land-quest/shared-data/gql/mutations'
 import { StudentType } from '@community-land-quest/shared-utils/utils/common-types'
 import {
-    CreateQuestWithTeams,
-    CreateQuestWithTeamsVariables,
-} from '@community-land-quest/shared-data/gql/types/CreateQuestWithTeams'
+    CreateQuestWithTeamsMutation,
+    CreateQuestWithTeamsMutationVariables,
+} from '@community-land-quest/shared-data/gql/types/mutations.generated'
 import { CREATE_TEAM_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     CreateTeamQuery,
     CreateTeamQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/CreateTeamQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import {
     addStudentToTeam,
@@ -215,9 +215,10 @@ const ConfirmModal = ({
     schoolId,
 }: ConfirmModalProps) => {
     const [createQuestWithTeams, createQuestWithTeamsResponse] =
-        useAuthMutation<CreateQuestWithTeams, CreateQuestWithTeamsVariables>(
-            CREATE_QUEST_WITH_TEAMS
-        )
+        useAuthMutation<
+            CreateQuestWithTeamsMutation,
+            CreateQuestWithTeamsMutationVariables
+        >(CREATE_QUEST_WITH_TEAMS)
     const [startQuest, startQuestResponse] = useAuthMutation(START_QUEST)
 
     const [cognitoResponse, setCognitoResponse] = useState([])

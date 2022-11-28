@@ -67,8 +67,10 @@ const Stage2TaskPage = ({
                             <Slider items={slider} />
                         </div>
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
-                            <Checklist items={checklist.item} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
                 </section>
@@ -99,9 +101,9 @@ export const query = graphql`
                     raw
                 }
             }
-            checklist {
-                item
-            }
+            # checklist {
+            #     item
+            # }
         }
     }
 `

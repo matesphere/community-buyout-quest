@@ -68,7 +68,7 @@ const InfoPlaySkate = ({
                     </div>
 
                     <div className="col-lg-4">
-                        {checklist && <Checklist items={checklist.item} />}
+                        {checklist && <Checklist items={checklist?.item} />}
                     </div>
                 </div>
             </section>
@@ -91,9 +91,9 @@ export const query = graphql`
             fundingOptions {
                 raw
             }
-            checklist {
-                item
-            }
+            # checklist {
+            #     item
+            # }
             informationMainImage {
                 gatsbyImageData
             }

@@ -15,7 +15,7 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
-import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { ActionType } from '@community-land-quest/shared-utils/utils/common-types'
 
 import '../../../../scss/index.scss'
 
@@ -183,34 +183,36 @@ const Stage4FeasibilityPage: FC = () => {
                         </div>
 
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info}>
-                                <ol>
-                                    {devOptions
-                                        .filter(
-                                            ({ team_choice_name }) =>
-                                                !team_choice_name
-                                        )
-                                        .map(
-                                            ({
-                                                development_option: {
-                                                    option,
-                                                    display_name,
-                                                },
-                                            }) => (
-                                                <li>
-                                                    <a
-                                                        href={`/information/${option}`}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                    >
-                                                        {display_name}
-                                                    </a>
-                                                </li>
+                            {helpfulInfo && devOptions && (
+                                <Helpful content={helpfulInfo.info}>
+                                    <ol>
+                                        {devOptions
+                                            .filter(
+                                                ({ team_choice_name }) =>
+                                                    !team_choice_name
                                             )
-                                        )}
-                                </ol>
-                            </Helpful>
-                            <Checklist items={checklist.item} />
+                                            .map(
+                                                ({
+                                                    development_option: {
+                                                        option,
+                                                        display_name,
+                                                    },
+                                                }) => (
+                                                    <li>
+                                                        <a
+                                                            href={`/information/${option}`}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                        >
+                                                            {display_name}
+                                                        </a>
+                                                    </li>
+                                                )
+                                            )}
+                                    </ol>
+                                </Helpful>
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
                     <Link

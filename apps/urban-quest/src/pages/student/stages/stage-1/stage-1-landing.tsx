@@ -18,7 +18,7 @@ import { STAGE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     StageQuery,
     StageQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/StageQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import Video from '../../../../assets/the-quest-intro.mp4'
 import '../../../../scss/index.scss'
@@ -106,7 +106,7 @@ const Stage1LandingPage: FC = () => {
                         </div>
 
                         <div className="col-lg-3">
-                            <Checklist items={checklist.item} />
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>

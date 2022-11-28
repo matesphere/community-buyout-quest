@@ -16,7 +16,7 @@ import { SWOT_EXAMPLE_QUERY } from '@community-land-quest/shared-data/gql/querie
 import {
     SwotExampleQuery,
     SwotExampleQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/SwotExampleQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import '../../../../scss/index.scss'
 

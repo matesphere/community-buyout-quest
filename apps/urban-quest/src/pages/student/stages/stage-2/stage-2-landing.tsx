@@ -21,7 +21,7 @@ import { STAGE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     StageQuery,
     StageQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/StageQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { StageInfoRenderer } from '@community-land-quest/shared-utils/utils/rich-text-renderers'
 
@@ -124,8 +124,10 @@ const Stage2LandingPage: FC = () => {
                         </div>
 
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo?.info} />
-                            <Checklist items={checklist.item} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo?.info} />
+                            )}
+                            {checklist && <Checklist items={checklist.item} />}
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>
