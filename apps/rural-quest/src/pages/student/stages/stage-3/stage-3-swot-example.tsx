@@ -2,7 +2,6 @@ import { FC } from 'react'
 import { Link, PageProps } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import QueryString from 'query-string'
-import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
 import {
@@ -13,10 +12,11 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { SWOT_EXAMPLE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     SwotExampleQuery,
     SwotExampleQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/SwotExampleQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import '../../../../scss/index.scss'
 
@@ -26,30 +26,6 @@ import '../../../../scss/index.scss'
 //     opportunities: string
 //     threats: string
 // }
-
-const SWOT_EXAMPLE_QUERY = gql`
-    query SwotExampleQuery($team_id: uuid!) {
-        team_by_pk(id: $team_id) {
-            id
-            stage_progresses(where: { stage_id: { _eq: 3 } }) {
-                documents(
-                    where: {
-                        _or: [
-                            { status: { _eq: draft } }
-                            { status: { _eq: submitted } }
-                        ]
-                    }
-                ) {
-                    doc_data
-                }
-            }
-        }
-        development_option {
-            option
-            display_name
-        }
-    }
-`
 
 const Stage3Swot: FC<PageProps> = ({ location: { search } }) => {
     const { loading, error, data } = useAuthQuery<

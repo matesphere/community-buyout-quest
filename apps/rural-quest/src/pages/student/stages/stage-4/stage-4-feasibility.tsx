@@ -15,7 +15,7 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
-import { ActionType } from '@community-land-quest/shared-data/gql/types'
+import { ActionType } from '@community-land-quest/shared-utils/utils/common-types'
 
 import '../../../../scss/index.scss'
 

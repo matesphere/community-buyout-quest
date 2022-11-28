@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { gql } from '@apollo/client'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import { ApolloError } from '@apollo/client'
 
@@ -47,47 +46,6 @@ import Tick from '../../assets/tick.svg'
 
 import '../../scss/index.scss'
 import 'react-tabs/style/react-tabs.css'
-
-const TUTOR_CURRENT_QUEST_SUB = gql`
-    subscription TutorCurrentQuestSub($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            id
-            full_name
-            username
-            email
-            tutor {
-                id
-                school {
-                    name
-                }
-                quests(where: { status: { _eq: active } }) {
-                    id
-                    teams {
-                        id
-                        name
-                        students {
-                            id
-                            user {
-                                full_name
-                            }
-                        }
-                        stage_progresses {
-                            id
-                            team_id
-                            stage_id
-                            status
-                            documents(order_by: { id: asc }) {
-                                id
-                                status
-                                feedback
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
 
 const getStageStatusDisplay = (
     stageId,

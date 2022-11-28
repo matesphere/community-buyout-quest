@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
 import {
@@ -20,30 +19,15 @@ import { UserStateContext } from '@community-land-quest/shared-data/contexts/use
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
 import { CHOOSE_DEVELOPMENT_OPTIONS } from '@community-land-quest/shared-data/gql/mutations'
+import { STAGE_3_TASK_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage3TaskQuery,
     Stage3TaskQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage3TaskQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { useCheckboxState } from '@community-land-quest/shared-utils/utils/input-utils'
 
 import '../../../../scss/index.scss'
-
-const STAGE_3_TASK_QUERY = gql`
-    query Stage3TaskQuery($team_id: uuid!) {
-        team_by_pk(id: $team_id) {
-            id
-            team_development_options {
-                id
-            }
-        }
-        development_option(order_by: { id: asc }) {
-            id
-            option
-            display_name
-        }
-    }
-`
 
 const ChooseOptionsCheckboxes = ({
     devOptions,

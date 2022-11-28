@@ -1,6 +1,6 @@
 module.exports = {
     siteMetadata: {
-        title: 'buy-out',
+        title: 'Rural Community Buyout Quest',
     },
     flags: {},
     jsxRuntime: 'automatic',

@@ -1,7 +1,6 @@
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
-import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
 import {
@@ -16,24 +15,11 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { STAGE_6_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage6Query,
     Stage6QueryVariables,
 } from '@community-land-quest/shared-data/gql/types/Stage6Query'
-
-const STAGE_6_QUERY = gql`
-    query Stage6Query($team_id: uuid!) {
-        team_by_pk(id: $team_id) {
-            team_development_options {
-                id
-                development_option {
-                    display_name
-                }
-                shortlist
-            }
-        }
-    }
-`
 
 const Stage6Page = () => {
     const {

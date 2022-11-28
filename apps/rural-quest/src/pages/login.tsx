@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import { gql } from '@apollo/client'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
@@ -10,10 +9,11 @@ import { Loading, Error } from '@community-land-quest/shared-ui'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+import { LOGGED_IN_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     LoggedInQuery,
     LoggedInQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/LoggedInQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { authComponents } from '@community-land-quest/shared-utils/utils/auth-utils'
 
@@ -21,28 +21,6 @@ import Squiggle from '../assets/squiggle.svg'
 import PinLogo from '../assets/pin-logo.svg'
 
 import '../scss/index.scss'
-
-const LOGGED_IN_QUERY = gql`
-    query LoggedInQuery($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            id
-            first_name
-            student {
-                id
-                team {
-                    id
-                    students {
-                        id
-                        user {
-                            id
-                            times_logged_in
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
 
 const AdminLinks = () => (
     <>

@@ -18,7 +18,7 @@ import TutorTeamAssessment from './tutor/team-assessment'
 import TutorGuide from './tutor/tutor-guide'
 import TechnicalGuide from './tutor/technical-guide'
 
-import { StudentType } from '@community-land-quest/shared-data/gql/types'
+import { StudentType } from '@community-land-quest/shared-utils/utils/common-types'
 
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
 import {

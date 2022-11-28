@@ -1,38 +1,16 @@
 import { useState, useContext, FC } from 'react'
 import { Link } from 'gatsby'
-import { gql } from '@apollo/client'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
 import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 
+import { NAV_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     NavQuery,
     NavQueryVariables,
     // NavQuery_team_by_pk_stage_progresses,
 } from '@community-land-quest/shared-data/gql/types/NavQuery'
-
-const NAV_QUERY = gql`
-    query NavQuery($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            id
-            full_name
-            username
-            student {
-                id
-                position
-                team {
-                    id
-                    name
-                    stage_progresses(order_by: { stage_id: asc }) {
-                        stage_id
-                        status
-                    }
-                }
-            }
-        }
-    }
-`
 
 const InformationLinks: FC<{ latestStageID: number }> = ({ latestStageID }) => (
     <div className="dropdown-content">

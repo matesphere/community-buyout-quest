@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { Link, PageProps } from 'gatsby'
-import { gql } from '@apollo/client'
 import { Helmet } from 'react-helmet'
 import QueryString from 'query-string'
 import { ApolloError } from '@apollo/client'
@@ -24,41 +23,11 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
-
+import { STAGE_6_WORK_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage6WorkQuery,
     Stage6WorkQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage6WorkQuery'
-
-const STAGE_6_WORK_QUERY = gql`
-    query Stage6WorkQuery($team_id: uuid!, $dev_option_id: uuid!) {
-        team_by_pk(id: $team_id) {
-            id
-            stage_progresses(
-                where: {
-                    _or: [
-                        { stage_id: { _eq: 3 } }
-                        { stage_id: { _eq: 4 } }
-                        { stage_id: { _eq: 5 } }
-                    ]
-                }
-                order_by: { stage_id: asc }
-            ) {
-                stage_id
-                documents(where: { status: { _eq: marked_passed } }) {
-                    doc_data
-                }
-            }
-            team_development_options(where: { id: { _eq: $dev_option_id } }) {
-                shortlist
-                development_option {
-                    option
-                    display_name
-                }
-            }
-        }
-    }
-`
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 const Stage6CompletedWorkPage: FC<PageProps> = ({ location: { search } }) => {
     const { id } = QueryString.parse(search, {

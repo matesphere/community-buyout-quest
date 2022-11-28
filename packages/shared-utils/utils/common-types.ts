@@ -4,6 +4,11 @@ export interface StudentType {
     email: string
 }
 
+export interface TeamType {
+    name: string
+    students: Array<StudentType>
+}
+
 export enum ActionType {
     LoadAction,
     UpdateAction,

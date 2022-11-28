@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { gql, ApolloError } from '@apollo/client'
+import { ApolloError } from '@apollo/client'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import {
@@ -24,6 +24,7 @@ import {
     SetTeamPositions,
     SetTeamPositionsVariables,
 } from '@community-land-quest/shared-data/gql/types/SetTeamPositions'
+import { STAGE_2_TASK_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage2TaskQuery,
     Stage2TaskQueryVariables,
@@ -32,30 +33,6 @@ import {
 import Tick from '../../../../assets/tick.svg'
 
 import '../../../../scss/index.scss'
-
-const STAGE_2_TASK_QUERY = gql`
-    query Stage2TaskQuery($team_id: uuid!) {
-        team_by_pk(id: $team_id) {
-            id
-            logo
-            students {
-                id
-                user_id
-                school_id
-                team_id
-                position
-                user {
-                    username
-                    full_name
-                }
-            }
-            stage_progresses(where: { stage_id: { _eq: 2 } }) {
-                id
-                status
-            }
-        }
-    }
-`
 
 const Stage2TaskPage = () => {
     // const [showFilters, setShowFilters] = useState(false)

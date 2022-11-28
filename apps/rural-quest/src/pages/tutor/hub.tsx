@@ -1,43 +1,17 @@
 import { Helmet } from 'react-helmet'
 import { Link } from 'gatsby'
-import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
 import { Loading, Error } from '@community-land-quest/shared-ui'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { TUTOR_HUB_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     TutorHubQuery,
     TutorHubQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/TutorHubQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import '../../scss/index.scss'
-
-const TUTOR_HUB_QUERY = gql`
-    query TutorHubQuery($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            id
-            full_name
-            username
-            email
-            tutor {
-                school {
-                    name
-                }
-                quests {
-                    id
-                    status
-                    started_at
-                    completed_at
-                    teams {
-                        id
-                        name
-                    }
-                }
-            }
-        }
-    }
-`
 
 const getDateFromTimestamp = (timestamp) => {
     const date = new Date(timestamp)

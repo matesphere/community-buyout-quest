@@ -19,7 +19,7 @@ import { STAGE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     StageQuery,
     StageQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/StageQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import HelpIcon from '../../../../assets/help-icon.svg'
 

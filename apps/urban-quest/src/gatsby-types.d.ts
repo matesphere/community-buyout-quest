@@ -2280,6 +2280,407 @@ type Content_ChecklistWhereUniqueInput = {
   readonly id: InputMaybe<Scalars['ID']>;
 };
 
+type Content_Checklist_comp = {
+  /** The unique identifier */
+  readonly id: Scalars['ID'];
+  readonly item: ReadonlyArray<Scalars['String']>;
+  /** System Locale field */
+  readonly locale: Content_Locale;
+  /** Get the other localizations for this document */
+  readonly localizations: ReadonlyArray<Content_Checklist_comp>;
+  /** System stage field */
+  readonly stage: Content_Stage;
+  readonly stageNumber: Scalars['Int'];
+};
+
+
+type Content_Checklist_comp_localizationsArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  locales?: ReadonlyArray<Content_Locale>;
+};
+
+type Content_Checklist_compConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Document to connect */
+  readonly where: Content_Checklist_compWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+type Content_Checklist_compConnection = {
+  readonly aggregate: Content_Aggregate;
+  /** A list of edges. */
+  readonly edges: ReadonlyArray<Content_Checklist_compEdge>;
+  /** Information to aid in pagination. */
+  readonly pageInfo: Content_PageInfo;
+};
+
+type Content_Checklist_compCreateInput = {
+  /** item input for default locale (en) */
+  readonly item: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  readonly localizations: InputMaybe<Content_Checklist_compCreateLocalizationsInput>;
+  readonly stageNumber: Scalars['Int'];
+};
+
+type Content_Checklist_compCreateLocalizationDataInput = {
+  readonly item: InputMaybe<ReadonlyArray<Scalars['String']>>;
+};
+
+type Content_Checklist_compCreateLocalizationInput = {
+  /** Localization input */
+  readonly data: Content_Checklist_compCreateLocalizationDataInput;
+  readonly locale: Content_Locale;
+};
+
+type Content_Checklist_compCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  readonly create: InputMaybe<ReadonlyArray<Content_Checklist_compCreateLocalizationInput>>;
+};
+
+type Content_Checklist_compCreateManyInlineInput = {
+  /** Create and connect multiple existing Checklist_comp documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_Checklist_compCreateInput>>;
+};
+
+type Content_Checklist_compCreateOneInlineInput = {
+  /** Create and connect one Checklist_comp document */
+  readonly create: InputMaybe<Content_Checklist_compCreateInput>;
+};
+
+type Content_Checklist_compCreateWithPositionInput = {
+  /** Document to create */
+  readonly data: Content_Checklist_compCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+type Content_Checklist_compEdge = {
+  /** A cursor for use in pagination. */
+  readonly cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  readonly node: Content_Checklist_comp;
+};
+
+/** Identifies documents */
+type Content_Checklist_compManyWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_Checklist_compWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_Checklist_compWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_Checklist_compWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+  readonly stageNumber: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly stageNumber_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly stageNumber_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly stageNumber_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly stageNumber_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+};
+
+type Content_Checklist_compOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'item_ASC'
+  | 'item_DESC'
+  | 'stageNumber_ASC'
+  | 'stageNumber_DESC';
+
+type Content_Checklist_compParent = Content_DevelopmentOption;
+
+type Content_Checklist_compParentConnectInput = {
+  readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionConnectInput>;
+};
+
+type Content_Checklist_compParentCreateInput = {
+  readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionCreateInput>;
+};
+
+type Content_Checklist_compParentCreateManyInlineInput = {
+  /** Connect multiple existing Checklist_compParent documents */
+  readonly connect: InputMaybe<ReadonlyArray<Content_Checklist_compParentWhereUniqueInput>>;
+  /** Create and connect multiple existing Checklist_compParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_Checklist_compParentCreateInput>>;
+};
+
+type Content_Checklist_compParentCreateOneInlineInput = {
+  /** Connect one existing Checklist_compParent document */
+  readonly connect: InputMaybe<Content_Checklist_compParentWhereUniqueInput>;
+  /** Create and connect one Checklist_compParent document */
+  readonly create: InputMaybe<Content_Checklist_compParentCreateInput>;
+};
+
+type Content_Checklist_compParentUpdateInput = {
+  readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionUpdateInput>;
+};
+
+type Content_Checklist_compParentUpdateManyInlineInput = {
+  /** Connect multiple existing Checklist_compParent documents */
+  readonly connect: InputMaybe<ReadonlyArray<Content_Checklist_compParentConnectInput>>;
+  /** Create and connect multiple Checklist_compParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_Checklist_compParentCreateInput>>;
+  /** Delete multiple Checklist_compParent documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_Checklist_compParentWhereUniqueInput>>;
+  /** Disconnect multiple Checklist_compParent documents */
+  readonly disconnect: InputMaybe<ReadonlyArray<Content_Checklist_compParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing Checklist_compParent documents */
+  readonly set: InputMaybe<ReadonlyArray<Content_Checklist_compParentWhereUniqueInput>>;
+  /** Update multiple Checklist_compParent documents */
+  readonly update: InputMaybe<ReadonlyArray<Content_Checklist_compParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple Checklist_compParent documents */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_Checklist_compParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+type Content_Checklist_compParentUpdateManyWithNestedWhereInput = {
+  readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionUpdateManyWithNestedWhereInput>;
+};
+
+type Content_Checklist_compParentUpdateOneInlineInput = {
+  /** Connect existing Checklist_compParent document */
+  readonly connect: InputMaybe<Content_Checklist_compParentWhereUniqueInput>;
+  /** Create and connect one Checklist_compParent document */
+  readonly create: InputMaybe<Content_Checklist_compParentCreateInput>;
+  /** Delete currently connected Checklist_compParent document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected Checklist_compParent document */
+  readonly disconnect: InputMaybe<Scalars['Boolean']>;
+  /** Update single Checklist_compParent document */
+  readonly update: InputMaybe<Content_Checklist_compParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Checklist_compParent document */
+  readonly upsert: InputMaybe<Content_Checklist_compParentUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_Checklist_compParentUpdateWithNestedWhereUniqueInput = {
+  readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionUpdateWithNestedWhereUniqueInput>;
+};
+
+type Content_Checklist_compParentUpsertWithNestedWhereUniqueInput = {
+  readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_Checklist_compParentWhereInput = {
+  readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionWhereInput>;
+};
+
+type Content_Checklist_compParentWhereUniqueInput = {
+  readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionWhereUniqueInput>;
+};
+
+type Content_Checklist_compUpdateInput = {
+  /** item input for default locale (en) */
+  readonly item: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  /** Manage document localizations */
+  readonly localizations: InputMaybe<Content_Checklist_compUpdateLocalizationsInput>;
+  readonly stageNumber: InputMaybe<Scalars['Int']>;
+};
+
+type Content_Checklist_compUpdateLocalizationDataInput = {
+  readonly item: InputMaybe<ReadonlyArray<Scalars['String']>>;
+};
+
+type Content_Checklist_compUpdateLocalizationInput = {
+  readonly data: Content_Checklist_compUpdateLocalizationDataInput;
+  readonly locale: Content_Locale;
+};
+
+type Content_Checklist_compUpdateLocalizationsInput = {
+  /** Localizations to create */
+  readonly create: InputMaybe<ReadonlyArray<Content_Checklist_compCreateLocalizationInput>>;
+  /** Localizations to delete */
+  readonly delete: InputMaybe<ReadonlyArray<Content_Locale>>;
+  /** Localizations to update */
+  readonly update: InputMaybe<ReadonlyArray<Content_Checklist_compUpdateLocalizationInput>>;
+  readonly upsert: InputMaybe<ReadonlyArray<Content_Checklist_compUpsertLocalizationInput>>;
+};
+
+type Content_Checklist_compUpdateManyInlineInput = {
+  /** Create and connect multiple Checklist_comp component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_Checklist_compCreateWithPositionInput>>;
+  /** Delete multiple Checklist_comp documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_Checklist_compWhereUniqueInput>>;
+  /** Update multiple Checklist_comp component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_Checklist_compUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple Checklist_comp component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_Checklist_compUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_Checklist_compUpdateManyInput = {
+  /** item input for default locale (en) */
+  readonly item: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  /** Optional updates to localizations */
+  readonly localizations: InputMaybe<Content_Checklist_compUpdateManyLocalizationsInput>;
+  readonly stageNumber: InputMaybe<Scalars['Int']>;
+};
+
+type Content_Checklist_compUpdateManyLocalizationDataInput = {
+  readonly item: InputMaybe<ReadonlyArray<Scalars['String']>>;
+};
+
+type Content_Checklist_compUpdateManyLocalizationInput = {
+  readonly data: Content_Checklist_compUpdateManyLocalizationDataInput;
+  readonly locale: Content_Locale;
+};
+
+type Content_Checklist_compUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  readonly update: InputMaybe<ReadonlyArray<Content_Checklist_compUpdateManyLocalizationInput>>;
+};
+
+type Content_Checklist_compUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  readonly data: Content_Checklist_compUpdateManyInput;
+  /** Document search */
+  readonly where: Content_Checklist_compWhereInput;
+};
+
+type Content_Checklist_compUpdateOneInlineInput = {
+  /** Create and connect one Checklist_comp document */
+  readonly create: InputMaybe<Content_Checklist_compCreateInput>;
+  /** Delete currently connected Checklist_comp document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single Checklist_comp document */
+  readonly update: InputMaybe<Content_Checklist_compUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Checklist_comp document */
+  readonly upsert: InputMaybe<Content_Checklist_compUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_Checklist_compUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  readonly data: InputMaybe<Content_Checklist_compUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_Checklist_compWhereUniqueInput;
+};
+
+type Content_Checklist_compUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  readonly data: Content_Checklist_compUpdateInput;
+  /** Unique document search */
+  readonly where: Content_Checklist_compWhereUniqueInput;
+};
+
+type Content_Checklist_compUpsertInput = {
+  /** Create document if it didn't exist */
+  readonly create: Content_Checklist_compCreateInput;
+  /** Update document if it exists */
+  readonly update: Content_Checklist_compUpdateInput;
+};
+
+type Content_Checklist_compUpsertLocalizationInput = {
+  readonly create: Content_Checklist_compCreateLocalizationDataInput;
+  readonly locale: Content_Locale;
+  readonly update: Content_Checklist_compUpdateLocalizationDataInput;
+};
+
+type Content_Checklist_compUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  readonly data: InputMaybe<Content_Checklist_compUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_Checklist_compWhereUniqueInput;
+};
+
+type Content_Checklist_compUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  readonly data: Content_Checklist_compUpsertInput;
+  /** Unique document search */
+  readonly where: Content_Checklist_compWhereUniqueInput;
+};
+
+/** Identifies documents */
+type Content_Checklist_compWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_Checklist_compWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_Checklist_compWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_Checklist_compWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  readonly item: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  /** Matches if the field array contains *all* items provided to the filter */
+  readonly item_contains_all: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  readonly item_contains_none: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  /** Matches if the field array contains at least one item provided to the filter */
+  readonly item_contains_some: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  readonly item_not: InputMaybe<ReadonlyArray<Scalars['String']>>;
+  readonly stageNumber: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly stageNumber_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly stageNumber_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly stageNumber_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly stageNumber_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+};
+
+/** References Checklist_comp record uniquely */
+type Content_Checklist_compWhereUniqueInput = {
+  readonly id: InputMaybe<Scalars['ID']>;
+};
+
 /** Representing a color value comprising of HEX, RGBA and css color values */
 type Content_Color = {
   readonly css: Scalars['String'];
@@ -2306,6 +2707,7 @@ type Content_ConnectPositionInput = {
 
 type Content_DevelopmentOption = Content_Node & {
   readonly checklist: Maybe<Content_Checklist>;
+  readonly checklistComp: Maybe<Content_Checklist_comp>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -2345,6 +2747,11 @@ type Content_DevelopmentOption = Content_Node & {
 
 
 type Content_DevelopmentOption_checklistArgs = {
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
+};
+
+
+type Content_DevelopmentOption_checklistCompArgs = {
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -2442,6 +2849,7 @@ type Content_DevelopmentOptionConnection = {
 
 type Content_DevelopmentOptionCreateInput = {
   readonly checklist: InputMaybe<Content_ChecklistCreateOneInlineInput>;
+  readonly checklistComp: InputMaybe<Content_Checklist_compCreateOneInlineInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   readonly fundingOptions: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly icon: Content_AssetCreateOneInlineInput;
@@ -2511,6 +2919,7 @@ type Content_DevelopmentOptionManyWhereInput = {
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
   readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
+  readonly checklistComp: InputMaybe<Content_Checklist_compWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -2626,6 +3035,7 @@ type Content_DevelopmentOptionOrderByInput =
 
 type Content_DevelopmentOptionUpdateInput = {
   readonly checklist: InputMaybe<Content_ChecklistUpdateOneInlineInput>;
+  readonly checklistComp: InputMaybe<Content_Checklist_compUpdateOneInlineInput>;
   readonly fundingOptions: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly icon: InputMaybe<Content_AssetUpdateOneInlineInput>;
   readonly informationMainImage: InputMaybe<Content_AssetUpdateOneInlineInput>;
@@ -2773,6 +3183,7 @@ type Content_DevelopmentOptionWhereInput = {
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
   readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
+  readonly checklistComp: InputMaybe<Content_Checklist_compWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;

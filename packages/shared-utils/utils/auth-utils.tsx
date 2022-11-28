@@ -1,6 +1,7 @@
 import axios from 'axios'
 import axiosRetry from 'axios-retry'
 import gen from 'generate-password'
+import { StudentType, TeamType } from './common-types'
 
 axiosRetry(axios, {
     retries: 3, // number of retries
@@ -25,17 +26,6 @@ export const genPassword = () =>
         excludeSimilarCharacters: true,
         strict: true,
     })
-
-interface TeamType {
-    name: string
-    students: Array<StudentType>
-}
-
-interface StudentType {
-    firstName: string
-    lastName: string
-    email: string
-}
 
 export const addStudentToTeam =
     (teamNum: number, { firstName, lastName, email }: StudentType) =>

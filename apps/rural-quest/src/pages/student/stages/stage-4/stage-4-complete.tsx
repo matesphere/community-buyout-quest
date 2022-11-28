@@ -17,7 +17,7 @@ import { DOCUMENT_COMPLETE_QUERY } from '@community-land-quest/shared-data/gql/q
 import {
     DocumentCompleteQuery,
     DocumentCompleteQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/DocumentCompleteQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 

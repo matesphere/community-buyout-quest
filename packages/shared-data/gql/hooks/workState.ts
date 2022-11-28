@@ -11,19 +11,22 @@ import {
 } from '../mutations'
 
 import {
-    SaveWorkInitial,
-    SaveWorkInitialVariables,
-} from '../types/SaveWorkInitial'
-import { SaveWork, SaveWorkVariables } from '../types/SaveWork'
+    SaveWorkInitialMutation,
+    SaveWorkInitialMutationVariables,
+    SaveWorkMutation,
+    SaveWorkMutationVariables,
+    SubmitWorkInitialMutation,
+    SubmitWorkInitialMutationVariables,
+    SubmitWorkMutation,
+    SubmitWorkMutationVariables,
+} from '../types/mutations.generated'
 import {
-    SubmitWorkInitial,
-    SubmitWorkInitialVariables,
-} from '../types/SubmitWorkInitial'
-import { SubmitWork, SubmitWorkVariables } from '../types/SubmitWork'
-import { DocumentQuery, DocumentQueryVariables } from '../types/DocumentQuery'
+    DocumentQuery,
+    DocumentQueryVariables,
+} from '../types/queries.generated'
 
 import { RefetchObj } from './authMutation'
-import { ActionType } from '../types'
+import { ActionType } from '@community-land-quest/shared-utils/utils/common-types'
 
 export const useWorkState = <InputState, Action>(
     stageId: number,
@@ -52,23 +55,23 @@ export const useWorkState = <InputState, Action>(
     // save/submit operations, each with doc requery
 
     const [saveWorkInitial, saveWorkInitialResponse] = useAuthMutation<
-        SaveWorkInitial,
-        SaveWorkInitialVariables
+        SaveWorkInitialMutation,
+        SaveWorkInitialMutationVariables
     >(SAVE_WORK_INITIAL, REFETCH_OBJ, () => setSaveComplete(true))
 
     const [saveWork, saveWorkResponse] = useAuthMutation<
-        SaveWork,
-        SaveWorkVariables
+        SaveWorkMutation,
+        SaveWorkMutationVariables
     >(SAVE_WORK, REFETCH_OBJ, () => setSaveComplete(true))
 
     const [submitWorkInitial, submitWorkInitialResponse] = useAuthMutation<
-        SubmitWorkInitial,
-        SubmitWorkInitialVariables
+        SubmitWorkInitialMutation,
+        SubmitWorkInitialMutationVariables
     >(SUBMIT_WORK_INITIAL, REFETCH_OBJ, () => setSubmitComplete(true))
 
     const [submitWork, submitWorkResponse] = useAuthMutation<
-        SubmitWork,
-        SubmitWorkVariables
+        SubmitWorkMutation,
+        SubmitWorkMutationVariables
     >(SUBMIT_WORK, REFETCH_OBJ, () => setSubmitComplete(true))
 
     // ----------------------------------------------

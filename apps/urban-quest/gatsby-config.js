@@ -79,14 +79,14 @@ module.exports = {
             options: {
                 typeName: 'Content',
                 fieldName: 'content',
-                url: 'https://api-eu-central-1.graphcms.com/v2/cks8zc6ay19mx01xq2yz20dgl/master',
+                url: 'https://api-eu-west-2.hygraph.com/v2/clal11y521clk01tag42h7qf9/master',
             },
         },
         {
             resolve: 'gatsby-source-graphcms',
             options: {
                 endpoint:
-                    'https://api-eu-central-1.graphcms.com/v2/cks8zc6ay19mx01xq2yz20dgl/master',
+                    'https://api-eu-west-2.hygraph.com/v2/clal11y521clk01tag42h7qf9/master',
                 locales: ['en', 'gd'],
                 fragmentsPath: 'src/gql/graphcms-fragments',
                 queryConcurrency: 1,

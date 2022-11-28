@@ -8,14 +8,14 @@ import { TUTOR_DOCUMENT_QUERY } from '../queries'
 import { SUBMIT_FEEDBACK } from '../mutations'
 
 import {
-    SubmitFeedback,
-    SubmitFeedbackVariables,
-} from '../types/SubmitFeedback'
+    SubmitFeedbackMutation,
+    SubmitFeedbackMutationVariables,
+} from '../types/mutations.generated'
 import {
     TutorDocumentQuery,
     TutorDocumentQueryVariables,
-} from '../types/TutorDocumentQuery'
-import { ActionType } from '../types'
+} from '../types/queries.generated'
+import { ActionType } from '@community-land-quest/shared-utils/utils/common-types'
 
 type FeedbackState = {
     feedback: string
@@ -61,8 +61,8 @@ export const useFeedbackState = (
     const [submitComplete, setSubmitComplete] = useState(false)
 
     const [submitFeedback, submitFeedbackResponse] = useAuthMutation<
-        SubmitFeedback,
-        SubmitFeedbackVariables
+        SubmitFeedbackMutation,
+        SubmitFeedbackMutationVariables
     >(
         SUBMIT_FEEDBACK,
         {

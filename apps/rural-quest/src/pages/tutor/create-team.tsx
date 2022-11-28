@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
 import {
@@ -19,15 +18,16 @@ import {
     CREATE_QUEST_WITH_TEAMS,
     START_QUEST,
 } from '@community-land-quest/shared-data/gql/mutations'
-import { StudentType } from '@community-land-quest/shared-data/gql/types'
+import { StudentType } from '@community-land-quest/shared-utils/utils/common-types'
 import {
-    CreateQuestWithTeams,
-    CreateQuestWithTeamsVariables,
-} from '@community-land-quest/shared-data/gql/types/CreateQuestWithTeams'
+    CreateQuestWithTeamsMutation,
+    CreateQuestWithTeamsMutationVariables,
+} from '@community-land-quest/shared-data/gql/types/mutations.generated'
+import { CREATE_TEAM_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     CreateTeamQuery,
     CreateTeamQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/CreateTeamQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import {
     addStudentToTeam,
@@ -215,9 +215,10 @@ const ConfirmModal = ({
     schoolId,
 }: ConfirmModalProps) => {
     const [createQuestWithTeams, createQuestWithTeamsResponse] =
-        useAuthMutation<CreateQuestWithTeams, CreateQuestWithTeamsVariables>(
-            CREATE_QUEST_WITH_TEAMS
-        )
+        useAuthMutation<
+            CreateQuestWithTeamsMutation,
+            CreateQuestWithTeamsMutationVariables
+        >(CREATE_QUEST_WITH_TEAMS)
     const [startQuest, startQuestResponse] = useAuthMutation(START_QUEST)
 
     const [cognitoResponse, setCognitoResponse] = useState([])
@@ -358,17 +359,6 @@ const ConfirmModal = ({
         </>
     )
 }
-
-const CREATE_TEAM_QUERY = gql`
-    query CreateTeamQuery($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            id
-            tutor {
-                id
-            }
-        }
-    }
-`
 
 const TutorCreateTeamPage = () => {
     const [teams, setTeams] = useState([])

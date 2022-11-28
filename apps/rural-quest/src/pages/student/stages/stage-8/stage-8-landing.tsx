@@ -1,7 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { gql } from '@apollo/client/core'
 import { ApolloError } from '@apollo/client'
 
 import {
@@ -15,31 +14,14 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { STAGE_8_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage8Query,
     Stage8QueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage8Query'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import '../../../../scss/index.scss'
 import '../../../../scss/print.scss'
-
-const STAGE_8_QUERY = gql`
-    query Stage8Query($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            student {
-                id
-                team {
-                    name
-                    students {
-                        user {
-                            full_name
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
 
 const TeamSection = ({ students, teamName }) => (
     <>

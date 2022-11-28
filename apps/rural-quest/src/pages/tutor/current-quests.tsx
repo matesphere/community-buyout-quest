@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { gql } from '@apollo/client'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import { ApolloError } from '@apollo/client'
 
@@ -37,9 +36,7 @@ import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql
 import {
     TutorCurrentQuestQuery,
     TutorCurrentQuestQueryVariables,
-    TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_team_development_options,
-    TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_students,
-} from '@community-land-quest/shared-data/gql/types/TutorCurrentQuestQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 
@@ -47,47 +44,6 @@ import Tick from '../../assets/tick.svg'
 
 import '../../scss/index.scss'
 import 'react-tabs/style/react-tabs.css'
-
-const TUTOR_CURRENT_QUEST_SUB = gql`
-    subscription TutorCurrentQuestSub($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            id
-            full_name
-            username
-            email
-            tutor {
-                id
-                school {
-                    name
-                }
-                quests(where: { status: { _eq: active } }) {
-                    id
-                    teams {
-                        id
-                        name
-                        students {
-                            id
-                            user {
-                                full_name
-                            }
-                        }
-                        stage_progresses {
-                            id
-                            team_id
-                            stage_id
-                            status
-                            documents(order_by: { id: asc }) {
-                                id
-                                status
-                                feedback
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
 
 const getStageStatusDisplay = (
     stageId,
@@ -172,8 +128,8 @@ const getStageStatusDisplay = (
 }
 
 interface TeamInfoPanelProps {
-    devOptions: Array<TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_team_development_options>
-    students: Array<TutorCurrentQuestQuery_user_by_pk_tutor_quests_teams_students>
+    devOptions: Array<any>
+    students: Array<any>
 }
 
 const TeamInfoPanel = ({ devOptions, students }: TeamInfoPanelProps) => (

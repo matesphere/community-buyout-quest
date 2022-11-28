@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { gql, ApolloError } from '@apollo/client'
+import { ApolloError } from '@apollo/client'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import {
@@ -21,41 +21,17 @@ import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/aut
 
 import { SET_TEAM_POSITIONS_AND_LOGO } from '@community-land-quest/shared-data/gql/mutations'
 import {
-    SetTeamPositions,
-    SetTeamPositionsVariables,
-} from '@community-land-quest/shared-data/gql/types/SetTeamPositions'
+    SetTeamPositionsMutation,
+    SetTeamPositionsMutationVariables,
+} from '@community-land-quest/shared-data/gql/types/mutations.generated'
+import { STAGE_2_TASK_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     Stage2TaskQuery,
     Stage2TaskQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/Stage2TaskQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import Tick from '../../../../assets/tick.svg'
-
 import '../../../../scss/index.scss'
-
-const STAGE_2_TASK_QUERY = gql`
-    query Stage2TaskQuery($team_id: uuid!) {
-        team_by_pk(id: $team_id) {
-            id
-            logo
-            students {
-                id
-                user_id
-                school_id
-                team_id
-                position
-                user {
-                    username
-                    full_name
-                }
-            }
-            stage_progresses(where: { stage_id: { _eq: 2 } }) {
-                id
-                status
-            }
-        }
-    }
-`
 
 const Stage2TaskPage = () => {
     // const [showFilters, setShowFilters] = useState(false)
@@ -65,8 +41,8 @@ const Stage2TaskPage = () => {
 
     // const [submitLogo, submitLogoResponse] = useAuthMutation(SET_TEAM_LOGO)
     const [submitPositions, submitPositionResponse] = useAuthMutation<
-        SetTeamPositions,
-        SetTeamPositionsVariables
+        SetTeamPositionsMutation,
+        SetTeamPositionsMutationVariables
     >(
         SET_TEAM_POSITIONS_AND_LOGO,
         {

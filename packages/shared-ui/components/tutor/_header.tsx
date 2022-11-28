@@ -1,5 +1,5 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+// import { graphql, useStaticQuery } from 'gatsby'
+// import { GatsbyImage } from 'gatsby-plugin-image'
 import { Location } from '@reach/router'
 
 import { TutorNav } from './_tutor-nav'

@@ -4,9 +4,17 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "gen-schema": "rimraf packages/shared-data/gql/types && apollo client:codegen --endpoint=\"https://clq.beanmate.coffee/v1/graphql\" --no-addTypename --outputFlat --tagName=gql --target=typescript packages/shared-data/gql/types --header=\"X-Hasura-Access-Key: community-land\""
+    "gen-schema": "rimraf packages/shared-data/gql/types && apollo client:codegen --endpoint=\"https://clq.beanmate.coffee/v1/graphql\" --no-addTypename --outputFlat --tagName=gql --target=typescript packages/shared-data/gql/types --header=\"X-Hasura-Access-Key: community-land\"",
+    "generate": "graphql-codegen"
   },
   "devDependencies": {
-    "lerna": "^6.0.3"
+    "@graphql-codegen/cli": "^2.14.0",
+    "@graphql-codegen/client-preset": "^1.1.5",
+    "@graphql-codegen/near-operation-file-preset": "^2.4.4",
+    "@graphql-codegen/typescript": "^2.8.2",
+    "@graphql-codegen/typescript-operations": "^2.5.7",
+    "apollo": "^2.33.4",
+    "lerna": "^6.0.3",
+    "rimraf": "^3.0.2"
   }
 }

@@ -2,13 +2,13 @@ import { FC, useContext, useEffect } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { gql } from '@apollo/client'
 import { ApolloError } from '@apollo/client'
 
 import { Loading, Error } from '@community-land-quest/shared-ui'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
+import { TEAM_HUB_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     TeamHubQuery,
     TeamHubQueryVariables,
@@ -31,86 +31,6 @@ import Ticktb4 from '../../assets/tick-tp4.svg'
 import Tick from '../../assets/tick.svg'
 
 import '../../scss/index.scss'
-
-const TEAM_HUB_QUERY = gql`
-    query TeamHubQuery($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            id
-            full_name
-            student {
-                id
-                team {
-                    id
-                    name
-                    logo
-                    stage_progresses(order_by: { stage_id: asc }) {
-                        id
-                        stage_id
-                        status
-                        documents(order_by: { id: asc }) {
-                            status
-                        }
-                    }
-                    students {
-                        id
-                        position
-                        user {
-                            id
-                            full_name
-                        }
-                    }
-                    team_development_options(
-                        order_by: { development_option: { id: asc } }
-                    ) {
-                        id
-                        shortlist
-                        team_choice_name
-                        development_option {
-                            id
-                            display_name
-                            option
-                        }
-                    }
-                }
-            }
-        }
-        stage(order_by: { id: asc }) {
-            id
-            title
-        }
-    }
-`
-
-const TEAM_HUB_SUB = gql`
-    subscription TeamHubSub($user_id: uuid!) {
-        user_by_pk(id: $user_id) {
-            id
-            full_name
-            student {
-                team {
-                    name
-                    stage_progresses {
-                        stage_id
-                        status
-                    }
-                    students {
-                        user {
-                            full_name
-                        }
-                    }
-                    team_development_options {
-                        shortlist
-                        development_option {
-                            id
-                            display_name
-                            option
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
 
 const getStageClasses = (stageStatus, docStatus) => {
     switch (stageStatus) {

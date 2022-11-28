@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { StudentType } from '../gql/types'
+import { StudentType } from '@community-land-quest/shared-utils/utils/common-types'
 
 export interface CurrentQuestsContextType {
     expanded: Array<string>

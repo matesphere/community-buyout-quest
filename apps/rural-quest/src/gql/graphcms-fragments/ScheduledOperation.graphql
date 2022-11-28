@@ -67,6 +67,12 @@ fragment ScheduledOperation on ScheduledOperation {
       locale
       stage
     }
+    ... on ModelBusinessPlan {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
     ... on ModelSwot {
       remoteTypeName: __typename
       remoteId: id

@@ -10,7 +10,7 @@ import { TEAM_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     TeamQuery,
     TeamQueryVariables,
-} from '@community-land-quest/shared-data/gql/types/TeamQuery'
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import TickSheet from '../../../../assets/tick-sheet.svg'
 import '../../../../scss/index.scss'
