@@ -3,7 +3,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { ApolloError } from '@apollo/client'
 // import scrollTo from 'gatsby-plugin-smoothscroll'
-
+import MapOptions from '../../../information/_map'
 import {
     Loading,
     Error,
@@ -121,15 +121,16 @@ const Stage3LandingPage: FC = () => {
     } = useWorkState<WorkState, Action>(3, stage3SwotReducer, true)
 
     if (loading) return <Loading />
-    if (error || !pageData)
+    if (error || !pageData) {
         return (
             <Error
-                error={
+                error = {
                     error ||
                     new ApolloError({ errorMessage: 'No data returned!' })
                 }
             />
         )
+        }
 
     const { team_development_options: devOptions } = pageData.team_by_pk
     const doc =
