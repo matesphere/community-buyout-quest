@@ -2,26 +2,20 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { RichText } from '@graphcms/rich-text-react-renderer'
 
-import InfoHouse from '../../assets/info-house.svg'
-import InfoSkate from '../../assets/info-skate.svg'
-import InfoShop from '../../assets/info-shop.svg'
-import InfoHydro from '../../assets/info-hydro.svg'
-import InfoWind from '../../assets/info-wind.svg'
-import InfoBusiness from '../../assets/info-business.svg'
-import InfoForest from '../../assets/info-forest.svg'
-import InfoCamp from '../../assets/info-camp.svg'
-import InfoGarden from '../../assets/info-garden.svg'
+import InfoUrbanBuilding from '../../assets/info-urban-building.svg'
+import InfoUrbanSkate from '../../assets/info-urban-skate.svg'
+import InfoUrbanWaste from '../../assets/info-urban-wasteland.svg'
+import InfoSolar from '../../assets/info-urban-solar.svg'
+import InfoUrbanForest from '../../assets/info-urban-forest.svg'
+import InfoUrbanGarden from '../../assets/info-urban-garden.svg'
 
 const ICON = [
-    InfoShop,
-    InfoSkate,
-    InfoHouse,
-    InfoHydro,
-    InfoBusiness,
-    InfoGarden,
-    InfoWind,
-    InfoForest,
-    InfoCamp,
+    InfoUrbanBuilding,
+    InfoUrbanWaste,
+    InfoUrbanSkate,
+    InfoUrbanForest,
+    InfoUrbanGarden,
+    InfoSolar,
 ]
 
 const IconInfo = ({ content, Icon }) => (

@@ -28,29 +28,28 @@
         display: flex;
         flex-wrap: wrap;
         z-index: 2;
-        padding: 16% 11% 5%;
+        padding: 10% 11% 5% 20%;
     }
 
     .inner-grid {
         width: 33.3%;
-        height: 33.3%;
+        height: 50%;
         display: table;
         position: relative;
-        border: 1px dotted red;
 
         &-1 {
             .info-icon {
                 position: absolute;
-                left: 31%;
-                top: 10%;
+                left: 76%;
+                top: 23%;
             }
         }
 
         &-2 {
             .info-icon {
                 position: absolute;
-                left: 0%;
-                top: 60%;
+                left: 30%;
+                top: 10%;
             }
         }
 
@@ -58,7 +57,7 @@
             .info-icon {
                 position: absolute;
                 left: 0%;
-                top: 20%;
+                top: 60%;
             }
         }
 
@@ -66,15 +65,15 @@
             .info-icon {
                 position: absolute;
                 left: 10%;
-                top: 10%;
+                top: 80%;
             }
         }
 
         &-5 {
             .info-icon {
                 position: absolute;
-                left: 70%;
-                top: 2%;
+                left: 10%;
+                top: 50%;
             }
         }
 
@@ -97,8 +96,8 @@
         &-8 {
             .info-icon {
                 position: absolute;
-                left: 60%;
-                top: 0%;
+                left: 40%;
+                top: 40%;
             }
         }
 
@@ -157,8 +156,8 @@
 
     .hover-pins {
         position: absolute;
-        bottom: 10px;
-        left: 10px;
+        bottom: -10px;
+        left: 40px;
     }
 }
 
