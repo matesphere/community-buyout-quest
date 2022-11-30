@@ -61,7 +61,7 @@ const InfoDevOptions: FC = ({
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-lg-12">
+                    <div className="col-lg-12 dev-options">
                         <MapOptions iconInfoList={slider} />
 
                         <InfoBlock items={infoBlock} />

@@ -6,14 +6,12 @@ import InfoUrbanBuilding from '../../assets/info-urban-building.svg'
 import InfoUrbanSkate from '../../assets/info-urban-skate.svg'
 import InfoUrbanWaste from '../../assets/info-urban-wasteland.svg'
 import InfoSolar from '../../assets/info-urban-solar.svg'
-import InfoUrbanForest from '../../assets/info-urban-forest.svg'
 import InfoUrbanGarden from '../../assets/info-urban-garden.svg'
 
 const ICON = [
     InfoUrbanBuilding,
     InfoUrbanWaste,
     InfoUrbanSkate,
-    InfoUrbanForest,
     InfoUrbanGarden,
     InfoSolar,
 ]
@@ -52,7 +50,7 @@ const MapOptions = ({ iconInfoList }) => {
                     </div>
                     <div className="hover-pins">
                         <p className="sm-type-amp">
-                            Hover over the pins to see more information
+                            Hover over the icons to see more information
                         </p>
                     </div>
                     <div className="outer-grid">

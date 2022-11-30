@@ -50,7 +50,7 @@ const InformationPage: FC = () => {
             <main className="the-quest">
                 <section className="container" id="main">
                     <div className="row">
-                        <div className="col-lg-9">
+                        <div className="col-lg-9 info">
                             <Breadcrumbs
                                 previous={[
                                     {

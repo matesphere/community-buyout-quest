@@ -53,6 +53,15 @@
   position: relative;
 }
 
+.top-holder:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #88d5f9;
+    display: block;
+    position: absolute;
+}
+
 .top-section {
   position: relative;
 }
