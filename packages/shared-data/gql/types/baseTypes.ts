@@ -10308,8 +10308,10 @@ export type Development_Option = {
   __typename?: 'development_option';
   display_name?: Maybe<Scalars['String']>;
   id: Scalars['Int'];
+  location?: Maybe<Scalars['String']>;
   model_swot?: Maybe<Scalars['jsonb']>;
   option: Scalars['String'];
+  quest_type: Scalars['String'];
   /** An array relationship */
   team_development_options: Array<Team_Development_Option>;
   /** An aggregate relationship */
@@ -10390,8 +10392,10 @@ export type Development_Option_Bool_Exp = {
   _or?: InputMaybe<Array<Development_Option_Bool_Exp>>;
   display_name?: InputMaybe<String_Comparison_Exp>;
   id?: InputMaybe<Int_Comparison_Exp>;
+  location?: InputMaybe<String_Comparison_Exp>;
   model_swot?: InputMaybe<Jsonb_Comparison_Exp>;
   option?: InputMaybe<String_Comparison_Exp>;
+  quest_type?: InputMaybe<String_Comparison_Exp>;
   team_development_options?: InputMaybe<Team_Development_Option_Bool_Exp>;
 };
 
@@ -10425,8 +10429,10 @@ export type Development_Option_Inc_Input = {
 export type Development_Option_Insert_Input = {
   display_name?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['Int']>;
+  location?: InputMaybe<Scalars['String']>;
   model_swot?: InputMaybe<Scalars['jsonb']>;
   option?: InputMaybe<Scalars['String']>;
+  quest_type?: InputMaybe<Scalars['String']>;
   team_development_options?: InputMaybe<Team_Development_Option_Arr_Rel_Insert_Input>;
 };
 
@@ -10435,7 +10441,9 @@ export type Development_Option_Max_Fields = {
   __typename?: 'development_option_max_fields';
   display_name?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
+  location?: Maybe<Scalars['String']>;
   option?: Maybe<Scalars['String']>;
+  quest_type?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
@@ -10443,7 +10451,9 @@ export type Development_Option_Min_Fields = {
   __typename?: 'development_option_min_fields';
   display_name?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
+  location?: Maybe<Scalars['String']>;
   option?: Maybe<Scalars['String']>;
+  quest_type?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "development_option" */
@@ -10473,8 +10483,10 @@ export type Development_Option_On_Conflict = {
 export type Development_Option_Order_By = {
   display_name?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  location?: InputMaybe<Order_By>;
   model_swot?: InputMaybe<Order_By>;
   option?: InputMaybe<Order_By>;
+  quest_type?: InputMaybe<Order_By>;
   team_development_options_aggregate?: InputMaybe<Team_Development_Option_Aggregate_Order_By>;
 };
 
@@ -10495,17 +10507,23 @@ export enum Development_Option_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
+  Location = 'location',
+  /** column name */
   ModelSwot = 'model_swot',
   /** column name */
-  Option = 'option'
+  Option = 'option',
+  /** column name */
+  QuestType = 'quest_type'
 }
 
 /** input type for updating data in table "development_option" */
 export type Development_Option_Set_Input = {
   display_name?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['Int']>;
+  location?: InputMaybe<Scalars['String']>;
   model_swot?: InputMaybe<Scalars['jsonb']>;
   option?: InputMaybe<Scalars['String']>;
+  quest_type?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate stddev on columns */
@@ -10539,9 +10557,13 @@ export enum Development_Option_Update_Column {
   /** column name */
   Id = 'id',
   /** column name */
+  Location = 'location',
+  /** column name */
   ModelSwot = 'model_swot',
   /** column name */
-  Option = 'option'
+  Option = 'option',
+  /** column name */
+  QuestType = 'quest_type'
 }
 
 /** aggregate var_pop on columns */
@@ -14761,7 +14783,9 @@ export type Team_Bool_Exp = {
 /** unique or primary key constraints on table "team" */
 export enum Team_Constraint {
   /** unique or primary key constraint */
-  TeamPkey = 'team_pkey'
+  TeamPkey = 'team_pkey',
+  /** unique or primary key constraint */
+  TeamQuestIdNameKey = 'team_quest_id_name_key'
 }
 
 /** columns and relationships of "team_development_option" */
@@ -14774,6 +14798,7 @@ export type Team_Development_Option = {
   shortlist: Scalars['Boolean'];
   /** An object relationship */
   team: Team;
+  team_choice_location?: Maybe<Scalars['String']>;
   team_choice_name?: Maybe<Scalars['String']>;
   team_id: Scalars['uuid'];
 };
@@ -14851,6 +14876,7 @@ export type Team_Development_Option_Bool_Exp = {
   id?: InputMaybe<Uuid_Comparison_Exp>;
   shortlist?: InputMaybe<Boolean_Comparison_Exp>;
   team?: InputMaybe<Team_Bool_Exp>;
+  team_choice_location?: InputMaybe<String_Comparison_Exp>;
   team_choice_name?: InputMaybe<String_Comparison_Exp>;
   team_id?: InputMaybe<Uuid_Comparison_Exp>;
 };
@@ -14873,6 +14899,7 @@ export type Team_Development_Option_Insert_Input = {
   id?: InputMaybe<Scalars['uuid']>;
   shortlist?: InputMaybe<Scalars['Boolean']>;
   team?: InputMaybe<Team_Obj_Rel_Insert_Input>;
+  team_choice_location?: InputMaybe<Scalars['String']>;
   team_choice_name?: InputMaybe<Scalars['String']>;
   team_id?: InputMaybe<Scalars['uuid']>;
 };
@@ -14882,6 +14909,7 @@ export type Team_Development_Option_Max_Fields = {
   __typename?: 'team_development_option_max_fields';
   development_option_id?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['uuid']>;
+  team_choice_location?: Maybe<Scalars['String']>;
   team_choice_name?: Maybe<Scalars['String']>;
   team_id?: Maybe<Scalars['uuid']>;
 };
@@ -14890,6 +14918,7 @@ export type Team_Development_Option_Max_Fields = {
 export type Team_Development_Option_Max_Order_By = {
   development_option_id?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  team_choice_location?: InputMaybe<Order_By>;
   team_choice_name?: InputMaybe<Order_By>;
   team_id?: InputMaybe<Order_By>;
 };
@@ -14899,6 +14928,7 @@ export type Team_Development_Option_Min_Fields = {
   __typename?: 'team_development_option_min_fields';
   development_option_id?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['uuid']>;
+  team_choice_location?: Maybe<Scalars['String']>;
   team_choice_name?: Maybe<Scalars['String']>;
   team_id?: Maybe<Scalars['uuid']>;
 };
@@ -14907,6 +14937,7 @@ export type Team_Development_Option_Min_Fields = {
 export type Team_Development_Option_Min_Order_By = {
   development_option_id?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  team_choice_location?: InputMaybe<Order_By>;
   team_choice_name?: InputMaybe<Order_By>;
   team_id?: InputMaybe<Order_By>;
 };
@@ -14934,6 +14965,7 @@ export type Team_Development_Option_Order_By = {
   id?: InputMaybe<Order_By>;
   shortlist?: InputMaybe<Order_By>;
   team?: InputMaybe<Team_Order_By>;
+  team_choice_location?: InputMaybe<Order_By>;
   team_choice_name?: InputMaybe<Order_By>;
   team_id?: InputMaybe<Order_By>;
 };
@@ -14952,6 +14984,8 @@ export enum Team_Development_Option_Select_Column {
   /** column name */
   Shortlist = 'shortlist',
   /** column name */
+  TeamChoiceLocation = 'team_choice_location',
+  /** column name */
   TeamChoiceName = 'team_choice_name',
   /** column name */
   TeamId = 'team_id'
@@ -14962,6 +14996,7 @@ export type Team_Development_Option_Set_Input = {
   development_option_id?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['uuid']>;
   shortlist?: InputMaybe<Scalars['Boolean']>;
+  team_choice_location?: InputMaybe<Scalars['String']>;
   team_choice_name?: InputMaybe<Scalars['String']>;
   team_id?: InputMaybe<Scalars['uuid']>;
 };
@@ -15018,6 +15053,8 @@ export enum Team_Development_Option_Update_Column {
   Id = 'id',
   /** column name */
   Shortlist = 'shortlist',
+  /** column name */
+  TeamChoiceLocation = 'team_choice_location',
   /** column name */
   TeamChoiceName = 'team_choice_name',
   /** column name */

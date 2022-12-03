@@ -71,10 +71,11 @@ export type Stage2TaskQuery = { team_by_pk?: { id: any, logo?: string | null, st
 
 export type Stage3TaskQueryVariables = Types.Exact<{
   team_id: Types.Scalars['uuid'];
+  quest_type: Types.Scalars['String'];
 }>;
 
 
-export type Stage3TaskQuery = { team_by_pk?: { id: any, team_development_options: Array<{ id: any }> } | null, development_option: Array<{ id: number, option: string, display_name?: string | null }> };
+export type Stage3TaskQuery = { team_by_pk?: { id: any, team_development_options: Array<{ id: any }> } | null, development_option: Array<{ id: number, option: string, display_name?: string | null, location?: string | null }> };
 
 export type SwotExampleQueryVariables = Types.Exact<{
   team_id: Types.Scalars['uuid'];

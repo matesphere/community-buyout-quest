@@ -25,9 +25,35 @@ import {
     Stage3TaskQueryVariables,
 } from '@community-land-quest/shared-data/gql/types/queries.generated'
 
-import { useCheckboxState } from '@community-land-quest/shared-utils/utils/input-utils'
+import { useGroupedCheckboxState } from '@community-land-quest/shared-utils/utils/input-utils'
 
 import '../../../../scss/index.scss'
+
+const LOCATION_DISPLAY_NAME: { [key: string]: string } = {
+    wasteland: 'Wasteland',
+    'ground-floor': 'Ground Floor',
+    'first-floor': 'First Floor',
+}
+
+const taskIsComplete = (devOptions) =>
+    devOptions.filter((opt) => opt.location === 'wasteland').length === 2 &&
+    devOptions.filter((opt) => opt.location === 'ground-floor').length === 2 &&
+    devOptions.filter((opt) => opt.location === 'first-floor').length === 2
+
+const OptionCheckbox = ({ id, selectedOptions, toggleValue, display_name }) => (
+    <div className="multiple-choice">
+        <input
+            className="form-control"
+            id={id}
+            type="checkbox"
+            checked={selectedOptions.includes(id)}
+            onChange={toggleValue}
+        />
+        <label className="form-label" htmlFor={id}>
+            {display_name}
+        </label>
+    </div>
+)
 
 const ChooseOptionsCheckboxes = ({
     devOptions,
@@ -35,58 +61,116 @@ const ChooseOptionsCheckboxes = ({
     toggleValue,
     teamChoiceName,
     setTeamChoiceName,
-}) => (
-    <>
-        {devOptions.slice().map(({ id, display_name }, i) =>
-            id === 10 ? (
-                <div key={i}>
-                    <p className="sm-type-lead sm-type-lead--medium mt-4">
-                        Or choose your own option - check the box and enter your
-                        option name here!
-                    </p>
-                    <div className="multiple-choice">
-                        <input
-                            className="form-control"
-                            id="10"
-                            type="checkbox"
-                            checked={selectedOptions.includes(10)}
-                            onChange={() => toggleValue(10)}
-                        />
-                        <label className="form-label" htmlFor="housing">
-                            Team choice
-                        </label>
-                    </div>
-                    <div className="mb-4">
-                        <label className="form-label sm-type-amp">
-                            Development option name
-                        </label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            value={teamChoiceName}
-                            onChange={({ target: { value } }) =>
-                                setTeamChoiceName(value)
-                            }
-                        />
-                    </div>
-                </div>
-            ) : (
-                <div key={i} className="multiple-choice">
+    teamChoiceLocation,
+    setTeamChoiceLocation,
+}) => {
+    const devOptionsGrouped = devOptions.reduce((acc, opt) => {
+        if (opt.location) {
+            const group = acc[opt.location] ?? []
+            acc[opt.location] = group.concat(opt)
+        }
+        return acc
+    }, {})
+
+    return (
+        <>
+            {Object.entries(devOptionsGrouped).map(([key, devOptions], i) => {
+                return (
+                    <>
+                        <h1 key={i}>{LOCATION_DISPLAY_NAME[key]}</h1>
+                        {devOptions.map(({ id, display_name }) => (
+                            <OptionCheckbox
+                                key={id}
+                                {...{
+                                    id,
+                                    selectedOptions,
+                                    toggleValue: () =>
+                                        toggleValue({
+                                            groupName: key,
+                                            selectedValue: id,
+                                        }),
+                                    display_name,
+                                }}
+                            />
+                        ))}
+                    </>
+                )
+            })}
+
+            <div key={22}>
+                <p className="sm-type-lead sm-type-lead--medium mt-4">
+                    Or choose your own option - check the box and enter your
+                    option name here!
+                </p>
+                <div className="multiple-choice">
                     <input
                         className="form-control"
-                        id={id}
+                        id="22"
                         type="checkbox"
-                        checked={selectedOptions.includes(id)}
-                        onChange={() => toggleValue(id)}
+                        checked={selectedOptions.includes(22)}
+                        onChange={() =>
+                            toggleValue({
+                                groupName: teamChoiceLocation,
+                                selectedValue: 22,
+                            })
+                        }
                     />
-                    <label className="form-label" htmlFor={id}>
-                        {display_name}
+                    <label className="form-label" htmlFor="housing">
+                        Team choice
                     </label>
                 </div>
-            )
-        )}
-    </>
-)
+                <div className="mb-4">
+                    <label className="form-label sm-type-amp">
+                        Development option name
+                    </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={teamChoiceName}
+                        onChange={({ target: { value } }) =>
+                            setTeamChoiceName(value)
+                        }
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="form-label sm-type-amp">
+                        Development option location
+                    </label>
+                    {['wasteland', 'ground-floor', 'first-floor'].map(
+                        (key, i) => {
+                            return (
+                                <label key={i}>
+                                    <input
+                                        type="radio"
+                                        value={key}
+                                        checked={teamChoiceLocation === key}
+                                        onChange={({ target: { value } }) => {
+                                            if (selectedOptions.includes(22)) {
+                                                toggleValue({
+                                                    groupName:
+                                                        teamChoiceLocation,
+                                                    selectedValue: 22,
+                                                })
+                                                setTeamChoiceLocation(value)
+                                                toggleValue({
+                                                    groupName: value,
+                                                    selectedValue: 22,
+                                                })
+                                            } else {
+                                                setTeamChoiceLocation(value)
+                                            }
+                                        }}
+                                    />
+                                    {LOCATION_DISPLAY_NAME[key]}
+                                </label>
+                            )
+                        }
+                    )}
+                </div>
+            </div>
+        </>
+    )
+}
 
 // TODO: move this out to components
 const Stage3Task = ({ taskToComplete }) => {
@@ -95,9 +179,17 @@ const Stage3Task = ({ taskToComplete }) => {
     } = useContext(UserStateContext)
 
     const [teamChoiceName, setTeamChoiceName] = useState('')
+    const [teamChoiceLocation, setTeamChoiceLocation] = useState('wasteland')
 
-    const [selectedOptions, toggleValue, allowedNumberSelected] =
-        useCheckboxState<number>([], 5)
+    const {
+        dispatch: toggleValue,
+        totalLimitAmountSelected,
+        allSelectedOptions,
+    } = useGroupedCheckboxState<number>([
+        { title: 'wasteland', limit: 2 },
+        { title: 'ground-floor', limit: 2 },
+        { title: 'first-floor', limit: 2 },
+    ])
 
     const [chooseDevOptions, chooseDevOptionsResponse] = useAuthMutation(
         CHOOSE_DEVELOPMENT_OPTIONS,
@@ -112,11 +204,10 @@ const Stage3Task = ({ taskToComplete }) => {
         loading,
         error,
         data: pageData,
-    } = useAuthQuery<Stage3TaskQuery, Stage3TaskQueryVariables>(
-        STAGE_3_TASK_QUERY,
-        {},
-        'teamId'
-    )
+    } = useAuthQuery<
+        Stage3TaskQuery,
+        Omit<Stage3TaskQueryVariables, 'team_id'>
+    >(STAGE_3_TASK_QUERY, { variables: { quest_type: 'urban' } }, 'teamId')
 
     if (loading) return <Loading />
     if (error || !pageData)
@@ -130,7 +221,7 @@ const Stage3Task = ({ taskToComplete }) => {
         )
 
     const { team_development_options: devOptions } = pageData.team_by_pk
-    const taskComplete = devOptions.length === 5
+    const taskComplete = taskIsComplete(devOptions)
 
     return (
         <TaskPanel docSubmitted={taskComplete}>
@@ -140,26 +231,31 @@ const Stage3Task = ({ taskToComplete }) => {
                 <TaskContainer taskToComplete={taskToComplete}>
                     <ChooseOptionsCheckboxes
                         devOptions={pageData.development_option}
-                        selectedOptions={selectedOptions}
+                        selectedOptions={allSelectedOptions}
                         toggleValue={toggleValue}
                         teamChoiceName={teamChoiceName}
                         setTeamChoiceName={setTeamChoiceName}
+                        teamChoiceLocation={teamChoiceLocation}
+                        setTeamChoiceLocation={setTeamChoiceLocation}
                     />
 
                     <button
                         className="btn-solid-lg mt-4"
                         disabled={
-                            !allowedNumberSelected ||
-                            (selectedOptions.includes(10) && !teamChoiceName) ||
+                            !totalLimitAmountSelected ||
+                            (allSelectedOptions.includes(10) &&
+                                !teamChoiceName) ||
                             chooseDevOptionsResponse?.loading
                         }
                         onClick={() => {
-                            const objects = selectedOptions.map((id) => {
-                                if (id === 10) {
+                            const objects = allSelectedOptions.map((id) => {
+                                if (id === 22) {
                                     return {
                                         team_id: teamId,
                                         development_option_id: id,
                                         team_choice_name: teamChoiceName,
+                                        team_choice_location:
+                                            teamChoiceLocation,
                                     }
                                 }
 

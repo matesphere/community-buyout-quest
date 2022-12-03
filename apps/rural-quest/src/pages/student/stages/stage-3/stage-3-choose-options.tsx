@@ -96,7 +96,7 @@ const Stage3Task = ({ taskToComplete }) => {
 
     const [teamChoiceName, setTeamChoiceName] = useState('')
 
-    const [selectedOptions, toggleValue, allowedNumberSelected] =
+    const [selectedOptions, toggleValue, limitAmountSelected] =
         useCheckboxState<number>([], 5)
 
     const [chooseDevOptions, chooseDevOptionsResponse] = useAuthMutation(
@@ -112,11 +112,10 @@ const Stage3Task = ({ taskToComplete }) => {
         loading,
         error,
         data: pageData,
-    } = useAuthQuery<Stage3TaskQuery, Stage3TaskQueryVariables>(
-        STAGE_3_TASK_QUERY,
-        {},
-        'teamId'
-    )
+    } = useAuthQuery<
+        Stage3TaskQuery,
+        Omit<Stage3TaskQueryVariables, 'team_id'>
+    >(STAGE_3_TASK_QUERY, { variables: { quest_type: 'rural' } }, 'teamId')
 
     if (loading) return <Loading />
     if (error || !pageData)
@@ -149,7 +148,7 @@ const Stage3Task = ({ taskToComplete }) => {
                     <button
                         className="btn-solid-lg mt-4"
                         disabled={
-                            !allowedNumberSelected ||
+                            !limitAmountSelected ||
                             (selectedOptions.includes(10) && !teamChoiceName) ||
                             chooseDevOptionsResponse?.loading
                         }

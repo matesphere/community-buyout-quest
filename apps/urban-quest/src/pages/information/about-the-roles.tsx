@@ -14,7 +14,7 @@ import {
 
 import '../../scss/index.scss'
 
-const Stage2TaskPage = ({
+const AboutRolesPage = ({
     data: {
         graphCmsInfo: {
             title,
@@ -81,7 +81,7 @@ const Stage2TaskPage = ({
     )
 }
 
-export default Stage2TaskPage
+export default AboutRolesPage
 
 export const query = graphql`
     query AboutRolesQuery {

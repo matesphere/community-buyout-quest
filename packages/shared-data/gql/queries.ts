@@ -290,17 +290,21 @@ export const STAGE_2_TASK_QUERY = gql`
 `
 
 export const STAGE_3_TASK_QUERY = gql`
-    query Stage3Task($team_id: uuid!) {
+    query Stage3Task($team_id: uuid!, $quest_type: String!) {
         team_by_pk(id: $team_id) {
             id
             team_development_options {
                 id
             }
         }
-        development_option(order_by: { id: asc }) {
+        development_option(
+            where: { quest_type: { _eq: $quest_type } }
+            order_by: { id: asc }
+        ) {
             id
             option
             display_name
+            location
         }
     }
 `

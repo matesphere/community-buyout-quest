@@ -58,6 +58,7 @@ const isDefined = <T extends unknown>(val: T | undefined | null): val is T => {
 
 const tokenIsValid = (token: string): boolean => {
     // does sess.isValid() work? how can we test this?!
+    // TODO doesn't catch - uncaught in promise
     try {
         verifier.verify(token)
         return true
