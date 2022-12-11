@@ -13,6 +13,7 @@ import {
     Submitted,
     Helpful,
     Checklist,
+    OptionCheckbox,
 } from '@community-land-quest/shared-ui'
 
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
@@ -26,34 +27,14 @@ import {
 } from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import { useGroupedCheckboxState } from '@community-land-quest/shared-utils/utils/input-utils'
+import { URBAN_LOCATION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
 
 import '../../../../scss/index.scss'
-
-const LOCATION_DISPLAY_NAME: { [key: string]: string } = {
-    wasteland: 'Wasteland',
-    'ground-floor': 'Ground Floor',
-    'first-floor': 'First Floor',
-}
 
 const taskIsComplete = (devOptions) =>
     devOptions.filter((opt) => opt.location === 'wasteland').length === 2 &&
     devOptions.filter((opt) => opt.location === 'ground-floor').length === 2 &&
     devOptions.filter((opt) => opt.location === 'first-floor').length === 2
-
-const OptionCheckbox = ({ id, selectedOptions, toggleValue, display_name }) => (
-    <div className="multiple-choice">
-        <input
-            className="form-control"
-            id={id}
-            type="checkbox"
-            checked={selectedOptions.includes(id)}
-            onChange={toggleValue}
-        />
-        <label className="form-label" htmlFor={id}>
-            {display_name}
-        </label>
-    </div>
-)
 
 const ChooseOptionsCheckboxes = ({
     devOptions,
@@ -67,7 +48,7 @@ const ChooseOptionsCheckboxes = ({
     const devOptionsGrouped = devOptions.reduce((acc, opt) => {
         if (opt.location) {
             const group = acc[opt.location] ?? []
-            acc[opt.location] = group.concat(opt)
+            acc[opt.location] = [...group, opt]
         }
         return acc
     }, {})
@@ -76,11 +57,11 @@ const ChooseOptionsCheckboxes = ({
         <>
             {Object.entries(devOptionsGrouped).map(([key, devOptions], i) => {
                 return (
-                    <>
-                        <h1 key={i}>{LOCATION_DISPLAY_NAME[key]}</h1>
+                    <div key={key}>
+                        <h1>{URBAN_LOCATION_DISPLAY_NAME[key]}</h1>
                         {devOptions.map(({ id, display_name }) => (
-                            <OptionCheckbox
-                                key={id}
+                            <OptionCheckbox<number>
+                                key={`${key}-${id}`}
                                 {...{
                                     id,
                                     selectedOptions,
@@ -89,11 +70,11 @@ const ChooseOptionsCheckboxes = ({
                                             groupName: key,
                                             selectedValue: id,
                                         }),
-                                    display_name,
+                                    displayName: display_name,
                                 }}
                             />
                         ))}
-                    </>
+                    </div>
                 )
             })}
 
@@ -161,7 +142,7 @@ const ChooseOptionsCheckboxes = ({
                                             }
                                         }}
                                     />
-                                    {LOCATION_DISPLAY_NAME[key]}
+                                    {URBAN_LOCATION_DISPLAY_NAME[key]}
                                 </label>
                             )
                         }
@@ -210,7 +191,7 @@ const Stage3Task = ({ taskToComplete }) => {
     >(STAGE_3_TASK_QUERY, { variables: { quest_type: 'urban' } }, 'teamId')
 
     if (loading) return <Loading />
-    if (error || !pageData)
+    if (error || !pageData || !pageData.team_by_pk)
         return (
             <Error
                 error={

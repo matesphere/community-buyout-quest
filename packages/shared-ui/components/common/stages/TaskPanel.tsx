@@ -29,7 +29,11 @@ export const TaskContainer: FC<TaskContainerProps> = ({
     disabled,
     children,
 }) => (
-    <div className={`form-holder-border ${disabled && 'not-available-holder'}`}>
+    <div
+        className={`form-holder-border${
+            disabled ? ' not-available-holder' : ''
+        }`}
+    >
         {title && (
             <p className="sm-type-lead sm-type-lead--medium mb-2">{title}</p>
         )}

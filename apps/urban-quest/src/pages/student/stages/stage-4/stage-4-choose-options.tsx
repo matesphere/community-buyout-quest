@@ -12,6 +12,7 @@ import {
     Submitted,
     Helpful,
     Checklist,
+    OptionCheckbox,
 } from '@community-land-quest/shared-ui'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
@@ -23,48 +24,93 @@ import {
     Stage4TaskQueryVariables,
 } from '@community-land-quest/shared-data/gql/types/queries.generated'
 
-import { useCheckboxState } from '@community-land-quest/shared-utils/utils/input-utils'
+import {
+    useGroupedCheckboxState,
+    ToggleAction,
+} from '@community-land-quest/shared-utils/utils/input-utils'
+import { URBAN_LOCATION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
+import { TeamDevelopmentOption } from '@community-land-quest/shared-utils/utils/common-types'
 
 import '../../../../scss/index.scss'
+import React from 'react'
+interface ChooseOptionsCheckboxes<T> {
+    devOptions: TeamDevelopmentOption[]
+    selectedOptions: T[]
+    toggleValue: React.Dispatch<ToggleAction<T>>
+}
 
 const ChooseOptionsCheckboxes = ({
     devOptions,
     selectedOptions,
     toggleValue,
-}) => (
-    <>
-        {devOptions
-            .slice()
-            .map(
-                (
-                    {
-                        id,
-                        team_choice_name,
-                        development_option: { display_name },
-                    },
-                    i
-                ) => (
-                    <div key={i} className="multiple-choice">
-                        <input
-                            className="form-control"
-                            id={id}
-                            type="checkbox"
-                            checked={selectedOptions.includes(id)}
-                            onChange={() => toggleValue(id)}
-                        />
-                        <label className="form-label" htmlFor={id}>
-                            {team_choice_name || display_name}
-                        </label>
-                    </div>
-                )
-            )}
-    </>
-)
+}: ChooseOptionsCheckboxes<string>) => {
+    const devOptionsGrouped = devOptions.reduce<{
+        [location: string]: TeamDevelopmentOption[]
+    }>((acc, opt) => {
+        const location =
+            opt.development_option.location || opt.team_choice_location
+        if (location) {
+            const group = acc[location] ?? []
+            acc[location] = [...group, opt]
+        }
+        return acc
+    }, {})
+
+    return (
+        <>
+            {Object.entries(devOptionsGrouped).map(([key, devOptions]) => (
+                <div key={key}>
+                    <h1>{URBAN_LOCATION_DISPLAY_NAME[key]}</h1>
+                    {devOptions
+                        .slice()
+                        .map(
+                            (
+                                {
+                                    id,
+                                    team_choice_name,
+                                    development_option: { display_name },
+                                },
+                                i
+                            ) => (
+                                <>
+                                    <OptionCheckbox<string>
+                                        key={`${key}-${id}`}
+                                        {...{
+                                            id,
+                                            selectedOptions,
+                                            toggleValue: () =>
+                                                toggleValue({
+                                                    groupName: key,
+                                                    selectedValue: id,
+                                                }),
+                                            displayName:
+                                                team_choice_name ||
+                                                display_name,
+                                        }}
+                                    />
+                                </>
+                            )
+                        )}
+                </div>
+            ))}
+        </>
+    )
+}
 
 // TODO: move this out to components
 const Stage4Task = ({ taskToComplete }) => {
-    const [selectedOptions, toggleValue, allowedNumberSelected] =
-        useCheckboxState<number>([], 3)
+    // const [selectedOptions, toggleValue, allowedNumberSelected] =
+    //     useCheckboxState<number>([], 3)
+
+    const {
+        dispatch: toggleValue,
+        totalLimitAmountSelected,
+        allSelectedOptions,
+    } = useGroupedCheckboxState<string>([
+        { title: 'wasteland', limit: 1 },
+        { title: 'ground-floor', limit: 1 },
+        { title: 'first-floor', limit: 1 },
+    ])
 
     const [chooseDevOptions, chooseDevOptionsResponse] = useAuthMutation(
         CHOOSE_SHORTLIST_OPTIONS,
@@ -86,7 +132,7 @@ const Stage4Task = ({ taskToComplete }) => {
     )
 
     if (loading) return <Loading />
-    if (error || !pageData)
+    if (error || !pageData || !pageData.team_by_pk)
         return (
             <Error
                 error={
@@ -107,20 +153,20 @@ const Stage4Task = ({ taskToComplete }) => {
                 <TaskContainer taskToComplete={taskToComplete}>
                     <ChooseOptionsCheckboxes
                         devOptions={devOptions}
-                        selectedOptions={selectedOptions}
+                        selectedOptions={allSelectedOptions}
                         toggleValue={toggleValue}
                     />
 
                     <button
                         className="btn-solid-lg mt-4"
                         disabled={
-                            !allowedNumberSelected ||
+                            !totalLimitAmountSelected ||
                             chooseDevOptionsResponse.loading
                         }
                         onClick={() => {
                             chooseDevOptions({
                                 variables: {
-                                    optionsToUpdate: selectedOptions,
+                                    optionsToUpdate: allSelectedOptions,
                                 },
                             })
                         }}

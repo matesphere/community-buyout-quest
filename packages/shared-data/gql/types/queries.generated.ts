@@ -89,7 +89,7 @@ export type Stage4TaskQueryVariables = Types.Exact<{
 }>;
 
 
-export type Stage4TaskQuery = { team_by_pk?: { id: any, team_development_options: Array<{ id: any, team_choice_name?: string | null, shortlist: boolean, development_option: { id: number, display_name?: string | null, option: string } }> } | null };
+export type Stage4TaskQuery = { team_by_pk?: { id: any, team_development_options: Array<{ id: any, team_choice_name?: string | null, team_choice_location?: string | null, shortlist: boolean, development_option: { id: number, option: string, display_name?: string | null, location?: string | null } }> } | null };
 
 export type Stage6QueryVariables = Types.Exact<{
   team_id: Types.Scalars['uuid'];

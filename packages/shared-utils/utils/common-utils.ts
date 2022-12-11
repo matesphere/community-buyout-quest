@@ -19,7 +19,10 @@ interface UseLoggingProps {
     }
 }
 
-export const useLogging = ({ component, userInfo: { username, role, userId, schoolId } }: UseLoggingProps) => {
+export const useLogging = ({
+    component,
+    userInfo: { username, role, userId, schoolId },
+}: UseLoggingProps) => {
     const log = async ({ loglevel, action, attributes }: LogProps) => {
         const mergedAttributes = {
             timestamp: moment().unix(),
@@ -57,4 +60,10 @@ export const POSITION_DISPLAY_NAME = {
     vicechairperson: 'Vice-chair',
     treasurer: 'Treasurer',
     secretary: 'Secretary',
+}
+
+export const URBAN_LOCATION_DISPLAY_NAME: { [key: string]: string } = {
+    wasteland: 'Wasteland',
+    'ground-floor': 'Ground Floor',
+    'first-floor': 'First Floor',
 }

@@ -28,7 +28,7 @@ interface GroupedCheckboxState<T> {
     }
 }
 
-interface ToggleAction<T> {
+export interface ToggleAction<T> {
     groupName: string
     selectedValue: T
 }

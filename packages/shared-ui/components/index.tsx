@@ -20,6 +20,7 @@ export {
 export { SaveSubmitSection } from './common/stages/SaveSubmitSection'
 export { SWOT } from './common/stages/SWOT'
 export { TaskPanel, TaskContainer } from './common/stages/TaskPanel'
+export { OptionCheckbox } from './student/stages/OptionCheckbox'
 
 // student
 export { Header as StudentHeader } from './student/_header'

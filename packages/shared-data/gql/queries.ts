@@ -342,11 +342,13 @@ export const STAGE_4_TASK_QUERY = gql`
             ) {
                 id
                 team_choice_name
+                team_choice_location
                 shortlist
                 development_option {
                     id
-                    display_name
                     option
+                    display_name
+                    location
                 }
             }
         }

@@ -89,7 +89,7 @@ module.exports = {
                     'https://api-eu-west-2.hygraph.com/v2/clal11y521clk01tag42h7qf9/master',
                 locales: ['en', 'gd'],
                 fragmentsPath: 'src/gql/graphcms-fragments',
-                queryConcurrency: 10,
+                queryConcurrency: 1,
             },
         },
         {
