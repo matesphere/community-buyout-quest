@@ -135,23 +135,26 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
                         </div>
 
                         <div className="col-lg-4">
-                            <Helpful content={helpfulInfo.info}>
-                                <>
-                                    {!teamDevOption?.team_choice_name && (
-                                        <p className="sm-type-amp">
-                                            Figures are provided in the{' '}
-                                            <a
-                                                href={`/information/${devOption?.option}-alt`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                Development Option information
-                                            </a>
-                                            .
-                                        </p>
-                                    )}
-                                </>
-                            </Helpful>
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info}>
+                                    <>
+                                        {!teamDevOption?.team_choice_name && (
+                                            <p className="sm-type-amp">
+                                                Figures are provided in the{' '}
+                                                <a
+                                                    href={`/information/${devOption?.option}-alt`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    Development Option
+                                                    information
+                                                </a>
+                                                .
+                                            </p>
+                                        )}
+                                    </>
+                                </Helpful>
+                            )}
                         </div>
                     </div>
 

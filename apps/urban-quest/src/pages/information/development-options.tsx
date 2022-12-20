@@ -57,7 +57,7 @@ const InfoDevOptions: FC = ({
                     </div>
 
                     <div className="col-lg-3">
-                        <Helpful content={helpfulInfo.info} />
+                        {helpfulInfo && <Helpful content={helpfulInfo.info} />}
                     </div>
                 </div>
                 <div className="row">

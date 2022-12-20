@@ -79,6 +79,7 @@ export type Stage3TaskQuery = { team_by_pk?: { id: any, team_development_options
 
 export type SwotExampleQueryVariables = Types.Exact<{
   team_id: Types.Scalars['uuid'];
+  quest_type: Types.Scalars['String'];
 }>;
 
 
@@ -115,6 +116,7 @@ export type Stage8Query = { user_by_pk?: { student?: { id: any, team?: { name: s
 
 export type TutorCurrentQuestQueryVariables = Types.Exact<{
   user_id: Types.Scalars['uuid'];
+  quest_type: Types.Scalars['String'];
 }>;
 
 
@@ -122,6 +124,7 @@ export type TutorCurrentQuestQuery = { user_by_pk?: { id: any, tutor?: { quests:
 
 export type TutorPreviousQuestQueryVariables = Types.Exact<{
   quest_id: Types.Scalars['uuid'];
+  quest_type: Types.Scalars['String'];
 }>;
 
 

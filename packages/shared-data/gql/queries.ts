@@ -310,7 +310,7 @@ export const STAGE_3_TASK_QUERY = gql`
 `
 
 export const SWOT_EXAMPLE_QUERY = gql`
-    query SwotExample($team_id: uuid!) {
+    query SwotExample($team_id: uuid!, $quest_type: String!) {
         team_by_pk(id: $team_id) {
             id
             stage_progresses(where: { stage_id: { _eq: 3 } }) {
@@ -326,7 +326,10 @@ export const SWOT_EXAMPLE_QUERY = gql`
                 }
             }
         }
-        development_option {
+        development_option(
+            where: { quest_type: { _eq: $quest_type } }
+            order_by: { id: asc }
+        ) {
             option
             display_name
         }
@@ -420,7 +423,7 @@ export const STAGE_8_QUERY = gql`
 // tutor
 
 export const TUTOR_CURRENT_QUEST_QUERY = gql`
-    query TutorCurrentQuest($user_id: uuid!) {
+    query TutorCurrentQuest($user_id: uuid!, $quest_type: String!) {
         user_by_pk(id: $user_id) {
             id
             tutor {
@@ -465,7 +468,10 @@ export const TUTOR_CURRENT_QUEST_QUERY = gql`
                 }
             }
         }
-        development_option {
+        development_option(
+            where: { quest_type: { _eq: $quest_type } }
+            order_by: { id: asc }
+        ) {
             option
             display_name
             model_swot
@@ -478,7 +484,7 @@ export const TUTOR_CURRENT_QUEST_QUERY = gql`
 `
 
 export const TUTOR_PREVIOUS_QUEST_QUERY = gql`
-    query TutorPreviousQuest($quest_id: uuid!) {
+    query TutorPreviousQuest($quest_id: uuid!, $quest_type: String!) {
         quest_by_pk(id: $quest_id) {
             id
             started_at
@@ -520,7 +526,10 @@ export const TUTOR_PREVIOUS_QUEST_QUERY = gql`
                 }
             }
         }
-        development_option {
+        development_option(
+            where: { quest_type: { _eq: $quest_type } }
+            order_by: { id: asc }
+        ) {
             option
             display_name
             model_swot

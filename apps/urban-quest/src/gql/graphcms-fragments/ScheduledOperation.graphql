@@ -49,12 +49,6 @@ fragment ScheduledOperation on ScheduledOperation {
       locale
       stage
     }
-    ... on HelpfulInfo {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
-      stage
-    }
     ... on Info {
       remoteTypeName: __typename
       remoteId: id

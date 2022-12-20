@@ -130,7 +130,9 @@ const Stage6Page = () => {
                         </div>
 
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
                         </div>
                     </div>
                     <Link to="/student/team-hub">Back to Team Hub</Link>

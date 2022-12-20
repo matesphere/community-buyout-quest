@@ -50,7 +50,11 @@ const BackgroundInformationPage: FC = ({ data }) => (
                     </div>
 
                     <div className="col-lg-3">
-                        <Helpful content={data.content.info.helpfulInfo.info} />
+                        {data.content.info.helpfulInfo && (
+                            <Helpful
+                                content={data.content.info.helpfulInfo.info}
+                            />
+                        )}
                     </div>
                 </div>
 

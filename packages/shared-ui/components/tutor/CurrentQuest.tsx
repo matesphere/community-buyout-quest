@@ -13,13 +13,11 @@ import {
 
 import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
-    SaveWorkInitial,
-    SaveWorkInitialVariables,
-} from '@community-land-quest/shared-data/gql/types/SaveWorkInitial'
-import {
-    SaveWork,
-    SaveWorkVariables,
-} from '@community-land-quest/shared-data/gql/types/SaveWork'
+    SaveWorkInitialMutation,
+    SaveWorkInitialMutationVariables,
+    SaveWorkMutation,
+    SaveWorkMutationVariables,
+} from '@community-land-quest/shared-data/gql/types/mutations.generated'
 
 import Lock from '../../assets/lock.svg'
 import Tick from '../../assets/tick.svg'
@@ -112,7 +110,10 @@ const getDocProvidedAnswers = (doc, devOptions) =>
 export const UnlockedStage3Status = ({ devOptions, doc }) => {
     const [devOption, setDevOption] = useState('')
 
-    const [saveWork] = useAuthMutation<SaveWork, SaveWorkVariables>(SAVE_WORK, {
+    const [saveWork] = useAuthMutation<
+        SaveWorkMutation,
+        SaveWorkMutationVariables
+    >(SAVE_WORK, {
         query: TUTOR_CURRENT_QUEST_QUERY,
         variables: {},
         idRequired: 'userId',
@@ -183,8 +184,8 @@ export const UnlockedStage3NoDocStatus = ({ stageProgressId, devOptions }) => {
     const [devOption, setDevOption] = useState('')
 
     const [saveWorkInitial] = useAuthMutation<
-        SaveWorkInitial,
-        SaveWorkInitialVariables
+        SaveWorkInitialMutation,
+        SaveWorkInitialMutationVariables
     >(SAVE_WORK_INITIAL, {
         query: TUTOR_CURRENT_QUEST_QUERY,
         variables: {},

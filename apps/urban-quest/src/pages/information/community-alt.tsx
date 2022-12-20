@@ -41,7 +41,9 @@ const InfoCommunityPage = ({
                         </div>
 
                         <div className="col-lg-3">
-                            <Helpful content={helpfulInfo.info} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
                         </div>
                     </div>
                 </section>

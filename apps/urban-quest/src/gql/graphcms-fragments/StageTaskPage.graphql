@@ -23,6 +23,29 @@ fragment StageTaskPage on StageTaskPage {
       text
     }
   }
+  helpfulInfo {
+    ... on HelpfulInfo {
+      stage
+      locale
+      id
+      info {
+        ... on RichText {
+          raw
+          html
+          markdown
+          text
+        }
+      }
+    }
+  }
+  checklist {
+    ... on Checklist {
+      stage
+      locale
+      id
+      item
+    }
+  }
   publishedBy {
     ... on User {
       remoteTypeName: __typename
@@ -46,14 +69,6 @@ fragment StageTaskPage on StageTaskPage {
   }
   tasksToComplete {
     ... on TaskToComplete {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
-      stage
-    }
-  }
-  helpfulInfo {
-    ... on HelpfulInfo {
       remoteTypeName: __typename
       remoteId: id
       locale

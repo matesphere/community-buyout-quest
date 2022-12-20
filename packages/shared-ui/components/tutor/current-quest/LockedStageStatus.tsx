@@ -2,9 +2,9 @@ import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/aut
 import { UNLOCK_STAGE } from '@community-land-quest/shared-data/gql/mutations'
 import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
-    UnlockStage,
-    UnlockStageVariables,
-} from '@community-land-quest/shared-data/gql/types/UnlockStage'
+    UnlockStageMutation,
+    UnlockStageMutationVariables,
+} from '@community-land-quest/shared-data/gql/types/mutations.generated'
 
 import Lock from '../../../assets/lock.svg'
 
@@ -27,14 +27,14 @@ export const LockedStageStatus = ({ mutation }) => (
 )
 
 export const ConnectedLockedStageStatus = ({ teamId, stageId }) => {
-    const [unlockStage] = useAuthMutation<UnlockStage, UnlockStageVariables>(
-        UNLOCK_STAGE,
-        {
-            query: TUTOR_CURRENT_QUEST_QUERY,
-            variables: {},
-            idRequired: 'userId',
-        }
-    )
+    const [unlockStage] = useAuthMutation<
+        UnlockStageMutation,
+        UnlockStageMutationVariables
+    >(UNLOCK_STAGE, {
+        query: TUTOR_CURRENT_QUEST_QUERY,
+        variables: {},
+        idRequired: 'userId',
+    })
 
     return (
         <LockedStageStatus

@@ -73,7 +73,9 @@ const Stage6TipsPage = () => {
                             <TaskTipsRenderer content={tips.raw} />
                         </div>
                         <div className="col-lg-4">
-                            <Helpful content={helpfulInfo.info} />
+                            {helpfulInfo && (
+                                <Helpful content={helpfulInfo.info} />
+                            )}
                         </div>
                     </div>
                     <Link to="/student/stage-6">Back to Stage 6</Link>

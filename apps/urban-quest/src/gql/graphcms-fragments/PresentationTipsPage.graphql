@@ -25,6 +25,21 @@ fragment PresentationTipsPage on PresentationTipsPage {
     }
   }
   slug
+  helpfulInfo {
+    ... on HelpfulInfo {
+      stage
+      locale
+      id
+      info {
+        ... on RichText {
+          raw
+          html
+          markdown
+          text
+        }
+      }
+    }
+  }
   publishedBy {
     ... on User {
       remoteTypeName: __typename
@@ -43,14 +58,6 @@ fragment PresentationTipsPage on PresentationTipsPage {
     ... on User {
       remoteTypeName: __typename
       remoteId: id
-      stage
-    }
-  }
-  helpfulInfo {
-    ... on HelpfulInfo {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
       stage
     }
   }
