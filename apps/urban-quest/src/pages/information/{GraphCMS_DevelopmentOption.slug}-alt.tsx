@@ -63,7 +63,10 @@ const InfoPlaySkate = ({
                         <DevOpsRenderer content={mainText.raw} />
 
                         {fundingOptions && (
-                            <FundingOptions content={fundingOptions.raw} />
+                            <FundingOptions
+                                content={fundingOptions.raw}
+                                title="Project Funding"
+                            />
                         )}
                     </div>
 

@@ -78,14 +78,6 @@ type Content = {
   readonly developmentOptions: ReadonlyArray<Content_DevelopmentOption>;
   /** Retrieve multiple developmentOptions using the Relay connection interface */
   readonly developmentOptionsConnection: Content_DevelopmentOptionConnection;
-  /** Retrieve a single helpfulInfo */
-  readonly helpfulInfo: Maybe<Content_HelpfulInfo>;
-  /** Retrieve document version */
-  readonly helpfulInfoVersion: Maybe<Content_DocumentVersion>;
-  /** Retrieve multiple helpfulInfos */
-  readonly helpfulInfos: ReadonlyArray<Content_HelpfulInfo>;
-  /** Retrieve multiple helpfulInfos using the Relay connection interface */
-  readonly helpfulInfosConnection: Content_HelpfulInfoConnection;
   /** Retrieve a single info */
   readonly info: Maybe<Content_Info>;
   /** Retrieve document version */
@@ -246,44 +238,6 @@ type Content_developmentOptionsConnectionArgs = {
   skip: InputMaybe<Scalars['Int']>;
   stage?: Content_Stage;
   where: InputMaybe<Content_DevelopmentOptionWhereInput>;
-};
-
-
-type Content_helpfulInfoArgs = {
-  locales?: ReadonlyArray<Content_Locale>;
-  stage?: Content_Stage;
-  where: Content_HelpfulInfoWhereUniqueInput;
-};
-
-
-type Content_helpfulInfoVersionArgs = {
-  where: Content_VersionWhereInput;
-};
-
-
-type Content_helpfulInfosArgs = {
-  after: InputMaybe<Scalars['String']>;
-  before: InputMaybe<Scalars['String']>;
-  first: InputMaybe<Scalars['Int']>;
-  last: InputMaybe<Scalars['Int']>;
-  locales?: ReadonlyArray<Content_Locale>;
-  orderBy: InputMaybe<Content_HelpfulInfoOrderByInput>;
-  skip: InputMaybe<Scalars['Int']>;
-  stage?: Content_Stage;
-  where: InputMaybe<Content_HelpfulInfoWhereInput>;
-};
-
-
-type Content_helpfulInfosConnectionArgs = {
-  after: InputMaybe<Scalars['String']>;
-  before: InputMaybe<Scalars['String']>;
-  first: InputMaybe<Scalars['Int']>;
-  last: InputMaybe<Scalars['Int']>;
-  locales?: ReadonlyArray<Content_Locale>;
-  orderBy: InputMaybe<Content_HelpfulInfoOrderByInput>;
-  skip: InputMaybe<Scalars['Int']>;
-  stage?: Content_Stage;
-  where: InputMaybe<Content_HelpfulInfoWhereInput>;
 };
 
 
@@ -1829,14 +1783,22 @@ type Content_ChecklistOrderByInput =
   | 'item_ASC'
   | 'item_DESC';
 
-type Content_ChecklistParent = Content_DevelopmentOption;
+type Content_ChecklistParent = Content_DevelopmentOption | Content_Info | Content_StageLandingPage | Content_StageTask | Content_StageTaskPage;
 
 type Content_ChecklistParentConnectInput = {
   readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionConnectInput>;
+  readonly Info: InputMaybe<Content_InfoConnectInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageConnectInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskConnectInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageConnectInput>;
 };
 
 type Content_ChecklistParentCreateInput = {
   readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionCreateInput>;
+  readonly Info: InputMaybe<Content_InfoCreateInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageCreateInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskCreateInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageCreateInput>;
 };
 
 type Content_ChecklistParentCreateManyInlineInput = {
@@ -1855,6 +1817,10 @@ type Content_ChecklistParentCreateOneInlineInput = {
 
 type Content_ChecklistParentUpdateInput = {
   readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionUpdateInput>;
+  readonly Info: InputMaybe<Content_InfoUpdateInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageUpdateInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskUpdateInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageUpdateInput>;
 };
 
 type Content_ChecklistParentUpdateManyInlineInput = {
@@ -1876,6 +1842,10 @@ type Content_ChecklistParentUpdateManyInlineInput = {
 
 type Content_ChecklistParentUpdateManyWithNestedWhereInput = {
   readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionUpdateManyWithNestedWhereInput>;
+  readonly Info: InputMaybe<Content_InfoUpdateManyWithNestedWhereInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageUpdateManyWithNestedWhereInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskUpdateManyWithNestedWhereInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageUpdateManyWithNestedWhereInput>;
 };
 
 type Content_ChecklistParentUpdateOneInlineInput = {
@@ -1895,18 +1865,34 @@ type Content_ChecklistParentUpdateOneInlineInput = {
 
 type Content_ChecklistParentUpdateWithNestedWhereUniqueInput = {
   readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionUpdateWithNestedWhereUniqueInput>;
+  readonly Info: InputMaybe<Content_InfoUpdateWithNestedWhereUniqueInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageUpdateWithNestedWhereUniqueInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskUpdateWithNestedWhereUniqueInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageUpdateWithNestedWhereUniqueInput>;
 };
 
 type Content_ChecklistParentUpsertWithNestedWhereUniqueInput = {
   readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionUpsertWithNestedWhereUniqueInput>;
+  readonly Info: InputMaybe<Content_InfoUpsertWithNestedWhereUniqueInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageUpsertWithNestedWhereUniqueInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskUpsertWithNestedWhereUniqueInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageUpsertWithNestedWhereUniqueInput>;
 };
 
 type Content_ChecklistParentWhereInput = {
   readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionWhereInput>;
+  readonly Info: InputMaybe<Content_InfoWhereInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageWhereInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskWhereInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageWhereInput>;
 };
 
 type Content_ChecklistParentWhereUniqueInput = {
   readonly DevelopmentOption: InputMaybe<Content_DevelopmentOptionWhereUniqueInput>;
+  readonly Info: InputMaybe<Content_InfoWhereUniqueInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageWhereUniqueInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskWhereUniqueInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageWhereUniqueInput>;
 };
 
 type Content_ChecklistUpdateInput = {
@@ -2870,15 +2856,7 @@ type Content_DocumentVersion = {
   readonly stage: Content_Stage;
 };
 
-type Content_HelpfulInfo = Content_Node & {
-  /** The time the document was created */
-  readonly createdAt: Scalars['Content_DateTime'];
-  /** User that created this document */
-  readonly createdBy: Maybe<Content_User>;
-  /** Get the document in other stages */
-  readonly documentInStages: ReadonlyArray<Content_HelpfulInfo>;
-  /** List of HelpfulInfo versions */
-  readonly history: ReadonlyArray<Content_Version>;
+type Content_HelpfulInfo = {
   /** The unique identifier */
   readonly id: Scalars['ID'];
   readonly info: Content_RichText;
@@ -2886,83 +2864,14 @@ type Content_HelpfulInfo = Content_Node & {
   readonly locale: Content_Locale;
   /** Get the other localizations for this document */
   readonly localizations: ReadonlyArray<Content_HelpfulInfo>;
-  /** The time the document was published. Null on documents in draft stage. */
-  readonly publishedAt: Maybe<Scalars['Content_DateTime']>;
-  /** User that last published this document */
-  readonly publishedBy: Maybe<Content_User>;
-  readonly scheduledIn: ReadonlyArray<Content_ScheduledOperation>;
   /** System stage field */
   readonly stage: Content_Stage;
-  readonly stageNumber: Scalars['Int'];
-  /** The time the document was updated */
-  readonly updatedAt: Scalars['Content_DateTime'];
-  /** User that last updated this document */
-  readonly updatedBy: Maybe<Content_User>;
-};
-
-
-type Content_HelpfulInfo_createdAtArgs = {
-  variation?: Content_SystemDateTimeFieldVariation;
-};
-
-
-type Content_HelpfulInfo_createdByArgs = {
-  forceParentLocale: InputMaybe<Scalars['Boolean']>;
-  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
-};
-
-
-type Content_HelpfulInfo_documentInStagesArgs = {
-  includeCurrent?: Scalars['Boolean'];
-  inheritLocale?: Scalars['Boolean'];
-  stages?: ReadonlyArray<Content_Stage>;
-};
-
-
-type Content_HelpfulInfo_historyArgs = {
-  limit?: Scalars['Int'];
-  skip?: Scalars['Int'];
-  stageOverride: InputMaybe<Content_Stage>;
 };
 
 
 type Content_HelpfulInfo_localizationsArgs = {
   includeCurrent?: Scalars['Boolean'];
   locales?: ReadonlyArray<Content_Locale>;
-};
-
-
-type Content_HelpfulInfo_publishedAtArgs = {
-  variation?: Content_SystemDateTimeFieldVariation;
-};
-
-
-type Content_HelpfulInfo_publishedByArgs = {
-  forceParentLocale: InputMaybe<Scalars['Boolean']>;
-  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
-};
-
-
-type Content_HelpfulInfo_scheduledInArgs = {
-  after: InputMaybe<Scalars['String']>;
-  before: InputMaybe<Scalars['String']>;
-  first: InputMaybe<Scalars['Int']>;
-  forceParentLocale: InputMaybe<Scalars['Boolean']>;
-  last: InputMaybe<Scalars['Int']>;
-  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
-  skip: InputMaybe<Scalars['Int']>;
-  where: InputMaybe<Content_ScheduledOperationWhereInput>;
-};
-
-
-type Content_HelpfulInfo_updatedAtArgs = {
-  variation?: Content_SystemDateTimeFieldVariation;
-};
-
-
-type Content_HelpfulInfo_updatedByArgs = {
-  forceParentLocale: InputMaybe<Scalars['Boolean']>;
-  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 type Content_HelpfulInfoConnectInput = {
@@ -2982,24 +2891,14 @@ type Content_HelpfulInfoConnection = {
 };
 
 type Content_HelpfulInfoCreateInput = {
-  readonly cksmc9czo0t9901xn047yfiro: InputMaybe<Content_StageTaskCreateManyInlineInput>;
-  readonly cksmc215y0us801yudj7z4n3i: InputMaybe<Content_StageLandingPageCreateManyInlineInput>;
-  readonly cksnoq7jg1c7v01xn58atfv6o: InputMaybe<Content_StageTaskPageCreateManyInlineInput>;
-  readonly cksqevglx3chq01yu9wz61b9s: InputMaybe<Content_InfoCreateManyInlineInput>;
-  readonly cksql58573inh01y23ue7bkwr: InputMaybe<Content_PresentationTipsPageCreateManyInlineInput>;
-  readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** info input for default locale (en) */
   readonly info: Scalars['Content_RichTextAST'];
   /** Inline mutations for managing document localizations excluding the default locale */
   readonly localizations: InputMaybe<Content_HelpfulInfoCreateLocalizationsInput>;
-  readonly stageNumber: Scalars['Int'];
-  readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
 };
 
 type Content_HelpfulInfoCreateLocalizationDataInput = {
-  readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   readonly info: Scalars['Content_RichTextAST'];
-  readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
 };
 
 type Content_HelpfulInfoCreateLocalizationInput = {
@@ -3014,17 +2913,20 @@ type Content_HelpfulInfoCreateLocalizationsInput = {
 };
 
 type Content_HelpfulInfoCreateManyInlineInput = {
-  /** Connect multiple existing HelpfulInfo documents */
-  readonly connect: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereUniqueInput>>;
   /** Create and connect multiple existing HelpfulInfo documents */
   readonly create: InputMaybe<ReadonlyArray<Content_HelpfulInfoCreateInput>>;
 };
 
 type Content_HelpfulInfoCreateOneInlineInput = {
-  /** Connect one existing HelpfulInfo document */
-  readonly connect: InputMaybe<Content_HelpfulInfoWhereUniqueInput>;
   /** Create and connect one HelpfulInfo document */
   readonly create: InputMaybe<Content_HelpfulInfoCreateInput>;
+};
+
+type Content_HelpfulInfoCreateWithPositionInput = {
+  /** Document to create */
+  readonly data: Content_HelpfulInfoCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
 };
 
 /** An edge in a connection. */
@@ -3045,25 +2947,6 @@ type Content_HelpfulInfoManyWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
-  readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than the given value. */
-  readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than or equal the given value. */
-  readonly createdAt_gte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are contained in given list. */
-  readonly createdAt_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  /** All values less than the given value. */
-  readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values less than or equal the given value. */
-  readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
-  readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not contained in given list. */
-  readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  readonly createdBy: InputMaybe<Content_UserWhereInput>;
-  readonly documentInStages_every: InputMaybe<Content_HelpfulInfoWhereStageInput>;
-  readonly documentInStages_none: InputMaybe<Content_HelpfulInfoWhereStageInput>;
-  readonly documentInStages_some: InputMaybe<Content_HelpfulInfoWhereStageInput>;
   readonly id: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   readonly id_contains: InputMaybe<Scalars['ID']>;
@@ -3083,81 +2966,129 @@ type Content_HelpfulInfoManyWhereInput = {
   readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   readonly id_starts_with: InputMaybe<Scalars['ID']>;
-  readonly publishedAt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than the given value. */
-  readonly publishedAt_gt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than or equal the given value. */
-  readonly publishedAt_gte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are contained in given list. */
-  readonly publishedAt_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  /** All values less than the given value. */
-  readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values less than or equal the given value. */
-  readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
-  readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not contained in given list. */
-  readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  readonly publishedBy: InputMaybe<Content_UserWhereInput>;
-  readonly scheduledIn_every: InputMaybe<Content_ScheduledOperationWhereInput>;
-  readonly scheduledIn_none: InputMaybe<Content_ScheduledOperationWhereInput>;
-  readonly scheduledIn_some: InputMaybe<Content_ScheduledOperationWhereInput>;
-  readonly stageNumber: InputMaybe<Scalars['Int']>;
-  /** All values greater than the given value. */
-  readonly stageNumber_gt: InputMaybe<Scalars['Int']>;
-  /** All values greater than or equal the given value. */
-  readonly stageNumber_gte: InputMaybe<Scalars['Int']>;
-  /** All values that are contained in given list. */
-  readonly stageNumber_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
-  /** All values less than the given value. */
-  readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
-  /** All values less than or equal the given value. */
-  readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
-  readonly stageNumber_not: InputMaybe<Scalars['Int']>;
-  /** All values that are not contained in given list. */
-  readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
-  readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than the given value. */
-  readonly updatedAt_gt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than or equal the given value. */
-  readonly updatedAt_gte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are contained in given list. */
-  readonly updatedAt_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  /** All values less than the given value. */
-  readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values less than or equal the given value. */
-  readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
-  readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not contained in given list. */
-  readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  readonly updatedBy: InputMaybe<Content_UserWhereInput>;
 };
 
 type Content_HelpfulInfoOrderByInput =
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
   | 'id_ASC'
-  | 'id_DESC'
-  | 'publishedAt_ASC'
-  | 'publishedAt_DESC'
-  | 'stageNumber_ASC'
-  | 'stageNumber_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC';
+  | 'id_DESC';
+
+type Content_HelpfulInfoParent = Content_Info | Content_PresentationTipsPage | Content_StageLandingPage | Content_StageTask | Content_StageTaskPage;
+
+type Content_HelpfulInfoParentConnectInput = {
+  readonly Info: InputMaybe<Content_InfoConnectInput>;
+  readonly PresentationTipsPage: InputMaybe<Content_PresentationTipsPageConnectInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageConnectInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskConnectInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageConnectInput>;
+};
+
+type Content_HelpfulInfoParentCreateInput = {
+  readonly Info: InputMaybe<Content_InfoCreateInput>;
+  readonly PresentationTipsPage: InputMaybe<Content_PresentationTipsPageCreateInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageCreateInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskCreateInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageCreateInput>;
+};
+
+type Content_HelpfulInfoParentCreateManyInlineInput = {
+  /** Connect multiple existing HelpfulInfoParent documents */
+  readonly connect: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentWhereUniqueInput>>;
+  /** Create and connect multiple existing HelpfulInfoParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentCreateInput>>;
+};
+
+type Content_HelpfulInfoParentCreateOneInlineInput = {
+  /** Connect one existing HelpfulInfoParent document */
+  readonly connect: InputMaybe<Content_HelpfulInfoParentWhereUniqueInput>;
+  /** Create and connect one HelpfulInfoParent document */
+  readonly create: InputMaybe<Content_HelpfulInfoParentCreateInput>;
+};
+
+type Content_HelpfulInfoParentUpdateInput = {
+  readonly Info: InputMaybe<Content_InfoUpdateInput>;
+  readonly PresentationTipsPage: InputMaybe<Content_PresentationTipsPageUpdateInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageUpdateInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskUpdateInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageUpdateInput>;
+};
+
+type Content_HelpfulInfoParentUpdateManyInlineInput = {
+  /** Connect multiple existing HelpfulInfoParent documents */
+  readonly connect: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentConnectInput>>;
+  /** Create and connect multiple HelpfulInfoParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentCreateInput>>;
+  /** Delete multiple HelpfulInfoParent documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentWhereUniqueInput>>;
+  /** Disconnect multiple HelpfulInfoParent documents */
+  readonly disconnect: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing HelpfulInfoParent documents */
+  readonly set: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentWhereUniqueInput>>;
+  /** Update multiple HelpfulInfoParent documents */
+  readonly update: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple HelpfulInfoParent documents */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_HelpfulInfoParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+type Content_HelpfulInfoParentUpdateManyWithNestedWhereInput = {
+  readonly Info: InputMaybe<Content_InfoUpdateManyWithNestedWhereInput>;
+  readonly PresentationTipsPage: InputMaybe<Content_PresentationTipsPageUpdateManyWithNestedWhereInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageUpdateManyWithNestedWhereInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskUpdateManyWithNestedWhereInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageUpdateManyWithNestedWhereInput>;
+};
+
+type Content_HelpfulInfoParentUpdateOneInlineInput = {
+  /** Connect existing HelpfulInfoParent document */
+  readonly connect: InputMaybe<Content_HelpfulInfoParentWhereUniqueInput>;
+  /** Create and connect one HelpfulInfoParent document */
+  readonly create: InputMaybe<Content_HelpfulInfoParentCreateInput>;
+  /** Delete currently connected HelpfulInfoParent document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected HelpfulInfoParent document */
+  readonly disconnect: InputMaybe<Scalars['Boolean']>;
+  /** Update single HelpfulInfoParent document */
+  readonly update: InputMaybe<Content_HelpfulInfoParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single HelpfulInfoParent document */
+  readonly upsert: InputMaybe<Content_HelpfulInfoParentUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_HelpfulInfoParentUpdateWithNestedWhereUniqueInput = {
+  readonly Info: InputMaybe<Content_InfoUpdateWithNestedWhereUniqueInput>;
+  readonly PresentationTipsPage: InputMaybe<Content_PresentationTipsPageUpdateWithNestedWhereUniqueInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageUpdateWithNestedWhereUniqueInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskUpdateWithNestedWhereUniqueInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageUpdateWithNestedWhereUniqueInput>;
+};
+
+type Content_HelpfulInfoParentUpsertWithNestedWhereUniqueInput = {
+  readonly Info: InputMaybe<Content_InfoUpsertWithNestedWhereUniqueInput>;
+  readonly PresentationTipsPage: InputMaybe<Content_PresentationTipsPageUpsertWithNestedWhereUniqueInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageUpsertWithNestedWhereUniqueInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskUpsertWithNestedWhereUniqueInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_HelpfulInfoParentWhereInput = {
+  readonly Info: InputMaybe<Content_InfoWhereInput>;
+  readonly PresentationTipsPage: InputMaybe<Content_PresentationTipsPageWhereInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageWhereInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskWhereInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageWhereInput>;
+};
+
+type Content_HelpfulInfoParentWhereUniqueInput = {
+  readonly Info: InputMaybe<Content_InfoWhereUniqueInput>;
+  readonly PresentationTipsPage: InputMaybe<Content_PresentationTipsPageWhereUniqueInput>;
+  readonly StageLandingPage: InputMaybe<Content_StageLandingPageWhereUniqueInput>;
+  readonly StageTask: InputMaybe<Content_StageTaskWhereUniqueInput>;
+  readonly StageTaskPage: InputMaybe<Content_StageTaskPageWhereUniqueInput>;
+};
 
 type Content_HelpfulInfoUpdateInput = {
-  readonly cksmc9czo0t9901xn047yfiro: InputMaybe<Content_StageTaskUpdateManyInlineInput>;
-  readonly cksmc215y0us801yudj7z4n3i: InputMaybe<Content_StageLandingPageUpdateManyInlineInput>;
-  readonly cksnoq7jg1c7v01xn58atfv6o: InputMaybe<Content_StageTaskPageUpdateManyInlineInput>;
-  readonly cksqevglx3chq01yu9wz61b9s: InputMaybe<Content_InfoUpdateManyInlineInput>;
-  readonly cksql58573inh01y23ue7bkwr: InputMaybe<Content_PresentationTipsPageUpdateManyInlineInput>;
   /** info input for default locale (en) */
   readonly info: InputMaybe<Scalars['Content_RichTextAST']>;
   /** Manage document localizations */
   readonly localizations: InputMaybe<Content_HelpfulInfoUpdateLocalizationsInput>;
-  readonly stageNumber: InputMaybe<Scalars['Int']>;
 };
 
 type Content_HelpfulInfoUpdateLocalizationDataInput = {
@@ -3180,20 +3111,14 @@ type Content_HelpfulInfoUpdateLocalizationsInput = {
 };
 
 type Content_HelpfulInfoUpdateManyInlineInput = {
-  /** Connect multiple existing HelpfulInfo documents */
-  readonly connect: InputMaybe<ReadonlyArray<Content_HelpfulInfoConnectInput>>;
-  /** Create and connect multiple HelpfulInfo documents */
-  readonly create: InputMaybe<ReadonlyArray<Content_HelpfulInfoCreateInput>>;
+  /** Create and connect multiple HelpfulInfo component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_HelpfulInfoCreateWithPositionInput>>;
   /** Delete multiple HelpfulInfo documents */
   readonly delete: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereUniqueInput>>;
-  /** Disconnect multiple HelpfulInfo documents */
-  readonly disconnect: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereUniqueInput>>;
-  /** Override currently-connected documents with multiple existing HelpfulInfo documents */
-  readonly set: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereUniqueInput>>;
-  /** Update multiple HelpfulInfo documents */
-  readonly update: InputMaybe<ReadonlyArray<Content_HelpfulInfoUpdateWithNestedWhereUniqueInput>>;
-  /** Upsert multiple HelpfulInfo documents */
-  readonly upsert: InputMaybe<ReadonlyArray<Content_HelpfulInfoUpsertWithNestedWhereUniqueInput>>;
+  /** Update multiple HelpfulInfo component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_HelpfulInfoUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple HelpfulInfo component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_HelpfulInfoUpsertWithNestedWhereUniqueAndPositionInput>>;
 };
 
 type Content_HelpfulInfoUpdateManyInput = {
@@ -3201,7 +3126,6 @@ type Content_HelpfulInfoUpdateManyInput = {
   readonly info: InputMaybe<Scalars['Content_RichTextAST']>;
   /** Optional updates to localizations */
   readonly localizations: InputMaybe<Content_HelpfulInfoUpdateManyLocalizationsInput>;
-  readonly stageNumber: InputMaybe<Scalars['Int']>;
 };
 
 type Content_HelpfulInfoUpdateManyLocalizationDataInput = {
@@ -3226,18 +3150,23 @@ type Content_HelpfulInfoUpdateManyWithNestedWhereInput = {
 };
 
 type Content_HelpfulInfoUpdateOneInlineInput = {
-  /** Connect existing HelpfulInfo document */
-  readonly connect: InputMaybe<Content_HelpfulInfoWhereUniqueInput>;
   /** Create and connect one HelpfulInfo document */
   readonly create: InputMaybe<Content_HelpfulInfoCreateInput>;
   /** Delete currently connected HelpfulInfo document */
   readonly delete: InputMaybe<Scalars['Boolean']>;
-  /** Disconnect currently connected HelpfulInfo document */
-  readonly disconnect: InputMaybe<Scalars['Boolean']>;
   /** Update single HelpfulInfo document */
   readonly update: InputMaybe<Content_HelpfulInfoUpdateWithNestedWhereUniqueInput>;
   /** Upsert single HelpfulInfo document */
   readonly upsert: InputMaybe<Content_HelpfulInfoUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_HelpfulInfoUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  readonly data: InputMaybe<Content_HelpfulInfoUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_HelpfulInfoWhereUniqueInput;
 };
 
 type Content_HelpfulInfoUpdateWithNestedWhereUniqueInput = {
@@ -3260,17 +3189,20 @@ type Content_HelpfulInfoUpsertLocalizationInput = {
   readonly update: Content_HelpfulInfoUpdateLocalizationDataInput;
 };
 
+type Content_HelpfulInfoUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  readonly data: InputMaybe<Content_HelpfulInfoUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_HelpfulInfoWhereUniqueInput;
+};
+
 type Content_HelpfulInfoUpsertWithNestedWhereUniqueInput = {
   /** Upsert data */
   readonly data: Content_HelpfulInfoUpsertInput;
   /** Unique document search */
   readonly where: Content_HelpfulInfoWhereUniqueInput;
-};
-
-/** This contains a set of filters that can be used to compare values internally */
-type Content_HelpfulInfoWhereComparatorInput = {
-  /** This field can be used to request to check if the entry is outdated by internal comparison */
-  readonly outdated_to: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Identifies documents */
@@ -3283,25 +3215,6 @@ type Content_HelpfulInfoWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
-  readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than the given value. */
-  readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than or equal the given value. */
-  readonly createdAt_gte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are contained in given list. */
-  readonly createdAt_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  /** All values less than the given value. */
-  readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values less than or equal the given value. */
-  readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
-  readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not contained in given list. */
-  readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  readonly createdBy: InputMaybe<Content_UserWhereInput>;
-  readonly documentInStages_every: InputMaybe<Content_HelpfulInfoWhereStageInput>;
-  readonly documentInStages_none: InputMaybe<Content_HelpfulInfoWhereStageInput>;
-  readonly documentInStages_some: InputMaybe<Content_HelpfulInfoWhereStageInput>;
   readonly id: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   readonly id_contains: InputMaybe<Scalars['ID']>;
@@ -3321,70 +3234,6 @@ type Content_HelpfulInfoWhereInput = {
   readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   readonly id_starts_with: InputMaybe<Scalars['ID']>;
-  readonly publishedAt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than the given value. */
-  readonly publishedAt_gt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than or equal the given value. */
-  readonly publishedAt_gte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are contained in given list. */
-  readonly publishedAt_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  /** All values less than the given value. */
-  readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values less than or equal the given value. */
-  readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
-  readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not contained in given list. */
-  readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  readonly publishedBy: InputMaybe<Content_UserWhereInput>;
-  readonly scheduledIn_every: InputMaybe<Content_ScheduledOperationWhereInput>;
-  readonly scheduledIn_none: InputMaybe<Content_ScheduledOperationWhereInput>;
-  readonly scheduledIn_some: InputMaybe<Content_ScheduledOperationWhereInput>;
-  readonly stageNumber: InputMaybe<Scalars['Int']>;
-  /** All values greater than the given value. */
-  readonly stageNumber_gt: InputMaybe<Scalars['Int']>;
-  /** All values greater than or equal the given value. */
-  readonly stageNumber_gte: InputMaybe<Scalars['Int']>;
-  /** All values that are contained in given list. */
-  readonly stageNumber_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
-  /** All values less than the given value. */
-  readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
-  /** All values less than or equal the given value. */
-  readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
-  readonly stageNumber_not: InputMaybe<Scalars['Int']>;
-  /** All values that are not contained in given list. */
-  readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
-  readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than the given value. */
-  readonly updatedAt_gt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values greater than or equal the given value. */
-  readonly updatedAt_gte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are contained in given list. */
-  readonly updatedAt_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  /** All values less than the given value. */
-  readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values less than or equal the given value. */
-  readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
-  readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not contained in given list. */
-  readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
-  readonly updatedBy: InputMaybe<Content_UserWhereInput>;
-};
-
-/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
-type Content_HelpfulInfoWhereStageInput = {
-  /** Logical AND on all given filters. */
-  readonly AND: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereStageInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  readonly NOT: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereStageInput>>;
-  /** Logical OR on all given filters. */
-  readonly OR: InputMaybe<ReadonlyArray<Content_HelpfulInfoWhereStageInput>>;
-  /** This field contains fields which can be set as true or false to specify an internal comparison */
-  readonly compareWithParent: InputMaybe<Content_HelpfulInfoWhereComparatorInput>;
-  /** Specify the stage to compare with */
-  readonly stage: InputMaybe<Content_Stage>;
 };
 
 /** References HelpfulInfo record uniquely */
@@ -3418,6 +3267,7 @@ type Content_ImageTransformationInput = {
 };
 
 type Content_Info = Content_Node & {
+  readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -3450,6 +3300,12 @@ type Content_Info = Content_Node & {
   readonly updatedAt: Scalars['Content_DateTime'];
   /** User that last updated this document */
   readonly updatedBy: Maybe<Content_User>;
+};
+
+
+type Content_Info_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
@@ -3553,6 +3409,7 @@ type Content_InfoConnection = {
 };
 
 type Content_InfoCreateInput = {
+  readonly checklist: InputMaybe<Content_ChecklistCreateOneInlineInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   readonly helpfulInfo: InputMaybe<Content_HelpfulInfoCreateOneInlineInput>;
   readonly image: InputMaybe<Content_AssetCreateManyInlineInput>;
@@ -3622,6 +3479,7 @@ type Content_InfoManyWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_InfoWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
+  readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -3735,6 +3593,7 @@ type Content_InfoOrderByInput =
   | 'updatedAt_DESC';
 
 type Content_InfoUpdateInput = {
+  readonly checklist: InputMaybe<Content_ChecklistUpdateOneInlineInput>;
   readonly helpfulInfo: InputMaybe<Content_HelpfulInfoUpdateOneInlineInput>;
   readonly image: InputMaybe<Content_AssetUpdateManyInlineInput>;
   /** infoBlock input for default locale (en) */
@@ -3884,6 +3743,7 @@ type Content_InfoWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_InfoWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
+  readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -5851,7 +5711,7 @@ type Content_ScheduledOperation_updatedByArgs = {
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
-type Content_ScheduledOperationAffectedDocument = Content_Asset | Content_DevelopmentOption | Content_HelpfulInfo | Content_Info | Content_ModelBusinessPlan | Content_ModelSwot | Content_PresentationTipsPage | Content_StageLandingPage | Content_StageTask | Content_StageTaskPage | Content_TaskToComplete;
+type Content_ScheduledOperationAffectedDocument = Content_Asset | Content_DevelopmentOption | Content_Info | Content_ModelBusinessPlan | Content_ModelSwot | Content_PresentationTipsPage | Content_StageLandingPage | Content_StageTask | Content_StageTaskPage | Content_TaskToComplete;
 
 type Content_ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -6765,6 +6625,7 @@ type Content_Stage =
   | 'PUBLISHED';
 
 type Content_StageLandingPage = Content_Node & {
+  readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -6800,6 +6661,12 @@ type Content_StageLandingPage = Content_Node & {
   readonly updatedAt: Scalars['Content_DateTime'];
   /** User that last updated this document */
   readonly updatedBy: Maybe<Content_User>;
+};
+
+
+type Content_StageLandingPage_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
@@ -6903,6 +6770,7 @@ type Content_StageLandingPageConnection = {
 };
 
 type Content_StageLandingPageCreateInput = {
+  readonly checklist: InputMaybe<Content_ChecklistCreateOneInlineInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   readonly helpfulInfo: InputMaybe<Content_HelpfulInfoCreateOneInlineInput>;
   /** infoLink input for default locale (en) */
@@ -6976,6 +6844,7 @@ type Content_StageLandingPageManyWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_StageLandingPageWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
+  readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -7108,6 +6977,7 @@ type Content_StageLandingPageOrderByInput =
   | 'updatedAt_DESC';
 
 type Content_StageLandingPageUpdateInput = {
+  readonly checklist: InputMaybe<Content_ChecklistUpdateOneInlineInput>;
   readonly helpfulInfo: InputMaybe<Content_HelpfulInfoUpdateOneInlineInput>;
   /** infoLink input for default locale (en) */
   readonly infoLink: InputMaybe<ReadonlyArray<Scalars['Content_RichTextAST']>>;
@@ -7262,6 +7132,7 @@ type Content_StageLandingPageWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_StageLandingPageWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
+  readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -7434,6 +7305,7 @@ type Content_StageLandingPageWhereUniqueInput = {
 };
 
 type Content_StageTask = Content_Node & {
+  readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -7465,6 +7337,12 @@ type Content_StageTask = Content_Node & {
   readonly updatedAt: Scalars['Content_DateTime'];
   /** User that last updated this document */
   readonly updatedBy: Maybe<Content_User>;
+};
+
+
+type Content_StageTask_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
@@ -7555,6 +7433,7 @@ type Content_StageTaskConnection = {
 };
 
 type Content_StageTaskCreateInput = {
+  readonly checklist: InputMaybe<Content_ChecklistCreateOneInlineInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   readonly helpfulInfo: InputMaybe<Content_HelpfulInfoCreateOneInlineInput>;
   /** intro input for default locale (en) */
@@ -7623,6 +7502,7 @@ type Content_StageTaskManyWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_StageTaskWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
+  readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -7729,6 +7609,7 @@ type Content_StageTaskOrderByInput =
   | 'updatedAt_DESC';
 
 type Content_StageTaskPage = Content_Node & {
+  readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -7760,6 +7641,12 @@ type Content_StageTaskPage = Content_Node & {
   readonly updatedAt: Scalars['Content_DateTime'];
   /** User that last updated this document */
   readonly updatedBy: Maybe<Content_User>;
+};
+
+
+type Content_StageTaskPage_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
@@ -7863,6 +7750,7 @@ type Content_StageTaskPageConnection = {
 };
 
 type Content_StageTaskPageCreateInput = {
+  readonly checklist: InputMaybe<Content_ChecklistCreateOneInlineInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   readonly helpfulInfo: InputMaybe<Content_HelpfulInfoCreateOneInlineInput>;
   /** Inline mutations for managing document localizations excluding the default locale */
@@ -7929,6 +7817,7 @@ type Content_StageTaskPageManyWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_StageTaskPageWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
+  readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -8038,6 +7927,7 @@ type Content_StageTaskPageOrderByInput =
   | 'updatedAt_DESC';
 
 type Content_StageTaskPageUpdateInput = {
+  readonly checklist: InputMaybe<Content_ChecklistUpdateOneInlineInput>;
   readonly helpfulInfo: InputMaybe<Content_HelpfulInfoUpdateOneInlineInput>;
   /** Manage document localizations */
   readonly localizations: InputMaybe<Content_StageTaskPageUpdateLocalizationsInput>;
@@ -8182,6 +8072,7 @@ type Content_StageTaskPageWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_StageTaskPageWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
+  readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -8315,6 +8206,7 @@ type Content_StageTaskPageWhereUniqueInput = {
 };
 
 type Content_StageTaskUpdateInput = {
+  readonly checklist: InputMaybe<Content_ChecklistUpdateOneInlineInput>;
   readonly helpfulInfo: InputMaybe<Content_HelpfulInfoUpdateOneInlineInput>;
   /** intro input for default locale (en) */
   readonly intro: InputMaybe<Scalars['Content_RichTextAST']>;
@@ -8464,6 +8356,7 @@ type Content_StageTaskWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_StageTaskWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
+  readonly checklist: InputMaybe<Content_ChecklistWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -8620,7 +8513,7 @@ type Content_TaskToComplete = Content_Node & {
   readonly scheduledIn: ReadonlyArray<Content_ScheduledOperation>;
   /** System stage field */
   readonly stage: Content_Stage;
-  readonly stageNumber: Scalars['Float'];
+  readonly stageNumber: Scalars['Int'];
   readonly submittedText: Maybe<Content_RichText>;
   readonly taskInfo: Content_RichText;
   readonly taskLinkText: Maybe<Scalars['String']>;
@@ -8718,7 +8611,7 @@ type Content_TaskToCompleteCreateInput = {
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** Inline mutations for managing document localizations excluding the default locale */
   readonly localizations: InputMaybe<Content_TaskToCompleteCreateLocalizationsInput>;
-  readonly stageNumber: Scalars['Float'];
+  readonly stageNumber: Scalars['Int'];
   /** submittedText input for default locale (en) */
   readonly submittedText: InputMaybe<Scalars['Content_RichTextAST']>;
   /** taskInfo input for default locale (en) */
@@ -8839,21 +8732,21 @@ type Content_TaskToCompleteManyWhereInput = {
   readonly scheduledIn_every: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly scheduledIn_none: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly scheduledIn_some: InputMaybe<Content_ScheduledOperationWhereInput>;
-  readonly stageNumber: InputMaybe<Scalars['Float']>;
+  readonly stageNumber: InputMaybe<Scalars['Int']>;
   /** All values greater than the given value. */
-  readonly stageNumber_gt: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_gt: InputMaybe<Scalars['Int']>;
   /** All values greater than or equal the given value. */
-  readonly stageNumber_gte: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_gte: InputMaybe<Scalars['Int']>;
   /** All values that are contained in given list. */
-  readonly stageNumber_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  readonly stageNumber_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
   /** All values less than the given value. */
-  readonly stageNumber_lt: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
-  readonly stageNumber_lte: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
   /** All values that are not equal to given value. */
-  readonly stageNumber_not: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
-  readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
   readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly updatedAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -8893,7 +8786,7 @@ type Content_TaskToCompleteUpdateInput = {
   readonly cksnookna1c9x01yu3wlzhvr6: InputMaybe<Content_StageTaskPageUpdateManyInlineInput>;
   /** Manage document localizations */
   readonly localizations: InputMaybe<Content_TaskToCompleteUpdateLocalizationsInput>;
-  readonly stageNumber: InputMaybe<Scalars['Float']>;
+  readonly stageNumber: InputMaybe<Scalars['Int']>;
   /** submittedText input for default locale (en) */
   readonly submittedText: InputMaybe<Scalars['Content_RichTextAST']>;
   /** taskInfo input for default locale (en) */
@@ -8946,7 +8839,7 @@ type Content_TaskToCompleteUpdateManyInlineInput = {
 type Content_TaskToCompleteUpdateManyInput = {
   /** Optional updates to localizations */
   readonly localizations: InputMaybe<Content_TaskToCompleteUpdateManyLocalizationsInput>;
-  readonly stageNumber: InputMaybe<Scalars['Float']>;
+  readonly stageNumber: InputMaybe<Scalars['Int']>;
   /** submittedText input for default locale (en) */
   readonly submittedText: InputMaybe<Scalars['Content_RichTextAST']>;
   /** taskInfo input for default locale (en) */
@@ -9096,21 +8989,21 @@ type Content_TaskToCompleteWhereInput = {
   readonly scheduledIn_every: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly scheduledIn_none: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly scheduledIn_some: InputMaybe<Content_ScheduledOperationWhereInput>;
-  readonly stageNumber: InputMaybe<Scalars['Float']>;
+  readonly stageNumber: InputMaybe<Scalars['Int']>;
   /** All values greater than the given value. */
-  readonly stageNumber_gt: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_gt: InputMaybe<Scalars['Int']>;
   /** All values greater than or equal the given value. */
-  readonly stageNumber_gte: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_gte: InputMaybe<Scalars['Int']>;
   /** All values that are contained in given list. */
-  readonly stageNumber_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  readonly stageNumber_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
   /** All values less than the given value. */
-  readonly stageNumber_lt: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
-  readonly stageNumber_lte: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
   /** All values that are not equal to given value. */
-  readonly stageNumber_not: InputMaybe<Scalars['Float']>;
+  readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
-  readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
   readonly taskLinkText: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   readonly taskLinkText_contains: InputMaybe<Scalars['String']>;
@@ -11332,6 +11225,11 @@ type GraphCMS_AssetFieldsEnum =
   | 'iconDevelopmentOption.updatedBy.updatedAt'
   | 'id'
   | 'imageInfo'
+  | 'imageInfo.checklist.id'
+  | 'imageInfo.checklist.item'
+  | 'imageInfo.checklist.locale'
+  | 'imageInfo.checklist.remoteTypeName'
+  | 'imageInfo.checklist.stage'
   | 'imageInfo.children'
   | 'imageInfo.children.children'
   | 'imageInfo.children.children.children'
@@ -11374,83 +11272,15 @@ type GraphCMS_AssetFieldsEnum =
   | 'imageInfo.createdBy.remoteTypeName'
   | 'imageInfo.createdBy.stage'
   | 'imageInfo.createdBy.updatedAt'
-  | 'imageInfo.helpfulInfo.children'
-  | 'imageInfo.helpfulInfo.children.children'
-  | 'imageInfo.helpfulInfo.children.id'
-  | 'imageInfo.helpfulInfo.createdAt'
-  | 'imageInfo.helpfulInfo.createdBy.children'
-  | 'imageInfo.helpfulInfo.createdBy.createdAt'
-  | 'imageInfo.helpfulInfo.createdBy.id'
-  | 'imageInfo.helpfulInfo.createdBy.isActive'
-  | 'imageInfo.helpfulInfo.createdBy.kind'
-  | 'imageInfo.helpfulInfo.createdBy.name'
-  | 'imageInfo.helpfulInfo.createdBy.picture'
-  | 'imageInfo.helpfulInfo.createdBy.publishedAt'
-  | 'imageInfo.helpfulInfo.createdBy.remoteId'
-  | 'imageInfo.helpfulInfo.createdBy.remoteTypeName'
-  | 'imageInfo.helpfulInfo.createdBy.stage'
-  | 'imageInfo.helpfulInfo.createdBy.updatedAt'
   | 'imageInfo.helpfulInfo.id'
   | 'imageInfo.helpfulInfo.info.html'
   | 'imageInfo.helpfulInfo.info.markdown'
   | 'imageInfo.helpfulInfo.info.raw'
   | 'imageInfo.helpfulInfo.info.remoteTypeName'
   | 'imageInfo.helpfulInfo.info.text'
-  | 'imageInfo.helpfulInfo.internal.content'
-  | 'imageInfo.helpfulInfo.internal.contentDigest'
-  | 'imageInfo.helpfulInfo.internal.contentFilePath'
-  | 'imageInfo.helpfulInfo.internal.description'
-  | 'imageInfo.helpfulInfo.internal.fieldOwners'
-  | 'imageInfo.helpfulInfo.internal.ignoreType'
-  | 'imageInfo.helpfulInfo.internal.mediaType'
-  | 'imageInfo.helpfulInfo.internal.owner'
-  | 'imageInfo.helpfulInfo.internal.type'
   | 'imageInfo.helpfulInfo.locale'
-  | 'imageInfo.helpfulInfo.parent.children'
-  | 'imageInfo.helpfulInfo.parent.id'
-  | 'imageInfo.helpfulInfo.publishedAt'
-  | 'imageInfo.helpfulInfo.publishedBy.children'
-  | 'imageInfo.helpfulInfo.publishedBy.createdAt'
-  | 'imageInfo.helpfulInfo.publishedBy.id'
-  | 'imageInfo.helpfulInfo.publishedBy.isActive'
-  | 'imageInfo.helpfulInfo.publishedBy.kind'
-  | 'imageInfo.helpfulInfo.publishedBy.name'
-  | 'imageInfo.helpfulInfo.publishedBy.picture'
-  | 'imageInfo.helpfulInfo.publishedBy.publishedAt'
-  | 'imageInfo.helpfulInfo.publishedBy.remoteId'
-  | 'imageInfo.helpfulInfo.publishedBy.remoteTypeName'
-  | 'imageInfo.helpfulInfo.publishedBy.stage'
-  | 'imageInfo.helpfulInfo.publishedBy.updatedAt'
-  | 'imageInfo.helpfulInfo.remoteId'
   | 'imageInfo.helpfulInfo.remoteTypeName'
-  | 'imageInfo.helpfulInfo.scheduledIn'
-  | 'imageInfo.helpfulInfo.scheduledIn.children'
-  | 'imageInfo.helpfulInfo.scheduledIn.createdAt'
-  | 'imageInfo.helpfulInfo.scheduledIn.description'
-  | 'imageInfo.helpfulInfo.scheduledIn.errorMessage'
-  | 'imageInfo.helpfulInfo.scheduledIn.id'
-  | 'imageInfo.helpfulInfo.scheduledIn.publishedAt'
-  | 'imageInfo.helpfulInfo.scheduledIn.rawPayload'
-  | 'imageInfo.helpfulInfo.scheduledIn.remoteId'
-  | 'imageInfo.helpfulInfo.scheduledIn.remoteTypeName'
-  | 'imageInfo.helpfulInfo.scheduledIn.stage'
-  | 'imageInfo.helpfulInfo.scheduledIn.status'
-  | 'imageInfo.helpfulInfo.scheduledIn.updatedAt'
   | 'imageInfo.helpfulInfo.stage'
-  | 'imageInfo.helpfulInfo.stageNumber'
-  | 'imageInfo.helpfulInfo.updatedAt'
-  | 'imageInfo.helpfulInfo.updatedBy.children'
-  | 'imageInfo.helpfulInfo.updatedBy.createdAt'
-  | 'imageInfo.helpfulInfo.updatedBy.id'
-  | 'imageInfo.helpfulInfo.updatedBy.isActive'
-  | 'imageInfo.helpfulInfo.updatedBy.kind'
-  | 'imageInfo.helpfulInfo.updatedBy.name'
-  | 'imageInfo.helpfulInfo.updatedBy.picture'
-  | 'imageInfo.helpfulInfo.updatedBy.publishedAt'
-  | 'imageInfo.helpfulInfo.updatedBy.remoteId'
-  | 'imageInfo.helpfulInfo.updatedBy.remoteTypeName'
-  | 'imageInfo.helpfulInfo.updatedBy.stage'
-  | 'imageInfo.helpfulInfo.updatedBy.updatedAt'
   | 'imageInfo.id'
   | 'imageInfo.image'
   | 'imageInfo.image.children'
@@ -12775,7 +12605,16 @@ type GraphCMS_Checklist = {
   readonly id: Scalars['ID'];
   readonly item: ReadonlyArray<Scalars['String']>;
   readonly locale: GraphCMS_Locale;
+  readonly remoteTypeName: Scalars['String'];
   readonly stage: GraphCMS_Stage;
+};
+
+type GraphCMS_ChecklistFilterInput = {
+  readonly id: InputMaybe<IDQueryOperatorInput>;
+  readonly item: InputMaybe<StringQueryOperatorInput>;
+  readonly locale: InputMaybe<GraphCMS_LocaleQueryOperatorInput>;
+  readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
+  readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
 };
 
 type GraphCMS_DevelopmentOption = Node & {
@@ -13141,6 +12980,11 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'icon.iconDevelopmentOption.updatedBy.updatedAt'
   | 'icon.id'
   | 'icon.imageInfo'
+  | 'icon.imageInfo.checklist.id'
+  | 'icon.imageInfo.checklist.item'
+  | 'icon.imageInfo.checklist.locale'
+  | 'icon.imageInfo.checklist.remoteTypeName'
+  | 'icon.imageInfo.checklist.stage'
   | 'icon.imageInfo.children'
   | 'icon.imageInfo.children.children'
   | 'icon.imageInfo.children.id'
@@ -13157,17 +13001,10 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'icon.imageInfo.createdBy.remoteTypeName'
   | 'icon.imageInfo.createdBy.stage'
   | 'icon.imageInfo.createdBy.updatedAt'
-  | 'icon.imageInfo.helpfulInfo.children'
-  | 'icon.imageInfo.helpfulInfo.createdAt'
   | 'icon.imageInfo.helpfulInfo.id'
   | 'icon.imageInfo.helpfulInfo.locale'
-  | 'icon.imageInfo.helpfulInfo.publishedAt'
-  | 'icon.imageInfo.helpfulInfo.remoteId'
   | 'icon.imageInfo.helpfulInfo.remoteTypeName'
-  | 'icon.imageInfo.helpfulInfo.scheduledIn'
   | 'icon.imageInfo.helpfulInfo.stage'
-  | 'icon.imageInfo.helpfulInfo.stageNumber'
-  | 'icon.imageInfo.helpfulInfo.updatedAt'
   | 'icon.imageInfo.id'
   | 'icon.imageInfo.image'
   | 'icon.imageInfo.image.children'
@@ -13747,6 +13584,11 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'informationMainImage.iconDevelopmentOption.updatedBy.updatedAt'
   | 'informationMainImage.id'
   | 'informationMainImage.imageInfo'
+  | 'informationMainImage.imageInfo.checklist.id'
+  | 'informationMainImage.imageInfo.checklist.item'
+  | 'informationMainImage.imageInfo.checklist.locale'
+  | 'informationMainImage.imageInfo.checklist.remoteTypeName'
+  | 'informationMainImage.imageInfo.checklist.stage'
   | 'informationMainImage.imageInfo.children'
   | 'informationMainImage.imageInfo.children.children'
   | 'informationMainImage.imageInfo.children.id'
@@ -13763,17 +13605,10 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'informationMainImage.imageInfo.createdBy.remoteTypeName'
   | 'informationMainImage.imageInfo.createdBy.stage'
   | 'informationMainImage.imageInfo.createdBy.updatedAt'
-  | 'informationMainImage.imageInfo.helpfulInfo.children'
-  | 'informationMainImage.imageInfo.helpfulInfo.createdAt'
   | 'informationMainImage.imageInfo.helpfulInfo.id'
   | 'informationMainImage.imageInfo.helpfulInfo.locale'
-  | 'informationMainImage.imageInfo.helpfulInfo.publishedAt'
-  | 'informationMainImage.imageInfo.helpfulInfo.remoteId'
   | 'informationMainImage.imageInfo.helpfulInfo.remoteTypeName'
-  | 'informationMainImage.imageInfo.helpfulInfo.scheduledIn'
   | 'informationMainImage.imageInfo.helpfulInfo.stage'
-  | 'informationMainImage.imageInfo.helpfulInfo.stageNumber'
-  | 'informationMainImage.imageInfo.helpfulInfo.updatedAt'
   | 'informationMainImage.imageInfo.id'
   | 'informationMainImage.imageInfo.image'
   | 'informationMainImage.imageInfo.image.children'
@@ -14840,603 +14675,24 @@ type GraphCMS_DevelopmentOptionSortInput = {
 
 type GraphCMS_DevelopmentOptionchecklistUnion = GraphCMS_Checklist;
 
-type GraphCMS_HelpfulInfo = Node & {
-  readonly children: ReadonlyArray<Node>;
-  readonly createdAt: Scalars['JSON'];
-  readonly createdBy: Maybe<GraphCMS_User>;
+type GraphCMS_HelpfulInfo = {
   readonly id: Scalars['ID'];
   readonly info: GraphCMS_RichText;
-  readonly internal: Internal;
   readonly locale: GraphCMS_Locale;
-  readonly parent: Maybe<Node>;
-  readonly publishedAt: Maybe<Scalars['JSON']>;
-  readonly publishedBy: Maybe<GraphCMS_User>;
-  readonly remoteId: Scalars['ID'];
   readonly remoteTypeName: Scalars['String'];
-  readonly scheduledIn: ReadonlyArray<GraphCMS_ScheduledOperation>;
   readonly stage: GraphCMS_Stage;
-  readonly stageNumber: Scalars['Int'];
-  readonly updatedAt: Scalars['JSON'];
-  readonly updatedBy: Maybe<GraphCMS_User>;
 };
-
-type GraphCMS_HelpfulInfoConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<GraphCMS_HelpfulInfoEdge>;
-  readonly group: ReadonlyArray<GraphCMS_HelpfulInfoGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<GraphCMS_HelpfulInfo>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type GraphCMS_HelpfulInfoConnection_distinctArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-};
-
-
-type GraphCMS_HelpfulInfoConnection_groupArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type GraphCMS_HelpfulInfoConnection_maxArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-};
-
-
-type GraphCMS_HelpfulInfoConnection_minArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-};
-
-
-type GraphCMS_HelpfulInfoConnection_sumArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-};
-
-type GraphCMS_HelpfulInfoEdge = {
-  readonly next: Maybe<GraphCMS_HelpfulInfo>;
-  readonly node: GraphCMS_HelpfulInfo;
-  readonly previous: Maybe<GraphCMS_HelpfulInfo>;
-};
-
-type GraphCMS_HelpfulInfoFieldsEnum =
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'createdAt'
-  | 'createdBy.children'
-  | 'createdBy.children.children'
-  | 'createdBy.children.children.children'
-  | 'createdBy.children.children.id'
-  | 'createdBy.children.id'
-  | 'createdBy.children.internal.content'
-  | 'createdBy.children.internal.contentDigest'
-  | 'createdBy.children.internal.contentFilePath'
-  | 'createdBy.children.internal.description'
-  | 'createdBy.children.internal.fieldOwners'
-  | 'createdBy.children.internal.ignoreType'
-  | 'createdBy.children.internal.mediaType'
-  | 'createdBy.children.internal.owner'
-  | 'createdBy.children.internal.type'
-  | 'createdBy.children.parent.children'
-  | 'createdBy.children.parent.id'
-  | 'createdBy.createdAt'
-  | 'createdBy.id'
-  | 'createdBy.internal.content'
-  | 'createdBy.internal.contentDigest'
-  | 'createdBy.internal.contentFilePath'
-  | 'createdBy.internal.description'
-  | 'createdBy.internal.fieldOwners'
-  | 'createdBy.internal.ignoreType'
-  | 'createdBy.internal.mediaType'
-  | 'createdBy.internal.owner'
-  | 'createdBy.internal.type'
-  | 'createdBy.isActive'
-  | 'createdBy.kind'
-  | 'createdBy.name'
-  | 'createdBy.parent.children'
-  | 'createdBy.parent.children.children'
-  | 'createdBy.parent.children.id'
-  | 'createdBy.parent.id'
-  | 'createdBy.parent.internal.content'
-  | 'createdBy.parent.internal.contentDigest'
-  | 'createdBy.parent.internal.contentFilePath'
-  | 'createdBy.parent.internal.description'
-  | 'createdBy.parent.internal.fieldOwners'
-  | 'createdBy.parent.internal.ignoreType'
-  | 'createdBy.parent.internal.mediaType'
-  | 'createdBy.parent.internal.owner'
-  | 'createdBy.parent.internal.type'
-  | 'createdBy.parent.parent.children'
-  | 'createdBy.parent.parent.id'
-  | 'createdBy.picture'
-  | 'createdBy.publishedAt'
-  | 'createdBy.remoteId'
-  | 'createdBy.remoteTypeName'
-  | 'createdBy.stage'
-  | 'createdBy.updatedAt'
-  | 'id'
-  | 'info.html'
-  | 'info.markdown'
-  | 'info.raw'
-  | 'info.remoteTypeName'
-  | 'info.text'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'locale'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'publishedAt'
-  | 'publishedBy.children'
-  | 'publishedBy.children.children'
-  | 'publishedBy.children.children.children'
-  | 'publishedBy.children.children.id'
-  | 'publishedBy.children.id'
-  | 'publishedBy.children.internal.content'
-  | 'publishedBy.children.internal.contentDigest'
-  | 'publishedBy.children.internal.contentFilePath'
-  | 'publishedBy.children.internal.description'
-  | 'publishedBy.children.internal.fieldOwners'
-  | 'publishedBy.children.internal.ignoreType'
-  | 'publishedBy.children.internal.mediaType'
-  | 'publishedBy.children.internal.owner'
-  | 'publishedBy.children.internal.type'
-  | 'publishedBy.children.parent.children'
-  | 'publishedBy.children.parent.id'
-  | 'publishedBy.createdAt'
-  | 'publishedBy.id'
-  | 'publishedBy.internal.content'
-  | 'publishedBy.internal.contentDigest'
-  | 'publishedBy.internal.contentFilePath'
-  | 'publishedBy.internal.description'
-  | 'publishedBy.internal.fieldOwners'
-  | 'publishedBy.internal.ignoreType'
-  | 'publishedBy.internal.mediaType'
-  | 'publishedBy.internal.owner'
-  | 'publishedBy.internal.type'
-  | 'publishedBy.isActive'
-  | 'publishedBy.kind'
-  | 'publishedBy.name'
-  | 'publishedBy.parent.children'
-  | 'publishedBy.parent.children.children'
-  | 'publishedBy.parent.children.id'
-  | 'publishedBy.parent.id'
-  | 'publishedBy.parent.internal.content'
-  | 'publishedBy.parent.internal.contentDigest'
-  | 'publishedBy.parent.internal.contentFilePath'
-  | 'publishedBy.parent.internal.description'
-  | 'publishedBy.parent.internal.fieldOwners'
-  | 'publishedBy.parent.internal.ignoreType'
-  | 'publishedBy.parent.internal.mediaType'
-  | 'publishedBy.parent.internal.owner'
-  | 'publishedBy.parent.internal.type'
-  | 'publishedBy.parent.parent.children'
-  | 'publishedBy.parent.parent.id'
-  | 'publishedBy.picture'
-  | 'publishedBy.publishedAt'
-  | 'publishedBy.remoteId'
-  | 'publishedBy.remoteTypeName'
-  | 'publishedBy.stage'
-  | 'publishedBy.updatedAt'
-  | 'remoteId'
-  | 'remoteTypeName'
-  | 'scheduledIn'
-  | 'scheduledIn.children'
-  | 'scheduledIn.children.children'
-  | 'scheduledIn.children.children.children'
-  | 'scheduledIn.children.children.id'
-  | 'scheduledIn.children.id'
-  | 'scheduledIn.children.internal.content'
-  | 'scheduledIn.children.internal.contentDigest'
-  | 'scheduledIn.children.internal.contentFilePath'
-  | 'scheduledIn.children.internal.description'
-  | 'scheduledIn.children.internal.fieldOwners'
-  | 'scheduledIn.children.internal.ignoreType'
-  | 'scheduledIn.children.internal.mediaType'
-  | 'scheduledIn.children.internal.owner'
-  | 'scheduledIn.children.internal.type'
-  | 'scheduledIn.children.parent.children'
-  | 'scheduledIn.children.parent.id'
-  | 'scheduledIn.createdAt'
-  | 'scheduledIn.createdBy.children'
-  | 'scheduledIn.createdBy.children.children'
-  | 'scheduledIn.createdBy.children.id'
-  | 'scheduledIn.createdBy.createdAt'
-  | 'scheduledIn.createdBy.id'
-  | 'scheduledIn.createdBy.internal.content'
-  | 'scheduledIn.createdBy.internal.contentDigest'
-  | 'scheduledIn.createdBy.internal.contentFilePath'
-  | 'scheduledIn.createdBy.internal.description'
-  | 'scheduledIn.createdBy.internal.fieldOwners'
-  | 'scheduledIn.createdBy.internal.ignoreType'
-  | 'scheduledIn.createdBy.internal.mediaType'
-  | 'scheduledIn.createdBy.internal.owner'
-  | 'scheduledIn.createdBy.internal.type'
-  | 'scheduledIn.createdBy.isActive'
-  | 'scheduledIn.createdBy.kind'
-  | 'scheduledIn.createdBy.name'
-  | 'scheduledIn.createdBy.parent.children'
-  | 'scheduledIn.createdBy.parent.id'
-  | 'scheduledIn.createdBy.picture'
-  | 'scheduledIn.createdBy.publishedAt'
-  | 'scheduledIn.createdBy.remoteId'
-  | 'scheduledIn.createdBy.remoteTypeName'
-  | 'scheduledIn.createdBy.stage'
-  | 'scheduledIn.createdBy.updatedAt'
-  | 'scheduledIn.description'
-  | 'scheduledIn.errorMessage'
-  | 'scheduledIn.id'
-  | 'scheduledIn.internal.content'
-  | 'scheduledIn.internal.contentDigest'
-  | 'scheduledIn.internal.contentFilePath'
-  | 'scheduledIn.internal.description'
-  | 'scheduledIn.internal.fieldOwners'
-  | 'scheduledIn.internal.ignoreType'
-  | 'scheduledIn.internal.mediaType'
-  | 'scheduledIn.internal.owner'
-  | 'scheduledIn.internal.type'
-  | 'scheduledIn.parent.children'
-  | 'scheduledIn.parent.children.children'
-  | 'scheduledIn.parent.children.id'
-  | 'scheduledIn.parent.id'
-  | 'scheduledIn.parent.internal.content'
-  | 'scheduledIn.parent.internal.contentDigest'
-  | 'scheduledIn.parent.internal.contentFilePath'
-  | 'scheduledIn.parent.internal.description'
-  | 'scheduledIn.parent.internal.fieldOwners'
-  | 'scheduledIn.parent.internal.ignoreType'
-  | 'scheduledIn.parent.internal.mediaType'
-  | 'scheduledIn.parent.internal.owner'
-  | 'scheduledIn.parent.internal.type'
-  | 'scheduledIn.parent.parent.children'
-  | 'scheduledIn.parent.parent.id'
-  | 'scheduledIn.publishedAt'
-  | 'scheduledIn.publishedBy.children'
-  | 'scheduledIn.publishedBy.children.children'
-  | 'scheduledIn.publishedBy.children.id'
-  | 'scheduledIn.publishedBy.createdAt'
-  | 'scheduledIn.publishedBy.id'
-  | 'scheduledIn.publishedBy.internal.content'
-  | 'scheduledIn.publishedBy.internal.contentDigest'
-  | 'scheduledIn.publishedBy.internal.contentFilePath'
-  | 'scheduledIn.publishedBy.internal.description'
-  | 'scheduledIn.publishedBy.internal.fieldOwners'
-  | 'scheduledIn.publishedBy.internal.ignoreType'
-  | 'scheduledIn.publishedBy.internal.mediaType'
-  | 'scheduledIn.publishedBy.internal.owner'
-  | 'scheduledIn.publishedBy.internal.type'
-  | 'scheduledIn.publishedBy.isActive'
-  | 'scheduledIn.publishedBy.kind'
-  | 'scheduledIn.publishedBy.name'
-  | 'scheduledIn.publishedBy.parent.children'
-  | 'scheduledIn.publishedBy.parent.id'
-  | 'scheduledIn.publishedBy.picture'
-  | 'scheduledIn.publishedBy.publishedAt'
-  | 'scheduledIn.publishedBy.remoteId'
-  | 'scheduledIn.publishedBy.remoteTypeName'
-  | 'scheduledIn.publishedBy.stage'
-  | 'scheduledIn.publishedBy.updatedAt'
-  | 'scheduledIn.rawPayload'
-  | 'scheduledIn.release.children'
-  | 'scheduledIn.release.children.children'
-  | 'scheduledIn.release.children.id'
-  | 'scheduledIn.release.createdAt'
-  | 'scheduledIn.release.createdBy.children'
-  | 'scheduledIn.release.createdBy.createdAt'
-  | 'scheduledIn.release.createdBy.id'
-  | 'scheduledIn.release.createdBy.isActive'
-  | 'scheduledIn.release.createdBy.kind'
-  | 'scheduledIn.release.createdBy.name'
-  | 'scheduledIn.release.createdBy.picture'
-  | 'scheduledIn.release.createdBy.publishedAt'
-  | 'scheduledIn.release.createdBy.remoteId'
-  | 'scheduledIn.release.createdBy.remoteTypeName'
-  | 'scheduledIn.release.createdBy.stage'
-  | 'scheduledIn.release.createdBy.updatedAt'
-  | 'scheduledIn.release.description'
-  | 'scheduledIn.release.errorMessage'
-  | 'scheduledIn.release.id'
-  | 'scheduledIn.release.internal.content'
-  | 'scheduledIn.release.internal.contentDigest'
-  | 'scheduledIn.release.internal.contentFilePath'
-  | 'scheduledIn.release.internal.description'
-  | 'scheduledIn.release.internal.fieldOwners'
-  | 'scheduledIn.release.internal.ignoreType'
-  | 'scheduledIn.release.internal.mediaType'
-  | 'scheduledIn.release.internal.owner'
-  | 'scheduledIn.release.internal.type'
-  | 'scheduledIn.release.isActive'
-  | 'scheduledIn.release.isImplicit'
-  | 'scheduledIn.release.operations'
-  | 'scheduledIn.release.operations.children'
-  | 'scheduledIn.release.operations.createdAt'
-  | 'scheduledIn.release.operations.description'
-  | 'scheduledIn.release.operations.errorMessage'
-  | 'scheduledIn.release.operations.id'
-  | 'scheduledIn.release.operations.publishedAt'
-  | 'scheduledIn.release.operations.rawPayload'
-  | 'scheduledIn.release.operations.remoteId'
-  | 'scheduledIn.release.operations.remoteTypeName'
-  | 'scheduledIn.release.operations.stage'
-  | 'scheduledIn.release.operations.status'
-  | 'scheduledIn.release.operations.updatedAt'
-  | 'scheduledIn.release.parent.children'
-  | 'scheduledIn.release.parent.id'
-  | 'scheduledIn.release.publishedAt'
-  | 'scheduledIn.release.publishedBy.children'
-  | 'scheduledIn.release.publishedBy.createdAt'
-  | 'scheduledIn.release.publishedBy.id'
-  | 'scheduledIn.release.publishedBy.isActive'
-  | 'scheduledIn.release.publishedBy.kind'
-  | 'scheduledIn.release.publishedBy.name'
-  | 'scheduledIn.release.publishedBy.picture'
-  | 'scheduledIn.release.publishedBy.publishedAt'
-  | 'scheduledIn.release.publishedBy.remoteId'
-  | 'scheduledIn.release.publishedBy.remoteTypeName'
-  | 'scheduledIn.release.publishedBy.stage'
-  | 'scheduledIn.release.publishedBy.updatedAt'
-  | 'scheduledIn.release.releaseAt'
-  | 'scheduledIn.release.remoteId'
-  | 'scheduledIn.release.remoteTypeName'
-  | 'scheduledIn.release.stage'
-  | 'scheduledIn.release.status'
-  | 'scheduledIn.release.title'
-  | 'scheduledIn.release.updatedAt'
-  | 'scheduledIn.release.updatedBy.children'
-  | 'scheduledIn.release.updatedBy.createdAt'
-  | 'scheduledIn.release.updatedBy.id'
-  | 'scheduledIn.release.updatedBy.isActive'
-  | 'scheduledIn.release.updatedBy.kind'
-  | 'scheduledIn.release.updatedBy.name'
-  | 'scheduledIn.release.updatedBy.picture'
-  | 'scheduledIn.release.updatedBy.publishedAt'
-  | 'scheduledIn.release.updatedBy.remoteId'
-  | 'scheduledIn.release.updatedBy.remoteTypeName'
-  | 'scheduledIn.release.updatedBy.stage'
-  | 'scheduledIn.release.updatedBy.updatedAt'
-  | 'scheduledIn.remoteId'
-  | 'scheduledIn.remoteTypeName'
-  | 'scheduledIn.stage'
-  | 'scheduledIn.status'
-  | 'scheduledIn.updatedAt'
-  | 'scheduledIn.updatedBy.children'
-  | 'scheduledIn.updatedBy.children.children'
-  | 'scheduledIn.updatedBy.children.id'
-  | 'scheduledIn.updatedBy.createdAt'
-  | 'scheduledIn.updatedBy.id'
-  | 'scheduledIn.updatedBy.internal.content'
-  | 'scheduledIn.updatedBy.internal.contentDigest'
-  | 'scheduledIn.updatedBy.internal.contentFilePath'
-  | 'scheduledIn.updatedBy.internal.description'
-  | 'scheduledIn.updatedBy.internal.fieldOwners'
-  | 'scheduledIn.updatedBy.internal.ignoreType'
-  | 'scheduledIn.updatedBy.internal.mediaType'
-  | 'scheduledIn.updatedBy.internal.owner'
-  | 'scheduledIn.updatedBy.internal.type'
-  | 'scheduledIn.updatedBy.isActive'
-  | 'scheduledIn.updatedBy.kind'
-  | 'scheduledIn.updatedBy.name'
-  | 'scheduledIn.updatedBy.parent.children'
-  | 'scheduledIn.updatedBy.parent.id'
-  | 'scheduledIn.updatedBy.picture'
-  | 'scheduledIn.updatedBy.publishedAt'
-  | 'scheduledIn.updatedBy.remoteId'
-  | 'scheduledIn.updatedBy.remoteTypeName'
-  | 'scheduledIn.updatedBy.stage'
-  | 'scheduledIn.updatedBy.updatedAt'
-  | 'stage'
-  | 'stageNumber'
-  | 'updatedAt'
-  | 'updatedBy.children'
-  | 'updatedBy.children.children'
-  | 'updatedBy.children.children.children'
-  | 'updatedBy.children.children.id'
-  | 'updatedBy.children.id'
-  | 'updatedBy.children.internal.content'
-  | 'updatedBy.children.internal.contentDigest'
-  | 'updatedBy.children.internal.contentFilePath'
-  | 'updatedBy.children.internal.description'
-  | 'updatedBy.children.internal.fieldOwners'
-  | 'updatedBy.children.internal.ignoreType'
-  | 'updatedBy.children.internal.mediaType'
-  | 'updatedBy.children.internal.owner'
-  | 'updatedBy.children.internal.type'
-  | 'updatedBy.children.parent.children'
-  | 'updatedBy.children.parent.id'
-  | 'updatedBy.createdAt'
-  | 'updatedBy.id'
-  | 'updatedBy.internal.content'
-  | 'updatedBy.internal.contentDigest'
-  | 'updatedBy.internal.contentFilePath'
-  | 'updatedBy.internal.description'
-  | 'updatedBy.internal.fieldOwners'
-  | 'updatedBy.internal.ignoreType'
-  | 'updatedBy.internal.mediaType'
-  | 'updatedBy.internal.owner'
-  | 'updatedBy.internal.type'
-  | 'updatedBy.isActive'
-  | 'updatedBy.kind'
-  | 'updatedBy.name'
-  | 'updatedBy.parent.children'
-  | 'updatedBy.parent.children.children'
-  | 'updatedBy.parent.children.id'
-  | 'updatedBy.parent.id'
-  | 'updatedBy.parent.internal.content'
-  | 'updatedBy.parent.internal.contentDigest'
-  | 'updatedBy.parent.internal.contentFilePath'
-  | 'updatedBy.parent.internal.description'
-  | 'updatedBy.parent.internal.fieldOwners'
-  | 'updatedBy.parent.internal.ignoreType'
-  | 'updatedBy.parent.internal.mediaType'
-  | 'updatedBy.parent.internal.owner'
-  | 'updatedBy.parent.internal.type'
-  | 'updatedBy.parent.parent.children'
-  | 'updatedBy.parent.parent.id'
-  | 'updatedBy.picture'
-  | 'updatedBy.publishedAt'
-  | 'updatedBy.remoteId'
-  | 'updatedBy.remoteTypeName'
-  | 'updatedBy.stage'
-  | 'updatedBy.updatedAt';
 
 type GraphCMS_HelpfulInfoFilterInput = {
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly createdAt: InputMaybe<JSONQueryOperatorInput>;
-  readonly createdBy: InputMaybe<GraphCMS_UserFilterInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<IDQueryOperatorInput>;
   readonly info: InputMaybe<GraphCMS_RichTextFilterInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
   readonly locale: InputMaybe<GraphCMS_LocaleQueryOperatorInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-  readonly publishedAt: InputMaybe<JSONQueryOperatorInput>;
-  readonly publishedBy: InputMaybe<GraphCMS_UserFilterInput>;
-  readonly remoteId: InputMaybe<IDQueryOperatorInput>;
   readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
-  readonly scheduledIn: InputMaybe<GraphCMS_ScheduledOperationFilterListInput>;
   readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
-  readonly stageNumber: InputMaybe<IntQueryOperatorInput>;
-  readonly updatedAt: InputMaybe<JSONQueryOperatorInput>;
-  readonly updatedBy: InputMaybe<GraphCMS_UserFilterInput>;
-};
-
-type GraphCMS_HelpfulInfoGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<GraphCMS_HelpfulInfoEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<GraphCMS_HelpfulInfoGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<GraphCMS_HelpfulInfo>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type GraphCMS_HelpfulInfoGroupConnection_distinctArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-};
-
-
-type GraphCMS_HelpfulInfoGroupConnection_groupArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type GraphCMS_HelpfulInfoGroupConnection_maxArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-};
-
-
-type GraphCMS_HelpfulInfoGroupConnection_minArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-};
-
-
-type GraphCMS_HelpfulInfoGroupConnection_sumArgs = {
-  field: GraphCMS_HelpfulInfoFieldsEnum;
-};
-
-type GraphCMS_HelpfulInfoSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<GraphCMS_HelpfulInfoFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 type GraphCMS_Info = Node & {
+  readonly checklist: Maybe<GraphCMS_Checklist>;
   readonly children: ReadonlyArray<Node>;
   readonly createdAt: Scalars['JSON'];
   readonly createdBy: Maybe<GraphCMS_User>;
@@ -15507,6 +14763,11 @@ type GraphCMS_InfoEdge = {
 };
 
 type GraphCMS_InfoFieldsEnum =
+  | 'checklist.id'
+  | 'checklist.item'
+  | 'checklist.locale'
+  | 'checklist.remoteTypeName'
+  | 'checklist.stage'
   | 'children'
   | 'children.children'
   | 'children.children.children'
@@ -15601,213 +14862,15 @@ type GraphCMS_InfoFieldsEnum =
   | 'createdBy.remoteTypeName'
   | 'createdBy.stage'
   | 'createdBy.updatedAt'
-  | 'helpfulInfo.children'
-  | 'helpfulInfo.children.children'
-  | 'helpfulInfo.children.children.children'
-  | 'helpfulInfo.children.children.id'
-  | 'helpfulInfo.children.id'
-  | 'helpfulInfo.children.internal.content'
-  | 'helpfulInfo.children.internal.contentDigest'
-  | 'helpfulInfo.children.internal.contentFilePath'
-  | 'helpfulInfo.children.internal.description'
-  | 'helpfulInfo.children.internal.fieldOwners'
-  | 'helpfulInfo.children.internal.ignoreType'
-  | 'helpfulInfo.children.internal.mediaType'
-  | 'helpfulInfo.children.internal.owner'
-  | 'helpfulInfo.children.internal.type'
-  | 'helpfulInfo.children.parent.children'
-  | 'helpfulInfo.children.parent.id'
-  | 'helpfulInfo.createdAt'
-  | 'helpfulInfo.createdBy.children'
-  | 'helpfulInfo.createdBy.children.children'
-  | 'helpfulInfo.createdBy.children.id'
-  | 'helpfulInfo.createdBy.createdAt'
-  | 'helpfulInfo.createdBy.id'
-  | 'helpfulInfo.createdBy.internal.content'
-  | 'helpfulInfo.createdBy.internal.contentDigest'
-  | 'helpfulInfo.createdBy.internal.contentFilePath'
-  | 'helpfulInfo.createdBy.internal.description'
-  | 'helpfulInfo.createdBy.internal.fieldOwners'
-  | 'helpfulInfo.createdBy.internal.ignoreType'
-  | 'helpfulInfo.createdBy.internal.mediaType'
-  | 'helpfulInfo.createdBy.internal.owner'
-  | 'helpfulInfo.createdBy.internal.type'
-  | 'helpfulInfo.createdBy.isActive'
-  | 'helpfulInfo.createdBy.kind'
-  | 'helpfulInfo.createdBy.name'
-  | 'helpfulInfo.createdBy.parent.children'
-  | 'helpfulInfo.createdBy.parent.id'
-  | 'helpfulInfo.createdBy.picture'
-  | 'helpfulInfo.createdBy.publishedAt'
-  | 'helpfulInfo.createdBy.remoteId'
-  | 'helpfulInfo.createdBy.remoteTypeName'
-  | 'helpfulInfo.createdBy.stage'
-  | 'helpfulInfo.createdBy.updatedAt'
   | 'helpfulInfo.id'
   | 'helpfulInfo.info.html'
   | 'helpfulInfo.info.markdown'
   | 'helpfulInfo.info.raw'
   | 'helpfulInfo.info.remoteTypeName'
   | 'helpfulInfo.info.text'
-  | 'helpfulInfo.internal.content'
-  | 'helpfulInfo.internal.contentDigest'
-  | 'helpfulInfo.internal.contentFilePath'
-  | 'helpfulInfo.internal.description'
-  | 'helpfulInfo.internal.fieldOwners'
-  | 'helpfulInfo.internal.ignoreType'
-  | 'helpfulInfo.internal.mediaType'
-  | 'helpfulInfo.internal.owner'
-  | 'helpfulInfo.internal.type'
   | 'helpfulInfo.locale'
-  | 'helpfulInfo.parent.children'
-  | 'helpfulInfo.parent.children.children'
-  | 'helpfulInfo.parent.children.id'
-  | 'helpfulInfo.parent.id'
-  | 'helpfulInfo.parent.internal.content'
-  | 'helpfulInfo.parent.internal.contentDigest'
-  | 'helpfulInfo.parent.internal.contentFilePath'
-  | 'helpfulInfo.parent.internal.description'
-  | 'helpfulInfo.parent.internal.fieldOwners'
-  | 'helpfulInfo.parent.internal.ignoreType'
-  | 'helpfulInfo.parent.internal.mediaType'
-  | 'helpfulInfo.parent.internal.owner'
-  | 'helpfulInfo.parent.internal.type'
-  | 'helpfulInfo.parent.parent.children'
-  | 'helpfulInfo.parent.parent.id'
-  | 'helpfulInfo.publishedAt'
-  | 'helpfulInfo.publishedBy.children'
-  | 'helpfulInfo.publishedBy.children.children'
-  | 'helpfulInfo.publishedBy.children.id'
-  | 'helpfulInfo.publishedBy.createdAt'
-  | 'helpfulInfo.publishedBy.id'
-  | 'helpfulInfo.publishedBy.internal.content'
-  | 'helpfulInfo.publishedBy.internal.contentDigest'
-  | 'helpfulInfo.publishedBy.internal.contentFilePath'
-  | 'helpfulInfo.publishedBy.internal.description'
-  | 'helpfulInfo.publishedBy.internal.fieldOwners'
-  | 'helpfulInfo.publishedBy.internal.ignoreType'
-  | 'helpfulInfo.publishedBy.internal.mediaType'
-  | 'helpfulInfo.publishedBy.internal.owner'
-  | 'helpfulInfo.publishedBy.internal.type'
-  | 'helpfulInfo.publishedBy.isActive'
-  | 'helpfulInfo.publishedBy.kind'
-  | 'helpfulInfo.publishedBy.name'
-  | 'helpfulInfo.publishedBy.parent.children'
-  | 'helpfulInfo.publishedBy.parent.id'
-  | 'helpfulInfo.publishedBy.picture'
-  | 'helpfulInfo.publishedBy.publishedAt'
-  | 'helpfulInfo.publishedBy.remoteId'
-  | 'helpfulInfo.publishedBy.remoteTypeName'
-  | 'helpfulInfo.publishedBy.stage'
-  | 'helpfulInfo.publishedBy.updatedAt'
-  | 'helpfulInfo.remoteId'
   | 'helpfulInfo.remoteTypeName'
-  | 'helpfulInfo.scheduledIn'
-  | 'helpfulInfo.scheduledIn.children'
-  | 'helpfulInfo.scheduledIn.children.children'
-  | 'helpfulInfo.scheduledIn.children.id'
-  | 'helpfulInfo.scheduledIn.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.children'
-  | 'helpfulInfo.scheduledIn.createdBy.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.id'
-  | 'helpfulInfo.scheduledIn.createdBy.isActive'
-  | 'helpfulInfo.scheduledIn.createdBy.kind'
-  | 'helpfulInfo.scheduledIn.createdBy.name'
-  | 'helpfulInfo.scheduledIn.createdBy.picture'
-  | 'helpfulInfo.scheduledIn.createdBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteId'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.createdBy.stage'
-  | 'helpfulInfo.scheduledIn.createdBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.description'
-  | 'helpfulInfo.scheduledIn.errorMessage'
-  | 'helpfulInfo.scheduledIn.id'
-  | 'helpfulInfo.scheduledIn.internal.content'
-  | 'helpfulInfo.scheduledIn.internal.contentDigest'
-  | 'helpfulInfo.scheduledIn.internal.contentFilePath'
-  | 'helpfulInfo.scheduledIn.internal.description'
-  | 'helpfulInfo.scheduledIn.internal.fieldOwners'
-  | 'helpfulInfo.scheduledIn.internal.ignoreType'
-  | 'helpfulInfo.scheduledIn.internal.mediaType'
-  | 'helpfulInfo.scheduledIn.internal.owner'
-  | 'helpfulInfo.scheduledIn.internal.type'
-  | 'helpfulInfo.scheduledIn.parent.children'
-  | 'helpfulInfo.scheduledIn.parent.id'
-  | 'helpfulInfo.scheduledIn.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.children'
-  | 'helpfulInfo.scheduledIn.publishedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.id'
-  | 'helpfulInfo.scheduledIn.publishedBy.isActive'
-  | 'helpfulInfo.scheduledIn.publishedBy.kind'
-  | 'helpfulInfo.scheduledIn.publishedBy.name'
-  | 'helpfulInfo.scheduledIn.publishedBy.picture'
-  | 'helpfulInfo.scheduledIn.publishedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.publishedBy.stage'
-  | 'helpfulInfo.scheduledIn.publishedBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.rawPayload'
-  | 'helpfulInfo.scheduledIn.release.children'
-  | 'helpfulInfo.scheduledIn.release.createdAt'
-  | 'helpfulInfo.scheduledIn.release.description'
-  | 'helpfulInfo.scheduledIn.release.errorMessage'
-  | 'helpfulInfo.scheduledIn.release.id'
-  | 'helpfulInfo.scheduledIn.release.isActive'
-  | 'helpfulInfo.scheduledIn.release.isImplicit'
-  | 'helpfulInfo.scheduledIn.release.operations'
-  | 'helpfulInfo.scheduledIn.release.publishedAt'
-  | 'helpfulInfo.scheduledIn.release.releaseAt'
-  | 'helpfulInfo.scheduledIn.release.remoteId'
-  | 'helpfulInfo.scheduledIn.release.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.release.stage'
-  | 'helpfulInfo.scheduledIn.release.status'
-  | 'helpfulInfo.scheduledIn.release.title'
-  | 'helpfulInfo.scheduledIn.release.updatedAt'
-  | 'helpfulInfo.scheduledIn.remoteId'
-  | 'helpfulInfo.scheduledIn.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.stage'
-  | 'helpfulInfo.scheduledIn.status'
-  | 'helpfulInfo.scheduledIn.updatedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.children'
-  | 'helpfulInfo.scheduledIn.updatedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.id'
-  | 'helpfulInfo.scheduledIn.updatedBy.isActive'
-  | 'helpfulInfo.scheduledIn.updatedBy.kind'
-  | 'helpfulInfo.scheduledIn.updatedBy.name'
-  | 'helpfulInfo.scheduledIn.updatedBy.picture'
-  | 'helpfulInfo.scheduledIn.updatedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.updatedBy.stage'
-  | 'helpfulInfo.scheduledIn.updatedBy.updatedAt'
   | 'helpfulInfo.stage'
-  | 'helpfulInfo.stageNumber'
-  | 'helpfulInfo.updatedAt'
-  | 'helpfulInfo.updatedBy.children'
-  | 'helpfulInfo.updatedBy.children.children'
-  | 'helpfulInfo.updatedBy.children.id'
-  | 'helpfulInfo.updatedBy.createdAt'
-  | 'helpfulInfo.updatedBy.id'
-  | 'helpfulInfo.updatedBy.internal.content'
-  | 'helpfulInfo.updatedBy.internal.contentDigest'
-  | 'helpfulInfo.updatedBy.internal.contentFilePath'
-  | 'helpfulInfo.updatedBy.internal.description'
-  | 'helpfulInfo.updatedBy.internal.fieldOwners'
-  | 'helpfulInfo.updatedBy.internal.ignoreType'
-  | 'helpfulInfo.updatedBy.internal.mediaType'
-  | 'helpfulInfo.updatedBy.internal.owner'
-  | 'helpfulInfo.updatedBy.internal.type'
-  | 'helpfulInfo.updatedBy.isActive'
-  | 'helpfulInfo.updatedBy.kind'
-  | 'helpfulInfo.updatedBy.name'
-  | 'helpfulInfo.updatedBy.parent.children'
-  | 'helpfulInfo.updatedBy.parent.id'
-  | 'helpfulInfo.updatedBy.picture'
-  | 'helpfulInfo.updatedBy.publishedAt'
-  | 'helpfulInfo.updatedBy.remoteId'
-  | 'helpfulInfo.updatedBy.remoteTypeName'
-  | 'helpfulInfo.updatedBy.stage'
-  | 'helpfulInfo.updatedBy.updatedAt'
   | 'id'
   | 'image'
   | 'image.children'
@@ -15994,6 +15057,11 @@ type GraphCMS_InfoFieldsEnum =
   | 'image.iconDevelopmentOption.updatedBy.updatedAt'
   | 'image.id'
   | 'image.imageInfo'
+  | 'image.imageInfo.checklist.id'
+  | 'image.imageInfo.checklist.item'
+  | 'image.imageInfo.checklist.locale'
+  | 'image.imageInfo.checklist.remoteTypeName'
+  | 'image.imageInfo.checklist.stage'
   | 'image.imageInfo.children'
   | 'image.imageInfo.children.children'
   | 'image.imageInfo.children.id'
@@ -16010,17 +15078,10 @@ type GraphCMS_InfoFieldsEnum =
   | 'image.imageInfo.createdBy.remoteTypeName'
   | 'image.imageInfo.createdBy.stage'
   | 'image.imageInfo.createdBy.updatedAt'
-  | 'image.imageInfo.helpfulInfo.children'
-  | 'image.imageInfo.helpfulInfo.createdAt'
   | 'image.imageInfo.helpfulInfo.id'
   | 'image.imageInfo.helpfulInfo.locale'
-  | 'image.imageInfo.helpfulInfo.publishedAt'
-  | 'image.imageInfo.helpfulInfo.remoteId'
   | 'image.imageInfo.helpfulInfo.remoteTypeName'
-  | 'image.imageInfo.helpfulInfo.scheduledIn'
   | 'image.imageInfo.helpfulInfo.stage'
-  | 'image.imageInfo.helpfulInfo.stageNumber'
-  | 'image.imageInfo.helpfulInfo.updatedAt'
   | 'image.imageInfo.id'
   | 'image.imageInfo.image'
   | 'image.imageInfo.image.children'
@@ -16798,6 +15859,7 @@ type GraphCMS_InfoFieldsEnum =
   | 'updatedBy.updatedAt';
 
 type GraphCMS_InfoFilterInput = {
+  readonly checklist: InputMaybe<GraphCMS_ChecklistFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly createdAt: InputMaybe<JSONQueryOperatorInput>;
   readonly createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -18269,213 +17331,15 @@ type GraphCMS_PresentationTipsPageFieldsEnum =
   | 'createdBy.remoteTypeName'
   | 'createdBy.stage'
   | 'createdBy.updatedAt'
-  | 'helpfulInfo.children'
-  | 'helpfulInfo.children.children'
-  | 'helpfulInfo.children.children.children'
-  | 'helpfulInfo.children.children.id'
-  | 'helpfulInfo.children.id'
-  | 'helpfulInfo.children.internal.content'
-  | 'helpfulInfo.children.internal.contentDigest'
-  | 'helpfulInfo.children.internal.contentFilePath'
-  | 'helpfulInfo.children.internal.description'
-  | 'helpfulInfo.children.internal.fieldOwners'
-  | 'helpfulInfo.children.internal.ignoreType'
-  | 'helpfulInfo.children.internal.mediaType'
-  | 'helpfulInfo.children.internal.owner'
-  | 'helpfulInfo.children.internal.type'
-  | 'helpfulInfo.children.parent.children'
-  | 'helpfulInfo.children.parent.id'
-  | 'helpfulInfo.createdAt'
-  | 'helpfulInfo.createdBy.children'
-  | 'helpfulInfo.createdBy.children.children'
-  | 'helpfulInfo.createdBy.children.id'
-  | 'helpfulInfo.createdBy.createdAt'
-  | 'helpfulInfo.createdBy.id'
-  | 'helpfulInfo.createdBy.internal.content'
-  | 'helpfulInfo.createdBy.internal.contentDigest'
-  | 'helpfulInfo.createdBy.internal.contentFilePath'
-  | 'helpfulInfo.createdBy.internal.description'
-  | 'helpfulInfo.createdBy.internal.fieldOwners'
-  | 'helpfulInfo.createdBy.internal.ignoreType'
-  | 'helpfulInfo.createdBy.internal.mediaType'
-  | 'helpfulInfo.createdBy.internal.owner'
-  | 'helpfulInfo.createdBy.internal.type'
-  | 'helpfulInfo.createdBy.isActive'
-  | 'helpfulInfo.createdBy.kind'
-  | 'helpfulInfo.createdBy.name'
-  | 'helpfulInfo.createdBy.parent.children'
-  | 'helpfulInfo.createdBy.parent.id'
-  | 'helpfulInfo.createdBy.picture'
-  | 'helpfulInfo.createdBy.publishedAt'
-  | 'helpfulInfo.createdBy.remoteId'
-  | 'helpfulInfo.createdBy.remoteTypeName'
-  | 'helpfulInfo.createdBy.stage'
-  | 'helpfulInfo.createdBy.updatedAt'
   | 'helpfulInfo.id'
   | 'helpfulInfo.info.html'
   | 'helpfulInfo.info.markdown'
   | 'helpfulInfo.info.raw'
   | 'helpfulInfo.info.remoteTypeName'
   | 'helpfulInfo.info.text'
-  | 'helpfulInfo.internal.content'
-  | 'helpfulInfo.internal.contentDigest'
-  | 'helpfulInfo.internal.contentFilePath'
-  | 'helpfulInfo.internal.description'
-  | 'helpfulInfo.internal.fieldOwners'
-  | 'helpfulInfo.internal.ignoreType'
-  | 'helpfulInfo.internal.mediaType'
-  | 'helpfulInfo.internal.owner'
-  | 'helpfulInfo.internal.type'
   | 'helpfulInfo.locale'
-  | 'helpfulInfo.parent.children'
-  | 'helpfulInfo.parent.children.children'
-  | 'helpfulInfo.parent.children.id'
-  | 'helpfulInfo.parent.id'
-  | 'helpfulInfo.parent.internal.content'
-  | 'helpfulInfo.parent.internal.contentDigest'
-  | 'helpfulInfo.parent.internal.contentFilePath'
-  | 'helpfulInfo.parent.internal.description'
-  | 'helpfulInfo.parent.internal.fieldOwners'
-  | 'helpfulInfo.parent.internal.ignoreType'
-  | 'helpfulInfo.parent.internal.mediaType'
-  | 'helpfulInfo.parent.internal.owner'
-  | 'helpfulInfo.parent.internal.type'
-  | 'helpfulInfo.parent.parent.children'
-  | 'helpfulInfo.parent.parent.id'
-  | 'helpfulInfo.publishedAt'
-  | 'helpfulInfo.publishedBy.children'
-  | 'helpfulInfo.publishedBy.children.children'
-  | 'helpfulInfo.publishedBy.children.id'
-  | 'helpfulInfo.publishedBy.createdAt'
-  | 'helpfulInfo.publishedBy.id'
-  | 'helpfulInfo.publishedBy.internal.content'
-  | 'helpfulInfo.publishedBy.internal.contentDigest'
-  | 'helpfulInfo.publishedBy.internal.contentFilePath'
-  | 'helpfulInfo.publishedBy.internal.description'
-  | 'helpfulInfo.publishedBy.internal.fieldOwners'
-  | 'helpfulInfo.publishedBy.internal.ignoreType'
-  | 'helpfulInfo.publishedBy.internal.mediaType'
-  | 'helpfulInfo.publishedBy.internal.owner'
-  | 'helpfulInfo.publishedBy.internal.type'
-  | 'helpfulInfo.publishedBy.isActive'
-  | 'helpfulInfo.publishedBy.kind'
-  | 'helpfulInfo.publishedBy.name'
-  | 'helpfulInfo.publishedBy.parent.children'
-  | 'helpfulInfo.publishedBy.parent.id'
-  | 'helpfulInfo.publishedBy.picture'
-  | 'helpfulInfo.publishedBy.publishedAt'
-  | 'helpfulInfo.publishedBy.remoteId'
-  | 'helpfulInfo.publishedBy.remoteTypeName'
-  | 'helpfulInfo.publishedBy.stage'
-  | 'helpfulInfo.publishedBy.updatedAt'
-  | 'helpfulInfo.remoteId'
   | 'helpfulInfo.remoteTypeName'
-  | 'helpfulInfo.scheduledIn'
-  | 'helpfulInfo.scheduledIn.children'
-  | 'helpfulInfo.scheduledIn.children.children'
-  | 'helpfulInfo.scheduledIn.children.id'
-  | 'helpfulInfo.scheduledIn.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.children'
-  | 'helpfulInfo.scheduledIn.createdBy.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.id'
-  | 'helpfulInfo.scheduledIn.createdBy.isActive'
-  | 'helpfulInfo.scheduledIn.createdBy.kind'
-  | 'helpfulInfo.scheduledIn.createdBy.name'
-  | 'helpfulInfo.scheduledIn.createdBy.picture'
-  | 'helpfulInfo.scheduledIn.createdBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteId'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.createdBy.stage'
-  | 'helpfulInfo.scheduledIn.createdBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.description'
-  | 'helpfulInfo.scheduledIn.errorMessage'
-  | 'helpfulInfo.scheduledIn.id'
-  | 'helpfulInfo.scheduledIn.internal.content'
-  | 'helpfulInfo.scheduledIn.internal.contentDigest'
-  | 'helpfulInfo.scheduledIn.internal.contentFilePath'
-  | 'helpfulInfo.scheduledIn.internal.description'
-  | 'helpfulInfo.scheduledIn.internal.fieldOwners'
-  | 'helpfulInfo.scheduledIn.internal.ignoreType'
-  | 'helpfulInfo.scheduledIn.internal.mediaType'
-  | 'helpfulInfo.scheduledIn.internal.owner'
-  | 'helpfulInfo.scheduledIn.internal.type'
-  | 'helpfulInfo.scheduledIn.parent.children'
-  | 'helpfulInfo.scheduledIn.parent.id'
-  | 'helpfulInfo.scheduledIn.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.children'
-  | 'helpfulInfo.scheduledIn.publishedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.id'
-  | 'helpfulInfo.scheduledIn.publishedBy.isActive'
-  | 'helpfulInfo.scheduledIn.publishedBy.kind'
-  | 'helpfulInfo.scheduledIn.publishedBy.name'
-  | 'helpfulInfo.scheduledIn.publishedBy.picture'
-  | 'helpfulInfo.scheduledIn.publishedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.publishedBy.stage'
-  | 'helpfulInfo.scheduledIn.publishedBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.rawPayload'
-  | 'helpfulInfo.scheduledIn.release.children'
-  | 'helpfulInfo.scheduledIn.release.createdAt'
-  | 'helpfulInfo.scheduledIn.release.description'
-  | 'helpfulInfo.scheduledIn.release.errorMessage'
-  | 'helpfulInfo.scheduledIn.release.id'
-  | 'helpfulInfo.scheduledIn.release.isActive'
-  | 'helpfulInfo.scheduledIn.release.isImplicit'
-  | 'helpfulInfo.scheduledIn.release.operations'
-  | 'helpfulInfo.scheduledIn.release.publishedAt'
-  | 'helpfulInfo.scheduledIn.release.releaseAt'
-  | 'helpfulInfo.scheduledIn.release.remoteId'
-  | 'helpfulInfo.scheduledIn.release.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.release.stage'
-  | 'helpfulInfo.scheduledIn.release.status'
-  | 'helpfulInfo.scheduledIn.release.title'
-  | 'helpfulInfo.scheduledIn.release.updatedAt'
-  | 'helpfulInfo.scheduledIn.remoteId'
-  | 'helpfulInfo.scheduledIn.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.stage'
-  | 'helpfulInfo.scheduledIn.status'
-  | 'helpfulInfo.scheduledIn.updatedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.children'
-  | 'helpfulInfo.scheduledIn.updatedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.id'
-  | 'helpfulInfo.scheduledIn.updatedBy.isActive'
-  | 'helpfulInfo.scheduledIn.updatedBy.kind'
-  | 'helpfulInfo.scheduledIn.updatedBy.name'
-  | 'helpfulInfo.scheduledIn.updatedBy.picture'
-  | 'helpfulInfo.scheduledIn.updatedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.updatedBy.stage'
-  | 'helpfulInfo.scheduledIn.updatedBy.updatedAt'
   | 'helpfulInfo.stage'
-  | 'helpfulInfo.stageNumber'
-  | 'helpfulInfo.updatedAt'
-  | 'helpfulInfo.updatedBy.children'
-  | 'helpfulInfo.updatedBy.children.children'
-  | 'helpfulInfo.updatedBy.children.id'
-  | 'helpfulInfo.updatedBy.createdAt'
-  | 'helpfulInfo.updatedBy.id'
-  | 'helpfulInfo.updatedBy.internal.content'
-  | 'helpfulInfo.updatedBy.internal.contentDigest'
-  | 'helpfulInfo.updatedBy.internal.contentFilePath'
-  | 'helpfulInfo.updatedBy.internal.description'
-  | 'helpfulInfo.updatedBy.internal.fieldOwners'
-  | 'helpfulInfo.updatedBy.internal.ignoreType'
-  | 'helpfulInfo.updatedBy.internal.mediaType'
-  | 'helpfulInfo.updatedBy.internal.owner'
-  | 'helpfulInfo.updatedBy.internal.type'
-  | 'helpfulInfo.updatedBy.isActive'
-  | 'helpfulInfo.updatedBy.kind'
-  | 'helpfulInfo.updatedBy.name'
-  | 'helpfulInfo.updatedBy.parent.children'
-  | 'helpfulInfo.updatedBy.parent.id'
-  | 'helpfulInfo.updatedBy.picture'
-  | 'helpfulInfo.updatedBy.publishedAt'
-  | 'helpfulInfo.updatedBy.remoteId'
-  | 'helpfulInfo.updatedBy.remoteTypeName'
-  | 'helpfulInfo.updatedBy.stage'
-  | 'helpfulInfo.updatedBy.updatedAt'
   | 'id'
   | 'info.html'
   | 'info.markdown'
@@ -18967,7 +17831,7 @@ type GraphCMS_ScheduledOperation = Node & {
   readonly updatedBy: Maybe<GraphCMS_User>;
 };
 
-type GraphCMS_ScheduledOperationAffectedDocument = GraphCMS_Asset | GraphCMS_DevelopmentOption | GraphCMS_HelpfulInfo | GraphCMS_Info | GraphCMS_ModelBusinessPlan | GraphCMS_ModelSwot | GraphCMS_PresentationTipsPage | GraphCMS_StageLandingPage | GraphCMS_StageTask | GraphCMS_StageTaskPage | GraphCMS_TaskToComplete;
+type GraphCMS_ScheduledOperationAffectedDocument = GraphCMS_Asset | GraphCMS_DevelopmentOption | GraphCMS_Info | GraphCMS_ModelBusinessPlan | GraphCMS_ModelSwot | GraphCMS_PresentationTipsPage | GraphCMS_StageLandingPage | GraphCMS_StageTask | GraphCMS_StageTaskPage | GraphCMS_TaskToComplete;
 
 type GraphCMS_ScheduledOperationConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']>;
@@ -20186,6 +19050,7 @@ type GraphCMS_Stage =
   | 'PUBLISHED';
 
 type GraphCMS_StageLandingPage = Node & {
+  readonly checklist: Maybe<GraphCMS_Checklist>;
   readonly children: ReadonlyArray<Node>;
   readonly createdAt: Scalars['JSON'];
   readonly createdBy: Maybe<GraphCMS_User>;
@@ -20258,6 +19123,11 @@ type GraphCMS_StageLandingPageEdge = {
 };
 
 type GraphCMS_StageLandingPageFieldsEnum =
+  | 'checklist.id'
+  | 'checklist.item'
+  | 'checklist.locale'
+  | 'checklist.remoteTypeName'
+  | 'checklist.stage'
   | 'children'
   | 'children.children'
   | 'children.children.children'
@@ -20352,213 +19222,15 @@ type GraphCMS_StageLandingPageFieldsEnum =
   | 'createdBy.remoteTypeName'
   | 'createdBy.stage'
   | 'createdBy.updatedAt'
-  | 'helpfulInfo.children'
-  | 'helpfulInfo.children.children'
-  | 'helpfulInfo.children.children.children'
-  | 'helpfulInfo.children.children.id'
-  | 'helpfulInfo.children.id'
-  | 'helpfulInfo.children.internal.content'
-  | 'helpfulInfo.children.internal.contentDigest'
-  | 'helpfulInfo.children.internal.contentFilePath'
-  | 'helpfulInfo.children.internal.description'
-  | 'helpfulInfo.children.internal.fieldOwners'
-  | 'helpfulInfo.children.internal.ignoreType'
-  | 'helpfulInfo.children.internal.mediaType'
-  | 'helpfulInfo.children.internal.owner'
-  | 'helpfulInfo.children.internal.type'
-  | 'helpfulInfo.children.parent.children'
-  | 'helpfulInfo.children.parent.id'
-  | 'helpfulInfo.createdAt'
-  | 'helpfulInfo.createdBy.children'
-  | 'helpfulInfo.createdBy.children.children'
-  | 'helpfulInfo.createdBy.children.id'
-  | 'helpfulInfo.createdBy.createdAt'
-  | 'helpfulInfo.createdBy.id'
-  | 'helpfulInfo.createdBy.internal.content'
-  | 'helpfulInfo.createdBy.internal.contentDigest'
-  | 'helpfulInfo.createdBy.internal.contentFilePath'
-  | 'helpfulInfo.createdBy.internal.description'
-  | 'helpfulInfo.createdBy.internal.fieldOwners'
-  | 'helpfulInfo.createdBy.internal.ignoreType'
-  | 'helpfulInfo.createdBy.internal.mediaType'
-  | 'helpfulInfo.createdBy.internal.owner'
-  | 'helpfulInfo.createdBy.internal.type'
-  | 'helpfulInfo.createdBy.isActive'
-  | 'helpfulInfo.createdBy.kind'
-  | 'helpfulInfo.createdBy.name'
-  | 'helpfulInfo.createdBy.parent.children'
-  | 'helpfulInfo.createdBy.parent.id'
-  | 'helpfulInfo.createdBy.picture'
-  | 'helpfulInfo.createdBy.publishedAt'
-  | 'helpfulInfo.createdBy.remoteId'
-  | 'helpfulInfo.createdBy.remoteTypeName'
-  | 'helpfulInfo.createdBy.stage'
-  | 'helpfulInfo.createdBy.updatedAt'
   | 'helpfulInfo.id'
   | 'helpfulInfo.info.html'
   | 'helpfulInfo.info.markdown'
   | 'helpfulInfo.info.raw'
   | 'helpfulInfo.info.remoteTypeName'
   | 'helpfulInfo.info.text'
-  | 'helpfulInfo.internal.content'
-  | 'helpfulInfo.internal.contentDigest'
-  | 'helpfulInfo.internal.contentFilePath'
-  | 'helpfulInfo.internal.description'
-  | 'helpfulInfo.internal.fieldOwners'
-  | 'helpfulInfo.internal.ignoreType'
-  | 'helpfulInfo.internal.mediaType'
-  | 'helpfulInfo.internal.owner'
-  | 'helpfulInfo.internal.type'
   | 'helpfulInfo.locale'
-  | 'helpfulInfo.parent.children'
-  | 'helpfulInfo.parent.children.children'
-  | 'helpfulInfo.parent.children.id'
-  | 'helpfulInfo.parent.id'
-  | 'helpfulInfo.parent.internal.content'
-  | 'helpfulInfo.parent.internal.contentDigest'
-  | 'helpfulInfo.parent.internal.contentFilePath'
-  | 'helpfulInfo.parent.internal.description'
-  | 'helpfulInfo.parent.internal.fieldOwners'
-  | 'helpfulInfo.parent.internal.ignoreType'
-  | 'helpfulInfo.parent.internal.mediaType'
-  | 'helpfulInfo.parent.internal.owner'
-  | 'helpfulInfo.parent.internal.type'
-  | 'helpfulInfo.parent.parent.children'
-  | 'helpfulInfo.parent.parent.id'
-  | 'helpfulInfo.publishedAt'
-  | 'helpfulInfo.publishedBy.children'
-  | 'helpfulInfo.publishedBy.children.children'
-  | 'helpfulInfo.publishedBy.children.id'
-  | 'helpfulInfo.publishedBy.createdAt'
-  | 'helpfulInfo.publishedBy.id'
-  | 'helpfulInfo.publishedBy.internal.content'
-  | 'helpfulInfo.publishedBy.internal.contentDigest'
-  | 'helpfulInfo.publishedBy.internal.contentFilePath'
-  | 'helpfulInfo.publishedBy.internal.description'
-  | 'helpfulInfo.publishedBy.internal.fieldOwners'
-  | 'helpfulInfo.publishedBy.internal.ignoreType'
-  | 'helpfulInfo.publishedBy.internal.mediaType'
-  | 'helpfulInfo.publishedBy.internal.owner'
-  | 'helpfulInfo.publishedBy.internal.type'
-  | 'helpfulInfo.publishedBy.isActive'
-  | 'helpfulInfo.publishedBy.kind'
-  | 'helpfulInfo.publishedBy.name'
-  | 'helpfulInfo.publishedBy.parent.children'
-  | 'helpfulInfo.publishedBy.parent.id'
-  | 'helpfulInfo.publishedBy.picture'
-  | 'helpfulInfo.publishedBy.publishedAt'
-  | 'helpfulInfo.publishedBy.remoteId'
-  | 'helpfulInfo.publishedBy.remoteTypeName'
-  | 'helpfulInfo.publishedBy.stage'
-  | 'helpfulInfo.publishedBy.updatedAt'
-  | 'helpfulInfo.remoteId'
   | 'helpfulInfo.remoteTypeName'
-  | 'helpfulInfo.scheduledIn'
-  | 'helpfulInfo.scheduledIn.children'
-  | 'helpfulInfo.scheduledIn.children.children'
-  | 'helpfulInfo.scheduledIn.children.id'
-  | 'helpfulInfo.scheduledIn.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.children'
-  | 'helpfulInfo.scheduledIn.createdBy.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.id'
-  | 'helpfulInfo.scheduledIn.createdBy.isActive'
-  | 'helpfulInfo.scheduledIn.createdBy.kind'
-  | 'helpfulInfo.scheduledIn.createdBy.name'
-  | 'helpfulInfo.scheduledIn.createdBy.picture'
-  | 'helpfulInfo.scheduledIn.createdBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteId'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.createdBy.stage'
-  | 'helpfulInfo.scheduledIn.createdBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.description'
-  | 'helpfulInfo.scheduledIn.errorMessage'
-  | 'helpfulInfo.scheduledIn.id'
-  | 'helpfulInfo.scheduledIn.internal.content'
-  | 'helpfulInfo.scheduledIn.internal.contentDigest'
-  | 'helpfulInfo.scheduledIn.internal.contentFilePath'
-  | 'helpfulInfo.scheduledIn.internal.description'
-  | 'helpfulInfo.scheduledIn.internal.fieldOwners'
-  | 'helpfulInfo.scheduledIn.internal.ignoreType'
-  | 'helpfulInfo.scheduledIn.internal.mediaType'
-  | 'helpfulInfo.scheduledIn.internal.owner'
-  | 'helpfulInfo.scheduledIn.internal.type'
-  | 'helpfulInfo.scheduledIn.parent.children'
-  | 'helpfulInfo.scheduledIn.parent.id'
-  | 'helpfulInfo.scheduledIn.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.children'
-  | 'helpfulInfo.scheduledIn.publishedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.id'
-  | 'helpfulInfo.scheduledIn.publishedBy.isActive'
-  | 'helpfulInfo.scheduledIn.publishedBy.kind'
-  | 'helpfulInfo.scheduledIn.publishedBy.name'
-  | 'helpfulInfo.scheduledIn.publishedBy.picture'
-  | 'helpfulInfo.scheduledIn.publishedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.publishedBy.stage'
-  | 'helpfulInfo.scheduledIn.publishedBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.rawPayload'
-  | 'helpfulInfo.scheduledIn.release.children'
-  | 'helpfulInfo.scheduledIn.release.createdAt'
-  | 'helpfulInfo.scheduledIn.release.description'
-  | 'helpfulInfo.scheduledIn.release.errorMessage'
-  | 'helpfulInfo.scheduledIn.release.id'
-  | 'helpfulInfo.scheduledIn.release.isActive'
-  | 'helpfulInfo.scheduledIn.release.isImplicit'
-  | 'helpfulInfo.scheduledIn.release.operations'
-  | 'helpfulInfo.scheduledIn.release.publishedAt'
-  | 'helpfulInfo.scheduledIn.release.releaseAt'
-  | 'helpfulInfo.scheduledIn.release.remoteId'
-  | 'helpfulInfo.scheduledIn.release.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.release.stage'
-  | 'helpfulInfo.scheduledIn.release.status'
-  | 'helpfulInfo.scheduledIn.release.title'
-  | 'helpfulInfo.scheduledIn.release.updatedAt'
-  | 'helpfulInfo.scheduledIn.remoteId'
-  | 'helpfulInfo.scheduledIn.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.stage'
-  | 'helpfulInfo.scheduledIn.status'
-  | 'helpfulInfo.scheduledIn.updatedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.children'
-  | 'helpfulInfo.scheduledIn.updatedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.id'
-  | 'helpfulInfo.scheduledIn.updatedBy.isActive'
-  | 'helpfulInfo.scheduledIn.updatedBy.kind'
-  | 'helpfulInfo.scheduledIn.updatedBy.name'
-  | 'helpfulInfo.scheduledIn.updatedBy.picture'
-  | 'helpfulInfo.scheduledIn.updatedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.updatedBy.stage'
-  | 'helpfulInfo.scheduledIn.updatedBy.updatedAt'
   | 'helpfulInfo.stage'
-  | 'helpfulInfo.stageNumber'
-  | 'helpfulInfo.updatedAt'
-  | 'helpfulInfo.updatedBy.children'
-  | 'helpfulInfo.updatedBy.children.children'
-  | 'helpfulInfo.updatedBy.children.id'
-  | 'helpfulInfo.updatedBy.createdAt'
-  | 'helpfulInfo.updatedBy.id'
-  | 'helpfulInfo.updatedBy.internal.content'
-  | 'helpfulInfo.updatedBy.internal.contentDigest'
-  | 'helpfulInfo.updatedBy.internal.contentFilePath'
-  | 'helpfulInfo.updatedBy.internal.description'
-  | 'helpfulInfo.updatedBy.internal.fieldOwners'
-  | 'helpfulInfo.updatedBy.internal.ignoreType'
-  | 'helpfulInfo.updatedBy.internal.mediaType'
-  | 'helpfulInfo.updatedBy.internal.owner'
-  | 'helpfulInfo.updatedBy.internal.type'
-  | 'helpfulInfo.updatedBy.isActive'
-  | 'helpfulInfo.updatedBy.kind'
-  | 'helpfulInfo.updatedBy.name'
-  | 'helpfulInfo.updatedBy.parent.children'
-  | 'helpfulInfo.updatedBy.parent.id'
-  | 'helpfulInfo.updatedBy.picture'
-  | 'helpfulInfo.updatedBy.publishedAt'
-  | 'helpfulInfo.updatedBy.remoteId'
-  | 'helpfulInfo.updatedBy.remoteTypeName'
-  | 'helpfulInfo.updatedBy.stage'
-  | 'helpfulInfo.updatedBy.updatedAt'
   | 'id'
   | 'infoLink'
   | 'infoLink.html'
@@ -21159,6 +19831,7 @@ type GraphCMS_StageLandingPageFieldsEnum =
   | 'updatedBy.updatedAt';
 
 type GraphCMS_StageLandingPageFilterInput = {
+  readonly checklist: InputMaybe<GraphCMS_ChecklistFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly createdAt: InputMaybe<JSONQueryOperatorInput>;
   readonly createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -21239,6 +19912,7 @@ type GraphCMS_StageQueryOperatorInput = {
 };
 
 type GraphCMS_StageTask = Node & {
+  readonly checklist: Maybe<GraphCMS_Checklist>;
   readonly children: ReadonlyArray<Node>;
   readonly createdAt: Scalars['JSON'];
   readonly createdBy: Maybe<GraphCMS_User>;
@@ -21308,6 +19982,11 @@ type GraphCMS_StageTaskEdge = {
 };
 
 type GraphCMS_StageTaskFieldsEnum =
+  | 'checklist.id'
+  | 'checklist.item'
+  | 'checklist.locale'
+  | 'checklist.remoteTypeName'
+  | 'checklist.stage'
   | 'children'
   | 'children.children'
   | 'children.children.children'
@@ -21402,213 +20081,15 @@ type GraphCMS_StageTaskFieldsEnum =
   | 'createdBy.remoteTypeName'
   | 'createdBy.stage'
   | 'createdBy.updatedAt'
-  | 'helpfulInfo.children'
-  | 'helpfulInfo.children.children'
-  | 'helpfulInfo.children.children.children'
-  | 'helpfulInfo.children.children.id'
-  | 'helpfulInfo.children.id'
-  | 'helpfulInfo.children.internal.content'
-  | 'helpfulInfo.children.internal.contentDigest'
-  | 'helpfulInfo.children.internal.contentFilePath'
-  | 'helpfulInfo.children.internal.description'
-  | 'helpfulInfo.children.internal.fieldOwners'
-  | 'helpfulInfo.children.internal.ignoreType'
-  | 'helpfulInfo.children.internal.mediaType'
-  | 'helpfulInfo.children.internal.owner'
-  | 'helpfulInfo.children.internal.type'
-  | 'helpfulInfo.children.parent.children'
-  | 'helpfulInfo.children.parent.id'
-  | 'helpfulInfo.createdAt'
-  | 'helpfulInfo.createdBy.children'
-  | 'helpfulInfo.createdBy.children.children'
-  | 'helpfulInfo.createdBy.children.id'
-  | 'helpfulInfo.createdBy.createdAt'
-  | 'helpfulInfo.createdBy.id'
-  | 'helpfulInfo.createdBy.internal.content'
-  | 'helpfulInfo.createdBy.internal.contentDigest'
-  | 'helpfulInfo.createdBy.internal.contentFilePath'
-  | 'helpfulInfo.createdBy.internal.description'
-  | 'helpfulInfo.createdBy.internal.fieldOwners'
-  | 'helpfulInfo.createdBy.internal.ignoreType'
-  | 'helpfulInfo.createdBy.internal.mediaType'
-  | 'helpfulInfo.createdBy.internal.owner'
-  | 'helpfulInfo.createdBy.internal.type'
-  | 'helpfulInfo.createdBy.isActive'
-  | 'helpfulInfo.createdBy.kind'
-  | 'helpfulInfo.createdBy.name'
-  | 'helpfulInfo.createdBy.parent.children'
-  | 'helpfulInfo.createdBy.parent.id'
-  | 'helpfulInfo.createdBy.picture'
-  | 'helpfulInfo.createdBy.publishedAt'
-  | 'helpfulInfo.createdBy.remoteId'
-  | 'helpfulInfo.createdBy.remoteTypeName'
-  | 'helpfulInfo.createdBy.stage'
-  | 'helpfulInfo.createdBy.updatedAt'
   | 'helpfulInfo.id'
   | 'helpfulInfo.info.html'
   | 'helpfulInfo.info.markdown'
   | 'helpfulInfo.info.raw'
   | 'helpfulInfo.info.remoteTypeName'
   | 'helpfulInfo.info.text'
-  | 'helpfulInfo.internal.content'
-  | 'helpfulInfo.internal.contentDigest'
-  | 'helpfulInfo.internal.contentFilePath'
-  | 'helpfulInfo.internal.description'
-  | 'helpfulInfo.internal.fieldOwners'
-  | 'helpfulInfo.internal.ignoreType'
-  | 'helpfulInfo.internal.mediaType'
-  | 'helpfulInfo.internal.owner'
-  | 'helpfulInfo.internal.type'
   | 'helpfulInfo.locale'
-  | 'helpfulInfo.parent.children'
-  | 'helpfulInfo.parent.children.children'
-  | 'helpfulInfo.parent.children.id'
-  | 'helpfulInfo.parent.id'
-  | 'helpfulInfo.parent.internal.content'
-  | 'helpfulInfo.parent.internal.contentDigest'
-  | 'helpfulInfo.parent.internal.contentFilePath'
-  | 'helpfulInfo.parent.internal.description'
-  | 'helpfulInfo.parent.internal.fieldOwners'
-  | 'helpfulInfo.parent.internal.ignoreType'
-  | 'helpfulInfo.parent.internal.mediaType'
-  | 'helpfulInfo.parent.internal.owner'
-  | 'helpfulInfo.parent.internal.type'
-  | 'helpfulInfo.parent.parent.children'
-  | 'helpfulInfo.parent.parent.id'
-  | 'helpfulInfo.publishedAt'
-  | 'helpfulInfo.publishedBy.children'
-  | 'helpfulInfo.publishedBy.children.children'
-  | 'helpfulInfo.publishedBy.children.id'
-  | 'helpfulInfo.publishedBy.createdAt'
-  | 'helpfulInfo.publishedBy.id'
-  | 'helpfulInfo.publishedBy.internal.content'
-  | 'helpfulInfo.publishedBy.internal.contentDigest'
-  | 'helpfulInfo.publishedBy.internal.contentFilePath'
-  | 'helpfulInfo.publishedBy.internal.description'
-  | 'helpfulInfo.publishedBy.internal.fieldOwners'
-  | 'helpfulInfo.publishedBy.internal.ignoreType'
-  | 'helpfulInfo.publishedBy.internal.mediaType'
-  | 'helpfulInfo.publishedBy.internal.owner'
-  | 'helpfulInfo.publishedBy.internal.type'
-  | 'helpfulInfo.publishedBy.isActive'
-  | 'helpfulInfo.publishedBy.kind'
-  | 'helpfulInfo.publishedBy.name'
-  | 'helpfulInfo.publishedBy.parent.children'
-  | 'helpfulInfo.publishedBy.parent.id'
-  | 'helpfulInfo.publishedBy.picture'
-  | 'helpfulInfo.publishedBy.publishedAt'
-  | 'helpfulInfo.publishedBy.remoteId'
-  | 'helpfulInfo.publishedBy.remoteTypeName'
-  | 'helpfulInfo.publishedBy.stage'
-  | 'helpfulInfo.publishedBy.updatedAt'
-  | 'helpfulInfo.remoteId'
   | 'helpfulInfo.remoteTypeName'
-  | 'helpfulInfo.scheduledIn'
-  | 'helpfulInfo.scheduledIn.children'
-  | 'helpfulInfo.scheduledIn.children.children'
-  | 'helpfulInfo.scheduledIn.children.id'
-  | 'helpfulInfo.scheduledIn.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.children'
-  | 'helpfulInfo.scheduledIn.createdBy.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.id'
-  | 'helpfulInfo.scheduledIn.createdBy.isActive'
-  | 'helpfulInfo.scheduledIn.createdBy.kind'
-  | 'helpfulInfo.scheduledIn.createdBy.name'
-  | 'helpfulInfo.scheduledIn.createdBy.picture'
-  | 'helpfulInfo.scheduledIn.createdBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteId'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.createdBy.stage'
-  | 'helpfulInfo.scheduledIn.createdBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.description'
-  | 'helpfulInfo.scheduledIn.errorMessage'
-  | 'helpfulInfo.scheduledIn.id'
-  | 'helpfulInfo.scheduledIn.internal.content'
-  | 'helpfulInfo.scheduledIn.internal.contentDigest'
-  | 'helpfulInfo.scheduledIn.internal.contentFilePath'
-  | 'helpfulInfo.scheduledIn.internal.description'
-  | 'helpfulInfo.scheduledIn.internal.fieldOwners'
-  | 'helpfulInfo.scheduledIn.internal.ignoreType'
-  | 'helpfulInfo.scheduledIn.internal.mediaType'
-  | 'helpfulInfo.scheduledIn.internal.owner'
-  | 'helpfulInfo.scheduledIn.internal.type'
-  | 'helpfulInfo.scheduledIn.parent.children'
-  | 'helpfulInfo.scheduledIn.parent.id'
-  | 'helpfulInfo.scheduledIn.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.children'
-  | 'helpfulInfo.scheduledIn.publishedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.id'
-  | 'helpfulInfo.scheduledIn.publishedBy.isActive'
-  | 'helpfulInfo.scheduledIn.publishedBy.kind'
-  | 'helpfulInfo.scheduledIn.publishedBy.name'
-  | 'helpfulInfo.scheduledIn.publishedBy.picture'
-  | 'helpfulInfo.scheduledIn.publishedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.publishedBy.stage'
-  | 'helpfulInfo.scheduledIn.publishedBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.rawPayload'
-  | 'helpfulInfo.scheduledIn.release.children'
-  | 'helpfulInfo.scheduledIn.release.createdAt'
-  | 'helpfulInfo.scheduledIn.release.description'
-  | 'helpfulInfo.scheduledIn.release.errorMessage'
-  | 'helpfulInfo.scheduledIn.release.id'
-  | 'helpfulInfo.scheduledIn.release.isActive'
-  | 'helpfulInfo.scheduledIn.release.isImplicit'
-  | 'helpfulInfo.scheduledIn.release.operations'
-  | 'helpfulInfo.scheduledIn.release.publishedAt'
-  | 'helpfulInfo.scheduledIn.release.releaseAt'
-  | 'helpfulInfo.scheduledIn.release.remoteId'
-  | 'helpfulInfo.scheduledIn.release.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.release.stage'
-  | 'helpfulInfo.scheduledIn.release.status'
-  | 'helpfulInfo.scheduledIn.release.title'
-  | 'helpfulInfo.scheduledIn.release.updatedAt'
-  | 'helpfulInfo.scheduledIn.remoteId'
-  | 'helpfulInfo.scheduledIn.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.stage'
-  | 'helpfulInfo.scheduledIn.status'
-  | 'helpfulInfo.scheduledIn.updatedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.children'
-  | 'helpfulInfo.scheduledIn.updatedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.id'
-  | 'helpfulInfo.scheduledIn.updatedBy.isActive'
-  | 'helpfulInfo.scheduledIn.updatedBy.kind'
-  | 'helpfulInfo.scheduledIn.updatedBy.name'
-  | 'helpfulInfo.scheduledIn.updatedBy.picture'
-  | 'helpfulInfo.scheduledIn.updatedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.updatedBy.stage'
-  | 'helpfulInfo.scheduledIn.updatedBy.updatedAt'
   | 'helpfulInfo.stage'
-  | 'helpfulInfo.stageNumber'
-  | 'helpfulInfo.updatedAt'
-  | 'helpfulInfo.updatedBy.children'
-  | 'helpfulInfo.updatedBy.children.children'
-  | 'helpfulInfo.updatedBy.children.id'
-  | 'helpfulInfo.updatedBy.createdAt'
-  | 'helpfulInfo.updatedBy.id'
-  | 'helpfulInfo.updatedBy.internal.content'
-  | 'helpfulInfo.updatedBy.internal.contentDigest'
-  | 'helpfulInfo.updatedBy.internal.contentFilePath'
-  | 'helpfulInfo.updatedBy.internal.description'
-  | 'helpfulInfo.updatedBy.internal.fieldOwners'
-  | 'helpfulInfo.updatedBy.internal.ignoreType'
-  | 'helpfulInfo.updatedBy.internal.mediaType'
-  | 'helpfulInfo.updatedBy.internal.owner'
-  | 'helpfulInfo.updatedBy.internal.type'
-  | 'helpfulInfo.updatedBy.isActive'
-  | 'helpfulInfo.updatedBy.kind'
-  | 'helpfulInfo.updatedBy.name'
-  | 'helpfulInfo.updatedBy.parent.children'
-  | 'helpfulInfo.updatedBy.parent.id'
-  | 'helpfulInfo.updatedBy.picture'
-  | 'helpfulInfo.updatedBy.publishedAt'
-  | 'helpfulInfo.updatedBy.remoteId'
-  | 'helpfulInfo.updatedBy.remoteTypeName'
-  | 'helpfulInfo.updatedBy.stage'
-  | 'helpfulInfo.updatedBy.updatedAt'
   | 'id'
   | 'internal.content'
   | 'internal.contentDigest'
@@ -21992,6 +20473,7 @@ type GraphCMS_StageTaskFieldsEnum =
   | 'updatedBy.updatedAt';
 
 type GraphCMS_StageTaskFilterInput = {
+  readonly checklist: InputMaybe<GraphCMS_ChecklistFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly createdAt: InputMaybe<JSONQueryOperatorInput>;
   readonly createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -22057,6 +20539,7 @@ type GraphCMS_StageTaskGroupConnection_sumArgs = {
 };
 
 type GraphCMS_StageTaskPage = Node & {
+  readonly checklist: Maybe<GraphCMS_Checklist>;
   readonly children: ReadonlyArray<Node>;
   readonly createdAt: Scalars['JSON'];
   readonly createdBy: Maybe<GraphCMS_User>;
@@ -22126,6 +20609,11 @@ type GraphCMS_StageTaskPageEdge = {
 };
 
 type GraphCMS_StageTaskPageFieldsEnum =
+  | 'checklist.id'
+  | 'checklist.item'
+  | 'checklist.locale'
+  | 'checklist.remoteTypeName'
+  | 'checklist.stage'
   | 'children'
   | 'children.children'
   | 'children.children.children'
@@ -22220,213 +20708,15 @@ type GraphCMS_StageTaskPageFieldsEnum =
   | 'createdBy.remoteTypeName'
   | 'createdBy.stage'
   | 'createdBy.updatedAt'
-  | 'helpfulInfo.children'
-  | 'helpfulInfo.children.children'
-  | 'helpfulInfo.children.children.children'
-  | 'helpfulInfo.children.children.id'
-  | 'helpfulInfo.children.id'
-  | 'helpfulInfo.children.internal.content'
-  | 'helpfulInfo.children.internal.contentDigest'
-  | 'helpfulInfo.children.internal.contentFilePath'
-  | 'helpfulInfo.children.internal.description'
-  | 'helpfulInfo.children.internal.fieldOwners'
-  | 'helpfulInfo.children.internal.ignoreType'
-  | 'helpfulInfo.children.internal.mediaType'
-  | 'helpfulInfo.children.internal.owner'
-  | 'helpfulInfo.children.internal.type'
-  | 'helpfulInfo.children.parent.children'
-  | 'helpfulInfo.children.parent.id'
-  | 'helpfulInfo.createdAt'
-  | 'helpfulInfo.createdBy.children'
-  | 'helpfulInfo.createdBy.children.children'
-  | 'helpfulInfo.createdBy.children.id'
-  | 'helpfulInfo.createdBy.createdAt'
-  | 'helpfulInfo.createdBy.id'
-  | 'helpfulInfo.createdBy.internal.content'
-  | 'helpfulInfo.createdBy.internal.contentDigest'
-  | 'helpfulInfo.createdBy.internal.contentFilePath'
-  | 'helpfulInfo.createdBy.internal.description'
-  | 'helpfulInfo.createdBy.internal.fieldOwners'
-  | 'helpfulInfo.createdBy.internal.ignoreType'
-  | 'helpfulInfo.createdBy.internal.mediaType'
-  | 'helpfulInfo.createdBy.internal.owner'
-  | 'helpfulInfo.createdBy.internal.type'
-  | 'helpfulInfo.createdBy.isActive'
-  | 'helpfulInfo.createdBy.kind'
-  | 'helpfulInfo.createdBy.name'
-  | 'helpfulInfo.createdBy.parent.children'
-  | 'helpfulInfo.createdBy.parent.id'
-  | 'helpfulInfo.createdBy.picture'
-  | 'helpfulInfo.createdBy.publishedAt'
-  | 'helpfulInfo.createdBy.remoteId'
-  | 'helpfulInfo.createdBy.remoteTypeName'
-  | 'helpfulInfo.createdBy.stage'
-  | 'helpfulInfo.createdBy.updatedAt'
   | 'helpfulInfo.id'
   | 'helpfulInfo.info.html'
   | 'helpfulInfo.info.markdown'
   | 'helpfulInfo.info.raw'
   | 'helpfulInfo.info.remoteTypeName'
   | 'helpfulInfo.info.text'
-  | 'helpfulInfo.internal.content'
-  | 'helpfulInfo.internal.contentDigest'
-  | 'helpfulInfo.internal.contentFilePath'
-  | 'helpfulInfo.internal.description'
-  | 'helpfulInfo.internal.fieldOwners'
-  | 'helpfulInfo.internal.ignoreType'
-  | 'helpfulInfo.internal.mediaType'
-  | 'helpfulInfo.internal.owner'
-  | 'helpfulInfo.internal.type'
   | 'helpfulInfo.locale'
-  | 'helpfulInfo.parent.children'
-  | 'helpfulInfo.parent.children.children'
-  | 'helpfulInfo.parent.children.id'
-  | 'helpfulInfo.parent.id'
-  | 'helpfulInfo.parent.internal.content'
-  | 'helpfulInfo.parent.internal.contentDigest'
-  | 'helpfulInfo.parent.internal.contentFilePath'
-  | 'helpfulInfo.parent.internal.description'
-  | 'helpfulInfo.parent.internal.fieldOwners'
-  | 'helpfulInfo.parent.internal.ignoreType'
-  | 'helpfulInfo.parent.internal.mediaType'
-  | 'helpfulInfo.parent.internal.owner'
-  | 'helpfulInfo.parent.internal.type'
-  | 'helpfulInfo.parent.parent.children'
-  | 'helpfulInfo.parent.parent.id'
-  | 'helpfulInfo.publishedAt'
-  | 'helpfulInfo.publishedBy.children'
-  | 'helpfulInfo.publishedBy.children.children'
-  | 'helpfulInfo.publishedBy.children.id'
-  | 'helpfulInfo.publishedBy.createdAt'
-  | 'helpfulInfo.publishedBy.id'
-  | 'helpfulInfo.publishedBy.internal.content'
-  | 'helpfulInfo.publishedBy.internal.contentDigest'
-  | 'helpfulInfo.publishedBy.internal.contentFilePath'
-  | 'helpfulInfo.publishedBy.internal.description'
-  | 'helpfulInfo.publishedBy.internal.fieldOwners'
-  | 'helpfulInfo.publishedBy.internal.ignoreType'
-  | 'helpfulInfo.publishedBy.internal.mediaType'
-  | 'helpfulInfo.publishedBy.internal.owner'
-  | 'helpfulInfo.publishedBy.internal.type'
-  | 'helpfulInfo.publishedBy.isActive'
-  | 'helpfulInfo.publishedBy.kind'
-  | 'helpfulInfo.publishedBy.name'
-  | 'helpfulInfo.publishedBy.parent.children'
-  | 'helpfulInfo.publishedBy.parent.id'
-  | 'helpfulInfo.publishedBy.picture'
-  | 'helpfulInfo.publishedBy.publishedAt'
-  | 'helpfulInfo.publishedBy.remoteId'
-  | 'helpfulInfo.publishedBy.remoteTypeName'
-  | 'helpfulInfo.publishedBy.stage'
-  | 'helpfulInfo.publishedBy.updatedAt'
-  | 'helpfulInfo.remoteId'
   | 'helpfulInfo.remoteTypeName'
-  | 'helpfulInfo.scheduledIn'
-  | 'helpfulInfo.scheduledIn.children'
-  | 'helpfulInfo.scheduledIn.children.children'
-  | 'helpfulInfo.scheduledIn.children.id'
-  | 'helpfulInfo.scheduledIn.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.children'
-  | 'helpfulInfo.scheduledIn.createdBy.createdAt'
-  | 'helpfulInfo.scheduledIn.createdBy.id'
-  | 'helpfulInfo.scheduledIn.createdBy.isActive'
-  | 'helpfulInfo.scheduledIn.createdBy.kind'
-  | 'helpfulInfo.scheduledIn.createdBy.name'
-  | 'helpfulInfo.scheduledIn.createdBy.picture'
-  | 'helpfulInfo.scheduledIn.createdBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteId'
-  | 'helpfulInfo.scheduledIn.createdBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.createdBy.stage'
-  | 'helpfulInfo.scheduledIn.createdBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.description'
-  | 'helpfulInfo.scheduledIn.errorMessage'
-  | 'helpfulInfo.scheduledIn.id'
-  | 'helpfulInfo.scheduledIn.internal.content'
-  | 'helpfulInfo.scheduledIn.internal.contentDigest'
-  | 'helpfulInfo.scheduledIn.internal.contentFilePath'
-  | 'helpfulInfo.scheduledIn.internal.description'
-  | 'helpfulInfo.scheduledIn.internal.fieldOwners'
-  | 'helpfulInfo.scheduledIn.internal.ignoreType'
-  | 'helpfulInfo.scheduledIn.internal.mediaType'
-  | 'helpfulInfo.scheduledIn.internal.owner'
-  | 'helpfulInfo.scheduledIn.internal.type'
-  | 'helpfulInfo.scheduledIn.parent.children'
-  | 'helpfulInfo.scheduledIn.parent.id'
-  | 'helpfulInfo.scheduledIn.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.children'
-  | 'helpfulInfo.scheduledIn.publishedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.id'
-  | 'helpfulInfo.scheduledIn.publishedBy.isActive'
-  | 'helpfulInfo.scheduledIn.publishedBy.kind'
-  | 'helpfulInfo.scheduledIn.publishedBy.name'
-  | 'helpfulInfo.scheduledIn.publishedBy.picture'
-  | 'helpfulInfo.scheduledIn.publishedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.publishedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.publishedBy.stage'
-  | 'helpfulInfo.scheduledIn.publishedBy.updatedAt'
-  | 'helpfulInfo.scheduledIn.rawPayload'
-  | 'helpfulInfo.scheduledIn.release.children'
-  | 'helpfulInfo.scheduledIn.release.createdAt'
-  | 'helpfulInfo.scheduledIn.release.description'
-  | 'helpfulInfo.scheduledIn.release.errorMessage'
-  | 'helpfulInfo.scheduledIn.release.id'
-  | 'helpfulInfo.scheduledIn.release.isActive'
-  | 'helpfulInfo.scheduledIn.release.isImplicit'
-  | 'helpfulInfo.scheduledIn.release.operations'
-  | 'helpfulInfo.scheduledIn.release.publishedAt'
-  | 'helpfulInfo.scheduledIn.release.releaseAt'
-  | 'helpfulInfo.scheduledIn.release.remoteId'
-  | 'helpfulInfo.scheduledIn.release.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.release.stage'
-  | 'helpfulInfo.scheduledIn.release.status'
-  | 'helpfulInfo.scheduledIn.release.title'
-  | 'helpfulInfo.scheduledIn.release.updatedAt'
-  | 'helpfulInfo.scheduledIn.remoteId'
-  | 'helpfulInfo.scheduledIn.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.stage'
-  | 'helpfulInfo.scheduledIn.status'
-  | 'helpfulInfo.scheduledIn.updatedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.children'
-  | 'helpfulInfo.scheduledIn.updatedBy.createdAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.id'
-  | 'helpfulInfo.scheduledIn.updatedBy.isActive'
-  | 'helpfulInfo.scheduledIn.updatedBy.kind'
-  | 'helpfulInfo.scheduledIn.updatedBy.name'
-  | 'helpfulInfo.scheduledIn.updatedBy.picture'
-  | 'helpfulInfo.scheduledIn.updatedBy.publishedAt'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteId'
-  | 'helpfulInfo.scheduledIn.updatedBy.remoteTypeName'
-  | 'helpfulInfo.scheduledIn.updatedBy.stage'
-  | 'helpfulInfo.scheduledIn.updatedBy.updatedAt'
   | 'helpfulInfo.stage'
-  | 'helpfulInfo.stageNumber'
-  | 'helpfulInfo.updatedAt'
-  | 'helpfulInfo.updatedBy.children'
-  | 'helpfulInfo.updatedBy.children.children'
-  | 'helpfulInfo.updatedBy.children.id'
-  | 'helpfulInfo.updatedBy.createdAt'
-  | 'helpfulInfo.updatedBy.id'
-  | 'helpfulInfo.updatedBy.internal.content'
-  | 'helpfulInfo.updatedBy.internal.contentDigest'
-  | 'helpfulInfo.updatedBy.internal.contentFilePath'
-  | 'helpfulInfo.updatedBy.internal.description'
-  | 'helpfulInfo.updatedBy.internal.fieldOwners'
-  | 'helpfulInfo.updatedBy.internal.ignoreType'
-  | 'helpfulInfo.updatedBy.internal.mediaType'
-  | 'helpfulInfo.updatedBy.internal.owner'
-  | 'helpfulInfo.updatedBy.internal.type'
-  | 'helpfulInfo.updatedBy.isActive'
-  | 'helpfulInfo.updatedBy.kind'
-  | 'helpfulInfo.updatedBy.name'
-  | 'helpfulInfo.updatedBy.parent.children'
-  | 'helpfulInfo.updatedBy.parent.id'
-  | 'helpfulInfo.updatedBy.picture'
-  | 'helpfulInfo.updatedBy.publishedAt'
-  | 'helpfulInfo.updatedBy.remoteId'
-  | 'helpfulInfo.updatedBy.remoteTypeName'
-  | 'helpfulInfo.updatedBy.stage'
-  | 'helpfulInfo.updatedBy.updatedAt'
   | 'id'
   | 'internal.content'
   | 'internal.contentDigest'
@@ -23019,6 +21309,7 @@ type GraphCMS_StageTaskPageFieldsEnum =
   | 'updatedBy.updatedAt';
 
 type GraphCMS_StageTaskPageFilterInput = {
+  readonly checklist: InputMaybe<GraphCMS_ChecklistFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly createdAt: InputMaybe<JSONQueryOperatorInput>;
   readonly createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -23107,7 +21398,7 @@ type GraphCMS_TaskToComplete = Node & {
   readonly remoteTypeName: Scalars['String'];
   readonly scheduledIn: ReadonlyArray<GraphCMS_ScheduledOperation>;
   readonly stage: GraphCMS_Stage;
-  readonly stageNumber: Scalars['Float'];
+  readonly stageNumber: Scalars['Int'];
   readonly submittedText: Maybe<GraphCMS_RichText>;
   readonly taskInfo: GraphCMS_RichText;
   readonly taskLinkText: Maybe<Scalars['String']>;
@@ -23647,7 +21938,7 @@ type GraphCMS_TaskToCompleteFilterInput = {
   readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
   readonly scheduledIn: InputMaybe<GraphCMS_ScheduledOperationFilterListInput>;
   readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
-  readonly stageNumber: InputMaybe<FloatQueryOperatorInput>;
+  readonly stageNumber: InputMaybe<IntQueryOperatorInput>;
   readonly submittedText: InputMaybe<GraphCMS_RichTextFilterInput>;
   readonly taskInfo: InputMaybe<GraphCMS_RichTextFilterInput>;
   readonly taskLinkText: InputMaybe<StringQueryOperatorInput>;
@@ -25030,7 +23321,6 @@ type Query = {
   readonly allFile: FileConnection;
   readonly allGraphCmsAsset: GraphCMS_AssetConnection;
   readonly allGraphCmsDevelopmentOption: GraphCMS_DevelopmentOptionConnection;
-  readonly allGraphCmsHelpfulInfo: GraphCMS_HelpfulInfoConnection;
   readonly allGraphCmsInfo: GraphCMS_InfoConnection;
   readonly allGraphCmsModelBusinessPlan: GraphCMS_ModelBusinessPlanConnection;
   readonly allGraphCmsModelSwot: GraphCMS_ModelSwotConnection;
@@ -25055,7 +23345,6 @@ type Query = {
   readonly file: Maybe<File>;
   readonly graphCmsAsset: Maybe<GraphCMS_Asset>;
   readonly graphCmsDevelopmentOption: Maybe<GraphCMS_DevelopmentOption>;
-  readonly graphCmsHelpfulInfo: Maybe<GraphCMS_HelpfulInfo>;
   readonly graphCmsInfo: Maybe<GraphCMS_Info>;
   readonly graphCmsModelBusinessPlan: Maybe<GraphCMS_ModelBusinessPlan>;
   readonly graphCmsModelSwot: Maybe<GraphCMS_ModelSwot>;
@@ -25107,14 +23396,6 @@ type Query_allGraphCmsDevelopmentOptionArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<GraphCMS_DevelopmentOptionSortInput>;
-};
-
-
-type Query_allGraphCmsHelpfulInfoArgs = {
-  filter: InputMaybe<GraphCMS_HelpfulInfoFilterInput>;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<GraphCMS_HelpfulInfoSortInput>;
 };
 
 
@@ -25410,28 +23691,8 @@ type Query_graphCmsDevelopmentOptionArgs = {
 };
 
 
-type Query_graphCmsHelpfulInfoArgs = {
-  children: InputMaybe<NodeFilterListInput>;
-  createdAt: InputMaybe<JSONQueryOperatorInput>;
-  createdBy: InputMaybe<GraphCMS_UserFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  info: InputMaybe<GraphCMS_RichTextFilterInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  locale: InputMaybe<GraphCMS_LocaleQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  publishedAt: InputMaybe<JSONQueryOperatorInput>;
-  publishedBy: InputMaybe<GraphCMS_UserFilterInput>;
-  remoteId: InputMaybe<IDQueryOperatorInput>;
-  remoteTypeName: InputMaybe<StringQueryOperatorInput>;
-  scheduledIn: InputMaybe<GraphCMS_ScheduledOperationFilterListInput>;
-  stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
-  stageNumber: InputMaybe<IntQueryOperatorInput>;
-  updatedAt: InputMaybe<JSONQueryOperatorInput>;
-  updatedBy: InputMaybe<GraphCMS_UserFilterInput>;
-};
-
-
 type Query_graphCmsInfoArgs = {
+  checklist: InputMaybe<GraphCMS_ChecklistFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   createdAt: InputMaybe<JSONQueryOperatorInput>;
   createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -25576,6 +23837,7 @@ type Query_graphCmsScheduledReleaseArgs = {
 
 
 type Query_graphCmsStageLandingPageArgs = {
+  checklist: InputMaybe<GraphCMS_ChecklistFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   createdAt: InputMaybe<JSONQueryOperatorInput>;
   createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -25604,6 +23866,7 @@ type Query_graphCmsStageLandingPageArgs = {
 
 
 type Query_graphCmsStageTaskArgs = {
+  checklist: InputMaybe<GraphCMS_ChecklistFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   createdAt: InputMaybe<JSONQueryOperatorInput>;
   createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -25629,6 +23892,7 @@ type Query_graphCmsStageTaskArgs = {
 
 
 type Query_graphCmsStageTaskPageArgs = {
+  checklist: InputMaybe<GraphCMS_ChecklistFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   createdAt: InputMaybe<JSONQueryOperatorInput>;
   createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -25667,7 +23931,7 @@ type Query_graphCmsTaskToCompleteArgs = {
   remoteTypeName: InputMaybe<StringQueryOperatorInput>;
   scheduledIn: InputMaybe<GraphCMS_ScheduledOperationFilterListInput>;
   stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
-  stageNumber: InputMaybe<FloatQueryOperatorInput>;
+  stageNumber: InputMaybe<IntQueryOperatorInput>;
   submittedText: InputMaybe<GraphCMS_RichTextFilterInput>;
   taskInfo: InputMaybe<GraphCMS_RichTextFilterInput>;
   taskLinkText: InputMaybe<StringQueryOperatorInput>;

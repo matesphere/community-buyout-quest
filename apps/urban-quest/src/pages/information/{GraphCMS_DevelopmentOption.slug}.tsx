@@ -83,7 +83,10 @@ const InfoPlaySkate = ({
                         <DevOpsRenderer content={mainText.raw} />
 
                         {fundingOptions && (
-                            <FundingOptions content={fundingOptions.raw} />
+                            <FundingOptions
+                                content={fundingOptions.raw}
+                                title="Project Funding"
+                            />
                         )}
 
                         <p className="sm-type-bigamp mb-4">
