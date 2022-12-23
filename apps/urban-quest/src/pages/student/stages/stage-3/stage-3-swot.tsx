@@ -12,19 +12,15 @@ import {
 } from '@community-land-quest/shared-ui'
 
 import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
-import { ActionType } from '@community-land-quest/shared-utils/utils/common-types'
+import {
+    ActionType,
+    SWOTType,
+} from '@community-land-quest/shared-utils/utils/common-types'
 
 import '../../../../scss/index.scss'
 
-interface SwotType {
-    strengths: string
-    weaknesses: string
-    opportunities: string
-    threats: string
-}
-
 export interface WorkState {
-    [key: string]: SwotType
+    [key: string]: SWOTType
 }
 
 export type Action =

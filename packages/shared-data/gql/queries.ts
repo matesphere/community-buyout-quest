@@ -423,7 +423,7 @@ export const STAGE_8_QUERY = gql`
 // tutor
 
 export const TUTOR_CURRENT_QUEST_QUERY = gql`
-    query TutorCurrentQuest($user_id: uuid!, $quest_type: String!) {
+    query TutorCurrentQuest($user_id: uuid!) {
         user_by_pk(id: $user_id) {
             id
             tutor {
@@ -467,14 +467,6 @@ export const TUTOR_CURRENT_QUEST_QUERY = gql`
                     }
                 }
             }
-        }
-        development_option(
-            where: { quest_type: { _eq: $quest_type } }
-            order_by: { id: asc }
-        ) {
-            option
-            display_name
-            model_swot
         }
         stage(order_by: { id: asc }) {
             id
@@ -525,18 +517,6 @@ export const TUTOR_PREVIOUS_QUEST_QUERY = gql`
                     }
                 }
             }
-        }
-        development_option(
-            where: { quest_type: { _eq: $quest_type } }
-            order_by: { id: asc }
-        ) {
-            option
-            display_name
-            model_swot
-        }
-        stage(order_by: { id: asc }) {
-            id
-            title
         }
     }
 `

@@ -4,14 +4,9 @@ import { Link } from 'gatsby'
 import { TextEditor } from '../TextEditor'
 import { SaveSubmitSection } from './SaveSubmitSection'
 
-import HelpIcon from '../../../assets/help-icon.svg'
+import { SWOTType } from '@community-land-quest/shared-utils/utils/common-types'
 
-interface SwotType {
-    strengths: string
-    weaknesses: string
-    opportunities: string
-    threats: string
-}
+import HelpIcon from '../../../assets/help-icon.svg'
 
 interface SWOTProps {
     swotTitle?: string
@@ -23,7 +18,7 @@ interface SWOTProps {
             display_name: string
         }
     }
-    swotState: SwotType
+    swotState: SWOTType
     changeFunc?: (section: string) => (data: any) => void
     saveWorkObj?: { call: any; response: any; saveComplete: boolean }
     docSubmitted: boolean

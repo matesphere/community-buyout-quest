@@ -20,18 +20,11 @@ import {
 
 import '../../../../scss/index.scss'
 
-// interface SwotType {
-//     strengths: string
-//     weaknesses: string
-//     opportunities: string
-//     threats: string
-// }
-
 const Stage3Swot: FC<PageProps> = ({ location: { search } }) => {
     const { loading, error, data } = useAuthQuery<
         SwotExampleQuery,
-        SwotExampleQueryVariables
-    >(SWOT_EXAMPLE_QUERY, {}, 'teamId')
+        Omit<SwotExampleQueryVariables, 'team_id'>
+    >(SWOT_EXAMPLE_QUERY, { variables: { quest_type: 'rural' } }, 'teamId')
 
     if (loading) return <Loading />
     if (error || !data)

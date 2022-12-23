@@ -17,7 +17,7 @@ const InformationLinks: FC<{ latestStageID: number }> = ({ latestStageID }) => (
         <Link to="/information/background-info">Background Info</Link>
         {latestStageID >= 2 && (
             <>
-                <Link to="/information/about-glenclas-area">
+                <Link to="/information/about-aigbaile-area">
                     About the Area
                 </Link>
                 <Link to="/information/community">Community</Link>

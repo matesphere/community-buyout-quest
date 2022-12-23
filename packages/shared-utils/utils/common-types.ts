@@ -28,3 +28,31 @@ export interface TeamDevelopmentOption {
     shortlist: boolean
     development_option: DevelopmentOption
 }
+
+export interface SWOTType {
+    strengths: string
+    weaknesses: string
+    opportunities: string
+    threats: string
+}
+
+export interface CMSSWOTType {
+    strengths: {
+        html: string
+    }
+    weaknesses: {
+        html: string
+    }
+    opportunities: {
+        html: string
+    }
+    threats: {
+        html: string
+    }
+}
+
+export interface ModelSwot {
+    title: string
+    slug: string
+    modelSwot: string
+}

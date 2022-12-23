@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import { ApolloError } from '@apollo/client'
@@ -38,7 +38,12 @@ import {
     TutorCurrentQuestQueryVariables,
 } from '@community-land-quest/shared-data/gql/types/queries.generated'
 
-import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
+import {
+    POSITION_DISPLAY_NAME,
+    buildExampleSWOT,
+} from '@community-land-quest/shared-utils/utils/common-utils'
+
+import { ModelSwot } from '@community-land-quest/shared-utils/utils/common-types'
 
 import Tick from '../../assets/tick.svg'
 
@@ -48,7 +53,7 @@ import 'react-tabs/style/react-tabs.css'
 const getStageStatusDisplay = (
     stageId,
     stageProgresses,
-    devOptions,
+    modelSwots,
     teamId
 ) => {
     const stageProgress = stageProgresses.find(
@@ -84,7 +89,7 @@ const getStageStatusDisplay = (
                 default:
                     return stageId === 3 ? (
                         <UnlockedStage3Status
-                            devOptions={devOptions}
+                            modelSwots={modelSwots}
                             doc={document}
                         />
                     ) : (
@@ -116,7 +121,7 @@ const getStageStatusDisplay = (
             return stageId === 3 ? (
                 <UnlockedStage3NoDocStatus
                     stageProgressId={stageProgress.id}
-                    devOptions={devOptions}
+                    modelSwots={modelSwots}
                 />
             ) : (
                 <UnlockedStageStatus />
@@ -176,7 +181,11 @@ const TeamInfoPanel = ({ devOptions, students }: TeamInfoPanelProps) => (
     </>
 )
 
-const TeamUserPassPanel = ({ students }: TeamInfoPanelProps) => (
+interface TeamUserPassPanelProps {
+    students: Array<any>
+}
+
+const TeamUserPassPanel = ({ students }: TeamUserPassPanelProps) => (
     <>
         <div className="form-holder-border">
             <p className="sm-type-lead sm-type-lead--medium greendark-highlight mb-2">
@@ -199,7 +208,7 @@ const TeamUserPassPanel = ({ students }: TeamInfoPanelProps) => (
     </>
 )
 
-const StageInfoPanel = ({ stages, stageProgresses, devOptions, teamId }) => (
+const StageInfoPanel = ({ stages, stageProgresses, modelSwots, teamId }) => (
     <ul className="steps">
         {stages.map(({ id, title }, i) => (
             <li key={i}>
@@ -210,7 +219,7 @@ const StageInfoPanel = ({ stages, stageProgresses, devOptions, teamId }) => (
                     {getStageStatusDisplay(
                         id,
                         stageProgresses,
-                        devOptions,
+                        modelSwots,
                         teamId
                     )}
                 </div>
@@ -225,9 +234,36 @@ const TutorCurrentQuestPage = () => {
     const [showUserPassModal, setShowUserPassModal] = useState(false)
     const [showReflectionModal, setShowReflectionModal] = useState(false)
 
+    const {
+        allGraphCmsDevelopmentOption: { nodes: cmsDevelopmentOptions },
+    } = useStaticQuery(graphql`
+        query {
+            allGraphCmsDevelopmentOption {
+                nodes {
+                    slug
+                    modelSwot {
+                        developmentOption
+                        strengths {
+                            html
+                        }
+                        weaknesses {
+                            html
+                        }
+                        opportunities {
+                            html
+                        }
+                        threats {
+                            html
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
     const { loading, error, data } = useAuthQuery<
         TutorCurrentQuestQuery,
-        TutorCurrentQuestQueryVariables
+        Omit<TutorCurrentQuestQueryVariables, 'user_id'>
     >(
         TUTOR_CURRENT_QUEST_QUERY,
         {
@@ -285,9 +321,20 @@ const TutorCurrentQuestPage = () => {
         user_by_pk: {
             tutor: { quests },
         },
-        development_option: devOptions,
         stage,
     } = data
+
+    const modelSwots: Array<ModelSwot> = cmsDevelopmentOptions.map(
+        ({ slug, modelSwot }) => {
+            const { developmentOption: title, ...rest } = modelSwot
+
+            return {
+                title,
+                slug,
+                modelSwot: buildExampleSWOT(rest),
+            }
+        }
+    )
 
     if (quests.length === 0) {
         return (
@@ -426,8 +473,8 @@ const TutorCurrentQuestPage = () => {
                                                                         stageProgresses={
                                                                             stage_progresses
                                                                         }
-                                                                        devOptions={
-                                                                            devOptions
+                                                                        modelSwots={
+                                                                            modelSwots
                                                                         }
                                                                         teamId={
                                                                             id
@@ -450,9 +497,6 @@ const TutorCurrentQuestPage = () => {
                                                                             Close
                                                                         </button>
                                                                         <TeamUserPassPanel
-                                                                            devOptions={
-                                                                                team_development_options
-                                                                            }
                                                                             students={
                                                                                 students
                                                                             }

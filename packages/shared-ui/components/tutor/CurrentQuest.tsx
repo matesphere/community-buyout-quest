@@ -97,18 +97,18 @@ export const DocumentlessUnlockedStageStatus = ({ stageProgressId }) => {
 }
 
 //? Pulls out display names of SWOTs which were provided as model answers
-const getDocProvidedAnswers = (doc, devOptions) =>
+const getDocProvidedAnswers = (doc, modelSwots) =>
     Object.entries(doc.doc_data)
         .filter(([_, data]) => data.provided)
         .map(
             ([option, _]) =>
-                devOptions.find((devOpt) => devOpt.option === option)
-                    .display_name
+                modelSwots.find((modelSwot) => modelSwot.slug === option)
+                    ?.title || ''
         )
 
 //? Has a document already, i.e. when providing a model answer we add to the existing keys
-export const UnlockedStage3Status = ({ devOptions, doc }) => {
-    const [devOption, setDevOption] = useState('')
+export const UnlockedStage3Status = ({ modelSwots, doc }) => {
+    const [modelSwotSlug, setModelSwotSlug] = useState('')
 
     const [saveWork] = useAuthMutation<
         SaveWorkMutation,
@@ -119,7 +119,7 @@ export const UnlockedStage3Status = ({ devOptions, doc }) => {
         idRequired: 'userId',
     })
 
-    const providedAnswers = getDocProvidedAnswers(doc, devOptions)
+    const providedAnswers = getDocProvidedAnswers(doc, modelSwots)
 
     return (
         <div className="progress">
@@ -141,15 +141,17 @@ export const UnlockedStage3Status = ({ devOptions, doc }) => {
             <div className="model-answers">
                 <select
                     className="form-control"
-                    value={devOption}
-                    onChange={({ target: { value } }) => setDevOption(value)}
+                    value={modelSwotSlug}
+                    onChange={({ target: { value } }) =>
+                        setModelSwotSlug(value)
+                    }
                 >
                     <option value="" defaultChecked>
                         Select
                     </option>
-                    {devOptions.map(({ option, display_name }, i) => (
-                        <option key={i} value={option}>
-                            {display_name}
+                    {modelSwots.map(({ title, slug }, i) => (
+                        <option key={i} value={slug}>
+                            {title}
                         </option>
                     ))}
                 </select>
@@ -161,9 +163,10 @@ export const UnlockedStage3Status = ({ devOptions, doc }) => {
                                 docId: doc.id,
                                 docData: {
                                     ...doc.doc_data,
-                                    [devOption]: {
-                                        ...devOptions.find(
-                                            (opt) => opt.option === devOption
+                                    [modelSwotSlug]: {
+                                        ...modelSwots.find(
+                                            (swot) =>
+                                                swot.slug === modelSwotSlug
                                         ).model_swot,
                                         provided: true,
                                     },
@@ -180,8 +183,8 @@ export const UnlockedStage3Status = ({ devOptions, doc }) => {
 }
 
 //? Does not yet have a document, e.g. SWOT is being provided as example
-export const UnlockedStage3NoDocStatus = ({ stageProgressId, devOptions }) => {
-    const [devOption, setDevOption] = useState('')
+export const UnlockedStage3NoDocStatus = ({ stageProgressId, modelSwots }) => {
+    const [modelSwotSlug, setModelSwotSlug] = useState('')
 
     const [saveWorkInitial] = useAuthMutation<
         SaveWorkInitialMutation,
@@ -191,6 +194,8 @@ export const UnlockedStage3NoDocStatus = ({ stageProgressId, devOptions }) => {
         variables: {},
         idRequired: 'userId',
     })
+
+    console.log(modelSwots[0].modelSwot)
 
     return (
         <div className="progress">
@@ -203,15 +208,17 @@ export const UnlockedStage3NoDocStatus = ({ stageProgressId, devOptions }) => {
             <div className="model-answers">
                 <select
                     className="form-control"
-                    value={devOption}
-                    onChange={({ target: { value } }) => setDevOption(value)}
+                    value={modelSwotSlug}
+                    onChange={({ target: { value } }) =>
+                        setModelSwotSlug(value)
+                    }
                 >
                     <option value="" defaultChecked>
                         Select
                     </option>
-                    {devOptions.map(({ option, display_name }, i) => (
-                        <option key={i} value={option}>
-                            {display_name}
+                    {modelSwots.map(({ title, slug }, i) => (
+                        <option key={i} value={slug}>
+                            {title}
                         </option>
                     ))}
                 </select>
@@ -222,10 +229,11 @@ export const UnlockedStage3NoDocStatus = ({ stageProgressId, devOptions }) => {
                             variables: {
                                 stageProgressId,
                                 docData: {
-                                    [devOption]: {
-                                        ...devOptions.find(
-                                            (opt) => opt.option === devOption
-                                        ).model_swot,
+                                    [modelSwotSlug]: {
+                                        ...modelSwots.find(
+                                            (swot) =>
+                                                swot.slug === modelSwotSlug
+                                        ).modelSwot,
                                         provided: true,
                                     },
                                 },

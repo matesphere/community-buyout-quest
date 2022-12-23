@@ -801,6 +801,7 @@ type Content_Asset_createdAtArgs = {
 
 /** Asset system model */
 type Content_Asset_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -826,6 +827,7 @@ type Content_Asset_iconDevelopmentOptionArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   orderBy: InputMaybe<Content_DevelopmentOptionOrderByInput>;
@@ -839,6 +841,7 @@ type Content_Asset_imageInfoArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   orderBy: InputMaybe<Content_InfoOrderByInput>;
@@ -852,6 +855,7 @@ type Content_Asset_informationMainImageDevelopmentOptionArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   orderBy: InputMaybe<Content_DevelopmentOptionOrderByInput>;
@@ -875,6 +879,7 @@ type Content_Asset_publishedAtArgs = {
 
 /** Asset system model */
 type Content_Asset_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -884,6 +889,7 @@ type Content_Asset_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -899,6 +905,7 @@ type Content_Asset_updatedAtArgs = {
 
 /** Asset system model */
 type Content_Asset_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -1787,6 +1794,7 @@ type Content_Checklist_createdAtArgs = {
 
 
 type Content_Checklist_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -1817,6 +1825,7 @@ type Content_Checklist_publishedAtArgs = {
 
 
 type Content_Checklist_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -1825,6 +1834,7 @@ type Content_Checklist_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -1838,6 +1848,7 @@ type Content_Checklist_updatedAtArgs = {
 
 
 type Content_Checklist_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -2345,6 +2356,7 @@ type Content_DevelopmentOption = Content_Node & {
 
 
 type Content_DevelopmentOption_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -2355,6 +2367,7 @@ type Content_DevelopmentOption_createdAtArgs = {
 
 
 type Content_DevelopmentOption_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -2374,11 +2387,13 @@ type Content_DevelopmentOption_historyArgs = {
 
 
 type Content_DevelopmentOption_iconArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
 type Content_DevelopmentOption_informationMainImageArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -2390,6 +2405,7 @@ type Content_DevelopmentOption_localizationsArgs = {
 
 
 type Content_DevelopmentOption_modelSwotArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -2400,6 +2416,7 @@ type Content_DevelopmentOption_publishedAtArgs = {
 
 
 type Content_DevelopmentOption_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -2408,6 +2425,7 @@ type Content_DevelopmentOption_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -2421,6 +2439,7 @@ type Content_DevelopmentOption_updatedAtArgs = {
 
 
 type Content_DevelopmentOption_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -3027,6 +3046,7 @@ type Content_HelpfulInfo_createdAtArgs = {
 
 
 type Content_HelpfulInfo_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -3057,6 +3077,7 @@ type Content_HelpfulInfo_publishedAtArgs = {
 
 
 type Content_HelpfulInfo_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -3065,6 +3086,7 @@ type Content_HelpfulInfo_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -3078,6 +3100,7 @@ type Content_HelpfulInfo_updatedAtArgs = {
 
 
 type Content_HelpfulInfo_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -3571,6 +3594,7 @@ type Content_Info = Content_Node & {
 
 
 type Content_Info_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -3581,6 +3605,7 @@ type Content_Info_createdAtArgs = {
 
 
 type Content_Info_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -3593,6 +3618,7 @@ type Content_Info_documentInStagesArgs = {
 
 
 type Content_Info_helpfulInfoArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -3608,6 +3634,7 @@ type Content_Info_imageArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   orderBy: InputMaybe<Content_AssetOrderByInput>;
@@ -3628,6 +3655,7 @@ type Content_Info_publishedAtArgs = {
 
 
 type Content_Info_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -3636,6 +3664,7 @@ type Content_Info_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -3649,6 +3678,7 @@ type Content_Info_updatedAtArgs = {
 
 
 type Content_Info_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -4198,6 +4228,7 @@ type Content_ModelBusinessPlan = Content_Node & {
 
 
 type Content_ModelBusinessPlan_capitalCostsArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -4208,6 +4239,7 @@ type Content_ModelBusinessPlan_createdAtArgs = {
 
 
 type Content_ModelBusinessPlan_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -4238,6 +4270,7 @@ type Content_ModelBusinessPlan_publishedAtArgs = {
 
 
 type Content_ModelBusinessPlan_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -4246,6 +4279,7 @@ type Content_ModelBusinessPlan_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -4259,6 +4293,7 @@ type Content_ModelBusinessPlan_updatedAtArgs = {
 
 
 type Content_ModelBusinessPlan_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -4693,6 +4728,7 @@ type Content_ModelSwot_createdAtArgs = {
 
 
 type Content_ModelSwot_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -4723,6 +4759,7 @@ type Content_ModelSwot_publishedAtArgs = {
 
 
 type Content_ModelSwot_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -4731,6 +4768,7 @@ type Content_ModelSwot_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -4744,6 +4782,7 @@ type Content_ModelSwot_updatedAtArgs = {
 
 
 type Content_ModelSwot_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -5249,6 +5288,7 @@ type Content_PresentationTipsPage_createdAtArgs = {
 
 
 type Content_PresentationTipsPage_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -5261,6 +5301,7 @@ type Content_PresentationTipsPage_documentInStagesArgs = {
 
 
 type Content_PresentationTipsPage_helpfulInfoArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -5284,6 +5325,7 @@ type Content_PresentationTipsPage_publishedAtArgs = {
 
 
 type Content_PresentationTipsPage_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -5292,6 +5334,7 @@ type Content_PresentationTipsPage_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -5305,6 +5348,7 @@ type Content_PresentationTipsPage_updatedAtArgs = {
 
 
 type Content_PresentationTipsPage_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -5915,6 +5959,7 @@ type Content_ScheduledOperation_affectedDocumentsArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -5923,6 +5968,7 @@ type Content_ScheduledOperation_affectedDocumentsArgs = {
 
 /** Scheduled Operation system model */
 type Content_ScheduledOperation_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -5937,18 +5983,21 @@ type Content_ScheduledOperation_documentInStagesArgs = {
 
 /** Scheduled Operation system model */
 type Content_ScheduledOperation_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
 /** Scheduled Operation system model */
 type Content_ScheduledOperation_releaseArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
 /** Scheduled Operation system model */
 type Content_ScheduledOperation_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -6324,6 +6373,7 @@ type Content_ScheduledRelease = Content_Node & {
 
 /** Scheduled Release system model */
 type Content_ScheduledRelease_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -6341,6 +6391,7 @@ type Content_ScheduledRelease_operationsArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   orderBy: InputMaybe<Content_ScheduledOperationOrderByInput>;
@@ -6351,12 +6402,14 @@ type Content_ScheduledRelease_operationsArgs = {
 
 /** Scheduled Release system model */
 type Content_ScheduledRelease_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
 /** Scheduled Release system model */
 type Content_ScheduledRelease_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -6902,6 +6955,7 @@ type Content_StageLandingPage = Content_Node & {
 
 
 type Content_StageLandingPage_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -6912,6 +6966,7 @@ type Content_StageLandingPage_createdAtArgs = {
 
 
 type Content_StageLandingPage_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -6924,6 +6979,7 @@ type Content_StageLandingPage_documentInStagesArgs = {
 
 
 type Content_StageLandingPage_helpfulInfoArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -6947,6 +7003,7 @@ type Content_StageLandingPage_publishedAtArgs = {
 
 
 type Content_StageLandingPage_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -6955,6 +7012,7 @@ type Content_StageLandingPage_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -6966,6 +7024,7 @@ type Content_StageLandingPage_tasksToCompleteArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   orderBy: InputMaybe<Content_TaskToCompleteOrderByInput>;
@@ -6980,6 +7039,7 @@ type Content_StageLandingPage_updatedAtArgs = {
 
 
 type Content_StageLandingPage_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7571,6 +7631,7 @@ type Content_StageTask = Content_Node & {
 
 
 type Content_StageTask_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7581,6 +7642,7 @@ type Content_StageTask_createdAtArgs = {
 
 
 type Content_StageTask_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7593,6 +7655,7 @@ type Content_StageTask_documentInStagesArgs = {
 
 
 type Content_StageTask_helpfulInfoArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7616,6 +7679,7 @@ type Content_StageTask_publishedAtArgs = {
 
 
 type Content_StageTask_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7624,6 +7688,7 @@ type Content_StageTask_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -7637,6 +7702,7 @@ type Content_StageTask_updatedAtArgs = {
 
 
 type Content_StageTask_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7869,6 +7935,7 @@ type Content_StageTaskPage = Content_Node & {
 
 
 type Content_StageTaskPage_checklistArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7879,6 +7946,7 @@ type Content_StageTaskPage_createdAtArgs = {
 
 
 type Content_StageTaskPage_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7891,6 +7959,7 @@ type Content_StageTaskPage_documentInStagesArgs = {
 
 
 type Content_StageTaskPage_helpfulInfoArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7914,6 +7983,7 @@ type Content_StageTaskPage_publishedAtArgs = {
 
 
 type Content_StageTaskPage_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -7922,6 +7992,7 @@ type Content_StageTaskPage_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -7933,6 +8004,7 @@ type Content_StageTaskPage_tasksToCompleteArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   orderBy: InputMaybe<Content_TaskToCompleteOrderByInput>;
@@ -7947,6 +8019,7 @@ type Content_StageTaskPage_updatedAtArgs = {
 
 
 type Content_StageTaskPage_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -8748,6 +8821,7 @@ type Content_TaskToComplete_createdAtArgs = {
 
 
 type Content_TaskToComplete_createdByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -8778,6 +8852,7 @@ type Content_TaskToComplete_publishedAtArgs = {
 
 
 type Content_TaskToComplete_publishedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
@@ -8786,6 +8861,7 @@ type Content_TaskToComplete_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
   first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   last: InputMaybe<Scalars['Int']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
@@ -8799,6 +8875,7 @@ type Content_TaskToComplete_updatedAtArgs = {
 
 
 type Content_TaskToComplete_updatedByArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 

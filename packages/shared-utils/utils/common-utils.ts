@@ -1,5 +1,6 @@
 import fetch from 'cross-fetch'
 import moment from 'moment'
+import { CMSSWOTType } from './common-types'
 
 interface LogProps {
     loglevel: 'ERROR' | 'WARN' | 'INFO'
@@ -67,3 +68,15 @@ export const URBAN_LOCATION_DISPLAY_NAME: { [key: string]: string } = {
     'ground-floor': 'Ground Floor',
     'first-floor': 'First Floor',
 }
+
+export const buildExampleSWOT = ({
+    strengths: { html: strengths },
+    weaknesses: { html: weaknesses },
+    opportunities: { html: opportunities },
+    threats: { html: threats },
+}: CMSSWOTType) => ({
+    strengths,
+    weaknesses,
+    opportunities,
+    threats,
+})

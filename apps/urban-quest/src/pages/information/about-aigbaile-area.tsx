@@ -13,7 +13,7 @@ import {
 
 import '../../scss/index.scss'
 
-const AboutGlenclasAreaPage: FC = ({
+const AboutAigBaileAreaPage: FC = ({
     data: {
         graphCmsInfo: { title, intro, slider, helpfulInfo },
     },
@@ -45,7 +45,7 @@ const AboutGlenclasAreaPage: FC = ({
                                         url: '/student/information',
                                     },
                                 ]}
-                                currentDisplayName="About Glenclas"
+                                currentDisplayName="About Aig Baile"
                             />
                             <h2 className="sm-type-biggerdrum sm-type-biggerdrum--medium mt-4 mb-4">
                                 {title}
@@ -67,11 +67,11 @@ const AboutGlenclasAreaPage: FC = ({
     )
 }
 
-export default AboutGlenclasAreaPage
+export default AboutAigBaileAreaPage
 
 export const query = graphql`
     query AboutAreaQuery {
-        graphCmsInfo(slug: { eq: "about-glenclas-area" }) {
+        graphCmsInfo(slug: { eq: "about-aigbaile-area" }) {
             title
             intro {
                 raw

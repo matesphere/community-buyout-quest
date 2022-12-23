@@ -209,7 +209,7 @@ const Stage3LandingPage: FC = () => {
                                     <SaveSubmitSection
                                         submitWorkObj={submitWorkObj}
                                         disableSubmit={
-                                            completedSwots.length !== 5
+                                            completedSwots.length !== 6
                                         }
                                         docSubmitted={docSubmitted}
                                     />
