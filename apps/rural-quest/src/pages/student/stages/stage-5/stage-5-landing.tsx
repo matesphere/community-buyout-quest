@@ -23,49 +23,12 @@ import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workSt
 import {
     BusinessPlanAction,
     BusinessPlanActionType,
+    WorkState,
 } from '@community-land-quest/shared-ui/types/business-plan'
 
 import Tick from '../../../../assets/tick.svg'
 
 import '../../../../scss/index.scss'
-
-interface FourYearCosts {
-    year1: number | ''
-    year2: number | ''
-    year3: number | ''
-    year4: number | ''
-}
-
-export interface LandCost {
-    area: number | ''
-    price: number | ''
-    funder: string
-    amountOfFunding: number | ''
-}
-
-export interface CapitalCosts {
-    costs: Array<{ details: string; cost: number | '' }>
-    funding: Array<{ funderName: string; amount: number | '' }>
-}
-
-export interface RunningCosts {
-    costs: Array<{ details: string } & FourYearCosts>
-}
-
-export interface CashFlow {
-    income: FourYearCosts
-    costs: FourYearCosts
-    balance: FourYearCosts
-}
-export interface BusinessPlan {
-    capitalCosts: CapitalCosts
-    runningCosts: RunningCosts
-    cashFlow: CashFlow
-}
-
-export interface WorkState {
-    [key: string]: LandCost | BusinessPlan
-}
 
 interface BusinessPlanLinksProps {
     shortlist: Array<any>
@@ -236,6 +199,7 @@ const Stage5LandingPage: FC = () => {
                                                     workDispatch,
                                                     saveWorkObj,
                                                     docSubmitted,
+                                                    numberOfFundingOptions: 1,
                                                 }}
                                             />
                                         </div>

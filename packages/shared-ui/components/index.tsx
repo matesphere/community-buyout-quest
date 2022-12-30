@@ -12,6 +12,7 @@ export { TextEditor } from './common/TextEditor'
 export { CapitalCostsSection } from './common/stages/business-plan/CapitalCostsSection'
 export { CashFlowSection } from './common/stages/business-plan/CashFlowSection'
 export { CostOfLand } from './common/stages/business-plan/CostOfLand'
+export { BuildingRenovations } from './common/stages/business-plan/BuildingRenovations'
 export { RunningCostsSection } from './common/stages/business-plan/RunningCostsSection'
 export {
     FeasibilityStudy,

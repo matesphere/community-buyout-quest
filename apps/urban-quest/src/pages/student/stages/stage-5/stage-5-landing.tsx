@@ -13,59 +13,23 @@ import {
     Helpful,
     Checklist,
     CostOfLand,
+    BuildingRenovations,
     SaveSubmitSection,
     TaskContainer,
     TaskPanel,
 } from '@community-land-quest/shared-ui'
 
-import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
-
 import {
     BusinessPlanAction,
     BusinessPlanActionType,
+    WorkState,
 } from '@community-land-quest/shared-ui/types/business-plan'
+
+import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
 
 import Tick from '../../../../assets/tick.svg'
 
 import '../../../../scss/index.scss'
-
-interface FourYearCosts {
-    year1: number | ''
-    year2: number | ''
-    year3: number | ''
-    year4: number | ''
-}
-
-export interface LandCost {
-    area: number | ''
-    price: number | ''
-    funder: string
-    amountOfFunding: number | ''
-}
-
-export interface CapitalCosts {
-    costs: Array<{ details: string; cost: number | '' }>
-    funding: Array<{ funderName: string; amount: number | '' }>
-}
-
-export interface RunningCosts {
-    costs: Array<{ details: string } & FourYearCosts>
-}
-
-export interface CashFlow {
-    income: FourYearCosts
-    costs: FourYearCosts
-    balance: FourYearCosts
-}
-export interface BusinessPlan {
-    capitalCosts: CapitalCosts
-    runningCosts: RunningCosts
-    cashFlow: CashFlow
-}
-
-export interface WorkState {
-    [key: string]: LandCost | BusinessPlan
-}
 
 interface BusinessPlanLinksProps {
     shortlist: Array<any>
@@ -115,6 +79,14 @@ export const stage5Reducer: Reducer<WorkState, BusinessPlanAction> = (
                 ...state,
                 landCost: {
                     ...state.landCost,
+                    ...action.payload,
+                },
+            }
+        case BusinessPlanActionType.UpdateRenovations:
+            return {
+                ...state,
+                renovations: {
+                    ...state.renovations,
                     ...action.payload,
                 },
             }
@@ -174,6 +146,8 @@ const Stage5LandingPage: FC = () => {
             />
         )
 
+    console.log(workState)
+
     const { team_development_options: devOptions } = pageData.team_by_pk
     const shortlist = devOptions.filter((opt) => opt.shortlist)
     const doc =
@@ -181,6 +155,7 @@ const Stage5LandingPage: FC = () => {
 
     // const workStateLandCost = workState.landCost as LandCost
     const docLandCost = doc.landCost
+    const docRenovations = doc.renovations
 
     const completedPlans = Object.keys(doc).filter((opt) =>
         shortlist
@@ -236,6 +211,7 @@ const Stage5LandingPage: FC = () => {
                                                     workDispatch,
                                                     saveWorkObj,
                                                     docSubmitted,
+                                                    numberOfFundingOptions: 3,
                                                 }}
                                             />
                                         </div>
@@ -244,7 +220,26 @@ const Stage5LandingPage: FC = () => {
                                 <TaskContainer
                                     key={1}
                                     taskToComplete={tasksToComplete[1]}
+                                    taskComplete={!!docRenovations}
                                     disabled={!docLandCost}
+                                >
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                            <BuildingRenovations
+                                                {...{
+                                                    workState,
+                                                    workDispatch,
+                                                    saveWorkObj,
+                                                    docSubmitted,
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                </TaskContainer>
+                                <TaskContainer
+                                    key={2}
+                                    taskToComplete={tasksToComplete[2]}
+                                    disabled={!docRenovations}
                                 >
                                     <BusinessPlanLinks
                                         shortlist={shortlist}
@@ -256,7 +251,9 @@ const Stage5LandingPage: FC = () => {
                             <SaveSubmitSection
                                 submitWorkObj={submitWorkObj}
                                 disableSubmit={
-                                    completedPlans.length !== 3 || !docLandCost
+                                    completedPlans.length !== 3 ||
+                                    !docLandCost ||
+                                    !docRenovations
                                 }
                                 docSubmitted={docSubmitted}
                             />

@@ -1,7 +1,7 @@
 import { RichTextContent } from '@graphcms/rich-text-types'
 
 export interface WorkState {
-    [key: string]: LandCost | BusinessPlan
+    [key: string]: LandCost | Renovations | BusinessPlan
 }
 
 export type BusinessPlanAction =
@@ -15,9 +15,12 @@ export type BusinessPlanAction =
           payload: {
               area?: number | ''
               price?: number | ''
-              funder?: string
-              amountOfFunding?: number | ''
+              funding?: Array<{ funderName: string; amount: number | '' }>
           }
+      }
+    | {
+          type: BusinessPlanActionType.UpdateRenovations
+          payload: Renovations
       }
     | {
           type: BusinessPlanActionType.UpdateBusinessPlan
@@ -26,7 +29,7 @@ export type BusinessPlanAction =
           payload: CapitalCosts | RunningCosts | CashFlow
       }
 
-interface FourYearCosts {
+export interface FourYearCosts {
     year1: number | ''
     year2: number | ''
     year3: number | ''
@@ -36,8 +39,12 @@ interface FourYearCosts {
 export interface LandCost {
     area: number | ''
     price: number | ''
-    funder: string
-    amountOfFunding: number | ''
+    funding: Array<{ funderName: string; amount: number | '' }>
+}
+
+export interface Renovations {
+    costs: Array<{ details: string; cost: number | '' }>
+    funding: Array<{ funderName: string; amount: number | '' }>
 }
 
 export interface CapitalCosts {
@@ -63,6 +70,7 @@ export interface BusinessPlan {
 export enum BusinessPlanActionType {
     Load,
     UpdateLandCost,
+    UpdateRenovations,
     UpdateBusinessPlan,
 }
 

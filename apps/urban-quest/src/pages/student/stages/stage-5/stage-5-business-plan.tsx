@@ -17,8 +17,11 @@ import {
     SaveSubmitSection,
 } from '@community-land-quest/shared-ui'
 
-import { stage5Reducer, WorkState } from './stage-5-landing'
-import { BusinessPlanAction } from '@community-land-quest/shared-ui/types/business-plan'
+import { stage5Reducer } from './stage-5-landing'
+import {
+    WorkState,
+    BusinessPlanAction,
+} from '@community-land-quest/shared-ui/types/business-plan'
 
 import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
 

@@ -130,6 +130,7 @@ export const CapitalCostsSection: FC<SectionProps> = ({
                         />
                     </div>
                 </div>
+
                 <div className="row">
                     <div className="col-lg-12">
                         <p className="sm-type-guitar sm-type-guitar--medium mb-2">
