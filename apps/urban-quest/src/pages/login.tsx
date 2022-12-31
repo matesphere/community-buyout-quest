@@ -17,8 +17,8 @@ import {
 
 import { authComponents } from '@community-land-quest/shared-utils/utils/auth-utils'
 
-import Squiggle from '../assets/squiggle.svg'
 import PinLogo from '../assets/pin-logo.svg'
+import Skyline from '../assets/skyline.svg'
 
 import '../scss/index.scss'
 
@@ -127,12 +127,13 @@ const Login = () => {
                         image={data1.image2.childImageSharp.gatsbyImageData}
                     />
                 </div>
-                <Squiggle className="squiggle" />
+                <Skyline className="skyline" />
                 <section className="container top-section">
                     <div className="row pt-4">
                         <div className="col-lg-8">
                             <h1 className="main-header">
                                 <PinLogo />
+
                                 <span>Community Land Quest</span>
                             </h1>
                         </div>

@@ -60,6 +60,7 @@
     background: #88d5f9;
     display: block;
     position: absolute;
+    left:0;
 }
 
 .top-section {
@@ -147,7 +148,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
   width: 100vw;
   height: 100vh;
   text-align:center;
@@ -155,6 +156,9 @@
   .gatsby-image-wrapper {
     width: 100vw;
     height: 100vh;
+    img {
+    height: 100vh !important;
+    }
   }
 }
 

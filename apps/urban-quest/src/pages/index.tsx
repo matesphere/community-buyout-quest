@@ -2,7 +2,6 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Helmet } from 'react-helmet'
 
-import Squiggle from '../assets/squiggle.svg'
 import Skyline from '../assets/skyline.svg'
 import PinLogo from '../assets/pin-logo.svg'
 
@@ -36,14 +35,14 @@ const IndexPage = () => {
                 {/*<meta name="image" content={image} />*/}
             </Helmet>
             <div className="top-holder">
-                <div className="indeximage">
-                    <GatsbyImage
-                        alt=""
-                        image={data.image2.childImageSharp.gatsbyImageData}
-                    />
-                </div>
+
                 <Skyline className="skyline" />
-                <Squiggle className="squiggle" />
+                <div className="indeximage">
+                                    <GatsbyImage
+                                        alt=""
+                                        image={data.image2.childImageSharp.gatsbyImageData}
+                                    />
+                                </div>
                 <section className="container top-section">
                     <div className="row pt-4">
                         <div className="col-lg-8">
