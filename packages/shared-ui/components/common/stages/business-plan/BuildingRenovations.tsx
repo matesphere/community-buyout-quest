@@ -241,8 +241,8 @@ export const BuildingRenovations: FC<RenovationsProps> = ({
                     </label>
                     <input
                         className={
-                            balance === 0
-                                ? 'form-control mb-2 green'
+                            balance > 0
+                                ? 'form-control mb-2 greenyy'
                                 : 'form-control mb-2 red'
                         }
                         readOnly
