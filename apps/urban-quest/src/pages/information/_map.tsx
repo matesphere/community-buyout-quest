@@ -48,11 +48,6 @@ const MapOptions = ({ iconInfoList }) => {
                             image={data.image5.childImageSharp.gatsbyImageData}
                         />
                     </div>
-                    <div className="hover-pins">
-                        <p className="sm-type-amp">
-                            Hover over the icons to see more information
-                        </p>
-                    </div>
                     <div className="outer-grid">
                         <div className="outer-square">
                             {iconInfoList.map((iconInfo, i) => {

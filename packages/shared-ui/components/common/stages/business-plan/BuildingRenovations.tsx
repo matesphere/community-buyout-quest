@@ -120,9 +120,9 @@ export const BuildingRenovations: FC<RenovationsProps> = ({
                         ))}
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-lg-3"></div>
-                    <div className="col-lg-5"></div>
+                <div className="row full-row">
+                    <div className="col-lg-3">&nbsp;</div>
+                    <div className="col-lg-5">&nbsp;</div>
                     <div className="col-lg-4">
                         <label className="form-label sm-type-amp">
                             Total (£)
@@ -216,7 +216,7 @@ export const BuildingRenovations: FC<RenovationsProps> = ({
                     ))}
                 </div>
 
-                <div className="row">
+                <div className="row full-row">
                     <div className="col-lg-3"></div>
                     <div className="col-lg-5"></div>
                     <div className="col-lg-4">
