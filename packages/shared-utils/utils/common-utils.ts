@@ -1,6 +1,6 @@
 import fetch from 'cross-fetch'
 import moment from 'moment'
-import { CMSSWOTType } from './common-types'
+import { CMSSWOTType, CMSBusinessPlanType } from './common-types'
 
 interface LogProps {
     loglevel: 'ERROR' | 'WARN' | 'INFO'
@@ -79,4 +79,65 @@ export const buildExampleSWOT = ({
     weaknesses,
     opportunities,
     threats,
+})
+
+export const buildExampleBusinessPlan = ({
+    setupCosts: { costItems, fundingSources },
+    runningCosts: { costs, incomes },
+}: CMSBusinessPlanType) => ({
+    capitalCosts: {
+        costs: costItems.map(({ item, cost }) => ({ details: item, cost })),
+        funding: fundingSources.map(({ funder, amount }) => ({
+            funderName: funder,
+            amount,
+        })),
+    },
+    runningCosts: {
+        costs: costs.map(({ item, yearOne, yearTwo, yearThree, yearFour }) => ({
+            details: item,
+            year1: yearOne,
+            year2: yearTwo,
+            year3: yearThree,
+            year4: yearFour,
+        })),
+        incomes: incomes.map(
+            ({ item, yearOne, yearTwo, yearThree, yearFour }) => ({
+                details: item,
+                year1: yearOne,
+                year2: yearTwo,
+                year3: yearThree,
+                year4: yearFour,
+            })
+        ),
+    },
+    cashFlow: {
+        income: incomes.reduce(
+            (
+                { year1, year2, year3, year4 },
+                { yearOne, yearTwo, yearThree, yearFour }
+            ) => {
+                return {
+                    year1: year1 + yearOne,
+                    year2: year2 + yearTwo,
+                    year3: year3 + yearThree,
+                    year4: year4 + yearFour,
+                }
+            },
+            { year1: 0, year2: 0, year3: 0, year4: 0 }
+        ),
+        costs: costs.reduce(
+            (
+                { year1, year2, year3, year4 },
+                { yearOne, yearTwo, yearThree, yearFour }
+            ) => {
+                return {
+                    year1: year1 + yearOne,
+                    year2: year2 + yearTwo,
+                    year3: year3 + yearThree,
+                    year4: year4 + yearFour,
+                }
+            },
+            { year1: 0, year2: 0, year3: 0, year4: 0 }
+        ),
+    },
 })

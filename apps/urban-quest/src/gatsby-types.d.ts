@@ -1381,290 +1381,6 @@ type Content_BatchPayload = {
   readonly count: Scalars['Content_Long'];
 };
 
-type Content_CapitalCosts = {
-  readonly details: Content_RichText;
-  readonly funding: Content_RichText;
-  /** The unique identifier */
-  readonly id: Scalars['ID'];
-  /** System stage field */
-  readonly stage: Content_Stage;
-};
-
-type Content_CapitalCostsConnectInput = {
-  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
-  readonly position: InputMaybe<Content_ConnectPositionInput>;
-  /** Document to connect */
-  readonly where: Content_CapitalCostsWhereUniqueInput;
-};
-
-/** A connection to a list of items. */
-type Content_CapitalCostsConnection = {
-  readonly aggregate: Content_Aggregate;
-  /** A list of edges. */
-  readonly edges: ReadonlyArray<Content_CapitalCostsEdge>;
-  /** Information to aid in pagination. */
-  readonly pageInfo: Content_PageInfo;
-};
-
-type Content_CapitalCostsCreateInput = {
-  readonly details: Scalars['Content_RichTextAST'];
-  readonly funding: Scalars['Content_RichTextAST'];
-};
-
-type Content_CapitalCostsCreateManyInlineInput = {
-  /** Create and connect multiple existing CapitalCosts documents */
-  readonly create: InputMaybe<ReadonlyArray<Content_CapitalCostsCreateInput>>;
-};
-
-type Content_CapitalCostsCreateOneInlineInput = {
-  /** Create and connect one CapitalCosts document */
-  readonly create: InputMaybe<Content_CapitalCostsCreateInput>;
-};
-
-type Content_CapitalCostsCreateWithPositionInput = {
-  /** Document to create */
-  readonly data: Content_CapitalCostsCreateInput;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  readonly position: InputMaybe<Content_ConnectPositionInput>;
-};
-
-/** An edge in a connection. */
-type Content_CapitalCostsEdge = {
-  /** A cursor for use in pagination. */
-  readonly cursor: Scalars['String'];
-  /** The item at the end of the edge. */
-  readonly node: Content_CapitalCosts;
-};
-
-/** Identifies documents */
-type Content_CapitalCostsManyWhereInput = {
-  /** Logical AND on all given filters. */
-  readonly AND: InputMaybe<ReadonlyArray<Content_CapitalCostsWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  readonly NOT: InputMaybe<ReadonlyArray<Content_CapitalCostsWhereInput>>;
-  /** Logical OR on all given filters. */
-  readonly OR: InputMaybe<ReadonlyArray<Content_CapitalCostsWhereInput>>;
-  /** Contains search across all appropriate fields. */
-  readonly _search: InputMaybe<Scalars['String']>;
-  readonly id: InputMaybe<Scalars['ID']>;
-  /** All values containing the given string. */
-  readonly id_contains: InputMaybe<Scalars['ID']>;
-  /** All values ending with the given string. */
-  readonly id_ends_with: InputMaybe<Scalars['ID']>;
-  /** All values that are contained in given list. */
-  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
-  readonly id_not: InputMaybe<Scalars['ID']>;
-  /** All values not containing the given string. */
-  readonly id_not_contains: InputMaybe<Scalars['ID']>;
-  /** All values not ending with the given string */
-  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
-  /** All values that are not contained in given list. */
-  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values not starting with the given string. */
-  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
-  /** All values starting with the given string. */
-  readonly id_starts_with: InputMaybe<Scalars['ID']>;
-};
-
-type Content_CapitalCostsOrderByInput =
-  | 'id_ASC'
-  | 'id_DESC';
-
-type Content_CapitalCostsParent = Content_ModelBusinessPlan;
-
-type Content_CapitalCostsParentConnectInput = {
-  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanConnectInput>;
-};
-
-type Content_CapitalCostsParentCreateInput = {
-  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanCreateInput>;
-};
-
-type Content_CapitalCostsParentCreateManyInlineInput = {
-  /** Connect multiple existing CapitalCostsParent documents */
-  readonly connect: InputMaybe<ReadonlyArray<Content_CapitalCostsParentWhereUniqueInput>>;
-  /** Create and connect multiple existing CapitalCostsParent documents */
-  readonly create: InputMaybe<ReadonlyArray<Content_CapitalCostsParentCreateInput>>;
-};
-
-type Content_CapitalCostsParentCreateOneInlineInput = {
-  /** Connect one existing CapitalCostsParent document */
-  readonly connect: InputMaybe<Content_CapitalCostsParentWhereUniqueInput>;
-  /** Create and connect one CapitalCostsParent document */
-  readonly create: InputMaybe<Content_CapitalCostsParentCreateInput>;
-};
-
-type Content_CapitalCostsParentUpdateInput = {
-  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateInput>;
-};
-
-type Content_CapitalCostsParentUpdateManyInlineInput = {
-  /** Connect multiple existing CapitalCostsParent documents */
-  readonly connect: InputMaybe<ReadonlyArray<Content_CapitalCostsParentConnectInput>>;
-  /** Create and connect multiple CapitalCostsParent documents */
-  readonly create: InputMaybe<ReadonlyArray<Content_CapitalCostsParentCreateInput>>;
-  /** Delete multiple CapitalCostsParent documents */
-  readonly delete: InputMaybe<ReadonlyArray<Content_CapitalCostsParentWhereUniqueInput>>;
-  /** Disconnect multiple CapitalCostsParent documents */
-  readonly disconnect: InputMaybe<ReadonlyArray<Content_CapitalCostsParentWhereUniqueInput>>;
-  /** Override currently-connected documents with multiple existing CapitalCostsParent documents */
-  readonly set: InputMaybe<ReadonlyArray<Content_CapitalCostsParentWhereUniqueInput>>;
-  /** Update multiple CapitalCostsParent documents */
-  readonly update: InputMaybe<ReadonlyArray<Content_CapitalCostsParentUpdateWithNestedWhereUniqueInput>>;
-  /** Upsert multiple CapitalCostsParent documents */
-  readonly upsert: InputMaybe<ReadonlyArray<Content_CapitalCostsParentUpsertWithNestedWhereUniqueInput>>;
-};
-
-type Content_CapitalCostsParentUpdateManyWithNestedWhereInput = {
-  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateManyWithNestedWhereInput>;
-};
-
-type Content_CapitalCostsParentUpdateOneInlineInput = {
-  /** Connect existing CapitalCostsParent document */
-  readonly connect: InputMaybe<Content_CapitalCostsParentWhereUniqueInput>;
-  /** Create and connect one CapitalCostsParent document */
-  readonly create: InputMaybe<Content_CapitalCostsParentCreateInput>;
-  /** Delete currently connected CapitalCostsParent document */
-  readonly delete: InputMaybe<Scalars['Boolean']>;
-  /** Disconnect currently connected CapitalCostsParent document */
-  readonly disconnect: InputMaybe<Scalars['Boolean']>;
-  /** Update single CapitalCostsParent document */
-  readonly update: InputMaybe<Content_CapitalCostsParentUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single CapitalCostsParent document */
-  readonly upsert: InputMaybe<Content_CapitalCostsParentUpsertWithNestedWhereUniqueInput>;
-};
-
-type Content_CapitalCostsParentUpdateWithNestedWhereUniqueInput = {
-  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateWithNestedWhereUniqueInput>;
-};
-
-type Content_CapitalCostsParentUpsertWithNestedWhereUniqueInput = {
-  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpsertWithNestedWhereUniqueInput>;
-};
-
-type Content_CapitalCostsParentWhereInput = {
-  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanWhereInput>;
-};
-
-type Content_CapitalCostsParentWhereUniqueInput = {
-  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanWhereUniqueInput>;
-};
-
-type Content_CapitalCostsUpdateInput = {
-  readonly details: InputMaybe<Scalars['Content_RichTextAST']>;
-  readonly funding: InputMaybe<Scalars['Content_RichTextAST']>;
-};
-
-type Content_CapitalCostsUpdateManyInlineInput = {
-  /** Create and connect multiple CapitalCosts component instances */
-  readonly create: InputMaybe<ReadonlyArray<Content_CapitalCostsCreateWithPositionInput>>;
-  /** Delete multiple CapitalCosts documents */
-  readonly delete: InputMaybe<ReadonlyArray<Content_CapitalCostsWhereUniqueInput>>;
-  /** Update multiple CapitalCosts component instances */
-  readonly update: InputMaybe<ReadonlyArray<Content_CapitalCostsUpdateWithNestedWhereUniqueAndPositionInput>>;
-  /** Upsert multiple CapitalCosts component instances */
-  readonly upsert: InputMaybe<ReadonlyArray<Content_CapitalCostsUpsertWithNestedWhereUniqueAndPositionInput>>;
-};
-
-type Content_CapitalCostsUpdateManyInput = {
-  readonly details: InputMaybe<Scalars['Content_RichTextAST']>;
-  readonly funding: InputMaybe<Scalars['Content_RichTextAST']>;
-};
-
-type Content_CapitalCostsUpdateManyWithNestedWhereInput = {
-  /** Update many input */
-  readonly data: Content_CapitalCostsUpdateManyInput;
-  /** Document search */
-  readonly where: Content_CapitalCostsWhereInput;
-};
-
-type Content_CapitalCostsUpdateOneInlineInput = {
-  /** Create and connect one CapitalCosts document */
-  readonly create: InputMaybe<Content_CapitalCostsCreateInput>;
-  /** Delete currently connected CapitalCosts document */
-  readonly delete: InputMaybe<Scalars['Boolean']>;
-  /** Update single CapitalCosts document */
-  readonly update: InputMaybe<Content_CapitalCostsUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single CapitalCosts document */
-  readonly upsert: InputMaybe<Content_CapitalCostsUpsertWithNestedWhereUniqueInput>;
-};
-
-type Content_CapitalCostsUpdateWithNestedWhereUniqueAndPositionInput = {
-  /** Document to update */
-  readonly data: InputMaybe<Content_CapitalCostsUpdateInput>;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  readonly position: InputMaybe<Content_ConnectPositionInput>;
-  /** Unique component instance search */
-  readonly where: Content_CapitalCostsWhereUniqueInput;
-};
-
-type Content_CapitalCostsUpdateWithNestedWhereUniqueInput = {
-  /** Document to update */
-  readonly data: Content_CapitalCostsUpdateInput;
-  /** Unique document search */
-  readonly where: Content_CapitalCostsWhereUniqueInput;
-};
-
-type Content_CapitalCostsUpsertInput = {
-  /** Create document if it didn't exist */
-  readonly create: Content_CapitalCostsCreateInput;
-  /** Update document if it exists */
-  readonly update: Content_CapitalCostsUpdateInput;
-};
-
-type Content_CapitalCostsUpsertWithNestedWhereUniqueAndPositionInput = {
-  /** Document to upsert */
-  readonly data: InputMaybe<Content_CapitalCostsUpsertInput>;
-  /** Position in the list of existing component instances, will default to appending at the end of list */
-  readonly position: InputMaybe<Content_ConnectPositionInput>;
-  /** Unique component instance search */
-  readonly where: Content_CapitalCostsWhereUniqueInput;
-};
-
-type Content_CapitalCostsUpsertWithNestedWhereUniqueInput = {
-  /** Upsert data */
-  readonly data: Content_CapitalCostsUpsertInput;
-  /** Unique document search */
-  readonly where: Content_CapitalCostsWhereUniqueInput;
-};
-
-/** Identifies documents */
-type Content_CapitalCostsWhereInput = {
-  /** Logical AND on all given filters. */
-  readonly AND: InputMaybe<ReadonlyArray<Content_CapitalCostsWhereInput>>;
-  /** Logical NOT on all given filters combined by AND. */
-  readonly NOT: InputMaybe<ReadonlyArray<Content_CapitalCostsWhereInput>>;
-  /** Logical OR on all given filters. */
-  readonly OR: InputMaybe<ReadonlyArray<Content_CapitalCostsWhereInput>>;
-  /** Contains search across all appropriate fields. */
-  readonly _search: InputMaybe<Scalars['String']>;
-  readonly id: InputMaybe<Scalars['ID']>;
-  /** All values containing the given string. */
-  readonly id_contains: InputMaybe<Scalars['ID']>;
-  /** All values ending with the given string. */
-  readonly id_ends_with: InputMaybe<Scalars['ID']>;
-  /** All values that are contained in given list. */
-  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
-  readonly id_not: InputMaybe<Scalars['ID']>;
-  /** All values not containing the given string. */
-  readonly id_not_contains: InputMaybe<Scalars['ID']>;
-  /** All values not ending with the given string */
-  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
-  /** All values that are not contained in given list. */
-  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values not starting with the given string. */
-  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
-  /** All values starting with the given string. */
-  readonly id_starts_with: InputMaybe<Scalars['ID']>;
-};
-
-/** References CapitalCosts record uniquely */
-type Content_CapitalCostsWhereUniqueInput = {
-  readonly id: InputMaybe<Scalars['ID']>;
-};
-
 type Content_Checklist = {
   /** The unique identifier */
   readonly id: Scalars['ID'];
@@ -2108,6 +1824,7 @@ type Content_DevelopmentOption = Content_Node & {
   /** Get the other localizations for this document */
   readonly localizations: ReadonlyArray<Content_DevelopmentOption>;
   readonly mainText: Maybe<Content_RichText>;
+  readonly modelBusinessPlan: Maybe<Content_ModelBusinessPlan>;
   readonly modelSwot: Maybe<Content_ModelSwot>;
   /** The time the document was published. Null on documents in draft stage. */
   readonly publishedAt: Maybe<Scalars['Content_DateTime']>;
@@ -2172,6 +1889,12 @@ type Content_DevelopmentOption_informationMainImageArgs = {
 type Content_DevelopmentOption_localizationsArgs = {
   includeCurrent?: Scalars['Boolean'];
   locales?: ReadonlyArray<Content_Locale>;
+};
+
+
+type Content_DevelopmentOption_modelBusinessPlanArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
@@ -2242,6 +1965,7 @@ type Content_DevelopmentOptionCreateInput = {
   readonly localizations: InputMaybe<Content_DevelopmentOptionCreateLocalizationsInput>;
   /** mainText input for default locale (en) */
   readonly mainText: InputMaybe<Scalars['Content_RichTextAST']>;
+  readonly modelBusinessPlan: InputMaybe<Content_ModelBusinessPlanCreateOneInlineInput>;
   readonly modelSwot: InputMaybe<Content_ModelSwotCreateOneInlineInput>;
   readonly slug: InputMaybe<Scalars['String']>;
   /** title input for default locale (en) */
@@ -2340,6 +2064,7 @@ type Content_DevelopmentOptionManyWhereInput = {
   /** All values starting with the given string. */
   readonly id_starts_with: InputMaybe<Scalars['ID']>;
   readonly informationMainImage: InputMaybe<Content_AssetWhereInput>;
+  readonly modelBusinessPlan: InputMaybe<Content_ModelBusinessPlanWhereInput>;
   readonly modelSwot: InputMaybe<Content_ModelSwotWhereInput>;
   readonly publishedAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
@@ -2424,6 +2149,7 @@ type Content_DevelopmentOptionUpdateInput = {
   readonly localizations: InputMaybe<Content_DevelopmentOptionUpdateLocalizationsInput>;
   /** mainText input for default locale (en) */
   readonly mainText: InputMaybe<Scalars['Content_RichTextAST']>;
+  readonly modelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateOneInlineInput>;
   readonly modelSwot: InputMaybe<Content_ModelSwotUpdateOneInlineInput>;
   readonly slug: InputMaybe<Scalars['String']>;
   /** title input for default locale (en) */
@@ -2620,6 +2346,7 @@ type Content_DevelopmentOptionWhereInput = {
   readonly intro_not_starts_with: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   readonly intro_starts_with: InputMaybe<Scalars['String']>;
+  readonly modelBusinessPlan: InputMaybe<Content_ModelBusinessPlanWhereInput>;
   readonly modelSwot: InputMaybe<Content_ModelSwotWhereInput>;
   readonly publishedAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
@@ -2854,6 +2581,360 @@ type Content_DocumentVersion = {
   readonly id: Scalars['ID'];
   readonly revision: Scalars['Int'];
   readonly stage: Content_Stage;
+};
+
+type Content_FundingSource = {
+  readonly amount: Scalars['Int'];
+  readonly funder: Scalars['String'];
+  /** The unique identifier */
+  readonly id: Scalars['ID'];
+  /** System stage field */
+  readonly stage: Content_Stage;
+};
+
+type Content_FundingSourceConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Document to connect */
+  readonly where: Content_FundingSourceWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+type Content_FundingSourceConnection = {
+  readonly aggregate: Content_Aggregate;
+  /** A list of edges. */
+  readonly edges: ReadonlyArray<Content_FundingSourceEdge>;
+  /** Information to aid in pagination. */
+  readonly pageInfo: Content_PageInfo;
+};
+
+type Content_FundingSourceCreateInput = {
+  readonly amount: Scalars['Int'];
+  readonly funder: Scalars['String'];
+};
+
+type Content_FundingSourceCreateManyInlineInput = {
+  /** Create and connect multiple existing FundingSource documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_FundingSourceCreateInput>>;
+};
+
+type Content_FundingSourceCreateOneInlineInput = {
+  /** Create and connect one FundingSource document */
+  readonly create: InputMaybe<Content_FundingSourceCreateInput>;
+};
+
+type Content_FundingSourceCreateWithPositionInput = {
+  /** Document to create */
+  readonly data: Content_FundingSourceCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+type Content_FundingSourceEdge = {
+  /** A cursor for use in pagination. */
+  readonly cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  readonly node: Content_FundingSource;
+};
+
+/** Identifies documents */
+type Content_FundingSourceManyWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_FundingSourceWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_FundingSourceWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_FundingSourceWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly amount: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly amount_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly amount_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly amount_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly amount_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly amount_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly amount_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly amount_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly funder: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  readonly funder_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  readonly funder_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  readonly funder_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  readonly funder_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  readonly funder_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  readonly funder_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  readonly funder_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  readonly funder_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  readonly funder_starts_with: InputMaybe<Scalars['String']>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+};
+
+type Content_FundingSourceOrderByInput =
+  | 'amount_ASC'
+  | 'amount_DESC'
+  | 'funder_ASC'
+  | 'funder_DESC'
+  | 'id_ASC'
+  | 'id_DESC';
+
+type Content_FundingSourceParent = Content_SetupCostSection;
+
+type Content_FundingSourceParentConnectInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionConnectInput>;
+};
+
+type Content_FundingSourceParentCreateInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionCreateInput>;
+};
+
+type Content_FundingSourceParentCreateManyInlineInput = {
+  /** Create and connect multiple existing FundingSourceParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_FundingSourceParentCreateInput>>;
+};
+
+type Content_FundingSourceParentCreateOneInlineInput = {
+  /** Create and connect one FundingSourceParent document */
+  readonly create: InputMaybe<Content_FundingSourceParentCreateInput>;
+};
+
+type Content_FundingSourceParentCreateWithPositionInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionCreateWithPositionInput>;
+};
+
+type Content_FundingSourceParentUpdateInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpdateInput>;
+};
+
+type Content_FundingSourceParentUpdateManyInlineInput = {
+  /** Create and connect multiple FundingSourceParent component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_FundingSourceParentCreateWithPositionInput>>;
+  /** Delete multiple FundingSourceParent documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_FundingSourceParentWhereUniqueInput>>;
+  /** Update multiple FundingSourceParent component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_FundingSourceParentUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple FundingSourceParent component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_FundingSourceParentUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_FundingSourceParentUpdateManyWithNestedWhereInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpdateManyWithNestedWhereInput>;
+};
+
+type Content_FundingSourceParentUpdateOneInlineInput = {
+  /** Create and connect one FundingSourceParent document */
+  readonly create: InputMaybe<Content_FundingSourceParentCreateInput>;
+  /** Delete currently connected FundingSourceParent document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single FundingSourceParent document */
+  readonly update: InputMaybe<Content_FundingSourceParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single FundingSourceParent document */
+  readonly upsert: InputMaybe<Content_FundingSourceParentUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_FundingSourceParentUpdateWithNestedWhereUniqueAndPositionInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpdateWithNestedWhereUniqueAndPositionInput>;
+};
+
+type Content_FundingSourceParentUpdateWithNestedWhereUniqueInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpdateWithNestedWhereUniqueInput>;
+};
+
+type Content_FundingSourceParentUpsertWithNestedWhereUniqueAndPositionInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpsertWithNestedWhereUniqueAndPositionInput>;
+};
+
+type Content_FundingSourceParentUpsertWithNestedWhereUniqueInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_FundingSourceParentWhereInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionWhereInput>;
+};
+
+type Content_FundingSourceParentWhereUniqueInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionWhereUniqueInput>;
+};
+
+type Content_FundingSourceUpdateInput = {
+  readonly amount: InputMaybe<Scalars['Int']>;
+  readonly funder: InputMaybe<Scalars['String']>;
+};
+
+type Content_FundingSourceUpdateManyInlineInput = {
+  /** Create and connect multiple FundingSource component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_FundingSourceCreateWithPositionInput>>;
+  /** Delete multiple FundingSource documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_FundingSourceWhereUniqueInput>>;
+  /** Update multiple FundingSource component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_FundingSourceUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple FundingSource component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_FundingSourceUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_FundingSourceUpdateManyInput = {
+  readonly amount: InputMaybe<Scalars['Int']>;
+  readonly funder: InputMaybe<Scalars['String']>;
+};
+
+type Content_FundingSourceUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  readonly data: Content_FundingSourceUpdateManyInput;
+  /** Document search */
+  readonly where: Content_FundingSourceWhereInput;
+};
+
+type Content_FundingSourceUpdateOneInlineInput = {
+  /** Create and connect one FundingSource document */
+  readonly create: InputMaybe<Content_FundingSourceCreateInput>;
+  /** Delete currently connected FundingSource document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single FundingSource document */
+  readonly update: InputMaybe<Content_FundingSourceUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single FundingSource document */
+  readonly upsert: InputMaybe<Content_FundingSourceUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_FundingSourceUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  readonly data: InputMaybe<Content_FundingSourceUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_FundingSourceWhereUniqueInput;
+};
+
+type Content_FundingSourceUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  readonly data: Content_FundingSourceUpdateInput;
+  /** Unique document search */
+  readonly where: Content_FundingSourceWhereUniqueInput;
+};
+
+type Content_FundingSourceUpsertInput = {
+  /** Create document if it didn't exist */
+  readonly create: Content_FundingSourceCreateInput;
+  /** Update document if it exists */
+  readonly update: Content_FundingSourceUpdateInput;
+};
+
+type Content_FundingSourceUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  readonly data: InputMaybe<Content_FundingSourceUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_FundingSourceWhereUniqueInput;
+};
+
+type Content_FundingSourceUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  readonly data: Content_FundingSourceUpsertInput;
+  /** Unique document search */
+  readonly where: Content_FundingSourceWhereUniqueInput;
+};
+
+/** Identifies documents */
+type Content_FundingSourceWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_FundingSourceWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_FundingSourceWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_FundingSourceWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly amount: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly amount_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly amount_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly amount_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly amount_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly amount_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly amount_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly amount_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly funder: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  readonly funder_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  readonly funder_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  readonly funder_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  readonly funder_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  readonly funder_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  readonly funder_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  readonly funder_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  readonly funder_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  readonly funder_starts_with: InputMaybe<Scalars['String']>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+};
+
+/** References FundingSource record uniquely */
+type Content_FundingSourceWhereUniqueInput = {
+  readonly id: InputMaybe<Scalars['ID']>;
 };
 
 type Content_HelpfulInfo = {
@@ -3907,7 +3988,6 @@ type Content_LocationInput = {
 };
 
 type Content_ModelBusinessPlan = Content_Node & {
-  readonly capitalCosts: Maybe<Content_CapitalCosts>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -3927,19 +4007,15 @@ type Content_ModelBusinessPlan = Content_Node & {
   readonly publishedAt: Maybe<Scalars['Content_DateTime']>;
   /** User that last published this document */
   readonly publishedBy: Maybe<Content_User>;
+  readonly runningCosts: Content_RunningCostsSection;
   readonly scheduledIn: ReadonlyArray<Content_ScheduledOperation>;
+  readonly setupCosts: Content_SetupCostSection;
   /** System stage field */
   readonly stage: Content_Stage;
   /** The time the document was updated */
   readonly updatedAt: Scalars['Content_DateTime'];
   /** User that last updated this document */
   readonly updatedBy: Maybe<Content_User>;
-};
-
-
-type Content_ModelBusinessPlan_capitalCostsArgs = {
-  forceParentLocale: InputMaybe<Scalars['Boolean']>;
-  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
@@ -3985,6 +4061,12 @@ type Content_ModelBusinessPlan_publishedByArgs = {
 };
 
 
+type Content_ModelBusinessPlan_runningCostsArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
+};
+
+
 type Content_ModelBusinessPlan_scheduledInArgs = {
   after: InputMaybe<Scalars['String']>;
   before: InputMaybe<Scalars['String']>;
@@ -3994,6 +4076,12 @@ type Content_ModelBusinessPlan_scheduledInArgs = {
   locales: InputMaybe<ReadonlyArray<Content_Locale>>;
   skip: InputMaybe<Scalars['Int']>;
   where: InputMaybe<Content_ScheduledOperationWhereInput>;
+};
+
+
+type Content_ModelBusinessPlan_setupCostsArgs = {
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
 };
 
 
@@ -4024,12 +4112,14 @@ type Content_ModelBusinessPlanConnection = {
 };
 
 type Content_ModelBusinessPlanCreateInput = {
-  readonly capitalCosts: InputMaybe<Content_CapitalCostsCreateOneInlineInput>;
+  readonly clcb8rrgr34m401uh44mx6ybs: InputMaybe<Content_DevelopmentOptionCreateManyInlineInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** developmentOption input for default locale (en) */
   readonly developmentOption: Scalars['String'];
   /** Inline mutations for managing document localizations excluding the default locale */
   readonly localizations: InputMaybe<Content_ModelBusinessPlanCreateLocalizationsInput>;
+  readonly runningCosts: Content_RunningCostsSectionCreateOneInlineInput;
+  readonly setupCosts: Content_SetupCostSectionCreateOneInlineInput;
   readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
 };
 
@@ -4082,7 +4172,6 @@ type Content_ModelBusinessPlanManyWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_ModelBusinessPlanWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
-  readonly capitalCosts: InputMaybe<Content_CapitalCostsWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -4137,9 +4226,11 @@ type Content_ModelBusinessPlanManyWhereInput = {
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
   readonly publishedBy: InputMaybe<Content_UserWhereInput>;
+  readonly runningCosts: InputMaybe<Content_RunningCostsSectionWhereInput>;
   readonly scheduledIn_every: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly scheduledIn_none: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly scheduledIn_some: InputMaybe<Content_ScheduledOperationWhereInput>;
+  readonly setupCosts: InputMaybe<Content_SetupCostSectionWhereInput>;
   readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly updatedAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -4171,11 +4262,13 @@ type Content_ModelBusinessPlanOrderByInput =
   | 'updatedAt_DESC';
 
 type Content_ModelBusinessPlanUpdateInput = {
-  readonly capitalCosts: InputMaybe<Content_CapitalCostsUpdateOneInlineInput>;
+  readonly clcb8rrgr34m401uh44mx6ybs: InputMaybe<Content_DevelopmentOptionUpdateManyInlineInput>;
   /** developmentOption input for default locale (en) */
   readonly developmentOption: InputMaybe<Scalars['String']>;
   /** Manage document localizations */
   readonly localizations: InputMaybe<Content_ModelBusinessPlanUpdateLocalizationsInput>;
+  readonly runningCosts: InputMaybe<Content_RunningCostsSectionUpdateOneInlineInput>;
+  readonly setupCosts: InputMaybe<Content_SetupCostSectionUpdateOneInlineInput>;
 };
 
 type Content_ModelBusinessPlanUpdateLocalizationDataInput = {
@@ -4284,7 +4377,6 @@ type Content_ModelBusinessPlanWhereInput = {
   readonly OR: InputMaybe<ReadonlyArray<Content_ModelBusinessPlanWhereInput>>;
   /** Contains search across all appropriate fields. */
   readonly _search: InputMaybe<Scalars['String']>;
-  readonly capitalCosts: InputMaybe<Content_CapitalCostsWhereInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly createdAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -4358,9 +4450,11 @@ type Content_ModelBusinessPlanWhereInput = {
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
   readonly publishedBy: InputMaybe<Content_UserWhereInput>;
+  readonly runningCosts: InputMaybe<Content_RunningCostsSectionWhereInput>;
   readonly scheduledIn_every: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly scheduledIn_none: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly scheduledIn_some: InputMaybe<Content_ScheduledOperationWhereInput>;
+  readonly setupCosts: InputMaybe<Content_SetupCostSectionWhereInput>;
   readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values greater than the given value. */
   readonly updatedAt_gt: InputMaybe<Scalars['Content_DateTime']>;
@@ -5630,6 +5724,790 @@ type Content_RichText = {
   readonly text: Scalars['String'];
 };
 
+type Content_RunningCostItem = {
+  /** The unique identifier */
+  readonly id: Scalars['ID'];
+  readonly item: Scalars['String'];
+  /** System stage field */
+  readonly stage: Content_Stage;
+  readonly yearFour: Scalars['Int'];
+  readonly yearOne: Scalars['Int'];
+  readonly yearThree: Scalars['Int'];
+  readonly yearTwo: Scalars['Int'];
+};
+
+type Content_RunningCostItemConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Document to connect */
+  readonly where: Content_RunningCostItemWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+type Content_RunningCostItemConnection = {
+  readonly aggregate: Content_Aggregate;
+  /** A list of edges. */
+  readonly edges: ReadonlyArray<Content_RunningCostItemEdge>;
+  /** Information to aid in pagination. */
+  readonly pageInfo: Content_PageInfo;
+};
+
+type Content_RunningCostItemCreateInput = {
+  readonly item: Scalars['String'];
+  readonly yearFour: Scalars['Int'];
+  readonly yearOne: Scalars['Int'];
+  readonly yearThree: Scalars['Int'];
+  readonly yearTwo: Scalars['Int'];
+};
+
+type Content_RunningCostItemCreateManyInlineInput = {
+  /** Create and connect multiple existing RunningCostItem documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_RunningCostItemCreateInput>>;
+};
+
+type Content_RunningCostItemCreateOneInlineInput = {
+  /** Create and connect one RunningCostItem document */
+  readonly create: InputMaybe<Content_RunningCostItemCreateInput>;
+};
+
+type Content_RunningCostItemCreateWithPositionInput = {
+  /** Document to create */
+  readonly data: Content_RunningCostItemCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+type Content_RunningCostItemEdge = {
+  /** A cursor for use in pagination. */
+  readonly cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  readonly node: Content_RunningCostItem;
+};
+
+/** Identifies documents */
+type Content_RunningCostItemManyWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_RunningCostItemWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_RunningCostItemWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_RunningCostItemWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+  readonly item: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  readonly item_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  readonly item_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  readonly item_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  readonly item_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  readonly item_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  readonly item_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  readonly item_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  readonly item_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  readonly item_starts_with: InputMaybe<Scalars['String']>;
+  readonly yearFour: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly yearFour_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly yearFour_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly yearFour_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly yearFour_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly yearFour_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly yearFour_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly yearFour_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly yearOne: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly yearOne_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly yearOne_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly yearOne_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly yearOne_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly yearOne_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly yearOne_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly yearOne_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly yearThree: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly yearThree_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly yearThree_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly yearThree_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly yearThree_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly yearThree_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly yearThree_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly yearThree_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly yearTwo: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly yearTwo_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly yearTwo_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly yearTwo_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly yearTwo_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly yearTwo_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly yearTwo_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly yearTwo_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+};
+
+type Content_RunningCostItemOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'item_ASC'
+  | 'item_DESC'
+  | 'yearFour_ASC'
+  | 'yearFour_DESC'
+  | 'yearOne_ASC'
+  | 'yearOne_DESC'
+  | 'yearThree_ASC'
+  | 'yearThree_DESC'
+  | 'yearTwo_ASC'
+  | 'yearTwo_DESC';
+
+type Content_RunningCostItemParent = Content_RunningCostsSection;
+
+type Content_RunningCostItemParentConnectInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionConnectInput>;
+};
+
+type Content_RunningCostItemParentCreateInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionCreateInput>;
+};
+
+type Content_RunningCostItemParentCreateManyInlineInput = {
+  /** Create and connect multiple existing RunningCostItemParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_RunningCostItemParentCreateInput>>;
+};
+
+type Content_RunningCostItemParentCreateOneInlineInput = {
+  /** Create and connect one RunningCostItemParent document */
+  readonly create: InputMaybe<Content_RunningCostItemParentCreateInput>;
+};
+
+type Content_RunningCostItemParentCreateWithPositionInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionCreateWithPositionInput>;
+};
+
+type Content_RunningCostItemParentUpdateInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionUpdateInput>;
+};
+
+type Content_RunningCostItemParentUpdateManyInlineInput = {
+  /** Create and connect multiple RunningCostItemParent component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_RunningCostItemParentCreateWithPositionInput>>;
+  /** Delete multiple RunningCostItemParent documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_RunningCostItemParentWhereUniqueInput>>;
+  /** Update multiple RunningCostItemParent component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_RunningCostItemParentUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple RunningCostItemParent component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_RunningCostItemParentUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_RunningCostItemParentUpdateManyWithNestedWhereInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionUpdateManyWithNestedWhereInput>;
+};
+
+type Content_RunningCostItemParentUpdateOneInlineInput = {
+  /** Create and connect one RunningCostItemParent document */
+  readonly create: InputMaybe<Content_RunningCostItemParentCreateInput>;
+  /** Delete currently connected RunningCostItemParent document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single RunningCostItemParent document */
+  readonly update: InputMaybe<Content_RunningCostItemParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single RunningCostItemParent document */
+  readonly upsert: InputMaybe<Content_RunningCostItemParentUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_RunningCostItemParentUpdateWithNestedWhereUniqueAndPositionInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionUpdateWithNestedWhereUniqueAndPositionInput>;
+};
+
+type Content_RunningCostItemParentUpdateWithNestedWhereUniqueInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionUpdateWithNestedWhereUniqueInput>;
+};
+
+type Content_RunningCostItemParentUpsertWithNestedWhereUniqueAndPositionInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionUpsertWithNestedWhereUniqueAndPositionInput>;
+};
+
+type Content_RunningCostItemParentUpsertWithNestedWhereUniqueInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_RunningCostItemParentWhereInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionWhereInput>;
+};
+
+type Content_RunningCostItemParentWhereUniqueInput = {
+  readonly RunningCostsSection: InputMaybe<Content_RunningCostsSectionWhereUniqueInput>;
+};
+
+type Content_RunningCostItemUpdateInput = {
+  readonly item: InputMaybe<Scalars['String']>;
+  readonly yearFour: InputMaybe<Scalars['Int']>;
+  readonly yearOne: InputMaybe<Scalars['Int']>;
+  readonly yearThree: InputMaybe<Scalars['Int']>;
+  readonly yearTwo: InputMaybe<Scalars['Int']>;
+};
+
+type Content_RunningCostItemUpdateManyInlineInput = {
+  /** Create and connect multiple RunningCostItem component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_RunningCostItemCreateWithPositionInput>>;
+  /** Delete multiple RunningCostItem documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_RunningCostItemWhereUniqueInput>>;
+  /** Update multiple RunningCostItem component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_RunningCostItemUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple RunningCostItem component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_RunningCostItemUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_RunningCostItemUpdateManyInput = {
+  readonly item: InputMaybe<Scalars['String']>;
+  readonly yearFour: InputMaybe<Scalars['Int']>;
+  readonly yearOne: InputMaybe<Scalars['Int']>;
+  readonly yearThree: InputMaybe<Scalars['Int']>;
+  readonly yearTwo: InputMaybe<Scalars['Int']>;
+};
+
+type Content_RunningCostItemUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  readonly data: Content_RunningCostItemUpdateManyInput;
+  /** Document search */
+  readonly where: Content_RunningCostItemWhereInput;
+};
+
+type Content_RunningCostItemUpdateOneInlineInput = {
+  /** Create and connect one RunningCostItem document */
+  readonly create: InputMaybe<Content_RunningCostItemCreateInput>;
+  /** Delete currently connected RunningCostItem document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single RunningCostItem document */
+  readonly update: InputMaybe<Content_RunningCostItemUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single RunningCostItem document */
+  readonly upsert: InputMaybe<Content_RunningCostItemUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_RunningCostItemUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  readonly data: InputMaybe<Content_RunningCostItemUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_RunningCostItemWhereUniqueInput;
+};
+
+type Content_RunningCostItemUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  readonly data: Content_RunningCostItemUpdateInput;
+  /** Unique document search */
+  readonly where: Content_RunningCostItemWhereUniqueInput;
+};
+
+type Content_RunningCostItemUpsertInput = {
+  /** Create document if it didn't exist */
+  readonly create: Content_RunningCostItemCreateInput;
+  /** Update document if it exists */
+  readonly update: Content_RunningCostItemUpdateInput;
+};
+
+type Content_RunningCostItemUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  readonly data: InputMaybe<Content_RunningCostItemUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_RunningCostItemWhereUniqueInput;
+};
+
+type Content_RunningCostItemUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  readonly data: Content_RunningCostItemUpsertInput;
+  /** Unique document search */
+  readonly where: Content_RunningCostItemWhereUniqueInput;
+};
+
+/** Identifies documents */
+type Content_RunningCostItemWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_RunningCostItemWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_RunningCostItemWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_RunningCostItemWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+  readonly item: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  readonly item_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  readonly item_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  readonly item_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  readonly item_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  readonly item_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  readonly item_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  readonly item_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  readonly item_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  readonly item_starts_with: InputMaybe<Scalars['String']>;
+  readonly yearFour: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly yearFour_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly yearFour_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly yearFour_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly yearFour_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly yearFour_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly yearFour_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly yearFour_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly yearOne: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly yearOne_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly yearOne_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly yearOne_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly yearOne_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly yearOne_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly yearOne_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly yearOne_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly yearThree: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly yearThree_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly yearThree_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly yearThree_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly yearThree_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly yearThree_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly yearThree_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly yearThree_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly yearTwo: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly yearTwo_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly yearTwo_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly yearTwo_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly yearTwo_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly yearTwo_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly yearTwo_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly yearTwo_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+};
+
+/** References RunningCostItem record uniquely */
+type Content_RunningCostItemWhereUniqueInput = {
+  readonly id: InputMaybe<Scalars['ID']>;
+};
+
+type Content_RunningCostsSection = {
+  readonly costs: ReadonlyArray<Content_RunningCostItem>;
+  /** The unique identifier */
+  readonly id: Scalars['ID'];
+  readonly incomes: ReadonlyArray<Content_RunningCostItem>;
+  /** System stage field */
+  readonly stage: Content_Stage;
+};
+
+
+type Content_RunningCostsSection_costsArgs = {
+  after: InputMaybe<Scalars['String']>;
+  before: InputMaybe<Scalars['String']>;
+  first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  last: InputMaybe<Scalars['Int']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
+  orderBy: InputMaybe<Content_RunningCostItemOrderByInput>;
+  skip: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<Content_RunningCostItemWhereInput>;
+};
+
+
+type Content_RunningCostsSection_incomesArgs = {
+  after: InputMaybe<Scalars['String']>;
+  before: InputMaybe<Scalars['String']>;
+  first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  last: InputMaybe<Scalars['Int']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
+  orderBy: InputMaybe<Content_RunningCostItemOrderByInput>;
+  skip: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<Content_RunningCostItemWhereInput>;
+};
+
+type Content_RunningCostsSectionConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Document to connect */
+  readonly where: Content_RunningCostsSectionWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+type Content_RunningCostsSectionConnection = {
+  readonly aggregate: Content_Aggregate;
+  /** A list of edges. */
+  readonly edges: ReadonlyArray<Content_RunningCostsSectionEdge>;
+  /** Information to aid in pagination. */
+  readonly pageInfo: Content_PageInfo;
+};
+
+type Content_RunningCostsSectionCreateInput = {
+  readonly costs: InputMaybe<Content_RunningCostItemCreateManyInlineInput>;
+  readonly incomes: InputMaybe<Content_RunningCostItemCreateManyInlineInput>;
+};
+
+type Content_RunningCostsSectionCreateManyInlineInput = {
+  /** Create and connect multiple existing RunningCostsSection documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_RunningCostsSectionCreateInput>>;
+};
+
+type Content_RunningCostsSectionCreateOneInlineInput = {
+  /** Create and connect one RunningCostsSection document */
+  readonly create: InputMaybe<Content_RunningCostsSectionCreateInput>;
+};
+
+type Content_RunningCostsSectionCreateWithPositionInput = {
+  /** Document to create */
+  readonly data: Content_RunningCostsSectionCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+type Content_RunningCostsSectionEdge = {
+  /** A cursor for use in pagination. */
+  readonly cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  readonly node: Content_RunningCostsSection;
+};
+
+/** Identifies documents */
+type Content_RunningCostsSectionManyWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_RunningCostsSectionWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_RunningCostsSectionWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_RunningCostsSectionWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly costs_every: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly costs_none: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly costs_some: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+  readonly incomes_every: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly incomes_none: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly incomes_some: InputMaybe<Content_RunningCostItemWhereInput>;
+};
+
+type Content_RunningCostsSectionOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC';
+
+type Content_RunningCostsSectionParent = Content_ModelBusinessPlan;
+
+type Content_RunningCostsSectionParentConnectInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanConnectInput>;
+};
+
+type Content_RunningCostsSectionParentCreateInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanCreateInput>;
+};
+
+type Content_RunningCostsSectionParentCreateManyInlineInput = {
+  /** Connect multiple existing RunningCostsSectionParent documents */
+  readonly connect: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentWhereUniqueInput>>;
+  /** Create and connect multiple existing RunningCostsSectionParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentCreateInput>>;
+};
+
+type Content_RunningCostsSectionParentCreateOneInlineInput = {
+  /** Connect one existing RunningCostsSectionParent document */
+  readonly connect: InputMaybe<Content_RunningCostsSectionParentWhereUniqueInput>;
+  /** Create and connect one RunningCostsSectionParent document */
+  readonly create: InputMaybe<Content_RunningCostsSectionParentCreateInput>;
+};
+
+type Content_RunningCostsSectionParentUpdateInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateInput>;
+};
+
+type Content_RunningCostsSectionParentUpdateManyInlineInput = {
+  /** Connect multiple existing RunningCostsSectionParent documents */
+  readonly connect: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentConnectInput>>;
+  /** Create and connect multiple RunningCostsSectionParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentCreateInput>>;
+  /** Delete multiple RunningCostsSectionParent documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentWhereUniqueInput>>;
+  /** Disconnect multiple RunningCostsSectionParent documents */
+  readonly disconnect: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing RunningCostsSectionParent documents */
+  readonly set: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentWhereUniqueInput>>;
+  /** Update multiple RunningCostsSectionParent documents */
+  readonly update: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple RunningCostsSectionParent documents */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_RunningCostsSectionParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+type Content_RunningCostsSectionParentUpdateManyWithNestedWhereInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateManyWithNestedWhereInput>;
+};
+
+type Content_RunningCostsSectionParentUpdateOneInlineInput = {
+  /** Connect existing RunningCostsSectionParent document */
+  readonly connect: InputMaybe<Content_RunningCostsSectionParentWhereUniqueInput>;
+  /** Create and connect one RunningCostsSectionParent document */
+  readonly create: InputMaybe<Content_RunningCostsSectionParentCreateInput>;
+  /** Delete currently connected RunningCostsSectionParent document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected RunningCostsSectionParent document */
+  readonly disconnect: InputMaybe<Scalars['Boolean']>;
+  /** Update single RunningCostsSectionParent document */
+  readonly update: InputMaybe<Content_RunningCostsSectionParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single RunningCostsSectionParent document */
+  readonly upsert: InputMaybe<Content_RunningCostsSectionParentUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_RunningCostsSectionParentUpdateWithNestedWhereUniqueInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateWithNestedWhereUniqueInput>;
+};
+
+type Content_RunningCostsSectionParentUpsertWithNestedWhereUniqueInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_RunningCostsSectionParentWhereInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanWhereInput>;
+};
+
+type Content_RunningCostsSectionParentWhereUniqueInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanWhereUniqueInput>;
+};
+
+type Content_RunningCostsSectionUpdateInput = {
+  readonly costs: InputMaybe<Content_RunningCostItemUpdateManyInlineInput>;
+  readonly incomes: InputMaybe<Content_RunningCostItemUpdateManyInlineInput>;
+};
+
+type Content_RunningCostsSectionUpdateManyInlineInput = {
+  /** Create and connect multiple RunningCostsSection component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_RunningCostsSectionCreateWithPositionInput>>;
+  /** Delete multiple RunningCostsSection documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_RunningCostsSectionWhereUniqueInput>>;
+  /** Update multiple RunningCostsSection component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_RunningCostsSectionUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple RunningCostsSection component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_RunningCostsSectionUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_RunningCostsSectionUpdateManyInput = {
+  /** No fields in updateMany data input */
+  readonly _: InputMaybe<Scalars['String']>;
+};
+
+type Content_RunningCostsSectionUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  readonly data: Content_RunningCostsSectionUpdateManyInput;
+  /** Document search */
+  readonly where: Content_RunningCostsSectionWhereInput;
+};
+
+type Content_RunningCostsSectionUpdateOneInlineInput = {
+  /** Create and connect one RunningCostsSection document */
+  readonly create: InputMaybe<Content_RunningCostsSectionCreateInput>;
+  /** Delete currently connected RunningCostsSection document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single RunningCostsSection document */
+  readonly update: InputMaybe<Content_RunningCostsSectionUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single RunningCostsSection document */
+  readonly upsert: InputMaybe<Content_RunningCostsSectionUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_RunningCostsSectionUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  readonly data: InputMaybe<Content_RunningCostsSectionUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_RunningCostsSectionWhereUniqueInput;
+};
+
+type Content_RunningCostsSectionUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  readonly data: Content_RunningCostsSectionUpdateInput;
+  /** Unique document search */
+  readonly where: Content_RunningCostsSectionWhereUniqueInput;
+};
+
+type Content_RunningCostsSectionUpsertInput = {
+  /** Create document if it didn't exist */
+  readonly create: Content_RunningCostsSectionCreateInput;
+  /** Update document if it exists */
+  readonly update: Content_RunningCostsSectionUpdateInput;
+};
+
+type Content_RunningCostsSectionUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  readonly data: InputMaybe<Content_RunningCostsSectionUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_RunningCostsSectionWhereUniqueInput;
+};
+
+type Content_RunningCostsSectionUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  readonly data: Content_RunningCostsSectionUpsertInput;
+  /** Unique document search */
+  readonly where: Content_RunningCostsSectionWhereUniqueInput;
+};
+
+/** Identifies documents */
+type Content_RunningCostsSectionWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_RunningCostsSectionWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_RunningCostsSectionWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_RunningCostsSectionWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly costs_every: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly costs_none: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly costs_some: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+  readonly incomes_every: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly incomes_none: InputMaybe<Content_RunningCostItemWhereInput>;
+  readonly incomes_some: InputMaybe<Content_RunningCostItemWhereInput>;
+};
+
+/** References RunningCostsSection record uniquely */
+type Content_RunningCostsSectionWhereUniqueInput = {
+  readonly id: InputMaybe<Scalars['ID']>;
+};
+
 /** Scheduled Operation system model */
 type Content_ScheduledOperation = Content_Node & {
   readonly affectedDocuments: ReadonlyArray<Content_ScheduledOperationAffectedDocument>;
@@ -6614,6 +7492,682 @@ type Content_ScheduledReleaseWhereInput = {
 
 /** References ScheduledRelease record uniquely */
 type Content_ScheduledReleaseWhereUniqueInput = {
+  readonly id: InputMaybe<Scalars['ID']>;
+};
+
+type Content_SetupCostItem = {
+  readonly cost: Scalars['Int'];
+  /** The unique identifier */
+  readonly id: Scalars['ID'];
+  readonly item: Scalars['String'];
+  /** System stage field */
+  readonly stage: Content_Stage;
+};
+
+type Content_SetupCostItemConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Document to connect */
+  readonly where: Content_SetupCostItemWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+type Content_SetupCostItemConnection = {
+  readonly aggregate: Content_Aggregate;
+  /** A list of edges. */
+  readonly edges: ReadonlyArray<Content_SetupCostItemEdge>;
+  /** Information to aid in pagination. */
+  readonly pageInfo: Content_PageInfo;
+};
+
+type Content_SetupCostItemCreateInput = {
+  readonly cost: Scalars['Int'];
+  readonly item: Scalars['String'];
+};
+
+type Content_SetupCostItemCreateManyInlineInput = {
+  /** Create and connect multiple existing SetupCostItem documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_SetupCostItemCreateInput>>;
+};
+
+type Content_SetupCostItemCreateOneInlineInput = {
+  /** Create and connect one SetupCostItem document */
+  readonly create: InputMaybe<Content_SetupCostItemCreateInput>;
+};
+
+type Content_SetupCostItemCreateWithPositionInput = {
+  /** Document to create */
+  readonly data: Content_SetupCostItemCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+type Content_SetupCostItemEdge = {
+  /** A cursor for use in pagination. */
+  readonly cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  readonly node: Content_SetupCostItem;
+};
+
+/** Identifies documents */
+type Content_SetupCostItemManyWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_SetupCostItemWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_SetupCostItemWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_SetupCostItemWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly cost: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly cost_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly cost_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly cost_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly cost_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly cost_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly cost_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly cost_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+  readonly item: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  readonly item_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  readonly item_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  readonly item_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  readonly item_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  readonly item_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  readonly item_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  readonly item_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  readonly item_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  readonly item_starts_with: InputMaybe<Scalars['String']>;
+};
+
+type Content_SetupCostItemOrderByInput =
+  | 'cost_ASC'
+  | 'cost_DESC'
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'item_ASC'
+  | 'item_DESC';
+
+type Content_SetupCostItemParent = Content_SetupCostSection;
+
+type Content_SetupCostItemParentConnectInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionConnectInput>;
+};
+
+type Content_SetupCostItemParentCreateInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionCreateInput>;
+};
+
+type Content_SetupCostItemParentCreateManyInlineInput = {
+  /** Create and connect multiple existing SetupCostItemParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_SetupCostItemParentCreateInput>>;
+};
+
+type Content_SetupCostItemParentCreateOneInlineInput = {
+  /** Create and connect one SetupCostItemParent document */
+  readonly create: InputMaybe<Content_SetupCostItemParentCreateInput>;
+};
+
+type Content_SetupCostItemParentCreateWithPositionInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionCreateWithPositionInput>;
+};
+
+type Content_SetupCostItemParentUpdateInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpdateInput>;
+};
+
+type Content_SetupCostItemParentUpdateManyInlineInput = {
+  /** Create and connect multiple SetupCostItemParent component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_SetupCostItemParentCreateWithPositionInput>>;
+  /** Delete multiple SetupCostItemParent documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_SetupCostItemParentWhereUniqueInput>>;
+  /** Update multiple SetupCostItemParent component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_SetupCostItemParentUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple SetupCostItemParent component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_SetupCostItemParentUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_SetupCostItemParentUpdateManyWithNestedWhereInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpdateManyWithNestedWhereInput>;
+};
+
+type Content_SetupCostItemParentUpdateOneInlineInput = {
+  /** Create and connect one SetupCostItemParent document */
+  readonly create: InputMaybe<Content_SetupCostItemParentCreateInput>;
+  /** Delete currently connected SetupCostItemParent document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single SetupCostItemParent document */
+  readonly update: InputMaybe<Content_SetupCostItemParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single SetupCostItemParent document */
+  readonly upsert: InputMaybe<Content_SetupCostItemParentUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_SetupCostItemParentUpdateWithNestedWhereUniqueAndPositionInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpdateWithNestedWhereUniqueAndPositionInput>;
+};
+
+type Content_SetupCostItemParentUpdateWithNestedWhereUniqueInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpdateWithNestedWhereUniqueInput>;
+};
+
+type Content_SetupCostItemParentUpsertWithNestedWhereUniqueAndPositionInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpsertWithNestedWhereUniqueAndPositionInput>;
+};
+
+type Content_SetupCostItemParentUpsertWithNestedWhereUniqueInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_SetupCostItemParentWhereInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionWhereInput>;
+};
+
+type Content_SetupCostItemParentWhereUniqueInput = {
+  readonly SetupCostSection: InputMaybe<Content_SetupCostSectionWhereUniqueInput>;
+};
+
+type Content_SetupCostItemUpdateInput = {
+  readonly cost: InputMaybe<Scalars['Int']>;
+  readonly item: InputMaybe<Scalars['String']>;
+};
+
+type Content_SetupCostItemUpdateManyInlineInput = {
+  /** Create and connect multiple SetupCostItem component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_SetupCostItemCreateWithPositionInput>>;
+  /** Delete multiple SetupCostItem documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_SetupCostItemWhereUniqueInput>>;
+  /** Update multiple SetupCostItem component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_SetupCostItemUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple SetupCostItem component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_SetupCostItemUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_SetupCostItemUpdateManyInput = {
+  readonly cost: InputMaybe<Scalars['Int']>;
+  readonly item: InputMaybe<Scalars['String']>;
+};
+
+type Content_SetupCostItemUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  readonly data: Content_SetupCostItemUpdateManyInput;
+  /** Document search */
+  readonly where: Content_SetupCostItemWhereInput;
+};
+
+type Content_SetupCostItemUpdateOneInlineInput = {
+  /** Create and connect one SetupCostItem document */
+  readonly create: InputMaybe<Content_SetupCostItemCreateInput>;
+  /** Delete currently connected SetupCostItem document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single SetupCostItem document */
+  readonly update: InputMaybe<Content_SetupCostItemUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single SetupCostItem document */
+  readonly upsert: InputMaybe<Content_SetupCostItemUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_SetupCostItemUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  readonly data: InputMaybe<Content_SetupCostItemUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_SetupCostItemWhereUniqueInput;
+};
+
+type Content_SetupCostItemUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  readonly data: Content_SetupCostItemUpdateInput;
+  /** Unique document search */
+  readonly where: Content_SetupCostItemWhereUniqueInput;
+};
+
+type Content_SetupCostItemUpsertInput = {
+  /** Create document if it didn't exist */
+  readonly create: Content_SetupCostItemCreateInput;
+  /** Update document if it exists */
+  readonly update: Content_SetupCostItemUpdateInput;
+};
+
+type Content_SetupCostItemUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  readonly data: InputMaybe<Content_SetupCostItemUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_SetupCostItemWhereUniqueInput;
+};
+
+type Content_SetupCostItemUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  readonly data: Content_SetupCostItemUpsertInput;
+  /** Unique document search */
+  readonly where: Content_SetupCostItemWhereUniqueInput;
+};
+
+/** Identifies documents */
+type Content_SetupCostItemWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_SetupCostItemWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_SetupCostItemWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_SetupCostItemWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly cost: InputMaybe<Scalars['Int']>;
+  /** All values greater than the given value. */
+  readonly cost_gt: InputMaybe<Scalars['Int']>;
+  /** All values greater than or equal the given value. */
+  readonly cost_gte: InputMaybe<Scalars['Int']>;
+  /** All values that are contained in given list. */
+  readonly cost_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  /** All values less than the given value. */
+  readonly cost_lt: InputMaybe<Scalars['Int']>;
+  /** All values less than or equal the given value. */
+  readonly cost_lte: InputMaybe<Scalars['Int']>;
+  /** All values that are not equal to given value. */
+  readonly cost_not: InputMaybe<Scalars['Int']>;
+  /** All values that are not contained in given list. */
+  readonly cost_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+  readonly item: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  readonly item_contains: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  readonly item_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  readonly item_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  readonly item_not: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  readonly item_not_contains: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  readonly item_not_ends_with: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  readonly item_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  readonly item_not_starts_with: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  readonly item_starts_with: InputMaybe<Scalars['String']>;
+};
+
+/** References SetupCostItem record uniquely */
+type Content_SetupCostItemWhereUniqueInput = {
+  readonly id: InputMaybe<Scalars['ID']>;
+};
+
+type Content_SetupCostSection = {
+  readonly costItems: ReadonlyArray<Content_SetupCostItem>;
+  readonly fundingSources: ReadonlyArray<Content_FundingSource>;
+  /** The unique identifier */
+  readonly id: Scalars['ID'];
+  /** System stage field */
+  readonly stage: Content_Stage;
+};
+
+
+type Content_SetupCostSection_costItemsArgs = {
+  after: InputMaybe<Scalars['String']>;
+  before: InputMaybe<Scalars['String']>;
+  first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  last: InputMaybe<Scalars['Int']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
+  orderBy: InputMaybe<Content_SetupCostItemOrderByInput>;
+  skip: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<Content_SetupCostItemWhereInput>;
+};
+
+
+type Content_SetupCostSection_fundingSourcesArgs = {
+  after: InputMaybe<Scalars['String']>;
+  before: InputMaybe<Scalars['String']>;
+  first: InputMaybe<Scalars['Int']>;
+  forceParentLocale: InputMaybe<Scalars['Boolean']>;
+  last: InputMaybe<Scalars['Int']>;
+  locales: InputMaybe<ReadonlyArray<Content_Locale>>;
+  orderBy: InputMaybe<Content_FundingSourceOrderByInput>;
+  skip: InputMaybe<Scalars['Int']>;
+  where: InputMaybe<Content_FundingSourceWhereInput>;
+};
+
+type Content_SetupCostSectionConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Document to connect */
+  readonly where: Content_SetupCostSectionWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+type Content_SetupCostSectionConnection = {
+  readonly aggregate: Content_Aggregate;
+  /** A list of edges. */
+  readonly edges: ReadonlyArray<Content_SetupCostSectionEdge>;
+  /** Information to aid in pagination. */
+  readonly pageInfo: Content_PageInfo;
+};
+
+type Content_SetupCostSectionCreateInput = {
+  readonly costItems: InputMaybe<Content_SetupCostItemCreateManyInlineInput>;
+  readonly fundingSources: InputMaybe<Content_FundingSourceCreateManyInlineInput>;
+};
+
+type Content_SetupCostSectionCreateManyInlineInput = {
+  /** Create and connect multiple existing SetupCostSection documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_SetupCostSectionCreateInput>>;
+};
+
+type Content_SetupCostSectionCreateOneInlineInput = {
+  /** Create and connect one SetupCostSection document */
+  readonly create: InputMaybe<Content_SetupCostSectionCreateInput>;
+};
+
+type Content_SetupCostSectionCreateWithPositionInput = {
+  /** Document to create */
+  readonly data: Content_SetupCostSectionCreateInput;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+};
+
+/** An edge in a connection. */
+type Content_SetupCostSectionEdge = {
+  /** A cursor for use in pagination. */
+  readonly cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  readonly node: Content_SetupCostSection;
+};
+
+/** Identifies documents */
+type Content_SetupCostSectionManyWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_SetupCostSectionWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_SetupCostSectionWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_SetupCostSectionWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly costItems_every: InputMaybe<Content_SetupCostItemWhereInput>;
+  readonly costItems_none: InputMaybe<Content_SetupCostItemWhereInput>;
+  readonly costItems_some: InputMaybe<Content_SetupCostItemWhereInput>;
+  readonly fundingSources_every: InputMaybe<Content_FundingSourceWhereInput>;
+  readonly fundingSources_none: InputMaybe<Content_FundingSourceWhereInput>;
+  readonly fundingSources_some: InputMaybe<Content_FundingSourceWhereInput>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+};
+
+type Content_SetupCostSectionOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC';
+
+type Content_SetupCostSectionParent = Content_ModelBusinessPlan;
+
+type Content_SetupCostSectionParentConnectInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanConnectInput>;
+};
+
+type Content_SetupCostSectionParentCreateInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanCreateInput>;
+};
+
+type Content_SetupCostSectionParentCreateManyInlineInput = {
+  /** Connect multiple existing SetupCostSectionParent documents */
+  readonly connect: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentWhereUniqueInput>>;
+  /** Create and connect multiple existing SetupCostSectionParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentCreateInput>>;
+};
+
+type Content_SetupCostSectionParentCreateOneInlineInput = {
+  /** Connect one existing SetupCostSectionParent document */
+  readonly connect: InputMaybe<Content_SetupCostSectionParentWhereUniqueInput>;
+  /** Create and connect one SetupCostSectionParent document */
+  readonly create: InputMaybe<Content_SetupCostSectionParentCreateInput>;
+};
+
+type Content_SetupCostSectionParentUpdateInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateInput>;
+};
+
+type Content_SetupCostSectionParentUpdateManyInlineInput = {
+  /** Connect multiple existing SetupCostSectionParent documents */
+  readonly connect: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentConnectInput>>;
+  /** Create and connect multiple SetupCostSectionParent documents */
+  readonly create: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentCreateInput>>;
+  /** Delete multiple SetupCostSectionParent documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentWhereUniqueInput>>;
+  /** Disconnect multiple SetupCostSectionParent documents */
+  readonly disconnect: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing SetupCostSectionParent documents */
+  readonly set: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentWhereUniqueInput>>;
+  /** Update multiple SetupCostSectionParent documents */
+  readonly update: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple SetupCostSectionParent documents */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_SetupCostSectionParentUpsertWithNestedWhereUniqueInput>>;
+};
+
+type Content_SetupCostSectionParentUpdateManyWithNestedWhereInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateManyWithNestedWhereInput>;
+};
+
+type Content_SetupCostSectionParentUpdateOneInlineInput = {
+  /** Connect existing SetupCostSectionParent document */
+  readonly connect: InputMaybe<Content_SetupCostSectionParentWhereUniqueInput>;
+  /** Create and connect one SetupCostSectionParent document */
+  readonly create: InputMaybe<Content_SetupCostSectionParentCreateInput>;
+  /** Delete currently connected SetupCostSectionParent document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected SetupCostSectionParent document */
+  readonly disconnect: InputMaybe<Scalars['Boolean']>;
+  /** Update single SetupCostSectionParent document */
+  readonly update: InputMaybe<Content_SetupCostSectionParentUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single SetupCostSectionParent document */
+  readonly upsert: InputMaybe<Content_SetupCostSectionParentUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_SetupCostSectionParentUpdateWithNestedWhereUniqueInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpdateWithNestedWhereUniqueInput>;
+};
+
+type Content_SetupCostSectionParentUpsertWithNestedWhereUniqueInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_SetupCostSectionParentWhereInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanWhereInput>;
+};
+
+type Content_SetupCostSectionParentWhereUniqueInput = {
+  readonly ModelBusinessPlan: InputMaybe<Content_ModelBusinessPlanWhereUniqueInput>;
+};
+
+type Content_SetupCostSectionUpdateInput = {
+  readonly costItems: InputMaybe<Content_SetupCostItemUpdateManyInlineInput>;
+  readonly fundingSources: InputMaybe<Content_FundingSourceUpdateManyInlineInput>;
+};
+
+type Content_SetupCostSectionUpdateManyInlineInput = {
+  /** Create and connect multiple SetupCostSection component instances */
+  readonly create: InputMaybe<ReadonlyArray<Content_SetupCostSectionCreateWithPositionInput>>;
+  /** Delete multiple SetupCostSection documents */
+  readonly delete: InputMaybe<ReadonlyArray<Content_SetupCostSectionWhereUniqueInput>>;
+  /** Update multiple SetupCostSection component instances */
+  readonly update: InputMaybe<ReadonlyArray<Content_SetupCostSectionUpdateWithNestedWhereUniqueAndPositionInput>>;
+  /** Upsert multiple SetupCostSection component instances */
+  readonly upsert: InputMaybe<ReadonlyArray<Content_SetupCostSectionUpsertWithNestedWhereUniqueAndPositionInput>>;
+};
+
+type Content_SetupCostSectionUpdateManyInput = {
+  /** No fields in updateMany data input */
+  readonly _: InputMaybe<Scalars['String']>;
+};
+
+type Content_SetupCostSectionUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  readonly data: Content_SetupCostSectionUpdateManyInput;
+  /** Document search */
+  readonly where: Content_SetupCostSectionWhereInput;
+};
+
+type Content_SetupCostSectionUpdateOneInlineInput = {
+  /** Create and connect one SetupCostSection document */
+  readonly create: InputMaybe<Content_SetupCostSectionCreateInput>;
+  /** Delete currently connected SetupCostSection document */
+  readonly delete: InputMaybe<Scalars['Boolean']>;
+  /** Update single SetupCostSection document */
+  readonly update: InputMaybe<Content_SetupCostSectionUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single SetupCostSection document */
+  readonly upsert: InputMaybe<Content_SetupCostSectionUpsertWithNestedWhereUniqueInput>;
+};
+
+type Content_SetupCostSectionUpdateWithNestedWhereUniqueAndPositionInput = {
+  /** Document to update */
+  readonly data: InputMaybe<Content_SetupCostSectionUpdateInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_SetupCostSectionWhereUniqueInput;
+};
+
+type Content_SetupCostSectionUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  readonly data: Content_SetupCostSectionUpdateInput;
+  /** Unique document search */
+  readonly where: Content_SetupCostSectionWhereUniqueInput;
+};
+
+type Content_SetupCostSectionUpsertInput = {
+  /** Create document if it didn't exist */
+  readonly create: Content_SetupCostSectionCreateInput;
+  /** Update document if it exists */
+  readonly update: Content_SetupCostSectionUpdateInput;
+};
+
+type Content_SetupCostSectionUpsertWithNestedWhereUniqueAndPositionInput = {
+  /** Document to upsert */
+  readonly data: InputMaybe<Content_SetupCostSectionUpsertInput>;
+  /** Position in the list of existing component instances, will default to appending at the end of list */
+  readonly position: InputMaybe<Content_ConnectPositionInput>;
+  /** Unique component instance search */
+  readonly where: Content_SetupCostSectionWhereUniqueInput;
+};
+
+type Content_SetupCostSectionUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  readonly data: Content_SetupCostSectionUpsertInput;
+  /** Unique document search */
+  readonly where: Content_SetupCostSectionWhereUniqueInput;
+};
+
+/** Identifies documents */
+type Content_SetupCostSectionWhereInput = {
+  /** Logical AND on all given filters. */
+  readonly AND: InputMaybe<ReadonlyArray<Content_SetupCostSectionWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  readonly NOT: InputMaybe<ReadonlyArray<Content_SetupCostSectionWhereInput>>;
+  /** Logical OR on all given filters. */
+  readonly OR: InputMaybe<ReadonlyArray<Content_SetupCostSectionWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  readonly _search: InputMaybe<Scalars['String']>;
+  readonly costItems_every: InputMaybe<Content_SetupCostItemWhereInput>;
+  readonly costItems_none: InputMaybe<Content_SetupCostItemWhereInput>;
+  readonly costItems_some: InputMaybe<Content_SetupCostItemWhereInput>;
+  readonly fundingSources_every: InputMaybe<Content_FundingSourceWhereInput>;
+  readonly fundingSources_none: InputMaybe<Content_FundingSourceWhereInput>;
+  readonly fundingSources_some: InputMaybe<Content_FundingSourceWhereInput>;
+  readonly id: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  readonly id_contains: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  readonly id_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  readonly id_not: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  readonly id_not_contains: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  readonly id_not_ends_with: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  readonly id_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  readonly id_not_starts_with: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  readonly id_starts_with: InputMaybe<Scalars['ID']>;
+};
+
+/** References SetupCostSection record uniquely */
+type Content_SetupCostSectionWhereUniqueInput = {
   readonly id: InputMaybe<Scalars['ID']>;
 };
 
@@ -10981,6 +12535,88 @@ type GraphCMS_AssetFieldsEnum =
   | 'iconDevelopmentOption.mainText.raw'
   | 'iconDevelopmentOption.mainText.remoteTypeName'
   | 'iconDevelopmentOption.mainText.text'
+  | 'iconDevelopmentOption.modelBusinessPlan.children'
+  | 'iconDevelopmentOption.modelBusinessPlan.children.children'
+  | 'iconDevelopmentOption.modelBusinessPlan.children.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.children'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.createdAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.isActive'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.kind'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.name'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.picture'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.publishedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.remoteId'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.remoteTypeName'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.stage'
+  | 'iconDevelopmentOption.modelBusinessPlan.createdBy.updatedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.developmentOption'
+  | 'iconDevelopmentOption.modelBusinessPlan.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.content'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.contentDigest'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.contentFilePath'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.description'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.fieldOwners'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.ignoreType'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.mediaType'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.owner'
+  | 'iconDevelopmentOption.modelBusinessPlan.internal.type'
+  | 'iconDevelopmentOption.modelBusinessPlan.locale'
+  | 'iconDevelopmentOption.modelBusinessPlan.parent.children'
+  | 'iconDevelopmentOption.modelBusinessPlan.parent.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.children'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.createdAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.isActive'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.kind'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.name'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.picture'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.publishedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.remoteId'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.remoteTypeName'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.stage'
+  | 'iconDevelopmentOption.modelBusinessPlan.publishedBy.updatedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.remoteId'
+  | 'iconDevelopmentOption.modelBusinessPlan.remoteTypeName'
+  | 'iconDevelopmentOption.modelBusinessPlan.runningCosts.costs'
+  | 'iconDevelopmentOption.modelBusinessPlan.runningCosts.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.runningCosts.incomes'
+  | 'iconDevelopmentOption.modelBusinessPlan.runningCosts.remoteTypeName'
+  | 'iconDevelopmentOption.modelBusinessPlan.runningCosts.stage'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.children'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.createdAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.description'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.errorMessage'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.publishedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.rawPayload'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.remoteId'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.remoteTypeName'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.stage'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.status'
+  | 'iconDevelopmentOption.modelBusinessPlan.scheduledIn.updatedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.setupCosts.costItems'
+  | 'iconDevelopmentOption.modelBusinessPlan.setupCosts.fundingSources'
+  | 'iconDevelopmentOption.modelBusinessPlan.setupCosts.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.setupCosts.remoteTypeName'
+  | 'iconDevelopmentOption.modelBusinessPlan.setupCosts.stage'
+  | 'iconDevelopmentOption.modelBusinessPlan.stage'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.children'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.createdAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.id'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.isActive'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.kind'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.name'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.picture'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.publishedAt'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.remoteId'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.remoteTypeName'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.stage'
+  | 'iconDevelopmentOption.modelBusinessPlan.updatedBy.updatedAt'
   | 'iconDevelopmentOption.modelSwot.children'
   | 'iconDevelopmentOption.modelSwot.children.children'
   | 'iconDevelopmentOption.modelSwot.children.id'
@@ -11898,6 +13534,88 @@ type GraphCMS_AssetFieldsEnum =
   | 'informationMainImageDevelopmentOption.mainText.raw'
   | 'informationMainImageDevelopmentOption.mainText.remoteTypeName'
   | 'informationMainImageDevelopmentOption.mainText.text'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.children'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.children.children'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.children.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.children'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.createdAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.isActive'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.kind'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.name'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.picture'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.publishedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.remoteId'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.remoteTypeName'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.stage'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.createdBy.updatedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.developmentOption'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.content'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.contentDigest'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.contentFilePath'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.description'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.fieldOwners'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.ignoreType'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.mediaType'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.owner'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.internal.type'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.locale'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.parent.children'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.parent.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.children'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.createdAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.isActive'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.kind'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.name'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.picture'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.publishedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.remoteId'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.remoteTypeName'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.stage'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.publishedBy.updatedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.remoteId'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.remoteTypeName'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.runningCosts.costs'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.runningCosts.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.runningCosts.incomes'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.runningCosts.remoteTypeName'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.runningCosts.stage'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.children'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.createdAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.description'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.errorMessage'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.publishedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.rawPayload'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.remoteId'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.remoteTypeName'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.stage'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.status'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn.updatedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.setupCosts.costItems'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.setupCosts.fundingSources'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.setupCosts.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.setupCosts.remoteTypeName'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.setupCosts.stage'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.stage'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.children'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.createdAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.id'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.isActive'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.kind'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.name'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.picture'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.publishedAt'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.remoteId'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.remoteTypeName'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.stage'
+  | 'informationMainImageDevelopmentOption.modelBusinessPlan.updatedBy.updatedAt'
   | 'informationMainImageDevelopmentOption.modelSwot.children'
   | 'informationMainImageDevelopmentOption.modelSwot.children.children'
   | 'informationMainImageDevelopmentOption.modelSwot.children.id'
@@ -12585,22 +14303,6 @@ type GraphCMS_AssetSortInput = {
   readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
-type GraphCMS_CapitalCosts = {
-  readonly details: GraphCMS_RichText;
-  readonly funding: GraphCMS_RichText;
-  readonly id: Scalars['ID'];
-  readonly remoteTypeName: Scalars['String'];
-  readonly stage: GraphCMS_Stage;
-};
-
-type GraphCMS_CapitalCostsFilterInput = {
-  readonly details: InputMaybe<GraphCMS_RichTextFilterInput>;
-  readonly funding: InputMaybe<GraphCMS_RichTextFilterInput>;
-  readonly id: InputMaybe<IDQueryOperatorInput>;
-  readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
-  readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
-};
-
 type GraphCMS_Checklist = {
   readonly id: Scalars['ID'];
   readonly item: ReadonlyArray<Scalars['String']>;
@@ -12631,6 +14333,7 @@ type GraphCMS_DevelopmentOption = Node & {
   readonly intro: Maybe<Scalars['String']>;
   readonly locale: GraphCMS_Locale;
   readonly mainText: Maybe<GraphCMS_RichText>;
+  readonly modelBusinessPlan: Maybe<GraphCMS_ModelBusinessPlan>;
   readonly modelSwot: Maybe<GraphCMS_ModelSwot>;
   readonly parent: Maybe<Node>;
   readonly publishedAt: Maybe<Scalars['JSON']>;
@@ -12921,6 +14624,17 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'icon.iconDevelopmentOption.mainText.raw'
   | 'icon.iconDevelopmentOption.mainText.remoteTypeName'
   | 'icon.iconDevelopmentOption.mainText.text'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.children'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.createdAt'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.developmentOption'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.id'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.locale'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.publishedAt'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.remoteId'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.remoteTypeName'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.scheduledIn'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.stage'
+  | 'icon.iconDevelopmentOption.modelBusinessPlan.updatedAt'
   | 'icon.iconDevelopmentOption.modelSwot.children'
   | 'icon.iconDevelopmentOption.modelSwot.createdAt'
   | 'icon.iconDevelopmentOption.modelSwot.developmentOption'
@@ -13180,6 +14894,17 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'icon.informationMainImageDevelopmentOption.mainText.raw'
   | 'icon.informationMainImageDevelopmentOption.mainText.remoteTypeName'
   | 'icon.informationMainImageDevelopmentOption.mainText.text'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.children'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.createdAt'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.developmentOption'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.id'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.locale'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.publishedAt'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.remoteId'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.remoteTypeName'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.stage'
+  | 'icon.informationMainImageDevelopmentOption.modelBusinessPlan.updatedAt'
   | 'icon.informationMainImageDevelopmentOption.modelSwot.children'
   | 'icon.informationMainImageDevelopmentOption.modelSwot.createdAt'
   | 'icon.informationMainImageDevelopmentOption.modelSwot.developmentOption'
@@ -13525,6 +15250,17 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'informationMainImage.iconDevelopmentOption.mainText.raw'
   | 'informationMainImage.iconDevelopmentOption.mainText.remoteTypeName'
   | 'informationMainImage.iconDevelopmentOption.mainText.text'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.children'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.createdAt'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.developmentOption'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.id'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.locale'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.publishedAt'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.remoteId'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.remoteTypeName'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.scheduledIn'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.stage'
+  | 'informationMainImage.iconDevelopmentOption.modelBusinessPlan.updatedAt'
   | 'informationMainImage.iconDevelopmentOption.modelSwot.children'
   | 'informationMainImage.iconDevelopmentOption.modelSwot.createdAt'
   | 'informationMainImage.iconDevelopmentOption.modelSwot.developmentOption'
@@ -13784,6 +15520,17 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'informationMainImage.informationMainImageDevelopmentOption.mainText.raw'
   | 'informationMainImage.informationMainImageDevelopmentOption.mainText.remoteTypeName'
   | 'informationMainImage.informationMainImageDevelopmentOption.mainText.text'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.children'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.createdAt'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.developmentOption'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.id'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.locale'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.publishedAt'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.remoteId'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.remoteTypeName'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.stage'
+  | 'informationMainImage.informationMainImageDevelopmentOption.modelBusinessPlan.updatedAt'
   | 'informationMainImage.informationMainImageDevelopmentOption.modelSwot.children'
   | 'informationMainImage.informationMainImageDevelopmentOption.modelSwot.createdAt'
   | 'informationMainImage.informationMainImageDevelopmentOption.modelSwot.developmentOption'
@@ -14019,6 +15766,244 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'mainText.raw'
   | 'mainText.remoteTypeName'
   | 'mainText.text'
+  | 'modelBusinessPlan.children'
+  | 'modelBusinessPlan.children.children'
+  | 'modelBusinessPlan.children.children.children'
+  | 'modelBusinessPlan.children.children.id'
+  | 'modelBusinessPlan.children.id'
+  | 'modelBusinessPlan.children.internal.content'
+  | 'modelBusinessPlan.children.internal.contentDigest'
+  | 'modelBusinessPlan.children.internal.contentFilePath'
+  | 'modelBusinessPlan.children.internal.description'
+  | 'modelBusinessPlan.children.internal.fieldOwners'
+  | 'modelBusinessPlan.children.internal.ignoreType'
+  | 'modelBusinessPlan.children.internal.mediaType'
+  | 'modelBusinessPlan.children.internal.owner'
+  | 'modelBusinessPlan.children.internal.type'
+  | 'modelBusinessPlan.children.parent.children'
+  | 'modelBusinessPlan.children.parent.id'
+  | 'modelBusinessPlan.createdAt'
+  | 'modelBusinessPlan.createdBy.children'
+  | 'modelBusinessPlan.createdBy.children.children'
+  | 'modelBusinessPlan.createdBy.children.id'
+  | 'modelBusinessPlan.createdBy.createdAt'
+  | 'modelBusinessPlan.createdBy.id'
+  | 'modelBusinessPlan.createdBy.internal.content'
+  | 'modelBusinessPlan.createdBy.internal.contentDigest'
+  | 'modelBusinessPlan.createdBy.internal.contentFilePath'
+  | 'modelBusinessPlan.createdBy.internal.description'
+  | 'modelBusinessPlan.createdBy.internal.fieldOwners'
+  | 'modelBusinessPlan.createdBy.internal.ignoreType'
+  | 'modelBusinessPlan.createdBy.internal.mediaType'
+  | 'modelBusinessPlan.createdBy.internal.owner'
+  | 'modelBusinessPlan.createdBy.internal.type'
+  | 'modelBusinessPlan.createdBy.isActive'
+  | 'modelBusinessPlan.createdBy.kind'
+  | 'modelBusinessPlan.createdBy.name'
+  | 'modelBusinessPlan.createdBy.parent.children'
+  | 'modelBusinessPlan.createdBy.parent.id'
+  | 'modelBusinessPlan.createdBy.picture'
+  | 'modelBusinessPlan.createdBy.publishedAt'
+  | 'modelBusinessPlan.createdBy.remoteId'
+  | 'modelBusinessPlan.createdBy.remoteTypeName'
+  | 'modelBusinessPlan.createdBy.stage'
+  | 'modelBusinessPlan.createdBy.updatedAt'
+  | 'modelBusinessPlan.developmentOption'
+  | 'modelBusinessPlan.id'
+  | 'modelBusinessPlan.internal.content'
+  | 'modelBusinessPlan.internal.contentDigest'
+  | 'modelBusinessPlan.internal.contentFilePath'
+  | 'modelBusinessPlan.internal.description'
+  | 'modelBusinessPlan.internal.fieldOwners'
+  | 'modelBusinessPlan.internal.ignoreType'
+  | 'modelBusinessPlan.internal.mediaType'
+  | 'modelBusinessPlan.internal.owner'
+  | 'modelBusinessPlan.internal.type'
+  | 'modelBusinessPlan.locale'
+  | 'modelBusinessPlan.parent.children'
+  | 'modelBusinessPlan.parent.children.children'
+  | 'modelBusinessPlan.parent.children.id'
+  | 'modelBusinessPlan.parent.id'
+  | 'modelBusinessPlan.parent.internal.content'
+  | 'modelBusinessPlan.parent.internal.contentDigest'
+  | 'modelBusinessPlan.parent.internal.contentFilePath'
+  | 'modelBusinessPlan.parent.internal.description'
+  | 'modelBusinessPlan.parent.internal.fieldOwners'
+  | 'modelBusinessPlan.parent.internal.ignoreType'
+  | 'modelBusinessPlan.parent.internal.mediaType'
+  | 'modelBusinessPlan.parent.internal.owner'
+  | 'modelBusinessPlan.parent.internal.type'
+  | 'modelBusinessPlan.parent.parent.children'
+  | 'modelBusinessPlan.parent.parent.id'
+  | 'modelBusinessPlan.publishedAt'
+  | 'modelBusinessPlan.publishedBy.children'
+  | 'modelBusinessPlan.publishedBy.children.children'
+  | 'modelBusinessPlan.publishedBy.children.id'
+  | 'modelBusinessPlan.publishedBy.createdAt'
+  | 'modelBusinessPlan.publishedBy.id'
+  | 'modelBusinessPlan.publishedBy.internal.content'
+  | 'modelBusinessPlan.publishedBy.internal.contentDigest'
+  | 'modelBusinessPlan.publishedBy.internal.contentFilePath'
+  | 'modelBusinessPlan.publishedBy.internal.description'
+  | 'modelBusinessPlan.publishedBy.internal.fieldOwners'
+  | 'modelBusinessPlan.publishedBy.internal.ignoreType'
+  | 'modelBusinessPlan.publishedBy.internal.mediaType'
+  | 'modelBusinessPlan.publishedBy.internal.owner'
+  | 'modelBusinessPlan.publishedBy.internal.type'
+  | 'modelBusinessPlan.publishedBy.isActive'
+  | 'modelBusinessPlan.publishedBy.kind'
+  | 'modelBusinessPlan.publishedBy.name'
+  | 'modelBusinessPlan.publishedBy.parent.children'
+  | 'modelBusinessPlan.publishedBy.parent.id'
+  | 'modelBusinessPlan.publishedBy.picture'
+  | 'modelBusinessPlan.publishedBy.publishedAt'
+  | 'modelBusinessPlan.publishedBy.remoteId'
+  | 'modelBusinessPlan.publishedBy.remoteTypeName'
+  | 'modelBusinessPlan.publishedBy.stage'
+  | 'modelBusinessPlan.publishedBy.updatedAt'
+  | 'modelBusinessPlan.remoteId'
+  | 'modelBusinessPlan.remoteTypeName'
+  | 'modelBusinessPlan.runningCosts.costs'
+  | 'modelBusinessPlan.runningCosts.costs.id'
+  | 'modelBusinessPlan.runningCosts.costs.item'
+  | 'modelBusinessPlan.runningCosts.costs.remoteTypeName'
+  | 'modelBusinessPlan.runningCosts.costs.stage'
+  | 'modelBusinessPlan.runningCosts.costs.yearFour'
+  | 'modelBusinessPlan.runningCosts.costs.yearOne'
+  | 'modelBusinessPlan.runningCosts.costs.yearThree'
+  | 'modelBusinessPlan.runningCosts.costs.yearTwo'
+  | 'modelBusinessPlan.runningCosts.id'
+  | 'modelBusinessPlan.runningCosts.incomes'
+  | 'modelBusinessPlan.runningCosts.incomes.id'
+  | 'modelBusinessPlan.runningCosts.incomes.item'
+  | 'modelBusinessPlan.runningCosts.incomes.remoteTypeName'
+  | 'modelBusinessPlan.runningCosts.incomes.stage'
+  | 'modelBusinessPlan.runningCosts.incomes.yearFour'
+  | 'modelBusinessPlan.runningCosts.incomes.yearOne'
+  | 'modelBusinessPlan.runningCosts.incomes.yearThree'
+  | 'modelBusinessPlan.runningCosts.incomes.yearTwo'
+  | 'modelBusinessPlan.runningCosts.remoteTypeName'
+  | 'modelBusinessPlan.runningCosts.stage'
+  | 'modelBusinessPlan.scheduledIn'
+  | 'modelBusinessPlan.scheduledIn.children'
+  | 'modelBusinessPlan.scheduledIn.children.children'
+  | 'modelBusinessPlan.scheduledIn.children.id'
+  | 'modelBusinessPlan.scheduledIn.createdAt'
+  | 'modelBusinessPlan.scheduledIn.createdBy.children'
+  | 'modelBusinessPlan.scheduledIn.createdBy.createdAt'
+  | 'modelBusinessPlan.scheduledIn.createdBy.id'
+  | 'modelBusinessPlan.scheduledIn.createdBy.isActive'
+  | 'modelBusinessPlan.scheduledIn.createdBy.kind'
+  | 'modelBusinessPlan.scheduledIn.createdBy.name'
+  | 'modelBusinessPlan.scheduledIn.createdBy.picture'
+  | 'modelBusinessPlan.scheduledIn.createdBy.publishedAt'
+  | 'modelBusinessPlan.scheduledIn.createdBy.remoteId'
+  | 'modelBusinessPlan.scheduledIn.createdBy.remoteTypeName'
+  | 'modelBusinessPlan.scheduledIn.createdBy.stage'
+  | 'modelBusinessPlan.scheduledIn.createdBy.updatedAt'
+  | 'modelBusinessPlan.scheduledIn.description'
+  | 'modelBusinessPlan.scheduledIn.errorMessage'
+  | 'modelBusinessPlan.scheduledIn.id'
+  | 'modelBusinessPlan.scheduledIn.internal.content'
+  | 'modelBusinessPlan.scheduledIn.internal.contentDigest'
+  | 'modelBusinessPlan.scheduledIn.internal.contentFilePath'
+  | 'modelBusinessPlan.scheduledIn.internal.description'
+  | 'modelBusinessPlan.scheduledIn.internal.fieldOwners'
+  | 'modelBusinessPlan.scheduledIn.internal.ignoreType'
+  | 'modelBusinessPlan.scheduledIn.internal.mediaType'
+  | 'modelBusinessPlan.scheduledIn.internal.owner'
+  | 'modelBusinessPlan.scheduledIn.internal.type'
+  | 'modelBusinessPlan.scheduledIn.parent.children'
+  | 'modelBusinessPlan.scheduledIn.parent.id'
+  | 'modelBusinessPlan.scheduledIn.publishedAt'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.children'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.createdAt'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.id'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.isActive'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.kind'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.name'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.picture'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.publishedAt'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.remoteId'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.remoteTypeName'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.stage'
+  | 'modelBusinessPlan.scheduledIn.publishedBy.updatedAt'
+  | 'modelBusinessPlan.scheduledIn.rawPayload'
+  | 'modelBusinessPlan.scheduledIn.release.children'
+  | 'modelBusinessPlan.scheduledIn.release.createdAt'
+  | 'modelBusinessPlan.scheduledIn.release.description'
+  | 'modelBusinessPlan.scheduledIn.release.errorMessage'
+  | 'modelBusinessPlan.scheduledIn.release.id'
+  | 'modelBusinessPlan.scheduledIn.release.isActive'
+  | 'modelBusinessPlan.scheduledIn.release.isImplicit'
+  | 'modelBusinessPlan.scheduledIn.release.operations'
+  | 'modelBusinessPlan.scheduledIn.release.publishedAt'
+  | 'modelBusinessPlan.scheduledIn.release.releaseAt'
+  | 'modelBusinessPlan.scheduledIn.release.remoteId'
+  | 'modelBusinessPlan.scheduledIn.release.remoteTypeName'
+  | 'modelBusinessPlan.scheduledIn.release.stage'
+  | 'modelBusinessPlan.scheduledIn.release.status'
+  | 'modelBusinessPlan.scheduledIn.release.title'
+  | 'modelBusinessPlan.scheduledIn.release.updatedAt'
+  | 'modelBusinessPlan.scheduledIn.remoteId'
+  | 'modelBusinessPlan.scheduledIn.remoteTypeName'
+  | 'modelBusinessPlan.scheduledIn.stage'
+  | 'modelBusinessPlan.scheduledIn.status'
+  | 'modelBusinessPlan.scheduledIn.updatedAt'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.children'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.createdAt'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.id'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.isActive'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.kind'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.name'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.picture'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.publishedAt'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.remoteId'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.remoteTypeName'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.stage'
+  | 'modelBusinessPlan.scheduledIn.updatedBy.updatedAt'
+  | 'modelBusinessPlan.setupCosts.costItems'
+  | 'modelBusinessPlan.setupCosts.costItems.cost'
+  | 'modelBusinessPlan.setupCosts.costItems.id'
+  | 'modelBusinessPlan.setupCosts.costItems.item'
+  | 'modelBusinessPlan.setupCosts.costItems.remoteTypeName'
+  | 'modelBusinessPlan.setupCosts.costItems.stage'
+  | 'modelBusinessPlan.setupCosts.fundingSources'
+  | 'modelBusinessPlan.setupCosts.fundingSources.amount'
+  | 'modelBusinessPlan.setupCosts.fundingSources.funder'
+  | 'modelBusinessPlan.setupCosts.fundingSources.id'
+  | 'modelBusinessPlan.setupCosts.fundingSources.remoteTypeName'
+  | 'modelBusinessPlan.setupCosts.fundingSources.stage'
+  | 'modelBusinessPlan.setupCosts.id'
+  | 'modelBusinessPlan.setupCosts.remoteTypeName'
+  | 'modelBusinessPlan.setupCosts.stage'
+  | 'modelBusinessPlan.stage'
+  | 'modelBusinessPlan.updatedAt'
+  | 'modelBusinessPlan.updatedBy.children'
+  | 'modelBusinessPlan.updatedBy.children.children'
+  | 'modelBusinessPlan.updatedBy.children.id'
+  | 'modelBusinessPlan.updatedBy.createdAt'
+  | 'modelBusinessPlan.updatedBy.id'
+  | 'modelBusinessPlan.updatedBy.internal.content'
+  | 'modelBusinessPlan.updatedBy.internal.contentDigest'
+  | 'modelBusinessPlan.updatedBy.internal.contentFilePath'
+  | 'modelBusinessPlan.updatedBy.internal.description'
+  | 'modelBusinessPlan.updatedBy.internal.fieldOwners'
+  | 'modelBusinessPlan.updatedBy.internal.ignoreType'
+  | 'modelBusinessPlan.updatedBy.internal.mediaType'
+  | 'modelBusinessPlan.updatedBy.internal.owner'
+  | 'modelBusinessPlan.updatedBy.internal.type'
+  | 'modelBusinessPlan.updatedBy.isActive'
+  | 'modelBusinessPlan.updatedBy.kind'
+  | 'modelBusinessPlan.updatedBy.name'
+  | 'modelBusinessPlan.updatedBy.parent.children'
+  | 'modelBusinessPlan.updatedBy.parent.id'
+  | 'modelBusinessPlan.updatedBy.picture'
+  | 'modelBusinessPlan.updatedBy.publishedAt'
+  | 'modelBusinessPlan.updatedBy.remoteId'
+  | 'modelBusinessPlan.updatedBy.remoteTypeName'
+  | 'modelBusinessPlan.updatedBy.stage'
+  | 'modelBusinessPlan.updatedBy.updatedAt'
   | 'modelSwot.children'
   | 'modelSwot.children.children'
   | 'modelSwot.children.children.children'
@@ -14609,6 +16594,7 @@ type GraphCMS_DevelopmentOptionFilterInput = {
   readonly intro: InputMaybe<StringQueryOperatorInput>;
   readonly locale: InputMaybe<GraphCMS_LocaleQueryOperatorInput>;
   readonly mainText: InputMaybe<GraphCMS_RichTextFilterInput>;
+  readonly modelBusinessPlan: InputMaybe<GraphCMS_ModelBusinessPlanFilterInput>;
   readonly modelSwot: InputMaybe<GraphCMS_ModelSwotFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly publishedAt: InputMaybe<JSONQueryOperatorInput>;
@@ -14674,6 +16660,26 @@ type GraphCMS_DevelopmentOptionSortInput = {
 };
 
 type GraphCMS_DevelopmentOptionchecklistUnion = GraphCMS_Checklist;
+
+type GraphCMS_FundingSource = {
+  readonly amount: Scalars['Int'];
+  readonly funder: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly remoteTypeName: Scalars['String'];
+  readonly stage: GraphCMS_Stage;
+};
+
+type GraphCMS_FundingSourceFilterInput = {
+  readonly amount: InputMaybe<IntQueryOperatorInput>;
+  readonly funder: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<IDQueryOperatorInput>;
+  readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
+  readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
+};
+
+type GraphCMS_FundingSourceFilterListInput = {
+  readonly elemMatch: InputMaybe<GraphCMS_FundingSourceFilterInput>;
+};
 
 type GraphCMS_HelpfulInfo = {
   readonly id: Scalars['ID'];
@@ -14998,6 +17004,17 @@ type GraphCMS_InfoFieldsEnum =
   | 'image.iconDevelopmentOption.mainText.raw'
   | 'image.iconDevelopmentOption.mainText.remoteTypeName'
   | 'image.iconDevelopmentOption.mainText.text'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.children'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.createdAt'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.developmentOption'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.id'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.locale'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.publishedAt'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.remoteId'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.remoteTypeName'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.scheduledIn'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.stage'
+  | 'image.iconDevelopmentOption.modelBusinessPlan.updatedAt'
   | 'image.iconDevelopmentOption.modelSwot.children'
   | 'image.iconDevelopmentOption.modelSwot.createdAt'
   | 'image.iconDevelopmentOption.modelSwot.developmentOption'
@@ -15257,6 +17274,17 @@ type GraphCMS_InfoFieldsEnum =
   | 'image.informationMainImageDevelopmentOption.mainText.raw'
   | 'image.informationMainImageDevelopmentOption.mainText.remoteTypeName'
   | 'image.informationMainImageDevelopmentOption.mainText.text'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.children'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.createdAt'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.developmentOption'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.id'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.locale'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.publishedAt'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.remoteId'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.remoteTypeName'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.scheduledIn'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.stage'
+  | 'image.informationMainImageDevelopmentOption.modelBusinessPlan.updatedAt'
   | 'image.informationMainImageDevelopmentOption.modelSwot.children'
   | 'image.informationMainImageDevelopmentOption.modelSwot.createdAt'
   | 'image.informationMainImageDevelopmentOption.modelSwot.developmentOption'
@@ -15946,7 +17974,6 @@ type GraphCMS_LocaleQueryOperatorInput = {
 };
 
 type GraphCMS_ModelBusinessPlan = Node & {
-  readonly capitalCosts: Maybe<GraphCMS_CapitalCosts>;
   readonly children: ReadonlyArray<Node>;
   readonly createdAt: Scalars['JSON'];
   readonly createdBy: Maybe<GraphCMS_User>;
@@ -15959,7 +17986,9 @@ type GraphCMS_ModelBusinessPlan = Node & {
   readonly publishedBy: Maybe<GraphCMS_User>;
   readonly remoteId: Scalars['ID'];
   readonly remoteTypeName: Scalars['String'];
+  readonly runningCosts: GraphCMS_RunningCostsSection;
   readonly scheduledIn: ReadonlyArray<GraphCMS_ScheduledOperation>;
+  readonly setupCosts: GraphCMS_SetupCostSection;
   readonly stage: GraphCMS_Stage;
   readonly updatedAt: Scalars['JSON'];
   readonly updatedBy: Maybe<GraphCMS_User>;
@@ -16011,19 +18040,6 @@ type GraphCMS_ModelBusinessPlanEdge = {
 };
 
 type GraphCMS_ModelBusinessPlanFieldsEnum =
-  | 'capitalCosts.details.html'
-  | 'capitalCosts.details.markdown'
-  | 'capitalCosts.details.raw'
-  | 'capitalCosts.details.remoteTypeName'
-  | 'capitalCosts.details.text'
-  | 'capitalCosts.funding.html'
-  | 'capitalCosts.funding.markdown'
-  | 'capitalCosts.funding.raw'
-  | 'capitalCosts.funding.remoteTypeName'
-  | 'capitalCosts.funding.text'
-  | 'capitalCosts.id'
-  | 'capitalCosts.remoteTypeName'
-  | 'capitalCosts.stage'
   | 'children'
   | 'children.children'
   | 'children.children.children'
@@ -16225,6 +18241,27 @@ type GraphCMS_ModelBusinessPlanFieldsEnum =
   | 'publishedBy.updatedAt'
   | 'remoteId'
   | 'remoteTypeName'
+  | 'runningCosts.costs'
+  | 'runningCosts.costs.id'
+  | 'runningCosts.costs.item'
+  | 'runningCosts.costs.remoteTypeName'
+  | 'runningCosts.costs.stage'
+  | 'runningCosts.costs.yearFour'
+  | 'runningCosts.costs.yearOne'
+  | 'runningCosts.costs.yearThree'
+  | 'runningCosts.costs.yearTwo'
+  | 'runningCosts.id'
+  | 'runningCosts.incomes'
+  | 'runningCosts.incomes.id'
+  | 'runningCosts.incomes.item'
+  | 'runningCosts.incomes.remoteTypeName'
+  | 'runningCosts.incomes.stage'
+  | 'runningCosts.incomes.yearFour'
+  | 'runningCosts.incomes.yearOne'
+  | 'runningCosts.incomes.yearThree'
+  | 'runningCosts.incomes.yearTwo'
+  | 'runningCosts.remoteTypeName'
+  | 'runningCosts.stage'
   | 'scheduledIn'
   | 'scheduledIn.children'
   | 'scheduledIn.children.children'
@@ -16429,6 +18466,21 @@ type GraphCMS_ModelBusinessPlanFieldsEnum =
   | 'scheduledIn.updatedBy.remoteTypeName'
   | 'scheduledIn.updatedBy.stage'
   | 'scheduledIn.updatedBy.updatedAt'
+  | 'setupCosts.costItems'
+  | 'setupCosts.costItems.cost'
+  | 'setupCosts.costItems.id'
+  | 'setupCosts.costItems.item'
+  | 'setupCosts.costItems.remoteTypeName'
+  | 'setupCosts.costItems.stage'
+  | 'setupCosts.fundingSources'
+  | 'setupCosts.fundingSources.amount'
+  | 'setupCosts.fundingSources.funder'
+  | 'setupCosts.fundingSources.id'
+  | 'setupCosts.fundingSources.remoteTypeName'
+  | 'setupCosts.fundingSources.stage'
+  | 'setupCosts.id'
+  | 'setupCosts.remoteTypeName'
+  | 'setupCosts.stage'
   | 'stage'
   | 'updatedAt'
   | 'updatedBy.children'
@@ -16484,7 +18536,6 @@ type GraphCMS_ModelBusinessPlanFieldsEnum =
   | 'updatedBy.updatedAt';
 
 type GraphCMS_ModelBusinessPlanFilterInput = {
-  readonly capitalCosts: InputMaybe<GraphCMS_CapitalCostsFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly createdAt: InputMaybe<JSONQueryOperatorInput>;
   readonly createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -16497,7 +18548,9 @@ type GraphCMS_ModelBusinessPlanFilterInput = {
   readonly publishedBy: InputMaybe<GraphCMS_UserFilterInput>;
   readonly remoteId: InputMaybe<IDQueryOperatorInput>;
   readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
+  readonly runningCosts: InputMaybe<GraphCMS_RunningCostsSectionFilterInput>;
   readonly scheduledIn: InputMaybe<GraphCMS_ScheduledOperationFilterListInput>;
+  readonly setupCosts: InputMaybe<GraphCMS_SetupCostSectionFilterInput>;
   readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
   readonly updatedAt: InputMaybe<JSONQueryOperatorInput>;
   readonly updatedBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -17809,6 +19862,48 @@ type GraphCMS_RichTextFilterListInput = {
   readonly elemMatch: InputMaybe<GraphCMS_RichTextFilterInput>;
 };
 
+type GraphCMS_RunningCostItem = {
+  readonly id: Scalars['ID'];
+  readonly item: Scalars['String'];
+  readonly remoteTypeName: Scalars['String'];
+  readonly stage: GraphCMS_Stage;
+  readonly yearFour: Scalars['Int'];
+  readonly yearOne: Scalars['Int'];
+  readonly yearThree: Scalars['Int'];
+  readonly yearTwo: Scalars['Int'];
+};
+
+type GraphCMS_RunningCostItemFilterInput = {
+  readonly id: InputMaybe<IDQueryOperatorInput>;
+  readonly item: InputMaybe<StringQueryOperatorInput>;
+  readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
+  readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
+  readonly yearFour: InputMaybe<IntQueryOperatorInput>;
+  readonly yearOne: InputMaybe<IntQueryOperatorInput>;
+  readonly yearThree: InputMaybe<IntQueryOperatorInput>;
+  readonly yearTwo: InputMaybe<IntQueryOperatorInput>;
+};
+
+type GraphCMS_RunningCostItemFilterListInput = {
+  readonly elemMatch: InputMaybe<GraphCMS_RunningCostItemFilterInput>;
+};
+
+type GraphCMS_RunningCostsSection = {
+  readonly costs: ReadonlyArray<GraphCMS_RunningCostItem>;
+  readonly id: Scalars['ID'];
+  readonly incomes: ReadonlyArray<GraphCMS_RunningCostItem>;
+  readonly remoteTypeName: Scalars['String'];
+  readonly stage: GraphCMS_Stage;
+};
+
+type GraphCMS_RunningCostsSectionFilterInput = {
+  readonly costs: InputMaybe<GraphCMS_RunningCostItemFilterListInput>;
+  readonly id: InputMaybe<IDQueryOperatorInput>;
+  readonly incomes: InputMaybe<GraphCMS_RunningCostItemFilterListInput>;
+  readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
+  readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
+};
+
 type GraphCMS_ScheduledOperation = Node & {
   readonly affectedDocuments: ReadonlyArray<GraphCMS_ScheduledOperationAffectedDocument>;
   readonly children: ReadonlyArray<Node>;
@@ -19043,6 +21138,42 @@ type GraphCMS_ScheduledReleaseStatusQueryOperatorInput = {
   readonly in: InputMaybe<ReadonlyArray<InputMaybe<GraphCMS_ScheduledReleaseStatus>>>;
   readonly ne: InputMaybe<GraphCMS_ScheduledReleaseStatus>;
   readonly nin: InputMaybe<ReadonlyArray<InputMaybe<GraphCMS_ScheduledReleaseStatus>>>;
+};
+
+type GraphCMS_SetupCostItem = {
+  readonly cost: Scalars['Int'];
+  readonly id: Scalars['ID'];
+  readonly item: Scalars['String'];
+  readonly remoteTypeName: Scalars['String'];
+  readonly stage: GraphCMS_Stage;
+};
+
+type GraphCMS_SetupCostItemFilterInput = {
+  readonly cost: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<IDQueryOperatorInput>;
+  readonly item: InputMaybe<StringQueryOperatorInput>;
+  readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
+  readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
+};
+
+type GraphCMS_SetupCostItemFilterListInput = {
+  readonly elemMatch: InputMaybe<GraphCMS_SetupCostItemFilterInput>;
+};
+
+type GraphCMS_SetupCostSection = {
+  readonly costItems: ReadonlyArray<GraphCMS_SetupCostItem>;
+  readonly fundingSources: ReadonlyArray<GraphCMS_FundingSource>;
+  readonly id: Scalars['ID'];
+  readonly remoteTypeName: Scalars['String'];
+  readonly stage: GraphCMS_Stage;
+};
+
+type GraphCMS_SetupCostSectionFilterInput = {
+  readonly costItems: InputMaybe<GraphCMS_SetupCostItemFilterListInput>;
+  readonly fundingSources: InputMaybe<GraphCMS_FundingSourceFilterListInput>;
+  readonly id: InputMaybe<IDQueryOperatorInput>;
+  readonly remoteTypeName: InputMaybe<StringQueryOperatorInput>;
+  readonly stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
 };
 
 type GraphCMS_Stage =
@@ -23676,6 +25807,7 @@ type Query_graphCmsDevelopmentOptionArgs = {
   intro: InputMaybe<StringQueryOperatorInput>;
   locale: InputMaybe<GraphCMS_LocaleQueryOperatorInput>;
   mainText: InputMaybe<GraphCMS_RichTextFilterInput>;
+  modelBusinessPlan: InputMaybe<GraphCMS_ModelBusinessPlanFilterInput>;
   modelSwot: InputMaybe<GraphCMS_ModelSwotFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   publishedAt: InputMaybe<JSONQueryOperatorInput>;
@@ -23719,7 +25851,6 @@ type Query_graphCmsInfoArgs = {
 
 
 type Query_graphCmsModelBusinessPlanArgs = {
-  capitalCosts: InputMaybe<GraphCMS_CapitalCostsFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   createdAt: InputMaybe<JSONQueryOperatorInput>;
   createdBy: InputMaybe<GraphCMS_UserFilterInput>;
@@ -23732,7 +25863,9 @@ type Query_graphCmsModelBusinessPlanArgs = {
   publishedBy: InputMaybe<GraphCMS_UserFilterInput>;
   remoteId: InputMaybe<IDQueryOperatorInput>;
   remoteTypeName: InputMaybe<StringQueryOperatorInput>;
+  runningCosts: InputMaybe<GraphCMS_RunningCostsSectionFilterInput>;
   scheduledIn: InputMaybe<GraphCMS_ScheduledOperationFilterListInput>;
+  setupCosts: InputMaybe<GraphCMS_SetupCostSectionFilterInput>;
   stage: InputMaybe<GraphCMS_StageQueryOperatorInput>;
   updatedAt: InputMaybe<JSONQueryOperatorInput>;
   updatedBy: InputMaybe<GraphCMS_UserFilterInput>;

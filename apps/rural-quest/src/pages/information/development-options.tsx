@@ -30,7 +30,7 @@ const InfoDevOptions: FC = ({
         </Helmet>
 
         <main className="the-quest">
-            <StudentHeader headerText="Development Options" />
+            <StudentHeader headerText="Information" />
 
             <section className="container" id="main">
                 <div className="row">

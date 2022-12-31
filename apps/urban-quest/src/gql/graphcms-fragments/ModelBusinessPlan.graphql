@@ -6,24 +6,52 @@ fragment ModelBusinessPlan on ModelBusinessPlan {
   updatedAt(variation: COMBINED)
   publishedAt(variation: COMBINED)
   developmentOption
-  capitalCosts {
-    ... on CapitalCosts {
+  setupCosts {
+    ... on SetupCostSection {
       stage
       id
-      details {
-        ... on RichText {
-          raw
-          html
-          markdown
-          text
+      costItems {
+        ... on SetupCostItem {
+          stage
+          id
+          item
+          cost
         }
       }
-      funding {
-        ... on RichText {
-          raw
-          html
-          markdown
-          text
+      fundingSources {
+        ... on FundingSource {
+          stage
+          id
+          funder
+          amount
+        }
+      }
+    }
+  }
+  runningCosts {
+    ... on RunningCostsSection {
+      stage
+      id
+      costs {
+        ... on RunningCostItem {
+          stage
+          id
+          item
+          yearOne
+          yearTwo
+          yearThree
+          yearFour
+        }
+      }
+      incomes {
+        ... on RunningCostItem {
+          stage
+          id
+          item
+          yearOne
+          yearTwo
+          yearThree
+          yearFour
         }
       }
     }

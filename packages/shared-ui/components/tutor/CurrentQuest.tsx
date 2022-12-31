@@ -195,8 +195,6 @@ export const UnlockedStage3NoDocStatus = ({ stageProgressId, modelSwots }) => {
         idRequired: 'userId',
     })
 
-    console.log(modelSwots[0].modelSwot)
-
     return (
         <div className="progress">
             <Progress />

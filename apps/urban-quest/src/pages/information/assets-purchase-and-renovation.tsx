@@ -2,7 +2,6 @@ import { FC } from 'react'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import MapOptions from './_map'
 import {
     StudentHeader,
     StudentFooter,
@@ -14,10 +13,9 @@ import {
 
 import '../../scss/index.scss'
 
-// const InfoDevOptions: FC<PageProps<Queries.DevelopmentOptionsQueryQuery>> = ({
-const InfoDevOptions: FC = ({
+const InfoAssetsPurchaseAndRenovation: FC = ({
     data: {
-        graphCmsInfo: { title, intro, infoBlock, slider, helpfulInfo },
+        graphCmsInfo: { title, intro, infoBlock, helpfulInfo },
     },
 }) => (
     <>
@@ -62,8 +60,6 @@ const InfoDevOptions: FC = ({
                 </div>
                 <div className="row">
                     <div className="col-lg-12 dev-options">
-                        <MapOptions iconInfoList={slider} />
-
                         <InfoBlock items={infoBlock} />
 
                         <p className="sm-type-bigamp mb-4">
@@ -80,11 +76,11 @@ const InfoDevOptions: FC = ({
     </>
 )
 
-export default InfoDevOptions
+export default InfoAssetsPurchaseAndRenovation
 
 export const query = graphql`
     query DevelopmentOptionsQuery {
-        graphCmsInfo(slug: { eq: "development-options" }) {
+        graphCmsInfo(slug: { eq: "assets-purchase-and-renovations" }) {
             title
             intro {
                 raw

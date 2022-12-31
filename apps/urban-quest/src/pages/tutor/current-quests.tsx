@@ -41,9 +41,13 @@ import {
 import {
     POSITION_DISPLAY_NAME,
     buildExampleSWOT,
+    buildExampleBusinessPlan,
 } from '@community-land-quest/shared-utils/utils/common-utils'
 
-import { ModelSwot } from '@community-land-quest/shared-utils/utils/common-types'
+import {
+    ModelSwot,
+    ModelBusinessPlan,
+} from '@community-land-quest/shared-utils/utils/common-types'
 
 import Tick from '../../assets/tick.svg'
 
@@ -256,6 +260,35 @@ const TutorCurrentQuestPage = () => {
                             html
                         }
                     }
+                    modelBusinessPlan {
+                        developmentOption
+                        setupCosts {
+                            costItems {
+                                item
+                                cost
+                            }
+                            fundingSources {
+                                funder
+                                amount
+                            }
+                        }
+                        runningCosts {
+                            costs {
+                                item
+                                yearOne
+                                yearTwo
+                                yearThree
+                                yearFour
+                            }
+                            incomes {
+                                item
+                                yearOne
+                                yearTwo
+                                yearThree
+                                yearFour
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -335,6 +368,17 @@ const TutorCurrentQuestPage = () => {
             }
         }
     )
+
+    const modelBusinessPlans: Array<ModelBusinessPlan> =
+        cmsDevelopmentOptions.map(({ slug, modelBusinessPlan }) => {
+            const { developmentOption: title, ...rest } = modelBusinessPlan
+
+            return {
+                title,
+                slug,
+                modelBusinessPlan: buildExampleBusinessPlan(rest),
+            }
+        })
 
     if (quests.length === 0) {
         return (

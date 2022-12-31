@@ -53,14 +53,6 @@ fragment DevelopmentOption on DevelopmentOption {
       stage
     }
   }
-  modelSwot {
-    ... on ModelSwot {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
-      stage
-    }
-  }
   informationMainImage {
     ... on Asset {
       remoteTypeName: __typename
@@ -71,6 +63,22 @@ fragment DevelopmentOption on DevelopmentOption {
   }
   icon {
     ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+  }
+  modelSwot {
+    ... on ModelSwot {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+  }
+  modelBusinessPlan {
+    ... on ModelBusinessPlan {
       remoteTypeName: __typename
       remoteId: id
       locale

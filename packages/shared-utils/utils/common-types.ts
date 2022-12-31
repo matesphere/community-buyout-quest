@@ -56,3 +56,42 @@ export interface ModelSwot {
     slug: string
     modelSwot: string
 }
+
+interface SetupCosts {
+    costItems: Array<{
+        item: string
+        cost: number
+    }>
+    fundingSources: Array<{
+        funder: string
+        amount: number
+    }>
+}
+
+interface RunningCosts {
+    costs: Array<{
+        item: string
+        yearOne: number
+        yearTwo: number
+        yearThree: number
+        yearFour: number
+    }>
+    incomes: Array<{
+        item: string
+        yearOne: number
+        yearTwo: number
+        yearThree: number
+        yearFour: number
+    }>
+}
+
+export interface CMSBusinessPlanType {
+    setupCosts: SetupCosts
+    runningCosts: RunningCosts
+}
+
+export interface ModelBusinessPlan {
+    title: string
+    slug: string
+    modelBusinessPlan: string
+}
