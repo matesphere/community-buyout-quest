@@ -29,6 +29,13 @@ export const RunningCostsSection: FC<SectionProps> = ({
             year3: '',
             year4: '',
         }),
+        incomes: Array(6).fill({
+            details: '',
+            year1: '',
+            year2: '',
+            year3: '',
+            year4: '',
+        }),
     }
 
     return (
@@ -36,6 +43,263 @@ export const RunningCostsSection: FC<SectionProps> = ({
             {questionText && <InfoBlock items={[questionText]} />}
 
             <div className="side-grey mb-2">
+                {/* INCOMES */}
+                <div className="row">
+                    <div className="col-lg-4">
+                        <p className="form-label sm-type-amp mb-2">
+                            Details of annual incomes
+                        </p>
+                    </div>
+                    <div className="col-lg-2">
+                        <p className="sm-type-amp mb-2">Year 1</p>
+                    </div>
+                    <div className="col-lg-2">
+                        <p className="sm-type-amp mb-2">Year 2</p>
+                    </div>
+                    <div className="col-lg-2">
+                        <p className="sm-type-amp mb-2">Year 3</p>
+                    </div>
+                    <div className="col-lg-2">
+                        <p className="sm-type-amp mb-2">Year 4</p>
+                    </div>
+                </div>
+
+                {sectionState.incomes.map((incomeRow, i) => (
+                    <div
+                        key={i}
+                        className={`row${
+                            i === sectionState.incomes.length - 1 ? ' mb-3' : ''
+                        }`}
+                    >
+                        <div className="col-lg-4">
+                            <input
+                                className="form-control mb-2"
+                                value={incomeRow.details}
+                                onChange={
+                                    workDispatch
+                                        ? ({ target: { value } }) => {
+                                              const arrayToUpdate = [
+                                                  ...sectionState.incomes,
+                                              ]
+
+                                              arrayToUpdate.splice(i, 1, {
+                                                  ...incomeRow,
+                                                  details: value,
+                                              })
+
+                                              workDispatch({
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
+                                                  option,
+                                                  planSection: 'runningCosts',
+                                                  payload: {
+                                                      ...sectionState,
+                                                      incomes: arrayToUpdate,
+                                                  },
+                                              })
+                                          }
+                                        : () => {}
+                                }
+                                readOnly={docSubmitted}
+                            />
+                        </div>
+                        <div className="col-lg-2">
+                            <input
+                                className="form-control mb-2"
+                                type="number"
+                                value={incomeRow.year1}
+                                onChange={
+                                    workDispatch
+                                        ? ({ target: { value } }) => {
+                                              const arrayToUpdate = [
+                                                  ...sectionState.incomes,
+                                              ]
+
+                                              const year1 =
+                                                  value !== ''
+                                                      ? parseInt(value)
+                                                      : ''
+
+                                              arrayToUpdate.splice(i, 1, {
+                                                  ...incomeRow,
+                                                  year1,
+                                              })
+
+                                              workDispatch({
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
+                                                  option,
+                                                  planSection: 'runningCosts',
+                                                  payload: {
+                                                      ...sectionState,
+                                                      incomes: arrayToUpdate,
+                                                  },
+                                              })
+                                          }
+                                        : () => {}
+                                }
+                                readOnly={docSubmitted}
+                            />
+                        </div>
+                        <div className="col-lg-2">
+                            <input
+                                className="form-control mb-2"
+                                type="number"
+                                value={incomeRow.year2}
+                                onChange={
+                                    workDispatch
+                                        ? ({ target: { value } }) => {
+                                              const arrayToUpdate = [
+                                                  ...sectionState.incomes,
+                                              ]
+
+                                              const year2 =
+                                                  value !== ''
+                                                      ? parseInt(value)
+                                                      : ''
+
+                                              arrayToUpdate.splice(i, 1, {
+                                                  ...incomeRow,
+                                                  year2,
+                                              })
+
+                                              workDispatch({
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
+                                                  option,
+                                                  planSection: 'runningCosts',
+                                                  payload: {
+                                                      ...sectionState,
+                                                      incomes: arrayToUpdate,
+                                                  },
+                                              })
+                                          }
+                                        : () => {}
+                                }
+                                readOnly={docSubmitted}
+                            />
+                        </div>
+                        <div className="col-lg-2">
+                            <input
+                                className="form-control mb-2"
+                                type="number"
+                                value={incomeRow.year3}
+                                onChange={
+                                    workDispatch
+                                        ? ({ target: { value } }) => {
+                                              const arrayToUpdate = [
+                                                  ...sectionState.incomes,
+                                              ]
+
+                                              const year3 =
+                                                  value !== ''
+                                                      ? parseInt(value)
+                                                      : ''
+
+                                              arrayToUpdate.splice(i, 1, {
+                                                  ...incomeRow,
+                                                  year3,
+                                              })
+
+                                              workDispatch({
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
+                                                  option,
+                                                  planSection: 'runningCosts',
+                                                  payload: {
+                                                      ...sectionState,
+                                                      incomes: arrayToUpdate,
+                                                  },
+                                              })
+                                          }
+                                        : () => {}
+                                }
+                                readOnly={docSubmitted}
+                            />
+                        </div>
+                        <div className="col-lg-2">
+                            <input
+                                className="form-control mb-2"
+                                type="number"
+                                value={incomeRow.year4}
+                                onChange={
+                                    workDispatch
+                                        ? ({ target: { value } }) => {
+                                              const arrayToUpdate = [
+                                                  ...sectionState.incomes,
+                                              ]
+
+                                              const year4 =
+                                                  value !== ''
+                                                      ? parseInt(value)
+                                                      : ''
+
+                                              arrayToUpdate.splice(i, 1, {
+                                                  ...incomeRow,
+                                                  year4,
+                                              })
+
+                                              workDispatch({
+                                                  type: BusinessPlanActionType.UpdateBusinessPlan,
+                                                  option,
+                                                  planSection: 'runningCosts',
+                                                  payload: {
+                                                      ...sectionState,
+                                                      incomes: arrayToUpdate,
+                                                  },
+                                              })
+                                          }
+                                        : () => {}
+                                }
+                                readOnly={docSubmitted}
+                            />
+                        </div>
+                    </div>
+                ))}
+
+                <div className="row mb-4">
+                    <div className="col-lg-4">
+                        <p className="text-align-right">Total</p>
+                    </div>
+                    <div className="col-lg-2">
+                        <input
+                            className="form-control mb-2"
+                            readOnly
+                            value={sectionState.incomes.reduce(
+                                (acc, curr) => acc + (curr.year1 || 0),
+                                0
+                            )}
+                        />
+                    </div>
+                    <div className="col-lg-2">
+                        <input
+                            className="form-control mb-2"
+                            readOnly
+                            value={sectionState.incomes.reduce(
+                                (acc, curr) => acc + (curr.year2 || 0),
+                                0
+                            )}
+                        />
+                    </div>
+                    <div className="col-lg-2">
+                        <input
+                            className="form-control mb-2"
+                            readOnly
+                            value={sectionState.incomes.reduce(
+                                (acc, curr) => acc + (curr.year3 || 0),
+                                0
+                            )}
+                        />
+                    </div>
+                    <div className="col-lg-2">
+                        <input
+                            className="form-control mb-2"
+                            readOnly
+                            value={sectionState.incomes.reduce(
+                                (acc, curr) => acc + (curr.year4 || 0),
+                                0
+                            )}
+                        />
+                    </div>
+                </div>
+
+                {/* COSTS */}
                 <div className="row">
                     <div className="col-lg-4">
                         <p className="form-label sm-type-amp mb-2">
@@ -84,6 +348,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
+                                                      ...sectionState,
                                                       costs: arrayToUpdate,
                                                   },
                                               })
@@ -120,6 +385,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
+                                                      ...sectionState,
                                                       costs: arrayToUpdate,
                                                   },
                                               })
@@ -156,6 +422,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
+                                                      ...sectionState,
                                                       costs: arrayToUpdate,
                                                   },
                                               })
@@ -192,6 +459,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
+                                                      ...sectionState,
                                                       costs: arrayToUpdate,
                                                   },
                                               })
@@ -228,6 +496,7 @@ export const RunningCostsSection: FC<SectionProps> = ({
                                                   option,
                                                   planSection: 'runningCosts',
                                                   payload: {
+                                                      ...sectionState,
                                                       costs: arrayToUpdate,
                                                   },
                                               })

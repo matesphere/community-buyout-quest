@@ -13,8 +13,8 @@ export type BusinessPlanAction =
     | {
           type: BusinessPlanActionType.UpdateLandCost
           payload: {
-              area?: number | ''
-              price?: number | ''
+              area?: number
+              price?: number
               funding?: Array<{ funderName: string; amount: number | '' }>
           }
       }
@@ -37,8 +37,8 @@ export interface FourYearCosts {
 }
 
 export interface LandCost {
-    area: number | ''
-    price: number | ''
+    area: number | 0
+    price: number | 0
     funding: Array<{ funderName: string; amount: number | '' }>
 }
 
@@ -54,6 +54,7 @@ export interface CapitalCosts {
 
 export interface RunningCosts {
     costs: Array<{ details: string } & FourYearCosts>
+    incomes: Array<{ details: string } & FourYearCosts>
 }
 
 export interface CashFlow {

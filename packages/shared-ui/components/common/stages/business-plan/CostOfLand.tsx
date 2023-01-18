@@ -25,8 +25,8 @@ export const CostOfLand: FC<CostOfLandProps> = ({
     numberOfFundingOptions,
 }) => {
     const landCost: LandCost = (workState.landCost as LandCost) || {
-        area: '',
-        price: '',
+        area: 0,
+        price: 0,
         funding: Array(numberOfFundingOptions).fill({
             funderName: '',
             amount: '',
@@ -48,17 +48,16 @@ export const CostOfLand: FC<CostOfLandProps> = ({
                     <input
                         className="form-control"
                         type="number"
+                        step="0.1"
+                        min={0}
                         value={landCost.area}
                         onChange={
                             workDispatch
-                                ? ({ target: { value } }) => {
-                                      const area =
-                                          value !== '' ? parseInt(value) : ''
-
+                                ? ({ target: { valueAsNumber } }) => {
                                       workDispatch({
                                           type: BusinessPlanActionType.UpdateLandCost,
                                           payload: {
-                                              area,
+                                              area: valueAsNumber,
                                           },
                                       })
                                   }
