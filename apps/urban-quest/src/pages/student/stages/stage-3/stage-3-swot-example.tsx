@@ -20,7 +20,7 @@ import {
 
 import '../../../../scss/index.scss'
 
-const Stage3Swot: FC<PageProps> = ({ location: { search } }) => {
+const Stage3SwotExample: FC<PageProps> = ({ location: { search } }) => {
     const { loading, error, data } = useAuthQuery<
         SwotExampleQuery,
         Omit<SwotExampleQueryVariables, 'team_id'>
@@ -83,4 +83,4 @@ const Stage3Swot: FC<PageProps> = ({ location: { search } }) => {
     )
 }
 
-export default Stage3Swot
+export default Stage3SwotExample

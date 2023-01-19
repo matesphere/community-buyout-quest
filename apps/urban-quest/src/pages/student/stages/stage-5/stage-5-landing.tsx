@@ -28,6 +28,7 @@ import {
 import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
 
 import Tick from '../../../../assets/tick.svg'
+import HelpIcon from '../../../../assets/help-icon.svg'
 
 import '../../../../scss/index.scss'
 
@@ -65,6 +66,32 @@ export const BusinessPlanLinks: FC<BusinessPlanLinksProps> = ({
             )
         )}
     </ol>
+)
+
+const ExampleBusinessPlanLinks: FC<{ exampleBusinessPlans: Array<string> }> = ({
+    exampleBusinessPlans,
+}) => (
+    <>
+        <p className="sm-type-lead mb-2">
+            <span className="side-icon side-icon-orange shake">
+                <HelpIcon />
+            </span>
+            {`Your teacher has provided the following example${
+                exampleBusinessPlans.length > 1 ? 's' : ''
+            } to help:`}
+        </p>
+        <ul>
+            {exampleBusinessPlans.map((businessPlanOption, i) => (
+                <li key={i} className="sm-type-guitar mb-2">
+                    <Link
+                        to={`/student/stage-3/swot/example?option=${businessPlanOption}`}
+                    >
+                        Example {i + 1}
+                    </Link>
+                </li>
+            ))}
+        </ul>
+    </>
 )
 
 export const stage5Reducer: Reducer<WorkState, BusinessPlanAction> = (
@@ -163,6 +190,15 @@ const Stage5LandingPage: FC = () => {
             .includes(opt)
     )
 
+    const examplePlanOptions = Object.keys(doc)
+        .filter((opt) => opt !== 'landCost' && opt !== 'renovations')
+        .filter(
+            (opt) =>
+                !devOptions
+                    .map(({ development_option: { option } }) => option)
+                    .includes(opt)
+        )
+
     return (
         <>
             <Helmet>
@@ -245,6 +281,14 @@ const Stage5LandingPage: FC = () => {
                                         shortlist={shortlist}
                                         completedPlans={completedPlans}
                                     />
+
+                                    {examplePlanOptions.length > 0 && (
+                                        <ExampleBusinessPlanLinks
+                                            exampleBusinessPlans={
+                                                examplePlanOptions
+                                            }
+                                        />
+                                    )}
                                 </TaskContainer>
                             </TaskPanel>
 

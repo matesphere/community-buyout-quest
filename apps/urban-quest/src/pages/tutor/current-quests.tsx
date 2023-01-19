@@ -22,8 +22,8 @@ import {
     LockedStageStatus,
     UnlockedStageStatus,
     DocumentlessUnlockedStageStatus,
-    UnlockedStage3Status,
-    UnlockedStage3NoDocStatus,
+    UnlockedStageWithModelAnswersStatus,
+    UnlockedStageWithModelAnswersNoDocStatus,
     SubmittedStageStatus,
     DocumentlessSubmittedStageStatus,
     FailedStageStatus,
@@ -44,10 +44,7 @@ import {
     buildExampleBusinessPlan,
 } from '@community-land-quest/shared-utils/utils/common-utils'
 
-import {
-    ModelSwot,
-    ModelBusinessPlan,
-} from '@community-land-quest/shared-utils/utils/common-types'
+import { ModelAnswer } from '@community-land-quest/shared-utils/utils/common-types'
 
 import Tick from '../../assets/tick.svg'
 
@@ -58,6 +55,7 @@ const getStageStatusDisplay = (
     stageId,
     stageProgresses,
     modelSwots,
+    modelBusinessPlans,
     teamId
 ) => {
     const stageProgress = stageProgresses.find(
@@ -65,6 +63,8 @@ const getStageStatusDisplay = (
     )
 
     const document = stageProgress?.documents[0] || null
+
+    const modelAnswers = stageId === 5 ? modelBusinessPlans : modelSwots
 
     if (stageProgress) {
         if (document) {
@@ -91,9 +91,9 @@ const getStageStatusDisplay = (
                         />
                     )
                 default:
-                    return stageId === 3 ? (
-                        <UnlockedStage3Status
-                            modelSwots={modelSwots}
+                    return stageId === 3 || stageId === 5 ? (
+                        <UnlockedStageWithModelAnswersStatus
+                            modelAnswers={modelAnswers}
                             doc={document}
                         />
                     ) : (
@@ -122,10 +122,10 @@ const getStageStatusDisplay = (
                 )
             }
 
-            return stageId === 3 ? (
-                <UnlockedStage3NoDocStatus
+            return stageId === 3 || stageId === 5 ? (
+                <UnlockedStageWithModelAnswersNoDocStatus
                     stageProgressId={stageProgress.id}
-                    modelSwots={modelSwots}
+                    modelAnswers={modelAnswers}
                 />
             ) : (
                 <UnlockedStageStatus />
@@ -212,7 +212,13 @@ const TeamUserPassPanel = ({ students }: TeamUserPassPanelProps) => (
     </>
 )
 
-const StageInfoPanel = ({ stages, stageProgresses, modelSwots, teamId }) => (
+const StageInfoPanel = ({
+    stages,
+    stageProgresses,
+    modelSwots,
+    modelBusinessPlans,
+    teamId,
+}) => (
     <ul className="steps">
         {stages.map(({ id, title }, i) => (
             <li key={i}>
@@ -224,6 +230,7 @@ const StageInfoPanel = ({ stages, stageProgresses, modelSwots, teamId }) => (
                         id,
                         stageProgresses,
                         modelSwots,
+                        modelBusinessPlans,
                         teamId
                     )}
                 </div>
@@ -357,28 +364,29 @@ const TutorCurrentQuestPage = () => {
         stage,
     } = data
 
-    const modelSwots: Array<ModelSwot> = cmsDevelopmentOptions.map(
+    const modelSwots: Array<ModelAnswer> = cmsDevelopmentOptions.map(
         ({ slug, modelSwot }) => {
             const { developmentOption: title, ...rest } = modelSwot
 
             return {
                 title,
                 slug,
-                modelSwot: buildExampleSWOT(rest),
+                modelAnswer: buildExampleSWOT(rest),
             }
         }
     )
 
-    const modelBusinessPlans: Array<ModelBusinessPlan> =
-        cmsDevelopmentOptions.map(({ slug, modelBusinessPlan }) => {
+    const modelBusinessPlans: Array<ModelAnswer> = cmsDevelopmentOptions.map(
+        ({ slug, modelBusinessPlan }) => {
             const { developmentOption: title, ...rest } = modelBusinessPlan
 
             return {
                 title,
                 slug,
-                modelBusinessPlan: buildExampleBusinessPlan(rest),
+                modelAnswer: buildExampleBusinessPlan(rest),
             }
-        })
+        }
+    )
 
     if (quests.length === 0) {
         return (
@@ -519,6 +527,9 @@ const TutorCurrentQuestPage = () => {
                                                                         }
                                                                         modelSwots={
                                                                             modelSwots
+                                                                        }
+                                                                        modelBusinessPlans={
+                                                                            modelBusinessPlans
                                                                         }
                                                                         teamId={
                                                                             id

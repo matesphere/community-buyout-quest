@@ -51,10 +51,10 @@ export interface CMSSWOTType {
     }
 }
 
-export interface ModelSwot {
+export interface ModelAnswer {
     title: string
     slug: string
-    modelSwot: string
+    modelAnswer: string
 }
 
 interface SetupCosts {
@@ -88,10 +88,4 @@ interface RunningCosts {
 export interface CMSBusinessPlanType {
     setupCosts: SetupCosts
     runningCosts: RunningCosts
-}
-
-export interface ModelBusinessPlan {
-    title: string
-    slug: string
-    modelBusinessPlan: string
 }

@@ -17,8 +17,6 @@ import {
     LockedStageStatus,
     UnlockedStageStatus,
     DocumentlessUnlockedStageStatus,
-    UnlockedStage3Status,
-    UnlockedStage3NoDocStatus,
     SubmittedStageStatus,
     DocumentlessSubmittedStageStatus,
     FailedStageStatus,
@@ -39,12 +37,7 @@ import Tick from '../../assets/tick.svg'
 import '../../scss/index.scss'
 import 'react-tabs/style/react-tabs.css'
 
-const getStageStatusDisplay = (
-    stageId,
-    stageProgresses,
-    devOptions,
-    teamId
-) => {
+const getStageStatusDisplay = (stageId, stageProgresses, teamId) => {
     const stageProgress = stageProgresses.find(
         (stageProgress) => stageProgress.stage_id === stageId
     )
@@ -76,14 +69,7 @@ const getStageStatusDisplay = (
                         />
                     )
                 default:
-                    return stageId === 3 ? (
-                        <UnlockedStage3Status
-                            devOptions={devOptions}
-                            doc={document}
-                        />
-                    ) : (
-                        <UnlockedStageStatus />
-                    )
+                    return <UnlockedStageStatus />
             }
         } else {
             if (stageProgress.status === 'completed') {
@@ -107,14 +93,7 @@ const getStageStatusDisplay = (
                 )
             }
 
-            return stageId === 3 ? (
-                <UnlockedStage3NoDocStatus
-                    stageProgressId={stageProgress.id}
-                    devOptions={devOptions}
-                />
-            ) : (
-                <UnlockedStageStatus />
-            )
+            return <UnlockedStageStatus />
         }
     } else {
         return <LockedStageStatus teamId={teamId} stageId={stageId} />
@@ -178,12 +157,7 @@ const StageInfoPanel = ({ stages, stageProgresses, devOptions, teamId }) => (
                     {`Stage ${id}: ${title}`}
                 </p>
                 <div className="form-holder-border">
-                    {getStageStatusDisplay(
-                        id,
-                        stageProgresses,
-                        devOptions,
-                        teamId
-                    )}
+                    {getStageStatusDisplay(id, stageProgresses, teamId)}
                 </div>
             </li>
         ))}

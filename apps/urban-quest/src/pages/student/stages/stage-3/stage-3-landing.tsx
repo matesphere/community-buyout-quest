@@ -146,10 +146,10 @@ const Stage3LandingPage: FC = () => {
     )
 
     const exampleSwotOptions = Object.keys(doc).filter(
-        (swot) =>
+        (opt) =>
             !devOptions
                 .map(({ development_option: { option } }) => option)
-                .includes(swot)
+                .includes(opt)
     )
 
     return (
