@@ -15,11 +15,6 @@ const IndexPage = () => {
                     gatsbyImageData(layout: CONSTRAINED)
                 }
             }
-            image2: file(relativePath: { eq: "indexpage.jpg" }) {
-                childImageSharp {
-                    gatsbyImageData(layout: CONSTRAINED)
-                }
-            }
         }
     `)
 
@@ -37,12 +32,6 @@ const IndexPage = () => {
             <div className="top-holder">
 
                 <Skyline className="skyline" />
-                <div className="indeximage">
-                                    <GatsbyImage
-                                        alt=""
-                                        image={data.image2.childImageSharp.gatsbyImageData}
-                                    />
-                                </div>
                 <section className="container top-section">
                     <div className="row pt-4">
                         <div className="col-lg-8">

@@ -4,6 +4,9 @@ import { Auth } from 'aws-amplify'
 
 import Squiggle from '../../assets/squiggle.svg'
 
+const d = new Date();
+const year = d.getFullYear();
+
 export const TutorFooter = () => (
     <footer className="footer">
         <Squiggle className="squiggle" />
@@ -36,7 +39,7 @@ export const TutorFooter = () => (
             <div className="row">
                 <div className="col-lg-12 text-align-center mt-2">
                     <p>
-                        &copy; Copyright MateSphere 2021. All rights reserved.
+                        &copy; Copyright MateSphere {year}. All rights reserved.
                     </p>
                 </div>
             </div>

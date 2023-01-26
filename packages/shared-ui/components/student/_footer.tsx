@@ -8,6 +8,9 @@ import { UserStateContext } from '@community-land-quest/shared-data/contexts/use
 import Squiggle from '../../assets/squiggle.svg'
 import SkyLine from '../../assets/skyline.svg'
 
+const d = new Date();
+const year = d.getFullYear();
+
 export const Footer: FC = () => {
     const {
         userInfo: { role },
@@ -50,8 +53,8 @@ export const Footer: FC = () => {
                 </div>
                 <div className="row">
                     <div className="col-lg-12 text-align-center mt-2">
-                        <p>
-                            &copy; Copyright MateSphere 2021. All rights
+                        <p className="footer-copy">
+                            &copy; Copyright MateSphere {year}. All rights
                             reserved.
                         </p>
                     </div>
