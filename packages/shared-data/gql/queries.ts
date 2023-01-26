@@ -358,6 +358,33 @@ export const STAGE_4_TASK_QUERY = gql`
     }
 `
 
+export const BUSINESS_PLAN_EXAMPLE_QUERY = gql`
+    query BusinessPlanExample($team_id: uuid!, $quest_type: String!) {
+        team_by_pk(id: $team_id) {
+            id
+            stage_progresses(where: { stage_id: { _eq: 5 } }) {
+                documents(
+                    where: {
+                        _or: [
+                            { status: { _eq: draft } }
+                            { status: { _eq: submitted } }
+                        ]
+                    }
+                ) {
+                    doc_data
+                }
+            }
+        }
+        development_option(
+            where: { quest_type: { _eq: $quest_type } }
+            order_by: { id: asc }
+        ) {
+            option
+            display_name
+        }
+    }
+`
+
 export const STAGE_6_QUERY = gql`
     query Stage6($team_id: uuid!) {
         team_by_pk(id: $team_id) {

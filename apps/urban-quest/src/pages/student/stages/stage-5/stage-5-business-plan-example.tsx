@@ -14,35 +14,20 @@ import {
     CapitalCostsSection,
     RunningCostsSection,
     CashFlowSection,
-    SaveSubmitSection,
 } from '@community-land-quest/shared-ui'
 
-import { stage5Reducer } from './stage-5-landing'
+import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
+import { BUSINESS_PLAN_EXAMPLE_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
-    WorkState,
-    BusinessPlanAction,
-} from '@community-land-quest/shared-ui/types/business-plan'
-
-import { useWorkState } from '@community-land-quest/shared-data/gql/hooks/workState'
-
-import { RichTextContent } from '@graphcms/rich-text-types'
+    BusinessPlanExampleQuery,
+    BusinessPlanExampleQueryVariables,
+} from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import '../../../../scss/index.scss'
 
-export interface SectionProps {
-    devOption: {
-        option: string
-        display_name: string
-    }
-    workState: WorkState
-    workDispatch?: React.Dispatch<BusinessPlanAction>
-    docSubmitted: boolean
-    questionText?: { raw: RichTextContent }
-}
-
 const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
     const {
-        graphCmsStageTask: { title, intro, questions, helpfulInfo },
+        graphCmsStageTask: { title, questions, helpfulInfo },
     } = useStaticQuery(graphql`
         query {
             graphCmsStageTask(stageNumber: { eq: 5 }) {
@@ -54,13 +39,15 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
     const {
         loading,
         error,
-        pageData,
-        workState,
-        workDispatch,
-        saveWorkObj,
-        docSubmitted,
-        stageComplete,
-    } = useWorkState<WorkState, BusinessPlanAction>(5, stage5Reducer, true)
+        data: pageData,
+    } = useAuthQuery<
+        BusinessPlanExampleQuery,
+        Omit<BusinessPlanExampleQueryVariables, 'team_id'>
+    >(
+        BUSINESS_PLAN_EXAMPLE_QUERY,
+        { variables: { quest_type: 'urban' } },
+        'teamId'
+    )
 
     if (loading) return <Loading />
     if (error || !pageData)
@@ -73,15 +60,13 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
             />
         )
 
-    const { id, num } = QueryString.parse(search, {
-        parseNumbers: true,
-    }) as { id: string; num: number }
+    const { option } = QueryString.parse(search) as { option: string }
 
-    const teamDevOption = pageData.team_by_pk?.team_development_options.find(
-        (opt) => opt.id === id
+    const devOption = pageData.development_option.find(
+        (opt) => opt.option === option
     )
-
-    const devOption = teamDevOption?.development_option
+    const businessPlanState =
+        pageData.team_by_pk!.stage_progresses[0].documents[0].doc_data
 
     return (
         <>
@@ -105,34 +90,27 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
                                     },
                                     {
                                         displayName: 'Stage 5',
-                                        url: stageComplete
-                                            ? '/student/stage-5/complete'
-                                            : '/student/stage-5/',
+                                        url: '/student/stage-5/',
                                     },
                                 ]}
-                                currentDisplayName={`Business Plan ${num + 1}`}
+                                currentDisplayName="Example Business Plan"
                             />
 
                             <h2 className="sm-type-biggerdrum sm-type-biggerdrum--medium mt-4 mb-4">
-                                Business Plan {num + 1}
+                                Example Business Plan
                             </h2>
 
-                            <Intro item={intro} />
-
                             <h3 className="sm-type-drum sm-type-drum--medium mb-2 redorange-highlight">
-                                {teamDevOption?.team_choice_name ||
-                                    devOption?.display_name}
+                                {devOption!.display_name}
                             </h3>
 
-                            {!teamDevOption?.team_choice_name && (
-                                <a
-                                    href={`/information/${devOption?.option}-alt`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Development Option information
-                                </a>
-                            )}
+                            <a
+                                href={`/information/${devOption?.option}-alt`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Development Option information
+                            </a>
                             <br />
                             <br />
                         </div>
@@ -141,20 +119,17 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
                             {helpfulInfo && (
                                 <Helpful content={helpfulInfo.info}>
                                     <>
-                                        {!teamDevOption?.team_choice_name && (
-                                            <p className="sm-type-amp">
-                                                Figures are provided in the{' '}
-                                                <a
-                                                    href={`/information/${devOption?.option}-alt`}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    Development Option
-                                                    information
-                                                </a>
-                                                .
-                                            </p>
-                                        )}
+                                        <p className="sm-type-amp">
+                                            Figures are provided in the{' '}
+                                            <a
+                                                href={`/information/${devOption?.option}-alt`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Development Option information
+                                            </a>
+                                            .
+                                        </p>
                                     </>
                                 </Helpful>
                             )}
@@ -166,9 +141,9 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
                             <CapitalCostsSection
                                 {...{
                                     devOption,
-                                    workState,
-                                    workDispatch,
-                                    docSubmitted,
+                                    workState: businessPlanState,
+                                    workDispatch: () => {},
+                                    docSubmitted: true,
                                     questionText: questions[0],
                                 }}
                             />
@@ -180,9 +155,9 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
                             <RunningCostsSection
                                 {...{
                                     devOption,
-                                    workState,
-                                    workDispatch,
-                                    docSubmitted,
+                                    workState: businessPlanState,
+                                    workDispatch: () => {},
+                                    docSubmitted: true,
                                     questionText: questions[1],
                                 }}
                             />
@@ -194,28 +169,16 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
                             <CashFlowSection
                                 {...{
                                     devOption,
-                                    workState,
-                                    workDispatch,
-                                    docSubmitted,
+                                    workState: businessPlanState,
+                                    workDispatch: () => {},
+                                    docSubmitted: true,
                                     questionText: questions[2],
                                 }}
                             />
                         </div>
                     </div>
 
-                    <SaveSubmitSection
-                        saveWorkObj={saveWorkObj}
-                        docSubmitted={docSubmitted}
-                    />
-                    <Link
-                        to={
-                            stageComplete
-                                ? '/student/stage-5/complete'
-                                : '/student/stage-5/'
-                        }
-                    >
-                        Back to Stage 5
-                    </Link>
+                    <Link to="/student/stage-5/">Back to Stage 5</Link>
                 </section>
             </main>
         </>

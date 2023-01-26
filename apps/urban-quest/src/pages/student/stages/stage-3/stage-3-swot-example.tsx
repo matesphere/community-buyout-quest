@@ -37,13 +37,14 @@ const Stage3SwotExample: FC<PageProps> = ({ location: { search } }) => {
             />
         )
 
-    const { option } = QueryString.parse(search)
+    const { option } = QueryString.parse(search) as { option: string }
 
     const devOption = data.development_option.find(
         (opt) => opt.option === option
     )
+
     const swotState =
-        data.team_by_pk.stage_progresses[0].documents[0].doc_data[option]
+        data.team_by_pk!.stage_progresses[0].documents[0].doc_data[option]
 
     return (
         <>

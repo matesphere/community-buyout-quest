@@ -84,7 +84,7 @@ const ExampleBusinessPlanLinks: FC<{ exampleBusinessPlans: Array<string> }> = ({
             {exampleBusinessPlans.map((businessPlanOption, i) => (
                 <li key={i} className="sm-type-guitar mb-2">
                     <Link
-                        to={`/student/stage-3/swot/example?option=${businessPlanOption}`}
+                        to={`/student/stage-5/business-plan/example?option=${businessPlanOption}`}
                     >
                         Example {i + 1}
                     </Link>
