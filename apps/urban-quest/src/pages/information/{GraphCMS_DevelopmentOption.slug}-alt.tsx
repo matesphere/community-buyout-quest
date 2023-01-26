@@ -13,13 +13,14 @@ import { DevOpsRenderer } from '@community-land-quest/shared-utils/utils/rich-te
 
 import '../../scss/index.scss'
 
-const InfoPlaySkate = ({
+const DevelopmentOptionAlt = ({
     data: {
         graphCmsDevelopmentOption: {
             title,
             intro,
             mainText,
             fundingOptions,
+            usefulLinks,
             checklist,
             informationMainImage,
             icon,
@@ -68,6 +69,13 @@ const InfoPlaySkate = ({
                                 title="Project Funding"
                             />
                         )}
+
+                        {usefulLinks && (
+                            <FundingOptions
+                                content={usefulLinks.raw}
+                                title="Useful Links"
+                            />
+                        )}
                     </div>
 
                     <div className="col-lg-4">
@@ -81,7 +89,7 @@ const InfoPlaySkate = ({
     </>
 )
 
-export default InfoPlaySkate
+export default DevelopmentOptionAlt
 
 export const query = graphql`
     query DevelopmentOptionQueryAlt($slug: String) {
@@ -92,6 +100,9 @@ export const query = graphql`
                 raw
             }
             fundingOptions {
+                raw
+            }
+            usefulLinks {
                 raw
             }
             # checklist {

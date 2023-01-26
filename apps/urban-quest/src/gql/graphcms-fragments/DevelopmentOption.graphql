@@ -23,6 +23,14 @@ fragment DevelopmentOption on DevelopmentOption {
       text
     }
   }
+  usefulLinks {
+    ... on RichText {
+      raw
+      html
+      markdown
+      text
+    }
+  }
   slug
   checklist {
     ... on Checklist {

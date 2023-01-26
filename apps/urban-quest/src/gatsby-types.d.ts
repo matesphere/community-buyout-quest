@@ -1840,6 +1840,7 @@ type Content_DevelopmentOption = Content_Node & {
   readonly updatedAt: Scalars['Content_DateTime'];
   /** User that last updated this document */
   readonly updatedBy: Maybe<Content_User>;
+  readonly usefulLinks: Maybe<Content_RichText>;
 };
 
 
@@ -1956,6 +1957,7 @@ type Content_DevelopmentOptionConnection = {
 type Content_DevelopmentOptionCreateInput = {
   readonly checklist: InputMaybe<Content_DevelopmentOptionchecklistUnionCreateOneInlineInput>;
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
+  /** fundingOptions input for default locale (en) */
   readonly fundingOptions: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly icon: Content_AssetCreateOneInlineInput;
   readonly informationMainImage: InputMaybe<Content_AssetCreateOneInlineInput>;
@@ -1971,14 +1973,18 @@ type Content_DevelopmentOptionCreateInput = {
   /** title input for default locale (en) */
   readonly title: Scalars['String'];
   readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
+  /** usefulLinks input for default locale (en) */
+  readonly usefulLinks: InputMaybe<Scalars['Content_RichTextAST']>;
 };
 
 type Content_DevelopmentOptionCreateLocalizationDataInput = {
   readonly createdAt: InputMaybe<Scalars['Content_DateTime']>;
+  readonly fundingOptions: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly intro: InputMaybe<Scalars['String']>;
   readonly mainText: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly title: Scalars['String'];
   readonly updatedAt: InputMaybe<Scalars['Content_DateTime']>;
+  readonly usefulLinks: InputMaybe<Scalars['Content_RichTextAST']>;
 };
 
 type Content_DevelopmentOptionCreateLocalizationInput = {
@@ -2140,6 +2146,7 @@ type Content_DevelopmentOptionOrderByInput =
 
 type Content_DevelopmentOptionUpdateInput = {
   readonly checklist: InputMaybe<Content_DevelopmentOptionchecklistUnionUpdateOneInlineInput>;
+  /** fundingOptions input for default locale (en) */
   readonly fundingOptions: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly icon: InputMaybe<Content_AssetUpdateOneInlineInput>;
   readonly informationMainImage: InputMaybe<Content_AssetUpdateOneInlineInput>;
@@ -2154,12 +2161,16 @@ type Content_DevelopmentOptionUpdateInput = {
   readonly slug: InputMaybe<Scalars['String']>;
   /** title input for default locale (en) */
   readonly title: InputMaybe<Scalars['String']>;
+  /** usefulLinks input for default locale (en) */
+  readonly usefulLinks: InputMaybe<Scalars['Content_RichTextAST']>;
 };
 
 type Content_DevelopmentOptionUpdateLocalizationDataInput = {
+  readonly fundingOptions: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly intro: InputMaybe<Scalars['String']>;
   readonly mainText: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly title: InputMaybe<Scalars['String']>;
+  readonly usefulLinks: InputMaybe<Scalars['Content_RichTextAST']>;
 };
 
 type Content_DevelopmentOptionUpdateLocalizationInput = {
@@ -2195,6 +2206,7 @@ type Content_DevelopmentOptionUpdateManyInlineInput = {
 };
 
 type Content_DevelopmentOptionUpdateManyInput = {
+  /** fundingOptions input for default locale (en) */
   readonly fundingOptions: InputMaybe<Scalars['Content_RichTextAST']>;
   /** intro input for default locale (en) */
   readonly intro: InputMaybe<Scalars['String']>;
@@ -2204,12 +2216,16 @@ type Content_DevelopmentOptionUpdateManyInput = {
   readonly mainText: InputMaybe<Scalars['Content_RichTextAST']>;
   /** title input for default locale (en) */
   readonly title: InputMaybe<Scalars['String']>;
+  /** usefulLinks input for default locale (en) */
+  readonly usefulLinks: InputMaybe<Scalars['Content_RichTextAST']>;
 };
 
 type Content_DevelopmentOptionUpdateManyLocalizationDataInput = {
+  readonly fundingOptions: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly intro: InputMaybe<Scalars['String']>;
   readonly mainText: InputMaybe<Scalars['Content_RichTextAST']>;
   readonly title: InputMaybe<Scalars['String']>;
+  readonly usefulLinks: InputMaybe<Scalars['Content_RichTextAST']>;
 };
 
 type Content_DevelopmentOptionUpdateManyLocalizationInput = {
@@ -12859,6 +12875,11 @@ type GraphCMS_AssetFieldsEnum =
   | 'iconDevelopmentOption.updatedBy.remoteTypeName'
   | 'iconDevelopmentOption.updatedBy.stage'
   | 'iconDevelopmentOption.updatedBy.updatedAt'
+  | 'iconDevelopmentOption.usefulLinks.html'
+  | 'iconDevelopmentOption.usefulLinks.markdown'
+  | 'iconDevelopmentOption.usefulLinks.raw'
+  | 'iconDevelopmentOption.usefulLinks.remoteTypeName'
+  | 'iconDevelopmentOption.usefulLinks.text'
   | 'id'
   | 'imageInfo'
   | 'imageInfo.checklist.id'
@@ -13858,6 +13879,11 @@ type GraphCMS_AssetFieldsEnum =
   | 'informationMainImageDevelopmentOption.updatedBy.remoteTypeName'
   | 'informationMainImageDevelopmentOption.updatedBy.stage'
   | 'informationMainImageDevelopmentOption.updatedBy.updatedAt'
+  | 'informationMainImageDevelopmentOption.usefulLinks.html'
+  | 'informationMainImageDevelopmentOption.usefulLinks.markdown'
+  | 'informationMainImageDevelopmentOption.usefulLinks.raw'
+  | 'informationMainImageDevelopmentOption.usefulLinks.remoteTypeName'
+  | 'informationMainImageDevelopmentOption.usefulLinks.text'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.contentFilePath'
@@ -14346,6 +14372,7 @@ type GraphCMS_DevelopmentOption = Node & {
   readonly title: Scalars['String'];
   readonly updatedAt: Scalars['JSON'];
   readonly updatedBy: Maybe<GraphCMS_User>;
+  readonly usefulLinks: Maybe<GraphCMS_RichText>;
 };
 
 
@@ -14692,6 +14719,11 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'icon.iconDevelopmentOption.updatedBy.remoteTypeName'
   | 'icon.iconDevelopmentOption.updatedBy.stage'
   | 'icon.iconDevelopmentOption.updatedBy.updatedAt'
+  | 'icon.iconDevelopmentOption.usefulLinks.html'
+  | 'icon.iconDevelopmentOption.usefulLinks.markdown'
+  | 'icon.iconDevelopmentOption.usefulLinks.raw'
+  | 'icon.iconDevelopmentOption.usefulLinks.remoteTypeName'
+  | 'icon.iconDevelopmentOption.usefulLinks.text'
   | 'icon.id'
   | 'icon.imageInfo'
   | 'icon.imageInfo.checklist.id'
@@ -14962,6 +14994,11 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'icon.informationMainImageDevelopmentOption.updatedBy.remoteTypeName'
   | 'icon.informationMainImageDevelopmentOption.updatedBy.stage'
   | 'icon.informationMainImageDevelopmentOption.updatedBy.updatedAt'
+  | 'icon.informationMainImageDevelopmentOption.usefulLinks.html'
+  | 'icon.informationMainImageDevelopmentOption.usefulLinks.markdown'
+  | 'icon.informationMainImageDevelopmentOption.usefulLinks.raw'
+  | 'icon.informationMainImageDevelopmentOption.usefulLinks.remoteTypeName'
+  | 'icon.informationMainImageDevelopmentOption.usefulLinks.text'
   | 'icon.internal.content'
   | 'icon.internal.contentDigest'
   | 'icon.internal.contentFilePath'
@@ -15318,6 +15355,11 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'informationMainImage.iconDevelopmentOption.updatedBy.remoteTypeName'
   | 'informationMainImage.iconDevelopmentOption.updatedBy.stage'
   | 'informationMainImage.iconDevelopmentOption.updatedBy.updatedAt'
+  | 'informationMainImage.iconDevelopmentOption.usefulLinks.html'
+  | 'informationMainImage.iconDevelopmentOption.usefulLinks.markdown'
+  | 'informationMainImage.iconDevelopmentOption.usefulLinks.raw'
+  | 'informationMainImage.iconDevelopmentOption.usefulLinks.remoteTypeName'
+  | 'informationMainImage.iconDevelopmentOption.usefulLinks.text'
   | 'informationMainImage.id'
   | 'informationMainImage.imageInfo'
   | 'informationMainImage.imageInfo.checklist.id'
@@ -15588,6 +15630,11 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'informationMainImage.informationMainImageDevelopmentOption.updatedBy.remoteTypeName'
   | 'informationMainImage.informationMainImageDevelopmentOption.updatedBy.stage'
   | 'informationMainImage.informationMainImageDevelopmentOption.updatedBy.updatedAt'
+  | 'informationMainImage.informationMainImageDevelopmentOption.usefulLinks.html'
+  | 'informationMainImage.informationMainImageDevelopmentOption.usefulLinks.markdown'
+  | 'informationMainImage.informationMainImageDevelopmentOption.usefulLinks.raw'
+  | 'informationMainImage.informationMainImageDevelopmentOption.usefulLinks.remoteTypeName'
+  | 'informationMainImage.informationMainImageDevelopmentOption.usefulLinks.text'
   | 'informationMainImage.internal.content'
   | 'informationMainImage.internal.contentDigest'
   | 'informationMainImage.internal.contentFilePath'
@@ -16579,7 +16626,12 @@ type GraphCMS_DevelopmentOptionFieldsEnum =
   | 'updatedBy.remoteId'
   | 'updatedBy.remoteTypeName'
   | 'updatedBy.stage'
-  | 'updatedBy.updatedAt';
+  | 'updatedBy.updatedAt'
+  | 'usefulLinks.html'
+  | 'usefulLinks.markdown'
+  | 'usefulLinks.raw'
+  | 'usefulLinks.remoteTypeName'
+  | 'usefulLinks.text';
 
 type GraphCMS_DevelopmentOptionFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
@@ -16607,6 +16659,7 @@ type GraphCMS_DevelopmentOptionFilterInput = {
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly updatedAt: InputMaybe<JSONQueryOperatorInput>;
   readonly updatedBy: InputMaybe<GraphCMS_UserFilterInput>;
+  readonly usefulLinks: InputMaybe<GraphCMS_RichTextFilterInput>;
 };
 
 type GraphCMS_DevelopmentOptionFilterListInput = {
@@ -17072,6 +17125,11 @@ type GraphCMS_InfoFieldsEnum =
   | 'image.iconDevelopmentOption.updatedBy.remoteTypeName'
   | 'image.iconDevelopmentOption.updatedBy.stage'
   | 'image.iconDevelopmentOption.updatedBy.updatedAt'
+  | 'image.iconDevelopmentOption.usefulLinks.html'
+  | 'image.iconDevelopmentOption.usefulLinks.markdown'
+  | 'image.iconDevelopmentOption.usefulLinks.raw'
+  | 'image.iconDevelopmentOption.usefulLinks.remoteTypeName'
+  | 'image.iconDevelopmentOption.usefulLinks.text'
   | 'image.id'
   | 'image.imageInfo'
   | 'image.imageInfo.checklist.id'
@@ -17342,6 +17400,11 @@ type GraphCMS_InfoFieldsEnum =
   | 'image.informationMainImageDevelopmentOption.updatedBy.remoteTypeName'
   | 'image.informationMainImageDevelopmentOption.updatedBy.stage'
   | 'image.informationMainImageDevelopmentOption.updatedBy.updatedAt'
+  | 'image.informationMainImageDevelopmentOption.usefulLinks.html'
+  | 'image.informationMainImageDevelopmentOption.usefulLinks.markdown'
+  | 'image.informationMainImageDevelopmentOption.usefulLinks.raw'
+  | 'image.informationMainImageDevelopmentOption.usefulLinks.remoteTypeName'
+  | 'image.informationMainImageDevelopmentOption.usefulLinks.text'
   | 'image.internal.content'
   | 'image.internal.contentDigest'
   | 'image.internal.contentFilePath'
@@ -25820,6 +25883,7 @@ type Query_graphCmsDevelopmentOptionArgs = {
   title: InputMaybe<StringQueryOperatorInput>;
   updatedAt: InputMaybe<JSONQueryOperatorInput>;
   updatedBy: InputMaybe<GraphCMS_UserFilterInput>;
+  usefulLinks: InputMaybe<GraphCMS_RichTextFilterInput>;
 };
 
 
@@ -27455,14 +27519,14 @@ type DevelopmentOptionQueryQueryVariables = Exact<{
 }>;
 
 
-type DevelopmentOptionQueryQuery = { readonly graphCmsDevelopmentOption: { readonly title: string, readonly intro: string | null, readonly mainText: { readonly raw: Record<string, unknown> } | null, readonly fundingOptions: { readonly raw: Record<string, unknown> } | null, readonly informationMainImage: { readonly gatsbyImageData: Record<string, unknown> | null } | null, readonly icon: { readonly url: string } } | null };
+type DevelopmentOptionQueryQuery = { readonly graphCmsDevelopmentOption: { readonly title: string, readonly intro: string | null, readonly mainText: { readonly raw: Record<string, unknown> } | null, readonly fundingOptions: { readonly raw: Record<string, unknown> } | null, readonly usefulLinks: { readonly raw: Record<string, unknown> } | null, readonly informationMainImage: { readonly gatsbyImageData: Record<string, unknown> | null } | null, readonly icon: { readonly url: string } } | null };
 
 type DevelopmentOptionQueryAltQueryVariables = Exact<{
   slug: InputMaybe<Scalars['String']>;
 }>;
 
 
-type DevelopmentOptionQueryAltQuery = { readonly graphCmsDevelopmentOption: { readonly title: string, readonly intro: string | null, readonly mainText: { readonly raw: Record<string, unknown> } | null, readonly fundingOptions: { readonly raw: Record<string, unknown> } | null, readonly informationMainImage: { readonly gatsbyImageData: Record<string, unknown> | null } | null, readonly icon: { readonly url: string } } | null };
+type DevelopmentOptionQueryAltQuery = { readonly graphCmsDevelopmentOption: { readonly title: string, readonly intro: string | null, readonly mainText: { readonly raw: Record<string, unknown> } | null, readonly fundingOptions: { readonly raw: Record<string, unknown> } | null, readonly usefulLinks: { readonly raw: Record<string, unknown> } | null, readonly informationMainImage: { readonly gatsbyImageData: Record<string, unknown> | null } | null, readonly icon: { readonly url: string } } | null };
 
 type DevelopmentOptionsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

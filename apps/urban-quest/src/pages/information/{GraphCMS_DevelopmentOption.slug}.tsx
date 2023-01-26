@@ -15,13 +15,14 @@ import { DevOpsRenderer } from '@community-land-quest/shared-utils/utils/rich-te
 
 import '../../scss/index.scss'
 
-const InfoPlaySkate = ({
+const DevelopmentOption = ({
     data: {
         graphCmsDevelopmentOption: {
             title,
             intro,
             mainText,
             fundingOptions,
+            usefulLinks,
             checklist,
             informationMainImage,
             icon,
@@ -89,6 +90,13 @@ const InfoPlaySkate = ({
                             />
                         )}
 
+                        {usefulLinks && (
+                            <FundingOptions
+                                content={usefulLinks.raw}
+                                title="Useful Links"
+                            />
+                        )}
+
                         <p className="sm-type-bigamp mb-4">
                             <Link to="/information/development-options">
                                 Back to all options
@@ -107,7 +115,7 @@ const InfoPlaySkate = ({
     </>
 )
 
-export default InfoPlaySkate
+export default DevelopmentOption
 
 export const query = graphql`
     query DevelopmentOptionQuery($slug: String) {
@@ -118,6 +126,9 @@ export const query = graphql`
                 raw
             }
             fundingOptions {
+                raw
+            }
+            usefulLinks {
                 raw
             }
             # checklist {
