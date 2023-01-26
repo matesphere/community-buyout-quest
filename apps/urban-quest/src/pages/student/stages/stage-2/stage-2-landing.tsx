@@ -40,7 +40,7 @@ const Stage2LandingPage: FC = () => {
         },
     } = useStaticQuery(graphql`
         query {
-            image1: file(relativePath: { eq: "glenclas.jpg" }) {
+            image1: file(relativePath: { eq: "aig-baile.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(layout: CONSTRAINED)
                 }
