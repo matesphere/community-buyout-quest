@@ -6,24 +6,52 @@ fragment ModelBusinessPlan on ModelBusinessPlan {
   createdAt(variation: COMBINED)
   remoteId: id
   developmentOption
-  capitalCosts {
-    ... on CapitalCosts {
+  setupCosts {
+    ... on SetupCostsSection {
       stage
       id
-      details {
-        ... on RichText {
-          raw
-          html
-          markdown
-          text
+      costItems {
+        ... on SetupCostItem {
+          stage
+          id
+          item
+          cost
         }
       }
-      funding {
-        ... on RichText {
-          raw
-          html
-          markdown
-          text
+      fundingSources {
+        ... on FundingSource {
+          stage
+          id
+          funder
+          amount
+        }
+      }
+    }
+  }
+  runningCosts {
+    ... on RunningCostsSection {
+      stage
+      id
+      costs {
+        ... on RunningCostItem {
+          stage
+          id
+          item
+          yearOne
+          yearTwo
+          yearThree
+          yearFour
+        }
+      }
+      incomes {
+        ... on RunningCostItem {
+          stage
+          id
+          item
+          yearOne
+          yearTwo
+          yearThree
+          yearFour
         }
       }
     }

@@ -52,16 +52,16 @@ fragment StageTask on StageTask {
       stage
     }
   }
-  helpfulInfo {
-    ... on HelpfulInfo {
+  checklist {
+    ... on Checklist {
       remoteTypeName: __typename
       remoteId: id
       locale
       stage
     }
   }
-  checklist {
-    ... on Checklist {
+  helpfulInfo {
+    ... on HelpfulInfo {
       remoteTypeName: __typename
       remoteId: id
       locale

@@ -77,6 +77,14 @@ fragment DevelopmentOption on DevelopmentOption {
       stage
     }
   }
+  modelBusinessPlan {
+    ... on ModelBusinessPlan {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+  }
   scheduledIn {
     ... on ScheduledOperation {
       remoteTypeName: __typename
