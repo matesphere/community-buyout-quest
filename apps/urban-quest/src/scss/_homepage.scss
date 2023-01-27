@@ -49,6 +49,28 @@
   }
 }
 
+.login-header {
+  position: relative;
+  color: #3F0505;
+  font-weight: 900;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.2em;
+  margin: 0;
+
+  svg {
+    width: ($grid-unit * 5);
+    height: ($grid-unit * 5);
+    fill: #3F0505;
+  }
+
+}
+
+.login-p {
+    margin: 0;
+}
+
 .top-holder {
   position: relative;
 }
