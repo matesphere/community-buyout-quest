@@ -1,0 +1,16 @@
+/* All components have a class name starting with `amplify` */
+.amplify-button--primary {
+  display: block;
+      padding: 1.175rem 2.125rem 1.175rem 2.125rem !important;
+      border: 0.125rem solid #E55B13 !important;
+      border-radius: 0.25rem !important;
+      background-color: #F6A21E !important;
+      color: #333 !important;
+      font-weight: 700 !important;
+      font-size: 18px !important;
+      text-decoration: none !important;
+      transition: all 0.2s !important;
+      margin: 8px auto !important;
+      width: 240px !important;
+      text-align: center !important;
+}

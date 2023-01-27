@@ -3,6 +3,7 @@ import axiosRetry from 'axios-retry'
 import gen from 'generate-password'
 import { StudentType, TeamType } from './common-types'
 import { View, useTheme } from '@aws-amplify/ui-react';
+import './login.scss'
 
 axiosRetry(axios, {
     retries: 3, // number of retries
