@@ -20,7 +20,7 @@ import {
     StageQueryVariables,
 } from '@community-land-quest/shared-data/gql/types/queries.generated'
 
-import Video from '../../../../assets/the-quest-intro.mp4'
+// import Video from '../../../../assets/the-quest-intro.mp4'
 import '../../../../scss/index.scss'
 
 const Stage1LandingPage: FC = () => {
@@ -92,9 +92,9 @@ const Stage1LandingPage: FC = () => {
                             <ReadQuesty text={stageIntro} />
 
                             <div className="homepage-image mb-4">
-                                <video controls>
-                                    <source src={Video} type="video/mp4" />
-                                </video>
+
+<iframe src="https://player.vimeo.com/video/321444139?h=378fb67b89" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<p>Midsteeple Quarter - Dumfries High Street from Community Land Scotland.</p>
                             </div>
 
                             <TaskPanel>
