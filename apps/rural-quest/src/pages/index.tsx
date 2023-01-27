@@ -15,11 +15,6 @@ const IndexPage = () => {
                     gatsbyImageData(layout: CONSTRAINED)
                 }
             }
-            image2: file(relativePath: { eq: "indexpage.jpg" }) {
-                childImageSharp {
-                    gatsbyImageData(layout: CONSTRAINED)
-                }
-            }
         }
     `)
 
@@ -35,12 +30,6 @@ const IndexPage = () => {
                 {/*<meta name="image" content={image} />*/}
             </Helmet>
             <div className="top-holder">
-                <div className="indeximage">
-                    <GatsbyImage
-                        alt=""
-                        image={data.image2.childImageSharp.gatsbyImageData}
-                    />
-                </div>
                 <Squiggle className="squiggle" />
                 <section className="container top-section">
                     <div className="row pt-4">
