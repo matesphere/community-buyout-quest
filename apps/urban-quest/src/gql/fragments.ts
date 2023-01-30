@@ -28,6 +28,9 @@ export const STAGE_LANDING_CONTENT_FRAG = graphql`
                 raw
             }
         }
+        checklist {
+            item
+        }
     }
 `
 

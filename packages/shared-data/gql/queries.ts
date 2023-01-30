@@ -503,7 +503,7 @@ export const TUTOR_CURRENT_QUEST_QUERY = gql`
 `
 
 export const TUTOR_PREVIOUS_QUEST_QUERY = gql`
-    query TutorPreviousQuest($quest_id: uuid!, $quest_type: String!) {
+    query TutorPreviousQuest($quest_id: uuid!) {
         quest_by_pk(id: $quest_id) {
             id
             started_at

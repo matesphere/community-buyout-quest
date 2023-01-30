@@ -92,9 +92,18 @@ const Stage1LandingPage: FC = () => {
                             <ReadQuesty text={stageIntro} />
 
                             <div className="homepage-image mb-4">
-
-<iframe src="https://player.vimeo.com/video/321444139?h=378fb67b89" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-<p>Midsteeple Quarter - Dumfries High Street from Community Land Scotland.</p>
+                                <iframe
+                                    src="https://player.vimeo.com/video/321444139?h=378fb67b89"
+                                    width="640"
+                                    height="360"
+                                    frameBorder="0"
+                                    allow="autoplay; fullscreen; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                                <p>
+                                    Midsteeple Quarter - Dumfries High Street
+                                    from Community Land Scotland.
+                                </p>
                             </div>
 
                             <TaskPanel>
