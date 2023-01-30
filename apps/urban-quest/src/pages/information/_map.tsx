@@ -30,7 +30,7 @@ const IconInfo = ({ content, Icon }) => (
 const MapOptions = ({ iconInfoList }) => {
     const data = useStaticQuery(graphql`
         query {
-            image5: file(relativePath: { eq: "map-zoom-2.jpg" }) {
+            image5: file(relativePath: { eq: "map-zoom-3.jpg" }) {
                 childImageSharp {
                     gatsbyImageData(layout: CONSTRAINED)
                 }
