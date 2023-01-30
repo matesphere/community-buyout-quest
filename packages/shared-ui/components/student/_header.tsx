@@ -60,7 +60,7 @@ export const Header: FC<{ headerText?: string }> = ({ headerText }) => {
                             </div>
                             <div className="row">
                                 <div className="col-lg-8">
-                                    <h1 className="main-header">
+                                    <h1 className="main-header footer-copy">
                                         <PinLogo />
                                         <span>
                                             {headerText ||
