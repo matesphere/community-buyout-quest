@@ -59,20 +59,13 @@ const AcknowledgementsPage = () => {
                             </h2>
                             <ul>
                                 <li className="sm-type-guitar mb-2">
-                                    Martin Foster (CRF Hydro Power Limited)
-                                </li>
-                                <li className="sm-type-guitar mb-2">
-                                    Rona Mackay (Community Energy Scotland)
-                                </li>
-                                <li className="sm-type-guitar mb-2">
                                     Emma Margrett (Community Land Scotland)
                                 </li>
                                 <li className="sm-type-guitar mb-2">
-                                    Jane Millar (Development Manager, The Isle
-                                    of Gigha Heritage Trust)
+                                    Heather Yearwood (Community Land Scotland)
                                 </li>
                                 <li className="sm-type-guitar mb-2">
-                                    Iain Turnbull Photography
+                                    Carey Doyle (Community Land Scotland)
                                 </li>
                             </ul>
                         </div>
