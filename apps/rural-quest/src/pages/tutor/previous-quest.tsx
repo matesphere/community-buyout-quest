@@ -174,7 +174,7 @@ const getDateFromTimestamp = (timestamp) => {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 }
 
-const TutorCurrentQuestPage: FC<PageProps> = ({ location: { search } }) => {
+const TutorPreviousQuestPage: FC<PageProps> = ({ location: { search } }) => {
     const { id } = QueryString.parse(search, {
         parseNumbers: true,
     }) as { id: string; num: number; from: string }
@@ -291,4 +291,4 @@ const TutorCurrentQuestPage: FC<PageProps> = ({ location: { search } }) => {
     )
 }
 
-export default TutorCurrentQuestPage
+export default TutorPreviousQuestPage

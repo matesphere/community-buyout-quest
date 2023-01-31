@@ -545,6 +545,10 @@ export const TUTOR_PREVIOUS_QUEST_QUERY = gql`
                 }
             }
         }
+        stage(order_by: { id: asc }) {
+            id
+            title
+        }
     }
 `
 
