@@ -142,7 +142,8 @@ const ChooseOptionsCheckboxes = ({
                                             }
                                         }}
                                     />
-                                    {URBAN_LOCATION_DISPLAY_NAME[key]}
+                                    &nbsp;{URBAN_LOCATION_DISPLAY_NAME[key]}
+                                    &nbsp;&nbsp;
                                 </label>
                             )
                         }
