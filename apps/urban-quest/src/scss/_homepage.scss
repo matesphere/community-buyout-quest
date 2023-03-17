@@ -74,9 +74,14 @@
 .skyline {
   position: absolute;
   bottom: 0px;
-  left: 0px;
   width: 100%;
   z-index: 0;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 .top-section {
