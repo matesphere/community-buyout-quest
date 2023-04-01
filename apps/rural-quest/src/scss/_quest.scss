@@ -435,17 +435,25 @@
 }
 
 .questies-holder {
-  display: flex;
+  display: block;
+
+        @media (min-width: 500px) {
+            display: flex;
+        }
     .small-questies {
         flex: 0 0 140px;
 
         img {
             width: 100%;
+            margin-bottom: 16px;
         }
     }
     .small-questies-holder {
         flex: 1;
-        padding-left: 24px;
+        padding-left:0;
+                @media (min-width: 500px) {
+                    padding-left: 24px;
+                }
     }
 }
 
