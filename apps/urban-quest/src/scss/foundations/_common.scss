@@ -161,8 +161,12 @@ p {
 }
 
 .sm-type-biggerdrum {
-    font-size: 50px;
+    font-size: 35px;
     line-height: 1.3em;
+
+    @media (min-width: 390px) {
+        font-size: 50px;
+    }
 
     &--medium {
         font-weight: 600;
