@@ -92,14 +92,18 @@ const Stage1LandingPage: FC = () => {
                             <ReadQuesty text={stageIntro} />
 
                             <div className="homepage-image mb-4">
-                                <iframe
-                                    src="https://player.vimeo.com/video/321444139?h=378fb67b89"
-                                    width="640"
-                                    height="360"
-                                    frameBorder="0"
-                                    allow="autoplay; fullscreen; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
+                                <div class="embed-container">
+                                  <div class="embed-responsive">
+                                    <iframe
+                                        src="https://player.vimeo.com/video/321444139?h=378fb67b89"
+                                        width="100%"
+                                        height="360"
+                                        frameBorder="0"
+                                        allow="autoplay; fullscreen; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
+                                    </div>
+                                </div>
                                 <p>
                                     Midsteeple Quarter - Dumfries High Street
                                     from Community Land Scotland.
