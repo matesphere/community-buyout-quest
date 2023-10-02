@@ -13,10 +13,7 @@
   margin-top: $grid-unit * 4;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(0deg, #81b030 0%, #81b030 80%, rgba(255, 255, 255, 0) 80%);
-  @media (min-width: 500px) {
-    background: linear-gradient(0deg, #81b030 0%, #81b030 50%, rgba(255, 255, 255, 0) 50%);
-  }
+  background: #89D4F3;
 
   .container {
     padding-top: 60px;
@@ -30,7 +27,7 @@
     display: inline-block;
   }
   .squiggle {
-    top: 0;
+    bottom: -12%;
   }
 }
 
