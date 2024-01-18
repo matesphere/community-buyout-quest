@@ -21,11 +21,11 @@ const IntroductionPage = ({
                 name="viewport"
                 content="width=device-width, initial-scale=1.0"
             />
-            <title>Community Land Quest - Introduction</title>
+            <title>Community Buyout Quest - Introduction</title>
         </Helmet>
 
         <main className="the-quest homepage">
-            <StudentHeader headerText="Community Land Quest" />
+            <StudentHeader headerText="Community Buyout Quest" />
             <section className="container" id="main">
                 <div className="row">
                     <div className="col-lg-1"></div>

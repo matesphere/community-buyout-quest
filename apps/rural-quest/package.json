@@ -2,7 +2,7 @@
   "name": "rural-quest",
   "version": "1.0.0",
   "private": true,
-  "description": "Rural version of Community Land Quest",
+  "description": "Rural version of Community Buyout Quest",
   "author": "stuart.hull",
   "scripts": {
     "develop": "gatsby develop",

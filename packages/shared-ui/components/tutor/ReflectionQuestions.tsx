@@ -49,7 +49,7 @@ export const ReflectionQuestions: FC<ReflectionQuestionsProps> = ({
         <>
             <h4 className="sm-type-guitar">Reflection – Tutor</h4>
             <p className="sm-type-lead">
-                Having just guided your class through the Community Land Buyout
+                Having just guided your class through the Community Buyout
                 Quest, it would be really helpful to us, the Developers of the
                 Quest, if you could give us some feedback about your experience.
             </p>
@@ -202,7 +202,7 @@ export const ReflectionQuestions: FC<ReflectionQuestionsProps> = ({
             <p className="sm-type-lead">
                 Thank you very much for your time and thank you for
                 <br />
-                all your work in running the Community Land Quest.
+                all your work in running the Community Buyout Quest.
             </p>
 
             {!completeQuestResponse.data && (

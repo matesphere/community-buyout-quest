@@ -25,7 +25,7 @@ const IndexPage = () => {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 />
-                <title>Community Land Quest</title>
+                <title>Community Buyout Quest</title>
                 <meta name="description" content="The description" />
                 {/*<meta name="image" content={image} />*/}
             </Helmet>
@@ -36,7 +36,7 @@ const IndexPage = () => {
                         <div className="col-lg-8">
                             <h1 className="main-header">
                                 <PinLogo />
-                                <span>Community Land Quest</span>
+                                <span>Community Buyout Quest</span>
                             </h1>
                         </div>
                         <div className="col-lg-4">

@@ -37,12 +37,12 @@ const TechnicalGuide = () => (
                 <div className="row">
                     <div className="col-lg-9">
                         <h2 className="sm-type-drum sm-type-drum--medium mt-4 mb-4">
-                            COMMUNITY LAND QUEST - TECHNICAL GUIDE
+                            COMMUNITY BUYOUT QUEST - TECHNICAL GUIDE
                         </h2>
 
                         <p className="sm-type-lead mb-4">
                             The following serves as a reference for tutor use of
-                            the Community Land Quest. It covers all potential
+                            the Community Buyout Quest. It covers all potential
                             actions required to be taken during normal
                             completion of a Quest (n.b. the term 'Quest' used
                             here refers to a number of teams, consisting of 4 or

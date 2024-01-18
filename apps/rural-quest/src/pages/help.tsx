@@ -27,10 +27,10 @@ const HelpPage = () => {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 />
-                <title>Community Land Quest - Help</title>
+                <title>Community Buyout Quest - Help</title>
                 <meta
                     name="description"
-                    content="Help for students embarking on the Community Land Quest"
+                    content="Help for students embarking on the Community Buyout Quest"
                 />
             </Helmet>
 

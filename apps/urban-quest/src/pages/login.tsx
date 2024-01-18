@@ -111,7 +111,7 @@ const Login = () => {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 />
-                <title>Community Land Quest</title>
+                <title>Community Buyout Quest</title>
                 <meta name="description" content="The description" />
                 {/*<meta name="image" content={image} />*/}
             </Helmet>
@@ -123,7 +123,7 @@ const Login = () => {
                             <h1 className="main-header">
                                 <PinLogo />
 
-                                <span>Community Land Quest</span>
+                                <span>Community Buyout Quest</span>
                             </h1>
                         </div>
                         <div className="col-lg-4">
@@ -152,7 +152,7 @@ const Login = () => {
                                 <p className="sm-type-drum text-align-center">
                                     {`Welcome ${
                                         teamHasLoggedIn ? 'back' : ''
-                                    } to the Community Land Quest`}
+                                    } to the Community Buyout Quest`}
                                 </p>
                             )}
                             <p className="text-align-center mb-4">

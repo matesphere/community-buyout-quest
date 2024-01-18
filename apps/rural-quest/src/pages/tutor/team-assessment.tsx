@@ -28,7 +28,7 @@ const TutorTeamAssessment = () => (
                 <div className="row">
                     <div className="col-lg-9">
                         <h2 className="sm-type-drum sm-type-drum--medium mt-4 mb-4">
-                            Teamwork Assessment of the Community Land Buyout
+                            Teamwork Assessment of the Community Buyout
                             QUEST
                         </h2>
 

@@ -40,7 +40,7 @@ const TutorAssessment = () => {
                     <div className="row">
                         <div className="col-lg-9">
                             <h2 className="sm-type-drum sm-type-drum--medium mt-4 mb-4">
-                                Assessment of the Community Land Quest
+                                Assessment of the Community Buyout Quest
                             </h2>
 
                             <p className="sm-type-lead mb-4">
