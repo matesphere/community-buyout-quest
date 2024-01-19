@@ -3,7 +3,7 @@ import type { CodegenConfig } from '@graphql-codegen/cli'
 const config: CodegenConfig = {
     schema: [
         {
-            'https://data.community-buyout.quest/v1/graphql': {
+            'https://rural.data.community-buyout.quest/v1/graphql': {
                 headers: {
                     'X-Hasura-Access-Key': 'community-land',
                 },

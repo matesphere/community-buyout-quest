@@ -64,7 +64,7 @@ const refreshTokenLink = onError(({ graphQLErrors, operation, forward }) => {
 export const client = new ApolloClient({
     link: refreshTokenLink.concat(
         new HttpLink({
-            uri: 'https://data.community-buyout.quest/v1/graphql',
+            uri: 'https://rural.data.community-buyout.quest/v1/graphql',
             fetch,
             fetchOptions: {
                 credentials: 'same-origin',
