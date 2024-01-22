@@ -189,7 +189,7 @@ const Stage3Task = ({ taskToComplete }) => {
     } = useAuthQuery<
         Stage3TaskQuery,
         Omit<Stage3TaskQueryVariables, 'team_id'>
-    >(STAGE_3_TASK_QUERY, { variables: { quest_type: 'urban' } }, 'teamId')
+    >(STAGE_3_TASK_QUERY, {}, 'teamId')
 
     if (loading) return <Loading />
     if (error || !pageData || !pageData.team_by_pk)

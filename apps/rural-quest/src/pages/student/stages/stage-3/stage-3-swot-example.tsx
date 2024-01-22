@@ -24,7 +24,7 @@ const Stage3Swot: FC<PageProps> = ({ location: { search } }) => {
     const { loading, error, data } = useAuthQuery<
         SwotExampleQuery,
         Omit<SwotExampleQueryVariables, 'team_id'>
-    >(SWOT_EXAMPLE_QUERY, { variables: { quest_type: 'rural' } }, 'teamId')
+    >(SWOT_EXAMPLE_QUERY, {}, 'teamId')
 
     if (loading) return <Loading />
     if (error || !data)

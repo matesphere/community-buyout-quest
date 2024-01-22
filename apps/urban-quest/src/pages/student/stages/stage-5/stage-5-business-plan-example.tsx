@@ -43,11 +43,7 @@ const Stage5BusinessPlanPage: FC<PageProps> = ({ location: { search } }) => {
     } = useAuthQuery<
         BusinessPlanExampleQuery,
         Omit<BusinessPlanExampleQueryVariables, 'team_id'>
-    >(
-        BUSINESS_PLAN_EXAMPLE_QUERY,
-        { variables: { quest_type: 'urban' } },
-        'teamId'
-    )
+    >(BUSINESS_PLAN_EXAMPLE_QUERY, {}, 'teamId')
 
     if (loading) return <Loading />
     if (error || !pageData)

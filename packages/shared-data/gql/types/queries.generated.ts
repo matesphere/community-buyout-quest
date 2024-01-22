@@ -71,7 +71,6 @@ export type Stage2TaskQuery = { team_by_pk?: { id: any, logo?: string | null, st
 
 export type Stage3TaskQueryVariables = Types.Exact<{
   team_id: Types.Scalars['uuid'];
-  quest_type: Types.Scalars['String'];
 }>;
 
 
@@ -79,7 +78,6 @@ export type Stage3TaskQuery = { team_by_pk?: { id: any, team_development_options
 
 export type SwotExampleQueryVariables = Types.Exact<{
   team_id: Types.Scalars['uuid'];
-  quest_type: Types.Scalars['String'];
 }>;
 
 
@@ -94,7 +92,6 @@ export type Stage4TaskQuery = { team_by_pk?: { id: any, team_development_options
 
 export type BusinessPlanExampleQueryVariables = Types.Exact<{
   team_id: Types.Scalars['uuid'];
-  quest_type: Types.Scalars['String'];
 }>;
 
 
@@ -131,11 +128,10 @@ export type TutorCurrentQuestQuery = { user_by_pk?: { id: any, tutor?: { quests:
 
 export type TutorPreviousQuestQueryVariables = Types.Exact<{
   quest_id: Types.Scalars['uuid'];
-  quest_type: Types.Scalars['String'];
 }>;
 
 
-export type TutorPreviousQuestQuery = { quest_by_pk?: { id: any, started_at?: any | null, completed_at?: any | null, teams: Array<{ id: any, name: string, students: Array<{ id: any, position?: Types.Student_Position_Enum_Enum | null, user: { full_name?: string | null, username: string, password: string } }>, stage_progresses: Array<{ id: any, team_id: any, stage_id: number, status: Types.Stage_Progress_Status_Enum_Enum, documents: Array<{ id: any, status: Types.Document_Status_Enum_Enum, doc_data?: any | null, feedback?: any | null }> }>, team_development_options: Array<{ team_choice_name?: string | null, shortlist: boolean, development_option: { id: number, display_name?: string | null, option: string } }> }> } | null };
+export type TutorPreviousQuestQuery = { quest_by_pk?: { id: any, started_at?: any | null, completed_at?: any | null, teams: Array<{ id: any, name: string, students: Array<{ id: any, position?: Types.Student_Position_Enum_Enum | null, user: { full_name?: string | null, username: string, password: string } }>, stage_progresses: Array<{ id: any, team_id: any, stage_id: number, status: Types.Stage_Progress_Status_Enum_Enum, documents: Array<{ id: any, status: Types.Document_Status_Enum_Enum, doc_data?: any | null, feedback?: any | null }> }>, team_development_options: Array<{ team_choice_name?: string | null, shortlist: boolean, development_option: { id: number, display_name?: string | null, option: string } }> }> } | null, stage: Array<{ id: number, title: string }> };
 
 export type TutorDocumentQueryVariables = Types.Exact<{
   stage_progress_id: Types.Scalars['uuid'];

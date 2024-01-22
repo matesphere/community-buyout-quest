@@ -86,6 +86,8 @@ type Content = {
   readonly developmentOptions: ReadonlyArray<Content_DevelopmentOption>;
   /** Retrieve multiple developmentOptions using the Relay connection interface */
   readonly developmentOptionsConnection: Content_DevelopmentOptionConnection;
+  /** Fetches an object given its ID */
+  readonly entities: Maybe<ReadonlyArray<Content_Entity>>;
   /** Retrieve a single helpfulInfo */
   readonly helpfulInfo: Maybe<Content_HelpfulInfo>;
   /** Retrieve document version */
@@ -292,6 +294,11 @@ type Content_developmentOptionsConnectionArgs = {
   skip: InputMaybe<Scalars['Int']>;
   stage?: Content_Stage;
   where: InputMaybe<Content_DevelopmentOptionWhereInput>;
+};
+
+
+type Content_entitiesArgs = {
+  where: ReadonlyArray<Content_EntityWhereInput>;
 };
 
 
@@ -747,7 +754,7 @@ type Content_Aggregate = {
 };
 
 /** Asset system model */
-type Content_Asset = Content_Node & {
+type Content_Asset = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -1012,7 +1019,7 @@ type Content_AssetManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -1030,7 +1037,7 @@ type Content_AssetManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -1059,7 +1066,7 @@ type Content_AssetManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -1078,7 +1085,7 @@ type Content_AssetManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -1274,7 +1281,7 @@ type Content_AssetWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -1289,7 +1296,7 @@ type Content_AssetWhereInput = {
   readonly fileName_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly fileName_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly fileName_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly fileName_not_contains: InputMaybe<Scalars['String']>;
@@ -1308,7 +1315,7 @@ type Content_AssetWhereInput = {
   readonly handle_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly handle_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly handle_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly handle_not_contains: InputMaybe<Scalars['String']>;
@@ -1331,7 +1338,7 @@ type Content_AssetWhereInput = {
   readonly height_lt: InputMaybe<Scalars['Float']>;
   /** All values less than or equal the given value. */
   readonly height_lte: InputMaybe<Scalars['Float']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly height_not: InputMaybe<Scalars['Float']>;
   /** All values that are not contained in given list. */
   readonly height_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
@@ -1345,7 +1352,7 @@ type Content_AssetWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -1370,7 +1377,7 @@ type Content_AssetWhereInput = {
   readonly mimeType_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly mimeType_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly mimeType_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly mimeType_not_contains: InputMaybe<Scalars['String']>;
@@ -1393,7 +1400,7 @@ type Content_AssetWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -1412,7 +1419,7 @@ type Content_AssetWhereInput = {
   readonly size_lt: InputMaybe<Scalars['Float']>;
   /** All values less than or equal the given value. */
   readonly size_lte: InputMaybe<Scalars['Float']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly size_not: InputMaybe<Scalars['Float']>;
   /** All values that are not contained in given list. */
   readonly size_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
@@ -1427,7 +1434,7 @@ type Content_AssetWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -1443,7 +1450,7 @@ type Content_AssetWhereInput = {
   readonly width_lt: InputMaybe<Scalars['Float']>;
   /** All values less than or equal the given value. */
   readonly width_lte: InputMaybe<Scalars['Float']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly width_not: InputMaybe<Scalars['Float']>;
   /** All values that are not contained in given list. */
   readonly width_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
@@ -1473,7 +1480,7 @@ type Content_BatchPayload = {
   readonly count: Scalars['Content_Long'];
 };
 
-type Content_CapitalCosts = {
+type Content_CapitalCosts = Content_Entity & {
   readonly details: Content_RichText;
   readonly funding: Content_RichText;
   /** The unique identifier */
@@ -1528,7 +1535,7 @@ type Content_CapitalCostsManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -1619,7 +1626,7 @@ type Content_CapitalCostsWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -1638,7 +1645,7 @@ type Content_CapitalCostsWhereUniqueInput = {
   readonly id: InputMaybe<Scalars['ID']>;
 };
 
-type Content_Checklist = Content_Node & {
+type Content_Checklist = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -1824,7 +1831,7 @@ type Content_ChecklistManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -1839,7 +1846,7 @@ type Content_ChecklistManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -1862,7 +1869,7 @@ type Content_ChecklistManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -1881,7 +1888,7 @@ type Content_ChecklistManyWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -1896,7 +1903,7 @@ type Content_ChecklistManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2064,7 +2071,7 @@ type Content_ChecklistWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2079,7 +2086,7 @@ type Content_ChecklistWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -2112,7 +2119,7 @@ type Content_ChecklistWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2131,7 +2138,7 @@ type Content_ChecklistWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -2146,7 +2153,7 @@ type Content_ChecklistWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2196,7 +2203,7 @@ type Content_ConnectPositionInput = {
   readonly start: InputMaybe<Scalars['Boolean']>;
 };
 
-type Content_DevelopmentOption = Content_Node & {
+type Content_DevelopmentOption = Content_Entity & Content_Node & {
   readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
@@ -2430,7 +2437,7 @@ type Content_DevelopmentOptionManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2446,7 +2453,7 @@ type Content_DevelopmentOptionManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -2472,7 +2479,7 @@ type Content_DevelopmentOptionManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2487,7 +2494,7 @@ type Content_DevelopmentOptionManyWhereInput = {
   readonly slug_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly slug_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly slug_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly slug_not_contains: InputMaybe<Scalars['String']>;
@@ -2510,7 +2517,7 @@ type Content_DevelopmentOptionManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2694,7 +2701,7 @@ type Content_DevelopmentOptionWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2710,7 +2717,7 @@ type Content_DevelopmentOptionWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -2730,7 +2737,7 @@ type Content_DevelopmentOptionWhereInput = {
   readonly intro_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly intro_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly intro_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly intro_not_contains: InputMaybe<Scalars['String']>;
@@ -2755,7 +2762,7 @@ type Content_DevelopmentOptionWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2770,7 +2777,7 @@ type Content_DevelopmentOptionWhereInput = {
   readonly slug_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly slug_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly slug_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly slug_not_contains: InputMaybe<Scalars['String']>;
@@ -2789,7 +2796,7 @@ type Content_DevelopmentOptionWhereInput = {
   readonly title_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly title_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly title_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly title_not_contains: InputMaybe<Scalars['String']>;
@@ -2812,7 +2819,7 @@ type Content_DevelopmentOptionWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -2901,7 +2908,53 @@ type Content_DocumentVersion = {
   readonly stage: Content_Stage;
 };
 
-type Content_FundingSource = {
+/** An object with an ID */
+type Content_Entity = {
+  /** The id of the object. */
+  readonly id: Scalars['ID'];
+  /** The Stage of an object */
+  readonly stage: Content_Stage;
+};
+
+/** This enumeration holds all typenames that implement the Entity interface. Components and models implement the Entity interface. */
+type Content_EntityTypeName =
+  /** Asset system model */
+  | 'Asset'
+  | 'CapitalCosts'
+  | 'Checklist'
+  | 'DevelopmentOption'
+  | 'FundingSource'
+  | 'HelpfulInfo'
+  | 'Info'
+  | 'ModelBusinessPlan'
+  | 'ModelSwot'
+  | 'PresentationTipsPage'
+  | 'RunningCostItem'
+  | 'RunningCostsSection'
+  /** Scheduled Operation system model */
+  | 'ScheduledOperation'
+  /** Scheduled Release system model */
+  | 'ScheduledRelease'
+  | 'SetupCostItem'
+  | 'SetupCostsSection'
+  | 'StageLandingPage'
+  | 'StageTask'
+  | 'StageTaskPage'
+  | 'TaskToComplete'
+  /** User system model */
+  | 'User';
+
+/** Allows to specify input to query models and components directly */
+type Content_EntityWhereInput = {
+  /** The ID of an object */
+  readonly id: Scalars['ID'];
+  readonly locale: InputMaybe<Content_Locale>;
+  readonly stage: Content_Stage;
+  /** The Type name of an object */
+  readonly typename: Content_EntityTypeName;
+};
+
+type Content_FundingSource = Content_Entity & {
   readonly amount: Scalars['Int'];
   readonly funder: Scalars['String'];
   /** The unique identifier */
@@ -2977,7 +3030,7 @@ type Content_FundingSourceManyWhereInput = {
   readonly amount_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly amount_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly amount_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly amount_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -2988,7 +3041,7 @@ type Content_FundingSourceManyWhereInput = {
   readonly funder_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly funder_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly funder_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly funder_not_contains: InputMaybe<Scalars['String']>;
@@ -3007,7 +3060,7 @@ type Content_FundingSourceManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -3206,7 +3259,7 @@ type Content_FundingSourceWhereInput = {
   readonly amount_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly amount_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly amount_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly amount_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -3217,7 +3270,7 @@ type Content_FundingSourceWhereInput = {
   readonly funder_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly funder_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly funder_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly funder_not_contains: InputMaybe<Scalars['String']>;
@@ -3236,7 +3289,7 @@ type Content_FundingSourceWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -3255,7 +3308,7 @@ type Content_FundingSourceWhereUniqueInput = {
   readonly id: InputMaybe<Scalars['ID']>;
 };
 
-type Content_HelpfulInfo = Content_Node & {
+type Content_HelpfulInfo = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -3441,7 +3494,7 @@ type Content_HelpfulInfoManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -3456,7 +3509,7 @@ type Content_HelpfulInfoManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -3479,7 +3532,7 @@ type Content_HelpfulInfoManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -3498,7 +3551,7 @@ type Content_HelpfulInfoManyWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -3513,7 +3566,7 @@ type Content_HelpfulInfoManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -3679,7 +3732,7 @@ type Content_HelpfulInfoWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -3694,7 +3747,7 @@ type Content_HelpfulInfoWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -3717,7 +3770,7 @@ type Content_HelpfulInfoWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -3736,7 +3789,7 @@ type Content_HelpfulInfoWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -3751,7 +3804,7 @@ type Content_HelpfulInfoWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -3802,7 +3855,7 @@ type Content_ImageTransformationInput = {
   readonly resize: InputMaybe<Content_ImageResizeInput>;
 };
 
-type Content_Info = Content_Node & {
+type Content_Info = Content_Entity & Content_Node & {
   readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
@@ -4027,7 +4080,7 @@ type Content_InfoManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4043,7 +4096,7 @@ type Content_InfoManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -4069,7 +4122,7 @@ type Content_InfoManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4084,7 +4137,7 @@ type Content_InfoManyWhereInput = {
   readonly slug_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly slug_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly slug_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly slug_not_contains: InputMaybe<Scalars['String']>;
@@ -4107,7 +4160,7 @@ type Content_InfoManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4291,7 +4344,7 @@ type Content_InfoWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4307,7 +4360,7 @@ type Content_InfoWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -4333,7 +4386,7 @@ type Content_InfoWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4348,7 +4401,7 @@ type Content_InfoWhereInput = {
   readonly slug_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly slug_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly slug_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly slug_not_contains: InputMaybe<Scalars['String']>;
@@ -4367,7 +4420,7 @@ type Content_InfoWhereInput = {
   readonly title_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly title_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly title_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly title_not_contains: InputMaybe<Scalars['String']>;
@@ -4390,7 +4443,7 @@ type Content_InfoWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4442,7 +4495,7 @@ type Content_LocationInput = {
   readonly longitude: Scalars['Float'];
 };
 
-type Content_ModelBusinessPlan = Content_Node & {
+type Content_ModelBusinessPlan = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -4638,7 +4691,7 @@ type Content_ModelBusinessPlanManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4653,7 +4706,7 @@ type Content_ModelBusinessPlanManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -4676,7 +4729,7 @@ type Content_ModelBusinessPlanManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4697,7 +4750,7 @@ type Content_ModelBusinessPlanManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4843,7 +4896,7 @@ type Content_ModelBusinessPlanWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4855,7 +4908,7 @@ type Content_ModelBusinessPlanWhereInput = {
   readonly developmentOption_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly developmentOption_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly developmentOption_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly developmentOption_not_contains: InputMaybe<Scalars['String']>;
@@ -4877,7 +4930,7 @@ type Content_ModelBusinessPlanWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -4900,7 +4953,7 @@ type Content_ModelBusinessPlanWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4921,7 +4974,7 @@ type Content_ModelBusinessPlanWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -4947,7 +5000,7 @@ type Content_ModelBusinessPlanWhereUniqueInput = {
   readonly id: InputMaybe<Scalars['ID']>;
 };
 
-type Content_ModelSwot = Content_Node & {
+type Content_ModelSwot = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -5143,7 +5196,7 @@ type Content_ModelSwotManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5158,7 +5211,7 @@ type Content_ModelSwotManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -5181,7 +5234,7 @@ type Content_ModelSwotManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5200,7 +5253,7 @@ type Content_ModelSwotManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5381,7 +5434,7 @@ type Content_ModelSwotWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5393,7 +5446,7 @@ type Content_ModelSwotWhereInput = {
   readonly developmentOption_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly developmentOption_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly developmentOption_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly developmentOption_not_contains: InputMaybe<Scalars['String']>;
@@ -5415,7 +5468,7 @@ type Content_ModelSwotWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -5438,7 +5491,7 @@ type Content_ModelSwotWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5457,7 +5510,7 @@ type Content_ModelSwotWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5505,7 +5558,7 @@ type Content_PageInfo = {
   readonly startCursor: Maybe<Scalars['String']>;
 };
 
-type Content_PresentationTipsPage = Content_Node & {
+type Content_PresentationTipsPage = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -5708,7 +5761,7 @@ type Content_PresentationTipsPageManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5724,7 +5777,7 @@ type Content_PresentationTipsPageManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -5747,7 +5800,7 @@ type Content_PresentationTipsPageManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5762,7 +5815,7 @@ type Content_PresentationTipsPageManyWhereInput = {
   readonly slug_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly slug_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly slug_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly slug_not_contains: InputMaybe<Scalars['String']>;
@@ -5785,7 +5838,7 @@ type Content_PresentationTipsPageManyWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -5800,7 +5853,7 @@ type Content_PresentationTipsPageManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -5987,7 +6040,7 @@ type Content_PresentationTipsPageWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -6003,7 +6056,7 @@ type Content_PresentationTipsPageWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -6022,7 +6075,7 @@ type Content_PresentationTipsPageWhereInput = {
   readonly intro_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly intro_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly intro_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly intro_not_contains: InputMaybe<Scalars['String']>;
@@ -6045,7 +6098,7 @@ type Content_PresentationTipsPageWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -6060,7 +6113,7 @@ type Content_PresentationTipsPageWhereInput = {
   readonly slug_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly slug_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly slug_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly slug_not_contains: InputMaybe<Scalars['String']>;
@@ -6083,7 +6136,7 @@ type Content_PresentationTipsPageWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6094,7 +6147,7 @@ type Content_PresentationTipsPageWhereInput = {
   readonly title_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly title_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly title_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly title_not_contains: InputMaybe<Scalars['String']>;
@@ -6117,7 +6170,7 @@ type Content_PresentationTipsPageWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -6179,7 +6232,7 @@ type Content_RichText = {
   readonly text: Scalars['String'];
 };
 
-type Content_RunningCostItem = {
+type Content_RunningCostItem = Content_Entity & {
   /** The unique identifier */
   readonly id: Scalars['ID'];
   readonly item: Scalars['String'];
@@ -6257,7 +6310,7 @@ type Content_RunningCostItemManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -6276,7 +6329,7 @@ type Content_RunningCostItemManyWhereInput = {
   readonly item_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly item_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly item_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly item_not_contains: InputMaybe<Scalars['String']>;
@@ -6299,7 +6352,7 @@ type Content_RunningCostItemManyWhereInput = {
   readonly yearFour_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly yearFour_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly yearFour_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly yearFour_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6314,7 +6367,7 @@ type Content_RunningCostItemManyWhereInput = {
   readonly yearOne_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly yearOne_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly yearOne_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly yearOne_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6329,7 +6382,7 @@ type Content_RunningCostItemManyWhereInput = {
   readonly yearThree_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly yearThree_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly yearThree_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly yearThree_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6344,7 +6397,7 @@ type Content_RunningCostItemManyWhereInput = {
   readonly yearTwo_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly yearTwo_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly yearTwo_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly yearTwo_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6543,7 +6596,7 @@ type Content_RunningCostItemWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -6562,7 +6615,7 @@ type Content_RunningCostItemWhereInput = {
   readonly item_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly item_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly item_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly item_not_contains: InputMaybe<Scalars['String']>;
@@ -6585,7 +6638,7 @@ type Content_RunningCostItemWhereInput = {
   readonly yearFour_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly yearFour_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly yearFour_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly yearFour_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6600,7 +6653,7 @@ type Content_RunningCostItemWhereInput = {
   readonly yearOne_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly yearOne_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly yearOne_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly yearOne_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6615,7 +6668,7 @@ type Content_RunningCostItemWhereInput = {
   readonly yearThree_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly yearThree_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly yearThree_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly yearThree_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6630,7 +6683,7 @@ type Content_RunningCostItemWhereInput = {
   readonly yearTwo_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly yearTwo_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly yearTwo_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly yearTwo_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -6641,7 +6694,7 @@ type Content_RunningCostItemWhereUniqueInput = {
   readonly id: InputMaybe<Scalars['ID']>;
 };
 
-type Content_RunningCostsSection = {
+type Content_RunningCostsSection = Content_Entity & {
   readonly costs: ReadonlyArray<Content_RunningCostItem>;
   /** The unique identifier */
   readonly id: Scalars['ID'];
@@ -6742,7 +6795,7 @@ type Content_RunningCostsSectionManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -6941,7 +6994,7 @@ type Content_RunningCostsSectionWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -6964,7 +7017,7 @@ type Content_RunningCostsSectionWhereUniqueInput = {
 };
 
 /** Scheduled Operation system model */
-type Content_ScheduledOperation = Content_Node & {
+type Content_ScheduledOperation = Content_Entity & Content_Node & {
   readonly affectedDocuments: ReadonlyArray<Content_ScheduledOperationAffectedDocument>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
@@ -7101,7 +7154,7 @@ type Content_ScheduledOperationManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7113,7 +7166,7 @@ type Content_ScheduledOperationManyWhereInput = {
   readonly description_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly description_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly description_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly description_not_contains: InputMaybe<Scalars['String']>;
@@ -7132,7 +7185,7 @@ type Content_ScheduledOperationManyWhereInput = {
   readonly errorMessage_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly errorMessage_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly errorMessage_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly errorMessage_not_contains: InputMaybe<Scalars['String']>;
@@ -7151,7 +7204,7 @@ type Content_ScheduledOperationManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -7174,16 +7227,25 @@ type Content_ScheduledOperationManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
   readonly publishedBy: InputMaybe<Content_UserWhereInput>;
+  /** All values containing the given json path. */
+  readonly rawPayload_json_path_exists: InputMaybe<Scalars['String']>;
+  /**
+   * Recursively tries to find the provided JSON scalar value inside the field.
+   * It does use an exact match when comparing values.
+   * If you pass `null` as value the filter will be ignored.
+   * Note: This filter fails if you try to look for a non scalar JSON value!
+   */
+  readonly rawPayload_value_recursive: InputMaybe<Scalars['Content_Json']>;
   readonly release: InputMaybe<Content_ScheduledReleaseWhereInput>;
   readonly status: InputMaybe<Content_ScheduledOperationStatus>;
   /** All values that are contained in given list. */
   readonly status_in: InputMaybe<ReadonlyArray<InputMaybe<Content_ScheduledOperationStatus>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly status_not: InputMaybe<Content_ScheduledOperationStatus>;
   /** All values that are not contained in given list. */
   readonly status_not_in: InputMaybe<ReadonlyArray<InputMaybe<Content_ScheduledOperationStatus>>>;
@@ -7198,7 +7260,7 @@ type Content_ScheduledOperationManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7266,7 +7328,7 @@ type Content_ScheduledOperationWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7278,7 +7340,7 @@ type Content_ScheduledOperationWhereInput = {
   readonly description_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly description_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly description_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly description_not_contains: InputMaybe<Scalars['String']>;
@@ -7297,7 +7359,7 @@ type Content_ScheduledOperationWhereInput = {
   readonly errorMessage_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly errorMessage_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly errorMessage_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly errorMessage_not_contains: InputMaybe<Scalars['String']>;
@@ -7316,7 +7378,7 @@ type Content_ScheduledOperationWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -7339,16 +7401,25 @@ type Content_ScheduledOperationWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
   readonly publishedBy: InputMaybe<Content_UserWhereInput>;
+  /** All values containing the given json path. */
+  readonly rawPayload_json_path_exists: InputMaybe<Scalars['String']>;
+  /**
+   * Recursively tries to find the provided JSON scalar value inside the field.
+   * It does use an exact match when comparing values.
+   * If you pass `null` as value the filter will be ignored.
+   * Note: This filter fails if you try to look for a non scalar JSON value!
+   */
+  readonly rawPayload_value_recursive: InputMaybe<Scalars['Content_Json']>;
   readonly release: InputMaybe<Content_ScheduledReleaseWhereInput>;
   readonly status: InputMaybe<Content_ScheduledOperationStatus>;
   /** All values that are contained in given list. */
   readonly status_in: InputMaybe<ReadonlyArray<InputMaybe<Content_ScheduledOperationStatus>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly status_not: InputMaybe<Content_ScheduledOperationStatus>;
   /** All values that are not contained in given list. */
   readonly status_not_in: InputMaybe<ReadonlyArray<InputMaybe<Content_ScheduledOperationStatus>>>;
@@ -7363,7 +7434,7 @@ type Content_ScheduledOperationWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7376,7 +7447,7 @@ type Content_ScheduledOperationWhereUniqueInput = {
 };
 
 /** Scheduled Release system model */
-type Content_ScheduledRelease = Content_Node & {
+type Content_ScheduledRelease = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -7525,7 +7596,7 @@ type Content_ScheduledReleaseManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7537,7 +7608,7 @@ type Content_ScheduledReleaseManyWhereInput = {
   readonly description_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly description_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly description_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly description_not_contains: InputMaybe<Scalars['String']>;
@@ -7556,7 +7627,7 @@ type Content_ScheduledReleaseManyWhereInput = {
   readonly errorMessage_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly errorMessage_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly errorMessage_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly errorMessage_not_contains: InputMaybe<Scalars['String']>;
@@ -7575,7 +7646,7 @@ type Content_ScheduledReleaseManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -7588,10 +7659,10 @@ type Content_ScheduledReleaseManyWhereInput = {
   /** All values starting with the given string. */
   readonly id_starts_with: InputMaybe<Scalars['ID']>;
   readonly isActive: InputMaybe<Scalars['Boolean']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly isActive_not: InputMaybe<Scalars['Boolean']>;
   readonly isImplicit: InputMaybe<Scalars['Boolean']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly isImplicit_not: InputMaybe<Scalars['Boolean']>;
   readonly operations_every: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly operations_none: InputMaybe<Content_ScheduledOperationWhereInput>;
@@ -7607,7 +7678,7 @@ type Content_ScheduledReleaseManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7623,14 +7694,14 @@ type Content_ScheduledReleaseManyWhereInput = {
   readonly releaseAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly releaseAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly releaseAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly releaseAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
   readonly status: InputMaybe<Content_ScheduledReleaseStatus>;
   /** All values that are contained in given list. */
   readonly status_in: InputMaybe<ReadonlyArray<InputMaybe<Content_ScheduledReleaseStatus>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly status_not: InputMaybe<Content_ScheduledReleaseStatus>;
   /** All values that are not contained in given list. */
   readonly status_not_in: InputMaybe<ReadonlyArray<InputMaybe<Content_ScheduledReleaseStatus>>>;
@@ -7641,7 +7712,7 @@ type Content_ScheduledReleaseManyWhereInput = {
   readonly title_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly title_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly title_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly title_not_contains: InputMaybe<Scalars['String']>;
@@ -7664,7 +7735,7 @@ type Content_ScheduledReleaseManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7799,7 +7870,7 @@ type Content_ScheduledReleaseWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7811,7 +7882,7 @@ type Content_ScheduledReleaseWhereInput = {
   readonly description_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly description_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly description_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly description_not_contains: InputMaybe<Scalars['String']>;
@@ -7830,7 +7901,7 @@ type Content_ScheduledReleaseWhereInput = {
   readonly errorMessage_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly errorMessage_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly errorMessage_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly errorMessage_not_contains: InputMaybe<Scalars['String']>;
@@ -7849,7 +7920,7 @@ type Content_ScheduledReleaseWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -7862,10 +7933,10 @@ type Content_ScheduledReleaseWhereInput = {
   /** All values starting with the given string. */
   readonly id_starts_with: InputMaybe<Scalars['ID']>;
   readonly isActive: InputMaybe<Scalars['Boolean']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly isActive_not: InputMaybe<Scalars['Boolean']>;
   readonly isImplicit: InputMaybe<Scalars['Boolean']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly isImplicit_not: InputMaybe<Scalars['Boolean']>;
   readonly operations_every: InputMaybe<Content_ScheduledOperationWhereInput>;
   readonly operations_none: InputMaybe<Content_ScheduledOperationWhereInput>;
@@ -7881,7 +7952,7 @@ type Content_ScheduledReleaseWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7897,14 +7968,14 @@ type Content_ScheduledReleaseWhereInput = {
   readonly releaseAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly releaseAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly releaseAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly releaseAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
   readonly status: InputMaybe<Content_ScheduledReleaseStatus>;
   /** All values that are contained in given list. */
   readonly status_in: InputMaybe<ReadonlyArray<InputMaybe<Content_ScheduledReleaseStatus>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly status_not: InputMaybe<Content_ScheduledReleaseStatus>;
   /** All values that are not contained in given list. */
   readonly status_not_in: InputMaybe<ReadonlyArray<InputMaybe<Content_ScheduledReleaseStatus>>>;
@@ -7915,7 +7986,7 @@ type Content_ScheduledReleaseWhereInput = {
   readonly title_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly title_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly title_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly title_not_contains: InputMaybe<Scalars['String']>;
@@ -7938,7 +8009,7 @@ type Content_ScheduledReleaseWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -7950,7 +8021,7 @@ type Content_ScheduledReleaseWhereUniqueInput = {
   readonly id: InputMaybe<Scalars['ID']>;
 };
 
-type Content_SetupCostItem = {
+type Content_SetupCostItem = Content_Entity & {
   readonly cost: Scalars['Int'];
   /** The unique identifier */
   readonly id: Scalars['ID'];
@@ -8026,7 +8097,7 @@ type Content_SetupCostItemManyWhereInput = {
   readonly cost_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly cost_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly cost_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly cost_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -8037,7 +8108,7 @@ type Content_SetupCostItemManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -8056,7 +8127,7 @@ type Content_SetupCostItemManyWhereInput = {
   readonly item_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly item_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly item_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly item_not_contains: InputMaybe<Scalars['String']>;
@@ -8255,7 +8326,7 @@ type Content_SetupCostItemWhereInput = {
   readonly cost_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly cost_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly cost_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly cost_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -8266,7 +8337,7 @@ type Content_SetupCostItemWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -8285,7 +8356,7 @@ type Content_SetupCostItemWhereInput = {
   readonly item_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly item_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly item_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly item_not_contains: InputMaybe<Scalars['String']>;
@@ -8304,7 +8375,7 @@ type Content_SetupCostItemWhereUniqueInput = {
   readonly id: InputMaybe<Scalars['ID']>;
 };
 
-type Content_SetupCostsSection = {
+type Content_SetupCostsSection = Content_Entity & {
   readonly costItems: ReadonlyArray<Content_SetupCostItem>;
   readonly fundingSources: ReadonlyArray<Content_FundingSource>;
   /** The unique identifier */
@@ -8408,7 +8479,7 @@ type Content_SetupCostsSectionManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -8607,7 +8678,7 @@ type Content_SetupCostsSectionWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -8633,7 +8704,7 @@ type Content_Stage =
   /** The Published stage is where you can publish your content to. */
   | 'PUBLISHED';
 
-type Content_StageLandingPage = Content_Node & {
+type Content_StageLandingPage = Content_Entity & Content_Node & {
   readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
@@ -8865,7 +8936,7 @@ type Content_StageLandingPageManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -8881,7 +8952,7 @@ type Content_StageLandingPageManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -8904,7 +8975,7 @@ type Content_StageLandingPageManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -8919,7 +8990,7 @@ type Content_StageLandingPageManyWhereInput = {
   readonly slug_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly slug_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly slug_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly slug_not_contains: InputMaybe<Scalars['String']>;
@@ -8942,7 +9013,7 @@ type Content_StageLandingPageManyWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -8960,7 +9031,7 @@ type Content_StageLandingPageManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9153,7 +9224,7 @@ type Content_StageLandingPageWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9169,7 +9240,7 @@ type Content_StageLandingPageWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -9192,7 +9263,7 @@ type Content_StageLandingPageWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9207,7 +9278,7 @@ type Content_StageLandingPageWhereInput = {
   readonly slug_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly slug_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly slug_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly slug_not_contains: InputMaybe<Scalars['String']>;
@@ -9226,7 +9297,7 @@ type Content_StageLandingPageWhereInput = {
   readonly stageIntro_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly stageIntro_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageIntro_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly stageIntro_not_contains: InputMaybe<Scalars['String']>;
@@ -9249,7 +9320,7 @@ type Content_StageLandingPageWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -9260,7 +9331,7 @@ type Content_StageLandingPageWhereInput = {
   readonly stageTitle_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly stageTitle_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageTitle_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly stageTitle_not_contains: InputMaybe<Scalars['String']>;
@@ -9286,7 +9357,7 @@ type Content_StageLandingPageWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9313,7 +9384,7 @@ type Content_StageLandingPageWhereUniqueInput = {
   readonly slug: InputMaybe<Scalars['String']>;
 };
 
-type Content_StageTask = Content_Node & {
+type Content_StageTask = Content_Entity & Content_Node & {
   readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
@@ -9523,7 +9594,7 @@ type Content_StageTaskManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9539,7 +9610,7 @@ type Content_StageTaskManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -9562,7 +9633,7 @@ type Content_StageTaskManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9581,7 +9652,7 @@ type Content_StageTaskManyWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -9596,7 +9667,7 @@ type Content_StageTaskManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9617,7 +9688,7 @@ type Content_StageTaskOrderByInput =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC';
 
-type Content_StageTaskPage = Content_Node & {
+type Content_StageTaskPage = Content_Entity & Content_Node & {
   readonly checklist: Maybe<Content_Checklist>;
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
@@ -9838,7 +9909,7 @@ type Content_StageTaskPageManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9854,7 +9925,7 @@ type Content_StageTaskPageManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -9877,7 +9948,7 @@ type Content_StageTaskPageManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -9896,7 +9967,7 @@ type Content_StageTaskPageManyWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -9914,7 +9985,7 @@ type Content_StageTaskPageManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10093,7 +10164,7 @@ type Content_StageTaskPageWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10109,7 +10180,7 @@ type Content_StageTaskPageWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -10132,7 +10203,7 @@ type Content_StageTaskPageWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10151,7 +10222,7 @@ type Content_StageTaskPageWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -10165,7 +10236,7 @@ type Content_StageTaskPageWhereInput = {
   readonly title_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly title_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly title_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly title_not_contains: InputMaybe<Scalars['String']>;
@@ -10188,7 +10259,7 @@ type Content_StageTaskPageWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10377,7 +10448,7 @@ type Content_StageTaskWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10393,7 +10464,7 @@ type Content_StageTaskWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -10416,7 +10487,7 @@ type Content_StageTaskWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10435,7 +10506,7 @@ type Content_StageTaskWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Int']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Int']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
@@ -10446,7 +10517,7 @@ type Content_StageTaskWhereInput = {
   readonly title_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly title_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly title_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly title_not_contains: InputMaybe<Scalars['String']>;
@@ -10469,7 +10540,7 @@ type Content_StageTaskWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10500,7 +10571,7 @@ type Content_SystemDateTimeFieldVariation =
   | 'COMBINED'
   | 'LOCALIZATION';
 
-type Content_TaskToComplete = Content_Node & {
+type Content_TaskToComplete = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** User that created this document */
@@ -10695,7 +10766,7 @@ type Content_TaskToCompleteManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10710,7 +10781,7 @@ type Content_TaskToCompleteManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -10733,7 +10804,7 @@ type Content_TaskToCompleteManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10752,7 +10823,7 @@ type Content_TaskToCompleteManyWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Float']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Float']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Float']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
@@ -10767,7 +10838,7 @@ type Content_TaskToCompleteManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10952,7 +11023,7 @@ type Content_TaskToCompleteWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -10967,7 +11038,7 @@ type Content_TaskToCompleteWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -10990,7 +11061,7 @@ type Content_TaskToCompleteWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -11009,7 +11080,7 @@ type Content_TaskToCompleteWhereInput = {
   readonly stageNumber_lt: InputMaybe<Scalars['Float']>;
   /** All values less than or equal the given value. */
   readonly stageNumber_lte: InputMaybe<Scalars['Float']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly stageNumber_not: InputMaybe<Scalars['Float']>;
   /** All values that are not contained in given list. */
   readonly stageNumber_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
@@ -11020,7 +11091,7 @@ type Content_TaskToCompleteWhereInput = {
   readonly taskLinkText_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly taskLinkText_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly taskLinkText_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly taskLinkText_not_contains: InputMaybe<Scalars['String']>;
@@ -11039,7 +11110,7 @@ type Content_TaskToCompleteWhereInput = {
   readonly title_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly title_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly title_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly title_not_contains: InputMaybe<Scalars['String']>;
@@ -11062,7 +11133,7 @@ type Content_TaskToCompleteWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -11096,7 +11167,7 @@ type Content_UnpublishLocaleInput = {
 };
 
 /** User system model */
-type Content_User = Content_Node & {
+type Content_User = Content_Entity & Content_Node & {
   /** The time the document was created */
   readonly createdAt: Scalars['Content_DateTime'];
   /** Get the document in other stages */
@@ -11189,7 +11260,7 @@ type Content_UserManyWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -11203,7 +11274,7 @@ type Content_UserManyWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -11216,12 +11287,12 @@ type Content_UserManyWhereInput = {
   /** All values starting with the given string. */
   readonly id_starts_with: InputMaybe<Scalars['ID']>;
   readonly isActive: InputMaybe<Scalars['Boolean']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly isActive_not: InputMaybe<Scalars['Boolean']>;
   readonly kind: InputMaybe<Content_UserKind>;
   /** All values that are contained in given list. */
   readonly kind_in: InputMaybe<ReadonlyArray<InputMaybe<Content_UserKind>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly kind_not: InputMaybe<Content_UserKind>;
   /** All values that are not contained in given list. */
   readonly kind_not_in: InputMaybe<ReadonlyArray<InputMaybe<Content_UserKind>>>;
@@ -11232,7 +11303,7 @@ type Content_UserManyWhereInput = {
   readonly name_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly name_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly name_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly name_not_contains: InputMaybe<Scalars['String']>;
@@ -11251,7 +11322,7 @@ type Content_UserManyWhereInput = {
   readonly picture_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly picture_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly picture_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly picture_not_contains: InputMaybe<Scalars['String']>;
@@ -11274,7 +11345,7 @@ type Content_UserManyWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -11289,7 +11360,7 @@ type Content_UserManyWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -11356,7 +11427,7 @@ type Content_UserWhereInput = {
   readonly createdAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly createdAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly createdAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly createdAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -11370,7 +11441,7 @@ type Content_UserWhereInput = {
   readonly id_ends_with: InputMaybe<Scalars['ID']>;
   /** All values that are contained in given list. */
   readonly id_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['ID']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly id_not: InputMaybe<Scalars['ID']>;
   /** All values not containing the given string. */
   readonly id_not_contains: InputMaybe<Scalars['ID']>;
@@ -11383,12 +11454,12 @@ type Content_UserWhereInput = {
   /** All values starting with the given string. */
   readonly id_starts_with: InputMaybe<Scalars['ID']>;
   readonly isActive: InputMaybe<Scalars['Boolean']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly isActive_not: InputMaybe<Scalars['Boolean']>;
   readonly kind: InputMaybe<Content_UserKind>;
   /** All values that are contained in given list. */
   readonly kind_in: InputMaybe<ReadonlyArray<InputMaybe<Content_UserKind>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly kind_not: InputMaybe<Content_UserKind>;
   /** All values that are not contained in given list. */
   readonly kind_not_in: InputMaybe<ReadonlyArray<InputMaybe<Content_UserKind>>>;
@@ -11399,7 +11470,7 @@ type Content_UserWhereInput = {
   readonly name_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly name_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly name_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly name_not_contains: InputMaybe<Scalars['String']>;
@@ -11418,7 +11489,7 @@ type Content_UserWhereInput = {
   readonly picture_ends_with: InputMaybe<Scalars['String']>;
   /** All values that are contained in given list. */
   readonly picture_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly picture_not: InputMaybe<Scalars['String']>;
   /** All values not containing the given string. */
   readonly picture_not_contains: InputMaybe<Scalars['String']>;
@@ -11441,7 +11512,7 @@ type Content_UserWhereInput = {
   readonly publishedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly publishedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly publishedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly publishedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -11456,7 +11527,7 @@ type Content_UserWhereInput = {
   readonly updatedAt_lt: InputMaybe<Scalars['Content_DateTime']>;
   /** All values less than or equal the given value. */
   readonly updatedAt_lte: InputMaybe<Scalars['Content_DateTime']>;
-  /** All values that are not equal to given value. */
+  /** Any other value that exists and is not equal to the given value. */
   readonly updatedAt_not: InputMaybe<Scalars['Content_DateTime']>;
   /** All values that are not contained in given list. */
   readonly updatedAt_not_in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Content_DateTime']>>>;
@@ -11508,6 +11579,8 @@ type Content__FilterKind =
   | 'gt'
   | 'gte'
   | 'in'
+  | 'json_path_exists'
+  | 'json_value_recursive'
   | 'lt'
   | 'lte'
   | 'not_contains'
@@ -11519,7 +11592,12 @@ type Content__FilterKind =
   | 'relational_single'
   | 'relational_some'
   | 'search'
-  | 'starts_with';
+  | 'starts_with'
+  | 'union_empty'
+  | 'union_every'
+  | 'union_none'
+  | 'union_single'
+  | 'union_some';
 
 type Content__MutationInputFieldKind =
   | 'enum'

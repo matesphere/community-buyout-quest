@@ -290,17 +290,14 @@ export const STAGE_2_TASK_QUERY = gql`
 `
 
 export const STAGE_3_TASK_QUERY = gql`
-    query Stage3Task($team_id: uuid!, $quest_type: String!) {
+    query Stage3Task($team_id: uuid!) {
         team_by_pk(id: $team_id) {
             id
             team_development_options {
                 id
             }
         }
-        development_option(
-            where: { quest_type: { _eq: $quest_type } }
-            order_by: { id: asc }
-        ) {
+        development_option(order_by: { id: asc }) {
             id
             option
             display_name
@@ -310,7 +307,7 @@ export const STAGE_3_TASK_QUERY = gql`
 `
 
 export const SWOT_EXAMPLE_QUERY = gql`
-    query SwotExample($team_id: uuid!, $quest_type: String!) {
+    query SwotExample($team_id: uuid!) {
         team_by_pk(id: $team_id) {
             id
             stage_progresses(where: { stage_id: { _eq: 3 } }) {
@@ -326,10 +323,7 @@ export const SWOT_EXAMPLE_QUERY = gql`
                 }
             }
         }
-        development_option(
-            where: { quest_type: { _eq: $quest_type } }
-            order_by: { id: asc }
-        ) {
+        development_option(order_by: { id: asc }) {
             option
             display_name
         }
@@ -359,7 +353,7 @@ export const STAGE_4_TASK_QUERY = gql`
 `
 
 export const BUSINESS_PLAN_EXAMPLE_QUERY = gql`
-    query BusinessPlanExample($team_id: uuid!, $quest_type: String!) {
+    query BusinessPlanExample($team_id: uuid!) {
         team_by_pk(id: $team_id) {
             id
             stage_progresses(where: { stage_id: { _eq: 5 } }) {
@@ -375,10 +369,7 @@ export const BUSINESS_PLAN_EXAMPLE_QUERY = gql`
                 }
             }
         }
-        development_option(
-            where: { quest_type: { _eq: $quest_type } }
-            order_by: { id: asc }
-        ) {
+        development_option(order_by: { id: asc }) {
             option
             display_name
         }
