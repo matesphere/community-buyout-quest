@@ -52,11 +52,11 @@ const TechnicalGuide = () => (
 
                         <p className="sm-type-lead mb-4">
                             For certain tasks, such as the student onboarding
-                            (new Quest), it may be helpful to have this guide
+                            ('new group'), it may be helpful to have this guide
                             open in a separate browser tab, which you can do by
                             clicking{' '}
                             <a
-                                href="https://www.community-land.quest/tutor/technical-guide"
+                                href="https://urban.community-land.quest/tutor/technical-guide"
                                 target="_blank"
                                 rel="external"
                             >
@@ -123,15 +123,19 @@ const TechnicalGuide = () => (
                             <AccordionItem className="side-grey">
                                 <AccordionItemHeading>
                                     <AccordionItemButton>
-                                        Starting a New Quest (Student
+                                        Starting a New Group (Student
                                         Onboarding)
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
                                 <AccordionItemPanel>
                                     <p className="sm-type-lead mb-4">
-                                        To begin a new Quest, click the 'Start a
-                                        new Quest' button. This will then take
-                                        you to the 'Add Students' page.
+                                        For the purposes of this system, a
+                                        'group' refers to a number of teams all
+                                        of whom will be working to complete the
+                                        Quest concurrently. To create a new
+                                        group, click the 'NEW QUEST GROUP'
+                                        button. This will then take you to the
+                                        'Add Students' page.
                                     </p>
 
                                     <p className="sm-type-lead mb-4">
@@ -139,10 +143,11 @@ const TechnicalGuide = () => (
                                         <br />
                                         Here you should fill out the first name,
                                         last name and email for each student who
-                                        will be taking part in this Quest. This
-                                        can be achieved by clicking 'Add more
-                                        names' until the number of rows visible
-                                        matches the number of students.
+                                        will be in the group attempting the
+                                        Quest. This can be achieved by clicking
+                                        'Add more names' until the number of
+                                        rows visible matches the number of
+                                        students.
                                     </p>
 
                                     <p className="sm-type-lead mb-4">
@@ -205,19 +210,24 @@ const TechnicalGuide = () => (
                                         Once done, click 'Create teams', check
                                         the number of teams is correct, then
                                         cancel or continue as appropriate. Click
-                                        through the prompts to start the Quest!
+                                        through the prompts to start this group
+                                        on the Quest!
                                     </p>
 
                                     {/* <p>*** GIF HERE ***</p> */}
 
                                     <p className="sm-type-lead mb-4">
-                                        You are free to create as many Quests to
-                                        run simultaneously as are required.
+                                        You are free to create as many groups to
+                                        run simultaneously as are required. This
+                                        could be useful if, for example, you
+                                        want to split by class in order that
+                                        multiple tutors can more easily manage
+                                        individual groups.
                                         <br />
                                         <b>
                                             n.b. if at any point during these
                                             steps you would prefer to cancel new
-                                            Quest creation altogether, just
+                                            group creation altogether, just
                                             click the 'Tutor Hub' link in the
                                             header and you will be returned to
                                             the Hub.
@@ -229,24 +239,25 @@ const TechnicalGuide = () => (
                             <AccordionItem className="side-grey">
                                 <AccordionItemHeading>
                                     <AccordionItemButton>
-                                        Current Quests
+                                        Active Groups
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
                                 <AccordionItemPanel>
                                     <p className="sm-type-lead mb-4">
-                                        Once you have one or more active Quests
+                                        Once you have one or more active groups
                                         in play, you will be able to access the
-                                        'Current Quests' area. This is where you
+                                        'Active Groups' area. This is where you
                                         will control the progression of the
-                                        teams looking to complete a Quest.
+                                        teams within a group looking to complete
+                                        a Quest.
                                     </p>
 
                                     <p className="sm-type-lead mb-4">
-                                        If you have more than one active Quest
+                                        If you have more than one active group
                                         at any one point, you will be able to
                                         switch between them using the tabs near
                                         the top of the page. Each tab will show
-                                        a list of the teams for that Quest.
+                                        a list of the teams for that group.
                                         Click on a team name to expand or
                                         collapse that team's display area.
                                     </p>
@@ -442,8 +453,9 @@ const TechnicalGuide = () => (
                                         Once done, click 'Submit feedback and
                                         complete Quest' to update this Quest's
                                         status to 'complete'. This will cause it
-                                        to move from 'Current Quests' to
-                                        'Previous Quests' in your 'Tutor Hub'.
+                                        to move from 'Currently Active Groups'
+                                        to 'Previous Groups' in your 'Tutor
+                                        Hub'.
                                     </p>
 
                                     {/* <p>*** GIF HERE ***</p> */}
@@ -453,21 +465,21 @@ const TechnicalGuide = () => (
                             <AccordionItem className="side-grey">
                                 <AccordionItemHeading>
                                     <AccordionItemButton>
-                                        Previous Quests
+                                        Previous Groups
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
                                 <AccordionItemPanel>
                                     <p className="sm-type-lead mb-4">
-                                        It is possible to review previous Quests
+                                        It is possible to review previous groups
                                         by clicking 'View' next to the
-                                        appropriate Quest in the 'Tutor Hub'.
+                                        appropriate group in the 'Tutor Hub'.
                                     </p>
                                     <p className="sm-type-lead mb-4">
                                         This will take you to a view very
-                                        similar to that of 'Current Quests',
+                                        similar to that of 'Active Groups',
                                         where you will be able to access any
                                         work completed by teams that took part
-                                        in the selected Quest.
+                                        in the Quest within the selected group.
                                     </p>
 
                                     {/* <p>*** GIF HERE ***</p>1 */}

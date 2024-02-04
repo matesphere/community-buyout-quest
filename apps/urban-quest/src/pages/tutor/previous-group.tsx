@@ -21,11 +21,11 @@ import {
     DocumentlessSubmittedStageStatus,
     FailedStageStatus,
     CompletedStageStatus,
-} from '@community-land-quest/shared-ui/components/tutor/CurrentQuest'
+} from '@community-land-quest/shared-ui/components/tutor/CurrentGroup'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
-import { TUTOR_PREVIOUS_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
+import { TUTOR_PREVIOUS_GROUP_QUERY } from '@community-land-quest/shared-data/gql/queries'
 
 import {
     TutorPreviousQuestQuery,
@@ -157,12 +157,7 @@ const StageInfoPanel = ({ stages, stageProgresses, devOptions, teamId }) => (
                     {`Stage ${id}: ${title}`}
                 </p>
                 <div className="form-holder-border">
-                    {getStageStatusDisplay(
-                        id,
-                        stageProgresses,
-                        devOptions,
-                        teamId
-                    )}
+                    {getStageStatusDisplay(id, stageProgresses, teamId)}
                 </div>
             </li>
         ))}
@@ -183,7 +178,7 @@ const TutorPreviousQuestPage: FC<PageProps> = ({ location: { search } }) => {
         TutorPreviousQuestQuery,
         TutorPreviousQuestQueryVariables
     >(
-        TUTOR_PREVIOUS_QUEST_QUERY,
+        TUTOR_PREVIOUS_GROUP_QUERY,
         {
             variables: {
                 quest_id: id,

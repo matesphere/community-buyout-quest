@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'gatsby'
 
 import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
-import { useUnlockStageWithCurrentQuestRefetch } from '@community-land-quest/shared-data/gql/hooks/tutor/unlockStage'
+import { useUnlockStageWithCurrentGroupRefetch } from '@community-land-quest/shared-data/gql/hooks/tutor/unlockStage'
 import {
     MARK_PASSED,
     MARK_FAILED,
@@ -11,7 +11,7 @@ import {
     SAVE_WORK,
 } from '@community-land-quest/shared-data/gql/mutations'
 
-import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
+import { TUTOR_CURRENT_GROUP_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     SaveWorkInitialMutation,
     SaveWorkInitialMutationVariables,
@@ -34,7 +34,7 @@ export const LockedStageStatus = ({
     teamId,
     stageId,
 }: LockedStageStatusProps) => {
-    const [unlockStage] = useUnlockStageWithCurrentQuestRefetch()
+    const [unlockStage] = useUnlockStageWithCurrentGroupRefetch()
 
     return (
         <div>
@@ -69,7 +69,7 @@ export const UnlockedStageStatus = () => (
 
 export const DocumentlessUnlockedStageStatus = ({ stageProgressId }) => {
     const [completeStage] = useAuthMutation(COMPLETE_STAGE, {
-        query: TUTOR_CURRENT_QUEST_QUERY,
+        query: TUTOR_CURRENT_GROUP_QUERY,
         variables: {},
         idRequired: 'userId',
     })
@@ -114,7 +114,7 @@ export const UnlockedStageWithModelAnswersStatus = ({ modelAnswers, doc }) => {
         SaveWorkMutation,
         SaveWorkMutationVariables
     >(SAVE_WORK, {
-        query: TUTOR_CURRENT_QUEST_QUERY,
+        query: TUTOR_CURRENT_GROUP_QUERY,
         variables: {},
         idRequired: 'userId',
     })
@@ -199,7 +199,7 @@ export const UnlockedStageWithModelAnswersNoDocStatus = ({
         SaveWorkInitialMutation,
         SaveWorkInitialMutationVariables
     >(SAVE_WORK_INITIAL, {
-        query: TUTOR_CURRENT_QUEST_QUERY,
+        query: TUTOR_CURRENT_GROUP_QUERY,
         variables: {},
         idRequired: 'userId',
     })
@@ -270,13 +270,13 @@ export const SubmittedStageStatus = ({
     stageId,
 }) => {
     const [markFailed] = useAuthMutation(MARK_FAILED, {
-        query: TUTOR_CURRENT_QUEST_QUERY,
+        query: TUTOR_CURRENT_GROUP_QUERY,
         variables: {},
         idRequired: 'userId',
     })
 
     const [markPassed] = useAuthMutation(MARK_PASSED, {
-        query: TUTOR_CURRENT_QUEST_QUERY,
+        query: TUTOR_CURRENT_GROUP_QUERY,
         variables: {},
         idRequired: 'userId',
     })
@@ -337,7 +337,7 @@ export const SubmittedStageStatus = ({
 
 export const DocumentlessSubmittedStageStatus = ({ stageProgressId }) => {
     const [completeStage] = useAuthMutation(COMPLETE_STAGE, {
-        query: TUTOR_CURRENT_QUEST_QUERY,
+        query: TUTOR_CURRENT_GROUP_QUERY,
         variables: {},
         idRequired: 'userId',
     })

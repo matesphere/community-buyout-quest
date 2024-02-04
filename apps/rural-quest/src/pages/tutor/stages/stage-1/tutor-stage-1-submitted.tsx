@@ -75,8 +75,8 @@ const TutorStage1SubmittedPage: FC<PageProps> = ({ location: { search } }) => {
                                 url: '/tutor/hub',
                             },
                             {
-                                displayName: 'Current Quests',
-                                url: '/tutor/current-quests',
+                                displayName: 'Active Groups',
+                                url: '/tutor/current-groups',
                             },
                         ]}
                         currentDisplayName={`${teamName}: Stage 1 Submission`}
@@ -139,8 +139,8 @@ const TutorStage1SubmittedPage: FC<PageProps> = ({ location: { search } }) => {
                         </div>
                     </div>
                     <p className="sm-type-amp">
-                        <Link to="/tutor/current-quests">
-                            Back to Current Quests
+                        <Link to="/tutor/current-groups">
+                            Back to Active Groups
                         </Link>
                     </p>
                 </section>

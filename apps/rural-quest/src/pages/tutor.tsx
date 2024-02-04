@@ -5,8 +5,8 @@ import { Authenticator } from '@aws-amplify/ui-react'
 import { TutorHeader, TutorFooter } from '@community-land-quest/shared-ui'
 
 import Hub from './tutor/hub'
-import CurrentQuest from './tutor/current-quests'
-import PreviousQuest from './tutor/previous-quest'
+import CurrentGroups from './tutor/current-groups'
+import PreviousGroup from './tutor/previous-group'
 import AddStudents from './tutor/add-students'
 import CreateTeam from './tutor/create-team'
 import Stage1Submitted from './tutor/stages/stage-1/tutor-stage-1-submitted'
@@ -22,8 +22,8 @@ import { StudentType } from '@community-land-quest/shared-utils/utils/common-typ
 
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
 import {
-    CurrentQuestsContext,
-    NewQuestContext,
+    CurrentGroupsContext,
+    NewGroupContext,
 } from '@community-land-quest/shared-data/contexts/tutor-contexts'
 
 type LoggedInRouteProps = RouteComponentProps & {
@@ -56,8 +56,8 @@ const Routes = () => {
     const [selectedTab, setSelectedTab] = useState<number>(0)
 
     return (
-        <NewQuestContext.Provider value={{ studentsToAdd, setStudentsToAdd }}>
-            <CurrentQuestsContext.Provider
+        <NewGroupContext.Provider value={{ studentsToAdd, setStudentsToAdd }}>
+            <CurrentGroupsContext.Provider
                 value={{ expanded, setExpanded, selectedTab, setSelectedTab }}
             >
                 <TutorHeader />
@@ -65,12 +65,12 @@ const Routes = () => {
                     <Router basepath="/tutor">
                         <LoggedInRoute path="/hub" component={Hub} />
                         <LoggedInRoute
-                            path="/current-quests"
-                            component={CurrentQuest}
+                            path="/current-groups"
+                            component={CurrentGroups}
                         />
                         <LoggedInRoute
-                            path="/previous-quest"
-                            component={PreviousQuest}
+                            path="/previous-group"
+                            component={PreviousGroup}
                         />
                         <LoggedInRoute
                             path="/add-students"
@@ -120,8 +120,8 @@ const Routes = () => {
                     </Router>
                 </div>
                 <TutorFooter />
-            </CurrentQuestsContext.Provider>
-        </NewQuestContext.Provider>
+            </CurrentGroupsContext.Provider>
+        </NewGroupContext.Provider>
     )
 }
 

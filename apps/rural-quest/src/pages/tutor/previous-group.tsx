@@ -21,11 +21,11 @@ import {
     DocumentlessSubmittedStageStatus,
     FailedStageStatus,
     CompletedStageStatus,
-} from '@community-land-quest/shared-ui/components/tutor/CurrentQuest'
+} from '@community-land-quest/shared-ui/components/tutor/CurrentGroup'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/common-utils'
-import { TUTOR_PREVIOUS_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
+import { TUTOR_PREVIOUS_GROUP_QUERY } from '@community-land-quest/shared-data/gql/queries'
 
 import {
     TutorPreviousQuestQuery,
@@ -157,7 +157,12 @@ const StageInfoPanel = ({ stages, stageProgresses, devOptions, teamId }) => (
                     {`Stage ${id}: ${title}`}
                 </p>
                 <div className="form-holder-border">
-                    {getStageStatusDisplay(id, stageProgresses, teamId)}
+                    {getStageStatusDisplay(
+                        id,
+                        stageProgresses,
+                        devOptions,
+                        teamId
+                    )}
                 </div>
             </li>
         ))}
@@ -178,7 +183,7 @@ const TutorPreviousQuestPage: FC<PageProps> = ({ location: { search } }) => {
         TutorPreviousQuestQuery,
         TutorPreviousQuestQueryVariables
     >(
-        TUTOR_PREVIOUS_QUEST_QUERY,
+        TUTOR_PREVIOUS_GROUP_QUERY,
         {
             variables: {
                 quest_id: id,
@@ -199,7 +204,7 @@ const TutorPreviousQuestPage: FC<PageProps> = ({ location: { search } }) => {
         )
 
     const {
-        quest_by_pk: { started_at, completed_at, teams },
+        quest_by_pk: { name, started_at, completed_at, teams },
         development_option: devOptions,
         stage,
     } = data
@@ -211,8 +216,8 @@ const TutorPreviousQuestPage: FC<PageProps> = ({ location: { search } }) => {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 />
-                <title>Current Quests</title>
-                <meta name="description" content="The description" />
+                <title>Previous Group</title>
+                <meta name="description" content="Previous Group" />
             </Helmet>
             <main className="notes">
                 <section className="container" id="currentquest">
@@ -223,7 +228,9 @@ const TutorPreviousQuestPage: FC<PageProps> = ({ location: { search } }) => {
                                 url: '/tutor/hub',
                             },
                         ]}
-                        currentDisplayName={`Previous Quest ${getDateFromTimestamp(
+                        currentDisplayName={`${
+                            name || 'Previous Group'
+                        } ${getDateFromTimestamp(
                             started_at
                         )} - ${getDateFromTimestamp(completed_at)}`}
                     />

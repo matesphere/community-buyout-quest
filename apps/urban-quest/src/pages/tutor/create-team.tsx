@@ -13,7 +13,7 @@ import {
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
 import { useAuthMutation } from '@community-land-quest/shared-data/gql/hooks/authMutation'
 import { UserStateContext } from '@community-land-quest/shared-data/contexts/user-state'
-import { NewQuestContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
+import { NewGroupContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
 import {
     CREATE_QUEST_WITH_TEAMS,
     START_QUEST,
@@ -147,7 +147,7 @@ const createStudents = async (
     setCognitoResponse
 ) => {
     setCognitoLoading(true)
-    const response = await createStudentsInCognito(studentsWithTeamId)
+    const response = await createStudentsInCognito(studentsWithTeamId, 'urban')
 
     setCognitoLoading(false)
     setCognitoResponse(response)
@@ -258,7 +258,11 @@ const ConfirmModal = ({
                             invalidTeams.length === 0 && (
                                 <>
                                     <p className="sm-type-guitar sm-type-guitar--medium mt-4">
-                                        {`You are about to create ${teams.length} teams! Is this correct?`}{' '}
+                                        {`You are about to create ${
+                                            teams.length
+                                        } team${
+                                            teams.length > 1 ? 's' : ''
+                                        }! Is this correct?`}{' '}
                                     </p>
 
                                     <button
@@ -331,7 +335,7 @@ const ConfirmModal = ({
                                         </button>
                                         <span>
                                             You'll now be able to access this
-                                            quest from your hub
+                                            group from your hub
                                         </span>
                                     </>
                                 )}
@@ -345,13 +349,13 @@ const ConfirmModal = ({
                 <div className="modal-window">
                     <div>
                         <p className="sm-type-guitar sm-type-guitar--medium mt-4">
-                            Quest created!{' '}
+                            Group created!{' '}
                         </p>
                         <Link
-                            to="/tutor/current-quests"
+                            to="/tutor/current-groups"
                             className="btn-solid-lg mt-4 mb-4"
                         >
-                            View current quests
+                            View active groups
                         </Link>
                     </div>
                 </div>
@@ -364,7 +368,7 @@ const TutorCreateTeamPage = () => {
     const [teams, setTeams] = useState([])
     const [showModal, setShowModal] = useState(false)
 
-    const { studentsToAdd, setStudentsToAdd } = useContext(NewQuestContext)
+    const { studentsToAdd, setStudentsToAdd } = useContext(NewGroupContext)
     const {
         userInfo: { schoolId },
     } = useContext(UserStateContext)
@@ -450,7 +454,7 @@ const TutorCreateTeamPage = () => {
                         </div>
 
                         <div className="col-lg-4">
-                            <p className="sm-type-guitar mb-2">
+                            <p className="sm-type-guitar mb-2 mt-2">
                                 <span className="side-icon side-icon-orange">
                                     <HelpIcon />
                                 </span>

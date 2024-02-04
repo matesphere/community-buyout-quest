@@ -72,7 +72,8 @@ export const mergeIdsIntoStudents = (
         })
         .flat()
 
-export const createStudentsInCognito = async (students) => {
+// we need the URL prefix to pass through to the lambda function which creates the users in the DB
+export const createStudentsInCognito = async (students, questUrlPrefix) => {
     // TODO: build retry method into promises
     const cognitoPromises = []
 
@@ -112,6 +113,7 @@ export const createStudentsInCognito = async (students) => {
             ],
             ClientMetadata: {
                 password,
+                questUrlPrefix,
             },
         }
 

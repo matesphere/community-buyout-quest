@@ -10,8 +10,8 @@ import PinLogo from '../../assets/pin-logo.svg'
 
 const HEADER_TEXT: { [pathname: string]: string } = {
     '/tutor/hub': 'Tutor Hub',
-    '/tutor/current-quests': 'Current Quests',
-    '/tutor/previous-quest': 'Previous Quest',
+    '/tutor/current-groups': 'Active Groups',
+    '/tutor/previous-group': 'Previous Group',
     '/tutor/add-students': 'Add Students',
     '/tutor/create-team': 'Create Teams',
     '/tutor/stage-1/submitted': 'Stage 1',

@@ -2,7 +2,7 @@ import { useEffect, useState, useContext, FC, Dispatch } from 'react'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { NewQuestContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
+import { NewGroupContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
 import { StudentType } from '@community-land-quest/shared-utils/utils/common-types'
 
 import '../../scss/index.scss'
@@ -109,7 +109,7 @@ interface ConfirmModalProps {
 }
 
 const ConfirmModal = ({ students, setShowModal }: ConfirmModalProps) => {
-    const { studentsToAdd, setStudentsToAdd } = useContext(NewQuestContext)
+    const { studentsToAdd, setStudentsToAdd } = useContext(NewGroupContext)
 
     return (
         <div className="modal-window">
@@ -125,7 +125,7 @@ const ConfirmModal = ({ students, setShowModal }: ConfirmModalProps) => {
                 {!arraysAreEqual(students, studentsToAdd) && (
                     <>
                         <p className="sm-type-guitar sm-type-guitar--medium mt-4">
-                            {`You are about to add ${students.length} students! Is this correct?`}{' '}
+                            {`This group will contain ${students.length} students! Is this correct?`}{' '}
                         </p>
 
                         <button
@@ -160,7 +160,7 @@ const TutorAddStudentsPage: FC = () => {
         EMPTY_STUDENT,
     ])
     const [showModal, setShowModal] = useState(false)
-    const { studentsToAdd } = useContext(NewQuestContext)
+    const { studentsToAdd } = useContext(NewGroupContext)
 
     useEffect(() => {
         if (studentsToAdd.length > 0) {
@@ -187,7 +187,8 @@ const TutorAddStudentsPage: FC = () => {
                             </h2>
 
                             <p className="sm-type-lead">
-                                Add all students who will be taking The Quest.
+                                Add all students who will be taking The Quest as
+                                part of this group.
                             </p>
 
                             <form

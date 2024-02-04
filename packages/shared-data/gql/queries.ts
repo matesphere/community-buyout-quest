@@ -440,13 +440,17 @@ export const STAGE_8_QUERY = gql`
 
 // tutor
 
-export const TUTOR_CURRENT_QUEST_QUERY = gql`
-    query TutorCurrentQuest($user_id: uuid!) {
+export const TUTOR_CURRENT_GROUP_QUERY = gql`
+    query TutorCurrentGroup($user_id: uuid!) {
         user_by_pk(id: $user_id) {
             id
             tutor {
-                quests(where: { status: { _eq: active } }) {
+                quests(
+                    where: { status: { _eq: active } }
+                    order_by: { started_at: asc }
+                ) {
                     id
+                    name
                     teams(order_by: { id: asc }) {
                         id
                         name
@@ -493,10 +497,11 @@ export const TUTOR_CURRENT_QUEST_QUERY = gql`
     }
 `
 
-export const TUTOR_PREVIOUS_QUEST_QUERY = gql`
-    query TutorPreviousQuest($quest_id: uuid!) {
+export const TUTOR_PREVIOUS_GROUP_QUERY = gql`
+    query TutorPreviousGroup($quest_id: uuid!) {
         quest_by_pk(id: $quest_id) {
             id
+            name
             started_at
             completed_at
             teams(order_by: { id: asc }) {
@@ -646,8 +651,9 @@ export const TUTOR_HUB_QUERY = gql`
                 school {
                     name
                 }
-                quests {
+                quests(order_by: { started_at: desc }) {
                     id
+                    name
                     status
                     started_at
                     completed_at

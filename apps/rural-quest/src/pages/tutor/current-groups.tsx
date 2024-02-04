@@ -28,11 +28,11 @@ import {
     DocumentlessSubmittedStageStatus,
     FailedStageStatus,
     CompletedStageStatus,
-} from '@community-land-quest/shared-ui/components/tutor/CurrentQuest'
+} from '@community-land-quest/shared-ui/components/tutor/CurrentGroup'
 
 import { useAuthQuery } from '@community-land-quest/shared-data/gql/hooks/authQuery'
-import { CurrentQuestsContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
-import { TUTOR_CURRENT_QUEST_QUERY } from '@community-land-quest/shared-data/gql/queries'
+import { CurrentGroupsContext } from '@community-land-quest/shared-data/contexts/tutor-contexts'
+import { TUTOR_CURRENT_GROUP_QUERY } from '@community-land-quest/shared-data/gql/queries'
 import {
     TutorCurrentQuestQuery,
     TutorCurrentQuestQueryVariables,
@@ -243,9 +243,9 @@ const StageInfoPanel = ({
     </ul>
 )
 
-const TutorCurrentQuestPage = () => {
+const TutorCurrentGroupPage = () => {
     const { expanded, setExpanded, selectedTab, setSelectedTab } =
-        useContext(CurrentQuestsContext)
+        useContext(CurrentGroupsContext)
     const [showUserPassModal, setShowUserPassModal] = useState(false)
     const [showReflectionModal, setShowReflectionModal] = useState(false)
 
@@ -309,7 +309,7 @@ const TutorCurrentQuestPage = () => {
         TutorCurrentQuestQuery,
         Omit<TutorCurrentQuestQueryVariables, 'user_id'>
     >(
-        TUTOR_CURRENT_QUEST_QUERY,
+        TUTOR_CURRENT_GROUP_QUERY,
         {
             fetchPolicy: 'network-only',
             pollInterval: 2000,
@@ -408,8 +408,8 @@ const TutorCurrentQuestPage = () => {
                         name="viewport"
                         content="width=device-width, initial-scale=1.0"
                     />
-                    <title>Current Quests</title>
-                    <meta name="description" content="The description" />
+                    <title>Active Groups</title>
+                    <meta name="description" content="Active Groups" />
                 </Helmet>
 
                 <main className="notes">
@@ -421,11 +421,11 @@ const TutorCurrentQuestPage = () => {
                                     url: '/tutor/hub',
                                 },
                             ]}
-                            currentDisplayName="Current Quests"
+                            currentDisplayName="Active Groups"
                         />
                         <p className="sm-type-lead sm-type-lead--medium greendark-highlight mb-2">
-                            No current Quests at present! Start one from your{' '}
-                            <Link to="/tutor/hub">hub</Link>
+                            No currently active groups at present! Start one
+                            from your <Link to="/tutor/hub">hub</Link>
                         </p>
                     </section>
                 </main>
@@ -440,7 +440,7 @@ const TutorCurrentQuestPage = () => {
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 />
-                <title>Current Quests</title>
+                <title>Active Groups</title>
             </Helmet>
 
             <main className="notes">
@@ -453,7 +453,7 @@ const TutorCurrentQuestPage = () => {
                                 url: '/tutor/hub',
                             },
                         ]}
-                        currentDisplayName="Current Quests"
+                        currentDisplayName="Active Groups"
                     />
 
                     <Tabs
@@ -462,8 +462,8 @@ const TutorCurrentQuestPage = () => {
                         onSelect={(index) => setSelectedTab(index)}
                     >
                         <TabList>
-                            {quests.map((_, i) => (
-                                <Tab key={i}>Current Quest {i + 1}</Tab>
+                            {quests.map(({ name }, i) => (
+                                <Tab key={i}>{name || `Group ${i + 1}`}</Tab>
                             ))}
                         </TabList>
                         <section className="mt-2">
@@ -623,4 +623,4 @@ const TutorCurrentQuestPage = () => {
     )
 }
 
-export default TutorCurrentQuestPage
+export default TutorCurrentGroupPage

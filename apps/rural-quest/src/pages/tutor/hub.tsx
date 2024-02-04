@@ -18,25 +18,35 @@ const getDateFromTimestamp = (timestamp) => {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 }
 
-const PreviousQuestDisplay = ({ quest }) => (
+const PreviousGroupDisplay = ({
+    group: { id, name, started_at, completed_at, teams },
+}) => (
     <>
+        {name ? <span className="sm-type-bigamp">{name}, </span> : null}
         <span className="sm-type-bigamp">
-            {getDateFromTimestamp(quest.started_at)} -{' '}
-            {getDateFromTimestamp(quest.completed_at)}, {quest.teams.length}{' '}
-            teams{' '}
+            {getDateFromTimestamp(started_at)} -{' '}
+            {getDateFromTimestamp(completed_at)}, {teams.length} teams{' '}
         </span>{' '}
-        - - <Link to={`/tutor/previous-quest?id=${quest.id}`}>View</Link>
+        - <Link to={`/tutor/previous-group?id=${id}`}>View</Link>
     </>
 )
 
-const CurrentQuestDisplay = ({ quest }) => (
-    <>
-        <span>
-            Started on {getDateFromTimestamp(quest.started_at)},{' '}
-            {quest.teams.length} teams
-        </span>{' '}
-    </>
-)
+const CurrentGroupDisplay = ({ group: { name, started_at, teams } }) =>
+    name ? (
+        <>
+            <span>
+                {name}, started on {getDateFromTimestamp(started_at)},{' '}
+                {teams.length} teams
+            </span>{' '}
+        </>
+    ) : (
+        <>
+            <span>
+                Started on {getDateFromTimestamp(started_at)}, {teams.length}{' '}
+                teams
+            </span>{' '}
+        </>
+    )
 
 const TutorHub = () => {
     const { loading, error, data } = useAuthQuery<
@@ -59,7 +69,7 @@ const TutorHub = () => {
 
     const {
         user_by_pk: {
-            full_name: fullName,
+            // full_name: fullName,
             tutor: {
                 school: { name: schoolName },
                 quests,
@@ -67,8 +77,8 @@ const TutorHub = () => {
         },
     } = data
 
-    const prevQuests = quests.filter((quest) => quest.status === 'complete')
-    const currentQuests = quests.filter((quest) => quest.status === 'active')
+    const prevGroups = quests.filter((group) => group.status === 'complete')
+    const activeGroups = quests.filter((group) => group.status === 'active')
 
     return (
         <>
@@ -86,67 +96,69 @@ const TutorHub = () => {
                     <div className="row">
                         <div className="col-lg-8">
                             <h2 className="sm-type-drum sm-type-drum--medium mt-4">
-                                {fullName}'s Hub
+                                {schoolName}
                             </h2>
-                            <p className="sm-type-amp">{schoolName}</p>
+                            <p className="sm-type-amp">
+                                Community Buyout Quest - Rural
+                            </p>
                             <p className="sm-type-guitar sm-type-guitar--medium mt-4">
-                                Your Quests
+                                Your Groups
                             </p>
 
                             <div className="side-grey mb-2">
                                 <p className="sm-type-lead sm-type-lead--medium">
-                                    Current Quests
+                                    Currently Active Groups
                                 </p>
 
-                                {currentQuests.length > 0 ? (
+                                {activeGroups.length > 0 ? (
                                     <ul>
-                                        {currentQuests.map((quest, i) => (
+                                        {activeGroups.map((group, i) => (
                                             <li
                                                 className="sm-type-bigamp"
                                                 key={i}
                                             >
-                                                <CurrentQuestDisplay
-                                                    quest={quest}
+                                                <CurrentGroupDisplay
+                                                    group={group}
                                                 />
                                             </li>
                                         ))}
-                                        <Link to="/tutor/current-quests">
-                                            View current Quests
+                                        <Link to="/tutor/current-groups">
+                                            View active groups
                                         </Link>
                                     </ul>
                                 ) : (
-                                    <span>No current Quests</span>
+                                    <span>No active groups</span>
                                 )}
                             </div>
                             <div className="side-grey mb-2">
                                 <p className="sm-type-lead sm-type-lead--medium">
-                                    Previous Quests
+                                    Previous Groups
                                 </p>
-                                {prevQuests.length > 0 ? (
+                                {prevGroups.length > 0 ? (
                                     <ul>
-                                        {prevQuests.map((quest, i) => (
+                                        {prevGroups.map((group, i) => (
                                             <li key={i} className="sm-type-amp">
-                                                <PreviousQuestDisplay
-                                                    quest={quest}
+                                                <PreviousGroupDisplay
+                                                    group={group}
                                                 />
                                             </li>
                                         ))}
                                     </ul>
                                 ) : (
-                                    <span>No previous Quests</span>
+                                    <span>No previous groups</span>
                                 )}
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="side-grey mb-2">
+                            <div className="side-grey mb-2 mt-2">
                                 <p className="sm-type-lead sm-type-lead--medium">
-                                    Start New Quest
+                                    Start a new group on the Quest!
                                 </p>
                                 <Link
                                     className="btn-solid-lg"
                                     to="/tutor/add-students"
                                 >
-                                    Start a new Quest
+                                    NEW QUEST GROUP
                                 </Link>
                             </div>
                         </div>

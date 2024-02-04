@@ -42,10 +42,10 @@ export const TutorNav = ({ hubLinkOnly }: { hubLinkOnly?: boolean }) => {
                                 <>
                                     <li className="dropdown">
                                         <Link
-                                            to="/tutor/current-quests"
+                                            to="/tutor/current-groups"
                                             className="dropbtn"
                                         >
-                                            Current Quests
+                                            Active Groups
                                         </Link>
                                     </li>
                                     <li className="dropdown">
