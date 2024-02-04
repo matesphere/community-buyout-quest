@@ -986,6 +986,7 @@ packages:
 
   /@aws-amplify/ui@2.0.7:
     resolution: {integrity: sha512-tT7onRv+OCznFhUE2mKPpbGHHV+oODZk4VDX3lYNIfJ7LXv1hVtllQbPNJF5beNBRw9r6uotlXpeJrkph6v07A==}
+    deprecated: Versions '1.x' and '2.x' of '@aws-amplify/ui' have been deprecated. Please visit https://ui.docs.amplify.aws/ for the current version of Amplify UI.
 
   /@aws-amplify/ui@4.0.1(aws-amplify@4.3.43)(xstate@4.34.0):
     resolution: {integrity: sha512-J8zWlnItedwDD7DjwUMBZBKUo8jpOdrqbWwqJGrHfZsjI5swrwCzU/LCFVpsUgYrJh5tpSUyr48eX0gEgkAXoA==}
@@ -1004,6 +1005,7 @@ packages:
 
   /@aws-amplify/xr@3.0.61(react-native@0.70.4):
     resolution: {integrity: sha512-r9bKl+eXbEz/Qj+VdZwrgOOduq6NNunmQCrmxWHIreoKEdSUe4ul+fRsAEfMib8PklPVbMuc0K7G5iAYTUPxDQ==}
+    deprecated: The Amazon Sumerian service is no longer accepting new customers. Existing customer scenes will not be available after February 21, 2023. The AWS Amplify XR features depend on the Amazon Sumerian service to function and as a result, will no longer be available.
     dependencies:
       '@aws-amplify/core': 4.7.12(react-native@0.70.4)
     transitivePeerDependencies:
@@ -1987,7 +1989,6 @@ packages:
 
   /@aws-sdk/eventstream-marshaller@3.6.1:
     resolution: {integrity: sha512-ZvN3Nvxn2Gul08L9MOSN123LwSO0E1gF/CqmOGZtEWzPnoSX/PWM9mhPPeXubyw2KdlXylOodYYw3EAATk3OmA==}
-    deprecated: The package @aws-sdk/eventstream-marshaller has been renamed to @aws-sdk/eventstream-codec. Please install the renamed package.
     dependencies:
       '@aws-crypto/crc32': 1.2.2
       '@aws-sdk/types': 3.6.1

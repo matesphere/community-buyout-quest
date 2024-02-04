@@ -5,9 +5,9 @@ import { navigate, useLocation } from '@reach/router'
 import { CognitoJwtVerifier } from 'aws-jwt-verify'
 
 const verifier = CognitoJwtVerifier.create({
-    userPoolId: 'eu-west-1_BmAy1cz4Q',
+    userPoolId: process.env.GATSBY_AWS_USER_POOL_ID,
     tokenUse: 'id',
-    clientId: '45r6i1n1n655isehsq2spbk0me',
+    clientId: process.env.GATSBY_AWS_APP_CLIENT_ID,
 })
 
 const signedOutUserInfo: UserInfo = {
@@ -97,8 +97,8 @@ export const UserStateProvider = ({ children }) => {
             isDefined(user.attributes) &&
             isDefined(user.attributes['custom:role']) &&
             isDefined(user.attributes['sub']) &&
-            isDefined(user.attributes['custom:school_id']) &&
-            isDefined(user.attributes['custom:team_id'])
+            isDefined(user.attributes['custom:school_id'])
+            // isDefined(user.attributes['custom:team_id']) TODO: should we always need a team ID for login?
         ) {
             const newUser: UserInfo = {
                 username: user.username,
