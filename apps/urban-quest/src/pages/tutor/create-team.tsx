@@ -63,10 +63,10 @@ const TeamInput = ({ setTeams }) => {
         >
             <div className="side-grey row mb-4">
                 <div className="col-lg-6 mb-2">
-                    <label className="form-label sm-type-amp">Name</label>
+                    <label className="form-label sm-type-amp">Team Name</label>
                     <span>
                         <input
-                            id="name"
+                            id="team-name"
                             type="name"
                             className="form-control"
                             value={teamName}
@@ -199,6 +199,7 @@ const getInvalidTeams = (teams: Array<TeamType>) =>
 
 interface ConfirmModalProps {
     teams: Array<TeamType>
+    groupName: string
     showModal: boolean
     setShowModal: (value: boolean) => void
     setStudentsToAdd: (value: Array<StudentType>) => void
@@ -208,6 +209,7 @@ interface ConfirmModalProps {
 
 const ConfirmModal = ({
     teams,
+    groupName,
     showModal,
     setShowModal,
     setStudentsToAdd,
@@ -239,6 +241,7 @@ const ConfirmModal = ({
                             Cancel
                         </button>
 
+                        {/* TODO: tidy all this stupid error handling up; also add a 'no teams' condition */}
                         {!createQuestWithTeamsResponse.data &&
                             invalidTeams.length !== 0 && (
                                 <>
@@ -247,21 +250,34 @@ const ConfirmModal = ({
                                             .map((team) => team.name)
                                             .join(', ')}`}
                                     </p>
-                                    <p>
-                                        Click cancel to go back and rectify
-                                        this.
-                                    </p>
                                 </>
                             )}
 
+                        {!createQuestWithTeamsResponse.data && !groupName && (
+                            <>
+                                <p className="sm-type-guitar sm-type-guitar--medium mt-4">
+                                    You need to give this group a name!
+                                </p>
+                            </>
+                        )}
+
                         {!createQuestWithTeamsResponse.data &&
-                            invalidTeams.length === 0 && (
+                            (invalidTeams.length === 0 || !groupName) && (
+                                <p>
+                                    Click cancel to go back and rectify the
+                                    above.
+                                </p>
+                            )}
+
+                        {!createQuestWithTeamsResponse.data &&
+                            invalidTeams.length === 0 &&
+                            !!groupName && (
                                 <>
                                     <p className="sm-type-guitar sm-type-guitar--medium mt-4">
-                                        {`You are about to create ${
+                                        {`You are about to create the '${groupName}' group with ${
                                             teams.length
                                         } team${
-                                            teams.length > 1 ? 's' : ''
+                                            teams.length !== 1 ? 's' : ''
                                         }! Is this correct?`}{' '}
                                     </p>
 
@@ -272,6 +288,7 @@ const ConfirmModal = ({
                                                 variables: {
                                                     object: {
                                                         tutor_id: tutorId,
+                                                        name: groupName,
                                                         teams: {
                                                             data: teams.map(
                                                                 ({ name }) => ({
@@ -367,6 +384,7 @@ const ConfirmModal = ({
 const TutorCreateTeamPage = () => {
     const [teams, setTeams] = useState([])
     const [showModal, setShowModal] = useState(false)
+    const [groupName, setGroupName] = useState('')
 
     const { studentsToAdd, setStudentsToAdd } = useContext(NewGroupContext)
     const {
@@ -425,16 +443,12 @@ const TutorCreateTeamPage = () => {
                             <TeamInput setTeams={setTeams} />
 
                             <h3 className="sm-type-drum sm-type-drum--medium mt-4">
-                                STEP 2: Assign students
+                                STEP 2: Assign Students
                             </h3>
                             <p className="sm-type-lead sm-type-lead--medium mb-4">
-                                ...then assign students to teams here
+                                ...then assign students to teams here...
                             </p>
-                            <form
-                                className="mb-4 container"
-                                id="form-login"
-                                action="/account/tutor-add-student-to-teams"
-                            >
+                            <form className="mb-4 container" id="form-login">
                                 {studentsToAdd.map((student, i) => (
                                     <Student
                                         key={i}
@@ -443,6 +457,34 @@ const TutorCreateTeamPage = () => {
                                         setTeams={setTeams}
                                     />
                                 ))}
+                            </form>
+
+                            <h3 className="sm-type-drum sm-type-drum--medium mt-4">
+                                STEP 3: Name Group
+                            </h3>
+                            <p className="sm-type-lead sm-type-lead--medium mb-4">
+                                ...and finally give this group a name
+                            </p>
+
+                            <form className="container">
+                                <div className="side-grey row mb-4">
+                                    <div className="col-lg-6 mb-2">
+                                        <label className="form-label sm-type-amp">
+                                            Group Name
+                                        </label>
+                                        <span>
+                                            <input
+                                                id="group-name"
+                                                type="name"
+                                                className="form-control"
+                                                value={groupName}
+                                                onChange={(e) =>
+                                                    setGroupName(e.target.value)
+                                                }
+                                            />
+                                        </span>
+                                    </div>
+                                </div>
                             </form>
 
                             <button
@@ -484,6 +526,7 @@ const TutorCreateTeamPage = () => {
                 <ConfirmModal
                     {...{
                         teams,
+                        groupName,
                         showModal,
                         setShowModal,
                         setStudentsToAdd,
