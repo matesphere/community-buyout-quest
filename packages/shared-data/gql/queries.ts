@@ -666,3 +666,15 @@ export const TUTOR_HUB_QUERY = gql`
         }
     }
 `
+
+export const TUTOR_NAV_QUERY = gql`
+    query TutorNav($user_id: uuid!) {
+        user_by_pk(id: $user_id) {
+            tutor {
+                school {
+                    name
+                }
+            }
+        }
+    }
+`

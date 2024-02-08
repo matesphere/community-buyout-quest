@@ -224,8 +224,11 @@ const TeamHub: FC = () => {
         }
     `)
 
-    const { latestStageUnlocked, setLatestStageUnlocked } =
-        useContext(UserStateContext)
+    const {
+        latestStageUnlocked,
+        setLatestStageUnlocked,
+        userInfo: { role },
+    } = useContext(UserStateContext)
 
     const {
         loading,
@@ -332,28 +335,47 @@ const TeamHub: FC = () => {
 
             <main className="the-quest">
                 <section className="container" id="main">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <TeamInfoSection
-                                fullName={fullName}
-                                teamName={teamName}
-                                students={students}
-                                devOptions={devOptions}
-                                image={teamLogo || null}
-                            />
+                    {role === 'student' ? (
+                        <>
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <TeamInfoSection
+                                        fullName={fullName}
+                                        teamName={teamName}
+                                        students={students}
+                                        devOptions={devOptions}
+                                        image={teamLogo || null}
+                                    />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-lg-1"></div>
+                                <div className="col-lg-10">
+                                    <p className="sm-type-guitar mb-4">
+                                        Your progress towards a community land
+                                        buyout. Completing each stage will allow
+                                        you to move onto the next. Remember to
+                                        work as a team!
+                                    </p>
+                                </div>
+                                <div className="col-lg-1"></div>
+                            </div>
+                        </>
+                    ) : (
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="container mt-4 side-grey">
+                                    <div className="row mb-2">
+                                        <div className="col-lg-6">
+                                            <div className="sm-type-biggerdrum sm-type-biggerdrum--medium">
+                                                Viewing as student
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-1"></div>
-                        <div className="col-lg-10">
-                            <p className="sm-type-guitar mb-4">
-                                Your progress towards a community land buyout.
-                                Completing each stage will allow you to move
-                                onto the next. Remember to work as a team!
-                            </p>
-                        </div>
-                        <div className="col-lg-1"></div>
-                    </div>
+                    )}
                     <div className="row step">
                         <div className="col-lg-2">&nbsp;</div>
                         <div className="col-lg-4">{stages[0]}</div>

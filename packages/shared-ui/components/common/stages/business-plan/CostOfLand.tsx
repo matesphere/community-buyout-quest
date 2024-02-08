@@ -57,6 +57,7 @@ export const CostOfLand: FC<CostOfLandProps> = ({
                                       workDispatch({
                                           type: BusinessPlanActionType.UpdateLandCost,
                                           payload: {
+                                              ...landCost,
                                               area: valueAsNumber,
                                           },
                                       })
@@ -95,6 +96,7 @@ export const CostOfLand: FC<CostOfLandProps> = ({
                                       workDispatch({
                                           type: BusinessPlanActionType.UpdateLandCost,
                                           payload: {
+                                              ...landCost,
                                               price,
                                           },
                                       })

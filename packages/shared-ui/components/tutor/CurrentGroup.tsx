@@ -119,12 +119,6 @@ export const UnlockedStageWithModelAnswersStatus = ({ modelAnswers, doc }) => {
         idRequired: 'userId',
     })
 
-    if (modelAnswerSlug)
-        console.log(
-            modelAnswers.find((answer) => answer.slug === modelAnswerSlug)
-                .modelAnswer
-        )
-
     const providedAnswers = getDocProvidedAnswers(doc, modelAnswers)
 
     return (
@@ -163,6 +157,7 @@ export const UnlockedStageWithModelAnswersStatus = ({ modelAnswers, doc }) => {
                 </select>
                 <button
                     className="btn-outline-reg"
+                    disabled={!modelAnswerSlug}
                     onClick={() => {
                         saveWork({
                             variables: {
@@ -231,6 +226,7 @@ export const UnlockedStageWithModelAnswersNoDocStatus = ({
                 </select>
                 <button
                     className="btn-outline-reg"
+                    disabled={!modelAnswerSlug}
                     onClick={() => {
                         saveWorkInitial({
                             variables: {

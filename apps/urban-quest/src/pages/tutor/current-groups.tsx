@@ -364,8 +364,8 @@ const TutorCurrentQuestPage = () => {
         stage,
     } = data
 
-    const modelSwots: Array<ModelAnswer> = cmsDevelopmentOptions.map(
-        ({ slug, modelSwot }) => {
+    const modelSwots: Array<ModelAnswer> = cmsDevelopmentOptions
+        .map(({ slug, modelSwot }) => {
             const { developmentOption: title, ...rest } = modelSwot
 
             return {
@@ -373,11 +373,11 @@ const TutorCurrentQuestPage = () => {
                 slug,
                 modelAnswer: buildExampleSWOT(rest),
             }
-        }
-    )
+        })
+        .filter((swot: ModelAnswer) => swot !== null)
 
-    const modelBusinessPlans: Array<ModelAnswer> = cmsDevelopmentOptions.map(
-        ({ slug, modelBusinessPlan }) => {
+    const modelBusinessPlans: Array<ModelAnswer> = cmsDevelopmentOptions
+        .map(({ slug, modelBusinessPlan }) => {
             const { developmentOption: title, ...rest } = modelBusinessPlan
 
             return {
@@ -385,8 +385,8 @@ const TutorCurrentQuestPage = () => {
                 slug,
                 modelAnswer: buildExampleBusinessPlan(rest),
             }
-        }
-    )
+        })
+        .filter((businessPlan: ModelAnswer) => businessPlan !== null)
 
     if (quests.length === 0) {
         return (

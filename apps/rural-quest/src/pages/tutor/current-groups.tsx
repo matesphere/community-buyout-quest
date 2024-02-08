@@ -50,10 +50,6 @@ import Tick from '../../assets/tick.svg'
 
 import '../../scss/index.scss'
 import 'react-tabs/style/react-tabs.css'
-import {
-    ModelBusinessPlan,
-    ModelSwot,
-} from '@community-land-quest/shared-data/gql/types/baseTypes'
 
 const getStageStatusDisplay = (
     stageId,
@@ -368,7 +364,7 @@ const TutorCurrentGroupPage = () => {
         stage,
     } = data
 
-    const modelSwots: Array<ModelSwot> = cmsDevelopmentOptions
+    const modelSwots: Array<ModelAnswer> = cmsDevelopmentOptions
         .map(({ slug, modelSwot }) => {
             if (!modelSwot) {
                 return null
@@ -379,10 +375,10 @@ const TutorCurrentGroupPage = () => {
             return {
                 title,
                 slug,
-                modelSwot: buildExampleSWOT(rest),
+                modelAnswer: buildExampleSWOT(rest),
             }
         })
-        .filter((swot: ModelSwot) => swot !== null)
+        .filter((swot: ModelAnswer) => swot !== null)
 
     const modelBusinessPlans: Array<ModelAnswer> = cmsDevelopmentOptions
         .map(({ slug, modelBusinessPlan }) => {
