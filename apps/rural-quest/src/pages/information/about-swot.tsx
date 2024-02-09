@@ -17,6 +17,9 @@ import '../../scss/index.scss'
 const AboutSwotPage: FC = ({
     data: {
         graphCmsInfo: { title, intro, infoBlock, helpfulInfo, image },
+        file: {
+            childImageSharp: { gatsbyImageData },
+        },
     },
 }) => (
     <>
@@ -28,7 +31,7 @@ const AboutSwotPage: FC = ({
             <title>Information - About SWOT</title>
         </Helmet>
         <main className="the-quest">
-            <StudentHeader headerText="Information" />
+            <StudentHeader headerText="Information" clsLogo={gatsbyImageData} />
             <section className="container" id="main">
                 <div className="row">
                     <div className="col-lg-9">
@@ -91,6 +94,11 @@ export const query = graphql`
             }
             image {
                 gatsbyImageData
+            }
+        }
+        file(relativePath: { eq: "logo.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
             }
         }
     }

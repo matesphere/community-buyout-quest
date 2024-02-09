@@ -28,8 +28,8 @@ import { POSITION_DISPLAY_NAME } from '@community-land-quest/shared-utils/utils/
 import { TUTOR_PREVIOUS_GROUP_QUERY } from '@community-land-quest/shared-data/gql/queries'
 
 import {
-    TutorPreviousQuestQuery,
-    TutorPreviousQuestQueryVariables,
+    TutorPreviousGroupQuery,
+    TutorPreviousGroupQueryVariables,
 } from '@community-land-quest/shared-data/gql/types/queries.generated'
 
 import Tick from '../../assets/tick.svg'
@@ -169,14 +169,14 @@ const getDateFromTimestamp = (timestamp) => {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 }
 
-const TutorPreviousQuestPage: FC<PageProps> = ({ location: { search } }) => {
+const TutorPreviousGroupPage: FC<PageProps> = ({ location: { search } }) => {
     const { id } = QueryString.parse(search, {
         parseNumbers: true,
     }) as { id: string; num: number; from: string }
 
     const { loading, error, data } = useAuthQuery<
-        TutorPreviousQuestQuery,
-        TutorPreviousQuestQueryVariables
+        TutorPreviousGroupQuery,
+        TutorPreviousGroupQueryVariables
     >(
         TUTOR_PREVIOUS_GROUP_QUERY,
         {
@@ -286,4 +286,4 @@ const TutorPreviousQuestPage: FC<PageProps> = ({ location: { search } }) => {
     )
 }
 
-export default TutorPreviousQuestPage
+export default TutorPreviousGroupPage

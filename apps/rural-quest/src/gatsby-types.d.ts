@@ -31587,7 +31587,7 @@ type DevelopmentOptionQueryQueryVariables = Exact<{
 }>;
 
 
-type DevelopmentOptionQueryQuery = { readonly graphCmsDevelopmentOption: { readonly title: string, readonly intro: string | null, readonly mainText: { readonly raw: Record<string, unknown> } | null, readonly fundingOptions: { readonly raw: Record<string, unknown> } | null, readonly checklist: { readonly item: ReadonlyArray<string> } | null, readonly informationMainImage: { readonly gatsbyImageData: Record<string, unknown> | null } | null, readonly icon: { readonly url: string } } | null };
+type DevelopmentOptionQueryQuery = { readonly graphCmsDevelopmentOption: { readonly title: string, readonly intro: string | null, readonly mainText: { readonly raw: Record<string, unknown> } | null, readonly fundingOptions: { readonly raw: Record<string, unknown> } | null, readonly checklist: { readonly item: ReadonlyArray<string> } | null, readonly informationMainImage: { readonly gatsbyImageData: Record<string, unknown> | null } | null, readonly icon: { readonly url: string } } | null, readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type DevelopmentOptionQueryAltQueryVariables = Exact<{
   slug: InputMaybe<Scalars['String']>;

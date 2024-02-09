@@ -24,7 +24,10 @@ const BackgroundInformationPage: FC = ({ data }) => (
         </Helmet>
 
         <main className="the-quest">
-            <StudentHeader headerText="Information" />
+            <StudentHeader
+                headerText="Information"
+                clsLogo={data.file.childImageSharp.gatsbyImageData}
+            />
             <section className="container" id="main">
                 <div className="row">
                     <div className="col-lg-9">
@@ -84,6 +87,11 @@ export const query = graphql`
                         raw
                     }
                 }
+            }
+        }
+        file(relativePath: { eq: "logo.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
             }
         }
     }

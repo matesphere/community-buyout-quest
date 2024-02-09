@@ -24,6 +24,9 @@ const AboutRolesPage = ({
             helpfulInfo,
             checklist,
         },
+        file: {
+            childImageSharp: { gatsbyImageData },
+        },
     },
 }) => {
     return (
@@ -37,7 +40,10 @@ const AboutRolesPage = ({
             </Helmet>
 
             <main className="the-quest">
-                <StudentHeader headerText="Information" />
+                <StudentHeader
+                    headerText="Information"
+                    clsLogo={gatsbyImageData}
+                />
 
                 <section className="container" id="main">
                     <div className="row">
@@ -101,6 +107,11 @@ export const query = graphql`
             }
             checklist {
                 item
+            }
+        }
+        file(relativePath: { eq: "logo.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
             }
         }
     }

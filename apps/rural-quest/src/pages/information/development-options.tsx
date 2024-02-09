@@ -18,6 +18,9 @@ import '../../scss/index.scss'
 const InfoDevOptions: FC = ({
     data: {
         graphCmsInfo: { title, intro, infoBlock, slider, helpfulInfo },
+        file: {
+            childImageSharp: { gatsbyImageData },
+        },
     },
 }) => (
     <>
@@ -30,7 +33,7 @@ const InfoDevOptions: FC = ({
         </Helmet>
 
         <main className="the-quest">
-            <StudentHeader headerText="Information" />
+            <StudentHeader headerText="Information" clsLogo={gatsbyImageData} />
 
             <section className="container" id="main">
                 <div className="row">
@@ -99,6 +102,11 @@ export const query = graphql`
                 info {
                     raw
                 }
+            }
+        }
+        file(relativePath: { eq: "logo.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
             }
         }
     }
