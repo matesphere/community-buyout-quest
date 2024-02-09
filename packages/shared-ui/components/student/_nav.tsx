@@ -56,10 +56,7 @@ const StageLinks: FC<{
 )
 
 export const Nav: FC = () => {
-    const {
-        latestStageUnlocked,
-        userInfo: { role },
-    } = useContext(UserStateContext)
+    const { latestStageUnlocked } = useContext(UserStateContext)
     const [expanded, setExpanded] = useState(false)
 
     const { data } = useAuthQuery<NavQuery, NavQueryVariables>(
@@ -166,23 +163,21 @@ export const Nav: FC = () => {
             <div className="col-lg-4">
                 {data && (
                     <>
-                        {role === 'student' ? (
-                            <p className="sm-type-bigamp mt-2 header-name">
-                                {`${full_name} (${username})${
-                                    student?.position
-                                        ? ` - ${
-                                              POSITION_DISPLAY_NAME[
-                                                  student?.position
-                                              ]
-                                          }`
-                                        : ''
-                                }`}
-                                <br />
-                                <span className="sm-type-bigamp--medium">
-                                    {student.team.name}
-                                </span>
-                            </p>
-                        ) : null}
+                        <p className="sm-type-bigamp mt-2 header-name">
+                            {`${full_name} (${username})${
+                                student?.position
+                                    ? ` - ${
+                                          POSITION_DISPLAY_NAME[
+                                              student?.position
+                                          ]
+                                      }`
+                                    : ''
+                            }`}
+                            <br />
+                            <span className="sm-type-bigamp--medium">
+                                {student.team.name}
+                            </span>
+                        </p>
                     </>
                 )}
             </div>

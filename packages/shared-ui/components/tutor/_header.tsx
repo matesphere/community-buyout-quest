@@ -1,5 +1,5 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+// import { graphql, useStaticQuery } from 'gatsby'
+// import { GatsbyImage } from 'gatsby-plugin-image'
 import { Location } from '@reach/router'
 
 import { TutorNav } from './_tutor-nav'
@@ -36,15 +36,15 @@ export const TutorHeader = ({
     headerText?: string
     hideLinks?: boolean
 }) => {
-    const data = useStaticQuery(graphql`
-        query {
-            file(relativePath: { eq: "logo.jpg" }) {
-                childImageSharp {
-                    gatsbyImageData(layout: CONSTRAINED)
-                }
-            }
-        }
-    `)
+    // const data = useStaticQuery(graphql`
+    //     query {
+    //         file(relativePath: { eq: "logo.jpg" }) {
+    //             childImageSharp {
+    //                 gatsbyImageData(layout: CONSTRAINED)
+    //             }
+    //         }
+    //     }
+    // `)
 
     return (
         <Location>
@@ -58,14 +58,12 @@ export const TutorHeader = ({
                         <SkyLine className="skyline" />
                         <section className="container top-section">
                             <div className="row">
-                                <TutorNav
-                                    hubLinkOnly={HUB_LINK_ONLY.includes(
-                                        location.pathname
-                                    )}
-                                />
-                            </div>
-                            <div className="row">
                                 <div className="col-lg-8">
+                                    <TutorNav
+                                        hubLinkOnly={HUB_LINK_ONLY.includes(
+                                            location.pathname
+                                        )}
+                                    />
                                     <h1 className="main-header mt-4">
                                         <PinLogo />
                                         <span>
@@ -81,13 +79,13 @@ export const TutorHeader = ({
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="cls-logo">
-                                        <GatsbyImage
+                                        {/* <GatsbyImage
                                             alt=""
                                             image={
                                                 data.file.childImageSharp
                                                     .gatsbyImageData
                                             }
-                                        />
+                                        /> */}
                                     </div>
                                 </div>
                             </div>
