@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby'
 import { useState, useContext, FC } from 'react'
 import { Router, RouteComponentProps } from '@reach/router'
 import { Authenticator } from '@aws-amplify/ui-react'
@@ -55,12 +56,24 @@ const Routes = () => {
     const [expanded, setExpanded] = useState<Array<string>>([])
     const [selectedTab, setSelectedTab] = useState<number>(0)
 
+    const data = useStaticQuery(graphql`
+        query {
+            file(relativePath: { eq: "logo.jpg" }) {
+                childImageSharp {
+                    gatsbyImageData(layout: CONSTRAINED)
+                }
+            }
+        }
+    `)
+
     return (
         <NewGroupContext.Provider value={{ studentsToAdd, setStudentsToAdd }}>
             <CurrentGroupsContext.Provider
                 value={{ expanded, setExpanded, selectedTab, setSelectedTab }}
             >
-                <TutorHeader />
+                <TutorHeader
+                    clsLogo={data.file.childImageSharp.gatsbyImageData}
+                />
                 <div className="min-height">
                     <Router basepath="/tutor">
                         <LoggedInRoute path="/hub" component={Hub} />

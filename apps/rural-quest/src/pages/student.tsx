@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby'
 import { useContext, FC } from 'react'
 import { PageProps } from 'gatsby'
 import { Router, RouteComponentProps } from '@reach/router'
@@ -80,9 +81,21 @@ const LoggedInRoute: FC<LoggedInRouteProps> = ({
 }
 
 const Routes = () => {
+    const data = useStaticQuery(graphql`
+        query {
+            file(relativePath: { eq: "logo.jpg" }) {
+                childImageSharp {
+                    gatsbyImageData(layout: CONSTRAINED)
+                }
+            }
+        }
+    `)
+
     return (
         <>
-            <StudentHeader />
+            <StudentHeader
+                clsLogo={data.file.childImageSharp.gatsbyImageData}
+            />
             <div className="min-height">
                 <Router basepath="/student">
                     <LoggedInRoute path="/team-hub" component={TeamHub} />
