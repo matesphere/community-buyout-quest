@@ -58,12 +58,14 @@ export const TutorHeader = ({
                         <SkyLine className="skyline" />
                         <section className="container top-section">
                             <div className="row">
+                                <TutorNav
+                                    hubLinkOnly={HUB_LINK_ONLY.includes(
+                                        location.pathname
+                                    )}
+                                />
+                            </div>
+                            <div className="row">
                                 <div className="col-lg-8">
-                                    <TutorNav
-                                        hubLinkOnly={HUB_LINK_ONLY.includes(
-                                            location.pathname
-                                        )}
-                                    />
                                     <h1 className="main-header mt-4">
                                         <PinLogo />
                                         <span>
