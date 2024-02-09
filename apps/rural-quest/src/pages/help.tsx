@@ -2,7 +2,12 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-import { StudentHeader, StudentFooter } from '@community-land-quest/shared-ui'
+import {
+    StudentHeader,
+    StudentFooter,
+    Helpful,
+    Checklist,
+} from '@community-land-quest/shared-ui'
 
 import TickSheet from '../assets/tick-sheet.svg'
 import HelpIcon from '../assets/help-icon.svg'
@@ -104,18 +109,22 @@ const HelpPage = () => {
                             </ol>
                         </div>
                         <div className="col-lg-4">
-                            <p className="sm-type-guitar mb-2">
-                                <span className="side-icon side-icon-orange">
-                                    <HelpIcon />
-                                </span>
-                                Helpful Information
-                            </p>
-                            <div className="side-grey">
-                                <p className="sm-type-amp">
-                                    This is an example of the Helpful
-                                    Information box! Pretty helpful, right?
-                                </p>
-                            </div>
+                            <Helpful
+                                content={{
+                                    raw: {
+                                        children: [
+                                            {
+                                                type: 'paragraph',
+                                                children: [
+                                                    {
+                                                        text: 'This is an example of the Helpful Information box! Pretty helpful, right?',
+                                                    },
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                }}
+                            />
 
                             <p className="sm-type-guitar mb-2">
                                 <span className="side-icon side-icon-green">

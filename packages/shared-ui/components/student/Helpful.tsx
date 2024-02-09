@@ -10,7 +10,7 @@ interface HelpfulProps {
 
 export const Helpful: FC<HelpfulProps> = ({ content, children }) => (
     <>
-        <p className="sm-type-guitar mb-2">
+        <p className="sm-type-guitar mb-2 mt-4">
             <span className="side-icon side-icon-orange">
                 <HelpIcon />
             </span>

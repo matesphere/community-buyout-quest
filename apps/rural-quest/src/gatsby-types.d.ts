@@ -31550,12 +31550,12 @@ type WebPOptions = {
 type AboutAreaQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AboutAreaQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null } | null };
+type AboutAreaQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null } | null, readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type AboutCommunityQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AboutCommunityQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null } | null };
+type AboutCommunityQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null } | null, readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type AboutCommunityQueryAltQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -31565,12 +31565,12 @@ type AboutCommunityQueryAltQuery = { readonly graphCmsInfo: { readonly title: st
 type AboutRolesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AboutRolesQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly infoBlock: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null, readonly checklist: { readonly item: ReadonlyArray<string> } | null } | null };
+type AboutRolesQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly infoBlock: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null, readonly checklist: { readonly item: ReadonlyArray<string> } | null } | null, readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type AboutSWOTQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type AboutSWOTQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly infoBlock: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null, readonly image: ReadonlyArray<{ readonly gatsbyImageData: Record<string, unknown> | null }> } | null };
+type AboutSWOTQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly infoBlock: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null, readonly image: ReadonlyArray<{ readonly gatsbyImageData: Record<string, unknown> | null }> } | null, readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type AboutSWOTQueryAltQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -31580,7 +31580,7 @@ type AboutSWOTQueryAltQuery = { readonly graphCmsInfo: { readonly title: string 
 type BackgroundInfoQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BackgroundInfoQueryQuery = { readonly content: { readonly info: { readonly title: string | null, readonly intro: { readonly raw: any } | null, readonly infoBlock: ReadonlyArray<{ readonly raw: any }>, readonly slider: ReadonlyArray<{ readonly raw: any }>, readonly helpfulInfo: { readonly info: { readonly raw: any } } | null } | null } };
+type BackgroundInfoQueryQuery = { readonly content: { readonly info: { readonly title: string | null, readonly intro: { readonly raw: any } | null, readonly infoBlock: ReadonlyArray<{ readonly raw: any }>, readonly slider: ReadonlyArray<{ readonly raw: any }>, readonly helpfulInfo: { readonly info: { readonly raw: any } } | null } | null }, readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type DevelopmentOptionQueryQueryVariables = Exact<{
   slug: InputMaybe<Scalars['String']>;
@@ -31599,7 +31599,7 @@ type DevelopmentOptionQueryAltQuery = { readonly graphCmsDevelopmentOption: { re
 type DevelopmentOptionsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type DevelopmentOptionsQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly infoBlock: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null } | null };
+type DevelopmentOptionsQueryQuery = { readonly graphCmsInfo: { readonly title: string | null, readonly intro: { readonly raw: Record<string, unknown> } | null, readonly infoBlock: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly slider: ReadonlyArray<{ readonly raw: Record<string, unknown> }>, readonly helpfulInfo: { readonly info: { readonly raw: Record<string, unknown> } } | null } | null, readonly file: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 

@@ -16,6 +16,9 @@ import '../../scss/index.scss'
 const AboutGlenclasAreaPage: FC = ({
     data: {
         graphCmsInfo: { title, intro, slider, helpfulInfo },
+        file: {
+            childImageSharp: { gatsbyImageData },
+        },
     },
 }) => {
     return (
@@ -29,7 +32,10 @@ const AboutGlenclasAreaPage: FC = ({
             </Helmet>
 
             <main className="the-quest">
-                <StudentHeader headerText="Information" />
+                <StudentHeader
+                    headerText="Information"
+                    clsLogo={gatsbyImageData}
+                />
 
                 <section className="container" id="main">
                     <div className="row">
@@ -81,6 +87,11 @@ export const query = graphql`
                 info {
                     raw
                 }
+            }
+        }
+        file(relativePath: { eq: "logo.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
             }
         }
     }
