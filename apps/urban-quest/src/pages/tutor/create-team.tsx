@@ -262,7 +262,7 @@ const ConfirmModal = ({
                         )}
 
                         {!createQuestWithTeamsResponse.data &&
-                            (invalidTeams.length === 0 || !groupName) && (
+                            (invalidTeams.length !== 0 || !groupName) && (
                                 <p>
                                     Click cancel to go back and rectify the
                                     above.
