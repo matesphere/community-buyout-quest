@@ -102,9 +102,6 @@ const Team = ({ team: { name, students }, setTeams }) => (
         {students.map(({ firstName, lastName }, i) => (
             <p key={i} className="sm-type-amp">
                 {firstName} {lastName}
-                <span className="cross-icon">
-                    <Cross />
-                </span>
             </p>
         ))}
     </>
