@@ -55,6 +55,11 @@ const StageButton = ({ id, title, stageStatus, docStatus }) => (
                         ? `/student/stage-${id}/complete`
                         : `/student/stage-${id}`
                 }
+                style={
+                    stageStatus === 'locked'
+                        ? { pointerEvents: 'none' }
+                        : undefined
+                }
             >
                 <span className="quest-step-number">
                     {stageStatus === 'locked' ? <Lock /> : id}
