@@ -363,16 +363,8 @@ const TeamHub: FC = () => {
                         </>
                     ) : (
                         <div className="row">
-                            <div className="col-lg-12">
-                                <div className="container mt-4 side-grey">
-                                    <div className="row mb-2">
-                                        <div className="col-lg-6">
-                                            <div className="sm-type-biggerdrum sm-type-biggerdrum--medium">
-                                                Viewing as student
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="col-lg-1">
+                                <br />
                             </div>
                         </div>
                     )}

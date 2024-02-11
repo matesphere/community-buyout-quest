@@ -180,7 +180,11 @@ export const Nav: FC = () => {
                                     {student.team.name}
                                 </span>
                             </p>
-                        ) : null}
+                        ) : (
+                            <p className="sm-type-bigamp mt-2 header-name">
+                                VIEWING AS STUDENT
+                            </p>
+                        )}
                     </>
                 )}
             </div>

@@ -64,9 +64,9 @@ const LoggedInRoute: FC<LoggedInRouteProps> = ({
     // Auth.currentAuthenticatedUser({ bypassCache: true })
 
     if (isSignedIn) {
-        if (userInfo.role === 'tutor') {
-            navigate('/tutor/hub') //TODO: not working...why?? Something to do with client-only?
-        }
+        // if (userInfo.role === 'tutor') {
+        //     navigate('/tutor/hub') // killing this for now due to 'view quest as student' feature
+        // }
 
         if (stageNum && latestStageUnlocked && stageNum > latestStageUnlocked) {
             navigate('/student/team-hub')

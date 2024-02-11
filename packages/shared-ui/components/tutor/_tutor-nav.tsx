@@ -64,7 +64,7 @@ export const TutorNav = ({ hubLinkOnly }: { hubLinkOnly?: boolean }) => {
                                             <li className="dropdown">
                                                 <p className="dropbtn">Help</p>
                                                 <div className="dropdown-content">
-                                                    <Link to="/tutor/tu tor-guide">
+                                                    <Link to="/tutor/tutor-guide">
                                                         Tutor guide
                                                     </Link>
                                                     <Link to="/tutor/technical-guide">
