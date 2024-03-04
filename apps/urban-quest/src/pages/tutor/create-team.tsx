@@ -273,9 +273,9 @@ const ConfirmModal = ({
                                     <p className="sm-type-guitar sm-type-guitar--medium mt-4">
                                         {`You are about to create the '${groupName}' group with ${
                                             teams.length
-                                        } team${
+                                            } team${
                                             teams.length !== 1 ? 's' : ''
-                                        }! Is this correct?`}{' '}
+                                            }! Is this correct?`}{' '}
                                     </p>
 
                                     <button
@@ -449,7 +449,7 @@ const TutorCreateTeamPage = () => {
                                 {studentsToAdd.map((student, i) => (
                                     <Student
                                         key={i}
-                                        student={student}
+                                        student={{ ...student, teamMappingId: i }} // need something unique other than email to allocate students
                                         teams={teams}
                                         setTeams={setTeams}
                                     />

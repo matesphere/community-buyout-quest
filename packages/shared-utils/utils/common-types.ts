@@ -2,6 +2,7 @@ export interface StudentType {
     firstName: string
     lastName: string
     email: string
+    teamMappingId?: number
 }
 
 export interface TeamType {

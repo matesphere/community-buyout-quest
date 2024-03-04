@@ -30,27 +30,27 @@ export const genPassword = () =>
     })
 
 export const addStudentToTeam =
-    (teamNum: number, { firstName, lastName, email }: StudentType) =>
-    (teams: Array<TeamType>) => {
-        const teamsToUpdate = [
-            ...teams.map((team) => ({
-                ...team,
-                students: team.students.filter(
-                    (student) => student.email !== email // remove student in case they are switching from one team to another!
-                ),
-            })),
-        ]
+    (teamNum: number, { firstName, lastName, email, teamMappingId }: StudentType) =>
+        (teams: Array<TeamType>) => {
+            const teamsToUpdate = [
+                ...teams.map((team) => ({
+                    ...team,
+                    students: team.students.filter(
+                        (student) => student.teamMappingId !== teamMappingId // remove student in case they are switching from one team to another!
+                    ),
+                })),
+            ]
 
-        const updatedStudents = [
-            ...teams[teamNum].students,
-            { firstName, lastName, email },
-        ]
+            const updatedStudents = [
+                ...teams[teamNum].students,
+                { firstName, lastName, email, teamMappingId },
+            ]
 
-        const updatedTeam = { ...teams[teamNum], students: updatedStudents }
-        teamsToUpdate[teamNum] = updatedTeam
+            const updatedTeam = { ...teams[teamNum], students: updatedStudents }
+            teamsToUpdate[teamNum] = updatedTeam
 
-        return teamsToUpdate
-    }
+            return teamsToUpdate
+        }
 
 export const mergeIdsIntoStudents = (
     teamsWithStudents,
